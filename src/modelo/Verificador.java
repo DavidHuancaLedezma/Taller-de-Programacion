@@ -6,12 +6,17 @@
 package modelo;
 
 import com.mysql.jdbc.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 
 /**
  *
  * @author DavidH
  */
 public class Verificador {
+    
+    private PreparedStatement ps;
+    private ResultSet rs;
     
     
     public boolean campoUsuarioLleno(String usuario){
@@ -47,12 +52,17 @@ public class Verificador {
         boolean res = false;
         try{
             Connection con = new Conexion().getConexion();
-            
-        
+            ps = con.prepareStatement("select * from login where USUARIO = ? and CONTRASENA = ?");
+            ps.setString(1,usuario);
+            ps.setString(2,contraseña);
+            rs = ps.executeQuery();
+            if(rs.next()){
+                res = true;
+            }
+            con.close();
         }catch(Exception ex){
             System.err.println("Error:" + ex);
         }
-        
         return res;
     }
     
