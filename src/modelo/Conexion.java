@@ -13,7 +13,7 @@ import java.sql.DriverManager;
  * @author DavidH
  */
 public class Conexion {
-    private String URL = "jdbc:mysql://localhost:3306/restauracion_tienda?autoReconnet=true&useSSL=false"; // corregir con datos originales
+    private String URL = "jdbc:mysql://localhost:33065/taller_de_programacion?autoReconnet=true&useSSL=false"; // corregir con datos originales
     private String usuario = "root";  // usuario por defecto
     private String password = ""; // la base de datos del xampp no tiene contraseña
 
@@ -22,7 +22,6 @@ public class Conexion {
         try {
             Class.forName("com.mysql.jdbc.Driver");
             conexion = (Connection) (DriverManager.getConnection(URL, usuario, password));
-            System.out.println("Conexion exitosa");
         } catch (Exception ex) {
             System.err.println("Error:" + ex);
         }
