@@ -126,7 +126,7 @@ public class LoginSU extends javax.swing.JFrame {
         });
         jPanel1.add(jPasswordField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 370, 170, -1));
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/golden3.jpg"))); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Copia de UNIVERSIDAD DE BAJA CALIFORNIA (1).jpg"))); // NOI18N
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 500, 500));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
