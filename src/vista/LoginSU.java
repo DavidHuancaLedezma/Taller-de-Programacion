@@ -103,6 +103,7 @@ public class LoginSU extends javax.swing.JFrame {
         jButton1.setText("INICIAR SESION");
         jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 420, -1, -1));
 
+        jTextField1.setBorder(null);
         jTextField1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextField1ActionPerformed(evt);
@@ -117,6 +118,7 @@ public class LoginSU extends javax.swing.JFrame {
         jPanel1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 100, 210, -1));
 
         jPasswordField1.setText("jPasswordField1");
+        jPasswordField1.setBorder(null);
         jPasswordField1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jPasswordField1ActionPerformed(evt);
