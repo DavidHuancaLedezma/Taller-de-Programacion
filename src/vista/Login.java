@@ -5,6 +5,8 @@
  */
 package vista;
 
+import modelo.Verificador;
+
 /**
  *
  * @author DavidH
@@ -17,7 +19,7 @@ public class Login extends javax.swing.JFrame {
     private int ejeX,ejeY;
     
     public Login() {
-        setUndecorated(true);
+        setUndecorated(true); //Importante que sea la primera instruccion No CAMBIAR!
         initComponents();
         setLocationRelativeTo(null);
         setResizable(false);
@@ -56,6 +58,7 @@ public class Login extends javax.swing.JFrame {
         jPanel2 = new javax.swing.JPanel();
         jButton1 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
+        jLabel9 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -106,6 +109,11 @@ public class Login extends javax.swing.JFrame {
         jButton2.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jButton2.setForeground(new java.awt.Color(255, 255, 255));
         jButton2.setText("INICIAR SESION");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
         jPanel1.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 410, 140, 40));
 
         jPasswordField1.setBorder(null);
@@ -142,10 +150,12 @@ public class Login extends javax.swing.JFrame {
         });
         jPanel1.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 470, 130, 30));
 
+        jLabel9.setForeground(new java.awt.Color(255, 0, 0));
+        jLabel9.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jPanel1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 460, 210, 20));
+
         jLabel1.setBackground(new java.awt.Color(255, 255, 255));
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/fondoCeleste (1).jpg"))); // NOI18N
-        jLabel1.setMaximumSize(new java.awt.Dimension(500, 500));
-        jLabel1.setPreferredSize(new java.awt.Dimension(500, 500));
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 500, 500));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -178,8 +188,34 @@ public class Login extends javax.swing.JFrame {
     }//GEN-LAST:event_jPanel2MouseDragged
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        // TODO add your handling code here:
+        LoginSU superUsuario = new LoginSU();
+        superUsuario.setVisible(true);
+        dispose();
     }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        Verificador verificador = new Verificador();
+        if(verificador.campoUsuarioLleno(jTextField1.getText())&&verificador.campoContraseñaLleno(jPasswordField1.getPassword())){
+            jLabel9.setText("");
+            if(verificador.existeCuenta(jTextField1.getText(),jPasswordField1.getPassword())){
+                String contra = "";
+                char []password = jPasswordField1.getPassword();
+                for(int i=0;i<password.length;i++){
+                    contra += password[i];
+                }
+                InformacionFuncionario infFun = new InformacionFuncionario(jTextField1.getText(),contra);
+                infFun.setVisible(true);     
+                dispose();
+            }else{
+                jLabel9.setText("Usuario o contraseña incorrectos");
+            }
+        
+        }else{
+            jLabel9.setText("*Campos vacios");
+        
+        }
+        
+    }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -231,6 +267,7 @@ public class Login extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPasswordField jPasswordField1;
