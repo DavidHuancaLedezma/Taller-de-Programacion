@@ -38,7 +38,7 @@ public class Funcionario {
     
     public String getTelefonoOficial(){
         String res = "";
-        res = getDatos()[1];
+        res = getDatos()[1] + "";
         return res;
     }
     

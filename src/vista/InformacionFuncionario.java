@@ -38,6 +38,8 @@ public class InformacionFuncionario extends javax.swing.JFrame {
     private void cargarDatos(){
         jLabel4.setText(new Funcionario(usuario, contraseña).getNombre());
         jLabel6.setText(new Funcionario(usuario, contraseña).getCargoOficial());
+        jLabel20.setText(new Funcionario(usuario,contraseña).getTelefonoOficial());
+        jLabel21.setText(new Funcionario(usuario,contraseña).getFechaDeNacimiento());
     }
     
     private void activarFondoDeEtiquetas(){
@@ -284,7 +286,7 @@ public class InformacionFuncionario extends javax.swing.JFrame {
 
         jLabel21.setFont(new java.awt.Font("Arial", 2, 14)); // NOI18N
         jLabel21.setForeground(new java.awt.Color(0, 0, 0));
-        jPanel3.add(jLabel21, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 110, 160, 20));
+        jPanel3.add(jLabel21, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 110, 170, 20));
 
         jTabbedPane1.addTab("tab1", jPanel3);
 
