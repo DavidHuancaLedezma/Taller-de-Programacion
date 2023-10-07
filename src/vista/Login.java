@@ -5,6 +5,7 @@
  */
 package vista;
 
+import com.sun.glass.events.KeyEvent;
 import modelo.Verificador;
 
 /**
@@ -30,6 +31,29 @@ public class Login extends javax.swing.JFrame {
         jTextField1.setBackground(new java.awt.Color(0,0,0,1));
         jPasswordField1.setBackground(new java.awt.Color(0,0,0,1));
         jPanel2.setBackground(new java.awt.Color(0,0,0,1));
+    }
+    
+    private void iniciarSesion(){
+        Verificador verificador = new Verificador();
+        if(verificador.campoUsuarioLleno(jTextField1.getText())&&verificador.campoContraseñaLleno(jPasswordField1.getPassword())){
+            jLabel9.setText("");
+            if(verificador.existeCuenta(jTextField1.getText(),jPasswordField1.getPassword())){
+                String contra = "";
+                char []password = jPasswordField1.getPassword();
+                for(int i=0;i<password.length;i++){
+                    contra += password[i];
+                }
+                InformacionFuncionario infFun = new InformacionFuncionario(jTextField1.getText(),contra);
+                infFun.setVisible(true);     
+                dispose();
+            }else{
+                jLabel9.setText("Usuario o contraseña incorrectos");
+            }
+        
+        }else{
+            jLabel9.setText("*Campos vacios");
+        
+        } 
     }
     
 
@@ -103,6 +127,11 @@ public class Login extends javax.swing.JFrame {
         jPanel1.add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 400, 230, 10));
 
         jTextField1.setBorder(null);
+        jTextField1.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                jTextField1KeyPressed(evt);
+            }
+        });
         jPanel1.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 330, 230, 30));
 
         jButton2.setBackground(new java.awt.Color(51, 51, 255));
@@ -114,9 +143,19 @@ public class Login extends javax.swing.JFrame {
                 jButton2ActionPerformed(evt);
             }
         });
+        jButton2.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                jButton2KeyPressed(evt);
+            }
+        });
         jPanel1.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 410, 140, 40));
 
         jPasswordField1.setBorder(null);
+        jPasswordField1.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                jPasswordField1KeyPressed(evt);
+            }
+        });
         jPanel1.add(jPasswordField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 372, 230, 30));
 
         jPanel2.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
@@ -194,28 +233,26 @@ public class Login extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        Verificador verificador = new Verificador();
-        if(verificador.campoUsuarioLleno(jTextField1.getText())&&verificador.campoContraseñaLleno(jPasswordField1.getPassword())){
-            jLabel9.setText("");
-            if(verificador.existeCuenta(jTextField1.getText(),jPasswordField1.getPassword())){
-                String contra = "";
-                char []password = jPasswordField1.getPassword();
-                for(int i=0;i<password.length;i++){
-                    contra += password[i];
-                }
-                InformacionFuncionario infFun = new InformacionFuncionario(jTextField1.getText(),contra);
-                infFun.setVisible(true);     
-                dispose();
-            }else{
-                jLabel9.setText("Usuario o contraseña incorrectos");
-            }
-        
-        }else{
-            jLabel9.setText("*Campos vacios");
-        
-        }
-        
+        iniciarSesion();
     }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jButton2KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jButton2KeyPressed
+        if(evt.getKeyCode() == KeyEvent.VK_ENTER){
+            iniciarSesion();
+        }
+    }//GEN-LAST:event_jButton2KeyPressed
+
+    private void jTextField1KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField1KeyPressed
+        if(evt.getKeyCode() == KeyEvent.VK_ENTER){
+            iniciarSesion();
+        }
+    }//GEN-LAST:event_jTextField1KeyPressed
+
+    private void jPasswordField1KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jPasswordField1KeyPressed
+        if(evt.getKeyCode() == KeyEvent.VK_ENTER){
+            iniciarSesion();
+        }
+    }//GEN-LAST:event_jPasswordField1KeyPressed
 
     /**
      * @param args the command line arguments
