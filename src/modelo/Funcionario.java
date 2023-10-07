@@ -26,20 +26,42 @@ public class Funcionario {
     
     public String getNombre(){
         String res = "";
-        res = nombreBD();
+        res = getDatos()[0];
         return res;
     }
     
-    private String nombreBD(){
+    public String getCargoOficial(){
         String res = "";
+        res = getDatos()[3];
+        return res;
+    }
+    
+    public String getTelefonoOficial(){
+        String res = "";
+        res = getDatos()[1];
+        return res;
+    }
+    
+    public String getFechaDeNacimiento(){
+        String res = "";
+        res = getDatos()[2];
+        return res;
+    
+    } 
+    private String[] getDatos(){
+        String[] res = new String[5];
         try{
             Connection con = new Conexion().getConexion();
-            ps = con.prepareStatement("select f.NOMBRE from funcionario as f,login as l where f.ID_FUNCIONARIO = l.ID_FUNCIONARIO and l.USUARIO = ? and l.CONTRASENA = ?");
+            ps = con.prepareStatement("call sp_datos_de_la_cuenta(?,?)");
             ps.setString(1,usuario);
             ps.setString(2,contraseña);
             rs = ps.executeQuery();
             if(rs.next()){
-                res = rs.getString("NOMBRE");
+                res[0] = rs.getString("nombre");
+                res[1] = rs.getString("telefono");
+                res[2] = rs.getString("fecha_de_nacimiento");
+                res[3] = rs.getString("puesto_de_trabajo");
+                res[4] = rs.getString("pertenece_al_departamento");
             }
             con.close();
         }catch(Exception ex){
@@ -49,5 +71,5 @@ public class Funcionario {
         
         return res;
     }
-    
+      
 }

@@ -52,7 +52,7 @@ public class Verificador {
         boolean res = false;
         try{
             Connection con = new Conexion().getConexion();
-            ps = con.prepareStatement("select * from login where USUARIO = ? and CONTRASENA = ?");
+            ps = con.prepareStatement("select * from cuenta where usuario = ? and contraseña = ?");
             ps.setString(1,usuario);
             ps.setString(2,contraseña);
             rs = ps.executeQuery();
