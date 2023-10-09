@@ -4,7 +4,8 @@
  * and open the template in the editor.
  */
 package vista;
-
+import javax.swing.JOptionPane;
+import modelo.*;
 /**
  *
  * @author DavidH
@@ -101,7 +102,12 @@ public class LoginSU extends javax.swing.JFrame {
         jButton1.setBackground(new java.awt.Color(153, 102, 255));
         jButton1.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
         jButton1.setText("INICIAR SESION");
-        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 420, -1, -1));
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 440, -1, -1));
 
         jTextField1.setBorder(null);
         jTextField1.addActionListener(new java.awt.event.ActionListener() {
@@ -117,7 +123,6 @@ public class LoginSU extends javax.swing.JFrame {
         jLabel9.setText("SUPER USUARIO");
         jPanel1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 100, 210, -1));
 
-        jPasswordField1.setText("jPasswordField1");
         jPasswordField1.setBorder(null);
         jPasswordField1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -162,6 +167,33 @@ public class LoginSU extends javax.swing.JFrame {
         login.setVisible(true);
         dispose();
     }//GEN-LAST:event_jButton3ActionPerformed
+    private void iniciarSesion(){
+    Verificador verificador = new Verificador();
+        if(verificador.campoUsuarioLleno(jTextField1.getText())&&verificador.campoContraseñaLleno(jPasswordField1.getPassword())){
+            if(verificador.existeCuenta(jTextField1.getText(),jPasswordField1.getPassword())){
+                String contra = "";
+                char []password = jPasswordField1.getPassword();
+                for(int i=0;i<password.length;i++){
+                    contra += password[i];
+                }
+                VistaSu vistaSu = new VistaSu();
+                vistaSu.setVisible(true);     
+                dispose();
+            }else{
+                JOptionPane.showMessageDialog(null, "Calificación no válida", "Control de Notas",
+                JOptionPane.ERROR_MESSAGE);
+                jLabel9.setText("Usuario o contraseña incorrectos");
+            }
+        
+        }else{
+            jLabel9.setText("*Campos vacios");
+        
+        } 
+    }
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // llamar al metodo para verificar si es el usuario.
+        iniciarSesion();
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
