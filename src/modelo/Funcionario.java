@@ -48,6 +48,12 @@ public class Funcionario {
         return res;
     
     } 
+    
+    public String getJefeInmediato(){
+        String res = "";
+        res = getJefeInmediatoBD();
+        return res;
+    }
     private String[] getDatos(){
         String[] res = new String[5];
         try{
@@ -69,6 +75,27 @@ public class Funcionario {
         
         }
         
+        return res;
+    }
+    
+    private String getJefeInmediatoBD(){
+        String res = "";
+        try{
+            Connection con = new Conexion().getConexion();
+            ps = con.prepareStatement("call sp_jefe_inmediato(?,?)");
+            ps.setString(1,usuario);
+            ps.setString(2,contraseña);
+            rs = ps.executeQuery();
+            if(rs.next()){
+                res = rs.getString("jefe_inmediato");
+            }else{
+                res = "Ninguno";
+            }
+            con.close();
+        
+        }catch(Exception ex){
+            System.err.println("Error:" + ex);
+        }
         return res;
     }
       

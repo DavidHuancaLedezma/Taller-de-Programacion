@@ -40,6 +40,7 @@ public class InformacionFuncionario extends javax.swing.JFrame {
         jLabel6.setText(new Funcionario(usuario, contraseña).getCargoOficial());
         jLabel20.setText(new Funcionario(usuario,contraseña).getTelefonoOficial());
         jLabel21.setText(new Funcionario(usuario,contraseña).getFechaDeNacimiento());
+        jLabel23.setText(new Funcionario(usuario, contraseña).getJefeInmediato());
     }
     
     private void activarFondoDeEtiquetas(){
@@ -94,6 +95,8 @@ public class InformacionFuncionario extends javax.swing.JFrame {
         jLabel19 = new javax.swing.JLabel();
         jLabel20 = new javax.swing.JLabel();
         jLabel21 = new javax.swing.JLabel();
+        jLabel22 = new javax.swing.JLabel();
+        jLabel23 = new javax.swing.JLabel();
         jPanel4 = new javax.swing.JPanel();
         jLabel11 = new javax.swing.JLabel();
         jPanel5 = new javax.swing.JPanel();
@@ -288,6 +291,15 @@ public class InformacionFuncionario extends javax.swing.JFrame {
         jLabel21.setForeground(new java.awt.Color(0, 0, 0));
         jPanel3.add(jLabel21, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 110, 170, 20));
 
+        jLabel22.setFont(new java.awt.Font("Arial", 2, 14)); // NOI18N
+        jLabel22.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel22.setText("Jefe inmediato:");
+        jPanel3.add(jLabel22, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 170, 100, 20));
+
+        jLabel23.setFont(new java.awt.Font("Arial", 2, 14)); // NOI18N
+        jLabel23.setForeground(new java.awt.Color(0, 0, 0));
+        jPanel3.add(jLabel23, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 170, 210, 20));
+
         jTabbedPane1.addTab("tab1", jPanel3);
 
         jPanel4.setBackground(new java.awt.Color(255, 255, 255));
@@ -467,6 +479,8 @@ public class InformacionFuncionario extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel21;
+    private javax.swing.JLabel jLabel22;
+    private javax.swing.JLabel jLabel23;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
