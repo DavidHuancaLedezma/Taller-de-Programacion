@@ -8,6 +8,7 @@ package modelo;
 import com.mysql.jdbc.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.util.ArrayList;
 
 /**
  *
@@ -54,6 +55,17 @@ public class Funcionario {
         res = getJefeInmediatoBD();
         return res;
     }
+    
+    public String getDepatamento(){
+        String res = "";
+        res = getDatos()[4];
+        return res;
+    }
+    
+    public ArrayList<String> getPersonalBajoSuMando(){
+        return personalBajoSuMandoBD();
+    }
+    
     private String[] getDatos(){
         String[] res = new String[5];
         try{
@@ -96,6 +108,26 @@ public class Funcionario {
         }catch(Exception ex){
             System.err.println("Error:" + ex);
         }
+        return res;
+    }
+    
+    
+    private ArrayList<String> personalBajoSuMandoBD(){
+        ArrayList<String> res = new ArrayList<String>();
+        try{
+            Connection con = new Conexion().getConexion();
+            ps = con.prepareStatement("call sp_puestos_subordinados(?,?)");
+            ps.setString(1,usuario);
+            ps.setString(2,contraseña);
+            rs = ps.executeQuery();
+            while(rs.next()){
+                res.add(rs.getString("puestos_subordinados"));
+            }
+            con.close();
+        
+        }catch(Exception ex){
+            System.err.println("Error:" + ex);
+        }   
         return res;
     }
       
