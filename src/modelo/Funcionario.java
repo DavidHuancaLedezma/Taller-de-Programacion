@@ -62,6 +62,12 @@ public class Funcionario {
         return res;
     }
     
+    public String getDepartamentoSuperior(){
+        String res = "";
+        res = departamentoSuperiorBD();
+        return res;
+    }
+    
     public ArrayList<String> getPersonalBajoSuMando(){
         return personalBajoSuMandoBD();
     }
@@ -129,6 +135,29 @@ public class Funcionario {
             System.err.println("Error:" + ex);
         }   
         return res;
+    }
+    
+    private String departamentoSuperiorBD(){
+        String res = "";
+        try{
+            Connection con = new Conexion().getConexion();
+            ps = con.prepareStatement("call sp_departamento_superior(?,?)");
+            ps.setString(1,usuario);
+            ps.setString(2,contraseña);
+            rs = ps.executeQuery();
+            if(rs.next()){
+                res = rs.getString("NOMBREDEPARTAMENTO");
+            }else{
+                res = "Ninguno!";
+            }
+        }catch(Exception ex){
+            System.out.println("Error:" + ex);
+        }
+        
+        
+        return res;
+    
+    
     }
       
 }

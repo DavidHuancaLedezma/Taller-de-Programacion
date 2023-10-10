@@ -44,6 +44,7 @@ public class InformacionFuncionario extends javax.swing.JFrame {
         jLabel23.setText(new Funcionario(usuario, contraseña).getJefeInmediato());
         cargarPersonal(new Funcionario(usuario, contraseña).getPersonalBajoSuMando());
         jLabel27.setText(new Funcionario(usuario, contraseña).getDepatamento());
+        jLabel29.setText(new Funcionario(usuario, contraseña).getDepartamentoSuperior());
     }
     
     private void activarFondoDeEtiquetas(){
@@ -115,6 +116,7 @@ public class InformacionFuncionario extends javax.swing.JFrame {
         jLabel27 = new javax.swing.JLabel();
         jLabel28 = new javax.swing.JLabel();
         jLabel29 = new javax.swing.JLabel();
+        jLabel30 = new javax.swing.JLabel();
         jPanel4 = new javax.swing.JPanel();
         jLabel11 = new javax.swing.JLabel();
         jLabel24 = new javax.swing.JLabel();
@@ -339,8 +341,10 @@ public class InformacionFuncionario extends javax.swing.JFrame {
 
         jLabel29.setFont(new java.awt.Font("Arial", 2, 14)); // NOI18N
         jLabel29.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel29.setText("jLabel29");
         jPanel3.add(jLabel29, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 230, 180, 20));
+
+        jLabel30.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/icono_jefePNG180x180.png"))); // NOI18N
+        jPanel3.add(jLabel30, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 60, 180, 180));
 
         jTabbedPane1.addTab("tab1", jPanel3);
 
@@ -551,6 +555,7 @@ public class InformacionFuncionario extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel28;
     private javax.swing.JLabel jLabel29;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel30;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
