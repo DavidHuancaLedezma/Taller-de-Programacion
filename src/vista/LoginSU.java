@@ -180,7 +180,7 @@ public class LoginSU extends javax.swing.JFrame {
                 vistaSu.setVisible(true);     
                 dispose();
             }else{
-                JOptionPane.showMessageDialog(null, "Calificación no válida", "Control de Notas",
+                JOptionPane.showMessageDialog(null, "Contraseña incorrecta ", "Control de contraseña",
                 JOptionPane.ERROR_MESSAGE);
                 jLabel9.setText("Usuario o contraseña incorrectos");
             }
