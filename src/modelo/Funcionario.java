@@ -72,6 +72,22 @@ public class Funcionario {
         return personalBajoSuMandoBD();
     }
     
+    public ArrayList<String>getEstudiosAcademicos(){
+        return estudiosAcademicosBD();
+    }
+    
+    public ArrayList<String>getCargosOficialesDesempeñados(){
+        return cargosOficialesDesempeñadosBD();
+    }
+    
+    public ArrayList<String>getActividadesDocentes(){
+        return actividadesDocenteBD();
+    }
+    
+    public ArrayList<String>getActividadesProfesionales(){
+        return actividadesProfesionalesBD();
+    }
+    
     private String[] getDatos(){
         String[] res = new String[5];
         try{
@@ -158,6 +174,76 @@ public class Funcionario {
         return res;
     
     
+    }
+    
+    
+    private ArrayList<String>estudiosAcademicosBD(){
+        ArrayList<String>res = new ArrayList<String>();
+        try{
+            Connection con = new Conexion().getConexion();
+            ps = con.prepareStatement("call sp_estudios_academicos(?,?)");
+            ps.setString(1,usuario);
+            ps.setString(2,contraseña);
+            rs = ps.executeQuery();
+            while(rs.next()){
+                res.add(rs.getString("estudios_academicos"));
+            }
+        }catch(Exception ex){
+            System.out.println("Error:" + ex);
+        }
+        return res;
+    }
+    
+    private ArrayList<String>cargosOficialesDesempeñadosBD(){
+        ArrayList<String>res = new ArrayList<String>();
+        try{
+            Connection con = new Conexion().getConexion();
+            ps = con.prepareStatement("call sp_cargos_oficiales_desempeñados(?,?)");
+            ps.setString(1,usuario);
+            ps.setString(2,contraseña);
+            rs = ps.executeQuery();
+            while(rs.next()){
+                res.add(rs.getString("cargos_oficiales_desempeñados"));
+            }
+        }catch(Exception ex){
+            System.out.println("Error:" + ex);
+        }
+        return res;
+    }
+    
+    private ArrayList<String>actividadesDocenteBD(){
+        ArrayList<String>res = new ArrayList<String>();
+        try{
+            Connection con = new Conexion().getConexion();
+            ps = con.prepareStatement("call sp_actividades_docente(?,?)");
+            ps.setString(1,usuario);
+            ps.setString(2,contraseña);
+            rs = ps.executeQuery();
+            while(rs.next()){
+                res.add(rs.getString("actividades_docente"));
+            }
+        }catch(Exception ex){
+            System.out.println("Error:" + ex);
+        }
+        return res;
+    }
+    
+    
+    private ArrayList<String>actividadesProfesionalesBD(){
+        ArrayList<String>res = new ArrayList<String>();
+        try{
+            Connection con = new Conexion().getConexion();
+            ps = con.prepareStatement("call sp_actividades_profecionales(?,?)");
+            ps.setString(1,usuario);
+            ps.setString(2,contraseña);
+            rs = ps.executeQuery();
+            while(rs.next()){
+                res.add(rs.getString("actividades_profecionales"));
+            }
+        }catch(Exception ex){
+            System.out.println("Error:" + ex);
+        }
+        return res;
     }
       
 }
