@@ -45,6 +45,7 @@ public class InformacionFuncionario extends javax.swing.JFrame {
         cargarPersonal(new Funcionario(usuario, contraseña).getPersonalBajoSuMando());
         jLabel27.setText(new Funcionario(usuario, contraseña).getDepatamento());
         jLabel29.setText(new Funcionario(usuario, contraseña).getDepartamentoSuperior());
+        cargarCurriculum();
     }
     
     private void activarFondoDeEtiquetas(){
@@ -65,6 +66,72 @@ public class InformacionFuncionario extends javax.swing.JFrame {
             jTextArea1.append("Ninguno!\n");
         }
     }
+    
+    private void cargarCurriculum(){
+        jTextArea2.setEditable(false);
+        estudiosAcademicos();
+        cargosOficialesDesempeñados();
+        actividadesDocentes();
+        actividadesProfesionales();
+        jTextArea2.moveCaretPosition(0); // hace que la barra de desplazamiento inicie desde el inicio del texto
+    }
+    
+    private void estudiosAcademicos(){
+        ArrayList<String>contenido = new Funcionario(usuario,contraseña).getEstudiosAcademicos();
+        jTextArea2.append("ESTUDIOS ACADEMICOS\n");
+        jTextArea2.append("\n");
+        if(contenido.size()>0){
+            for(int i=0;i<contenido.size();i++){
+                jTextArea2.append(" - " + contenido.get(i) + "\n");
+            }
+        }else{
+            jTextArea2.append(" - " + "Ninguno!\n");
+        }
+        jTextArea2.append("\n");
+    }
+    
+    private void cargosOficialesDesempeñados(){
+        ArrayList<String>contenido = new Funcionario(usuario,contraseña).getCargosOficialesDesempeñados();
+        jTextArea2.append("CARGOS OFICIALES DESEMPEÑADOS\n");
+        jTextArea2.append("\n");
+        if(contenido.size()>0){
+            for(int i=0;i<contenido.size();i++){
+                jTextArea2.append(" - " + contenido.get(i) + "\n");
+            }
+        }else{
+            jTextArea2.append(" - " + "Ninguno!\n");
+        }
+        jTextArea2.append("\n");
+    }
+    
+    private void actividadesDocentes(){
+        ArrayList<String>contenido = new Funcionario(usuario,contraseña).getActividadesDocentes();
+        jTextArea2.append("ACTIVIDADES ACADEMICAS\n");
+        jTextArea2.append("\n");
+        if(contenido.size()>0){
+            for(int i=0;i<contenido.size();i++){
+                jTextArea2.append(" - " + contenido.get(i) + "\n");
+            }
+        }else{
+            jTextArea2.append(" - " + "Ninguno!\n");
+        }
+        jTextArea2.append("\n");
+    }
+    
+    private void actividadesProfesionales(){
+        ArrayList<String>contenido = new Funcionario(usuario,contraseña).getActividadesProfesionales();
+        jTextArea2.append("ACTIVIDADES PROFESIONALES\n");
+        jTextArea2.append("\n");
+        if(contenido.size()>0){
+            for(int i=0;i<contenido.size();i++){
+                jTextArea2.append(" - " + contenido.get(i) + "\n");
+            }
+        }else{
+            jTextArea2.append(" - " + "Ninguno!\n");
+        }
+    }
+    
+   
     
     private void desaparecerBotonesDePaneles(){
         jTabbedPane1.setUI(new BasicTabbedPaneUI(){
@@ -118,14 +185,16 @@ public class InformacionFuncionario extends javax.swing.JFrame {
         jLabel29 = new javax.swing.JLabel();
         jLabel30 = new javax.swing.JLabel();
         jPanel4 = new javax.swing.JPanel();
-        jLabel11 = new javax.swing.JLabel();
         jLabel24 = new javax.swing.JLabel();
         jSeparator2 = new javax.swing.JSeparator();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTextArea1 = new javax.swing.JTextArea();
         jLabel25 = new javax.swing.JLabel();
         jPanel5 = new javax.swing.JPanel();
-        jLabel12 = new javax.swing.JLabel();
+        jLabel31 = new javax.swing.JLabel();
+        jSeparator3 = new javax.swing.JSeparator();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        jTextArea2 = new javax.swing.JTextArea();
         jPanel8 = new javax.swing.JPanel();
         jLabel13 = new javax.swing.JLabel();
         jPanel9 = new javax.swing.JPanel();
@@ -351,9 +420,6 @@ public class InformacionFuncionario extends javax.swing.JFrame {
         jPanel4.setBackground(new java.awt.Color(255, 255, 255));
         jPanel4.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel11.setText("panel2");
-        jPanel4.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 10, 50, 40));
-
         jLabel24.setFont(new java.awt.Font("Arial", 2, 18)); // NOI18N
         jLabel24.setForeground(new java.awt.Color(51, 102, 255));
         jLabel24.setText("PERSONAL BAJO SU MANDO");
@@ -380,8 +446,22 @@ public class InformacionFuncionario extends javax.swing.JFrame {
         jPanel5.setBackground(new java.awt.Color(255, 255, 255));
         jPanel5.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel12.setText("Panel3");
-        jPanel5.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 150, -1, -1));
+        jLabel31.setFont(new java.awt.Font("Arial", 2, 18)); // NOI18N
+        jLabel31.setForeground(new java.awt.Color(51, 102, 255));
+        jLabel31.setText("CURRICULUM DEL FUNCIONARIO");
+        jPanel5.add(jLabel31, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 300, 30));
+
+        jSeparator3.setBackground(new java.awt.Color(0, 51, 255));
+        jPanel5.add(jSeparator3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 30, 280, 10));
+
+        jTextArea2.setBackground(new java.awt.Color(255, 255, 255));
+        jTextArea2.setColumns(20);
+        jTextArea2.setFont(new java.awt.Font("Arial", 2, 14)); // NOI18N
+        jTextArea2.setForeground(new java.awt.Color(0, 0, 0));
+        jTextArea2.setRows(5);
+        jScrollPane2.setViewportView(jTextArea2);
+
+        jPanel5.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 40, 630, 300));
 
         jTabbedPane1.addTab("tab3", jPanel5);
 
@@ -534,8 +614,6 @@ public class InformacionFuncionario extends javax.swing.JFrame {
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
-    private javax.swing.JLabel jLabel11;
-    private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
@@ -556,6 +634,7 @@ public class InformacionFuncionario extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel29;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel30;
+    private javax.swing.JLabel jLabel31;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
@@ -572,9 +651,12 @@ public class InformacionFuncionario extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel8;
     private javax.swing.JPanel jPanel9;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator2;
+    private javax.swing.JSeparator jSeparator3;
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JTextArea jTextArea1;
+    private javax.swing.JTextArea jTextArea2;
     // End of variables declaration//GEN-END:variables
 }
