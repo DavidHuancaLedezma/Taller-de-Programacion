@@ -61,6 +61,7 @@ public class VistaSu extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jTextField5 = new javax.swing.JTextField();
         jPanel1 = new javax.swing.JPanel();
         jPanel3 = new javax.swing.JPanel();
         jLabel6 = new javax.swing.JLabel();
@@ -83,12 +84,19 @@ public class VistaSu extends javax.swing.JFrame {
         jButton5 = new javax.swing.JButton();
         jTextField1 = new javax.swing.JTextField();
         jButton7 = new javax.swing.JButton();
-        jTextField5 = new javax.swing.JTextField();
+        jLabel7 = new javax.swing.JLabel();
+        jTextField6 = new javax.swing.JTextField();
         jPanel5 = new javax.swing.JPanel();
         jPanel6 = new javax.swing.JPanel();
         jPanel7 = new javax.swing.JPanel();
         jPanel8 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
+
+        jTextField5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField5ActionPerformed(evt);
+            }
+        });
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -162,14 +170,14 @@ public class VistaSu extends javax.swing.JFrame {
         jPanel4.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 60, -1, -1));
 
         jLabel5.setText("Fecha de nacimiento");
-        jPanel4.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 140, -1, 20));
+        jPanel4.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 150, -1, 20));
 
         jComboBox1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jComboBox1ActionPerformed(evt);
             }
         });
-        jPanel4.add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 190, 210, -1));
+        jPanel4.add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 200, 210, -1));
 
         jTextField4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -181,11 +189,11 @@ public class VistaSu extends javax.swing.JFrame {
         jPanel4.add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 60, 170, -1));
 
         jLabel4.setText("Telefono");
-        jPanel4.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 110, -1, -1));
+        jPanel4.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 120, -1, -1));
 
         jLabel2.setBackground(new java.awt.Color(0, 0, 0));
         jLabel2.setText("nombre del puesto");
-        jPanel4.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 180, -1, -1));
+        jPanel4.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 200, -1, 20));
 
         jButton4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Eliminar.png"))); // NOI18N
         jButton4.addActionListener(new java.awt.event.ActionListener() {
@@ -228,12 +236,9 @@ public class VistaSu extends javax.swing.JFrame {
         });
         jPanel4.add(jButton7, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 300, 90, 40));
 
-        jTextField5.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField5ActionPerformed(evt);
-            }
-        });
-        jPanel4.add(jTextField5, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 90, 170, 20));
+        jLabel7.setText("Cedula de Identificacion");
+        jPanel4.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 80, 120, 30));
+        jPanel4.add(jTextField6, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 90, 170, -1));
 
         jTabbedPane1.addTab("tab1", jPanel4);
 
@@ -325,11 +330,13 @@ public class VistaSu extends javax.swing.JFrame {
         // TODO add your handling code here:
         try {
              Connection conexion = new Conexion().getConexion();
-             psSU = conexion.prepareStatement("insert into funcionario (nombreFuncionario,idPuesto,telefono,fechaNacimiento)values(?,?,?,?)");
+             psSU = conexion.prepareStatement("insert into funcionario (nombreFuncionario,IDPUESTO,CI,telefono,fechaNacimiento)values(?,?,?,?,?)");
              psSU.setString(1,jTextField2.getText());
              psSU.setInt(2,jComboBox1.getSelectedIndex());
-             psSU.setString(3,jTextField4.getText());
-             psSU.setDate(4,Date.valueOf(jTextField3.getText()));
+             psSU.setString(3, jTextField6.getText());
+             psSU.setString(4,jTextField4.getText());
+             psSU.setDate(5,Date.valueOf(jTextField3.getText()));
+             
             int resultado = psSU.executeUpdate();
             if(resultado > 0 ){
                 JOptionPane.showMessageDialog(null,"Funcionario registrado");
@@ -455,6 +462,7 @@ public class VistaSu extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
@@ -469,5 +477,6 @@ public class VistaSu extends javax.swing.JFrame {
     private javax.swing.JTextField jTextField3;
     private javax.swing.JTextField jTextField4;
     private javax.swing.JTextField jTextField5;
+    private javax.swing.JTextField jTextField6;
     // End of variables declaration//GEN-END:variables
 }
