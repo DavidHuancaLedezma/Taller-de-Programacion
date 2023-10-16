@@ -9,6 +9,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
+import javax.swing.plaf.basic.BasicTabbedPaneUI;
 import modelo.*;
 
 /**
@@ -29,25 +30,40 @@ public class VistaSu extends javax.swing.JFrame {
         initComponents();
         jTextField5.setVisible(false);
         funcionalidadesInvisibles();
+        this.setLocationRelativeTo(null);
         llenarComboBox();
     }
     public void llenarComboBox(){
         jComboBox1.removeAllItems();
         lista = new InformacionPuesto().getListaPuestos();
+        jComboBox1.addItem("Selecione un Puesto");
         for(int i=0; i<lista.size(); i++){
             jComboBox1.addItem(lista.get(i).toString());
         }
+    }
+    public void verificarRegistro(){
+        
     }
     public void funcionalidadesInvisibles(){
         jButton3.setContentAreaFilled(false); // Desactiva el relleno del botón
         jButton3.setBorderPainted(false); // Desactiva el borde del botón
         jButton4.setContentAreaFilled(false);
         jButton4.setBorderPainted(false);
+        jButton8.setContentAreaFilled(false);
+        jButton8.setBorderPainted(false);
+        jButton6.setContentAreaFilled(false);
+        jButton6.setBorderPainted(false);
         /*
         Aca para adelante estaran las funcionalidades invisibles del panel
         */
         jLabel4.setOpaque(true);
-        
+        jTabbedPane1.setUI(new BasicTabbedPaneUI(){
+            
+        @Override
+        protected int calculateTabAreaHeight(int tapPlacement,int horizRunCount,int maxTapHeight){
+        return 0;  //Esto oculta los botones de las pestañas de los paneles
+        }
+        });
         
         
 
@@ -83,9 +99,9 @@ public class VistaSu extends javax.swing.JFrame {
         jButton6 = new javax.swing.JButton();
         jButton5 = new javax.swing.JButton();
         jTextField1 = new javax.swing.JTextField();
-        jButton7 = new javax.swing.JButton();
         jLabel7 = new javax.swing.JLabel();
         jTextField6 = new javax.swing.JTextField();
+        jButton8 = new javax.swing.JButton();
         jPanel5 = new javax.swing.JPanel();
         jPanel6 = new javax.swing.JPanel();
         jPanel7 = new javax.swing.JPanel();
@@ -149,7 +165,7 @@ public class VistaSu extends javax.swing.JFrame {
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
-                .addContainerGap(68, Short.MAX_VALUE))
+                .addContainerGap(38, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -160,7 +176,7 @@ public class VistaSu extends javax.swing.JFrame {
                 .addContainerGap(236, Short.MAX_VALUE))
         );
 
-        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 60, 150, 390));
+        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 60, 120, 390));
 
         jTabbedPane1.setEnabled(false);
 
@@ -226,19 +242,25 @@ public class VistaSu extends javax.swing.JFrame {
             }
         });
         jPanel4.add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 10, -1, -1));
-        jPanel4.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 10, 130, -1));
 
-        jButton7.setText("Limpiar");
-        jButton7.addActionListener(new java.awt.event.ActionListener() {
+        jTextField1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton7ActionPerformed(evt);
+                jTextField1ActionPerformed(evt);
             }
         });
-        jPanel4.add(jButton7, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 300, 90, 40));
+        jPanel4.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 10, 130, -1));
 
         jLabel7.setText("Cedula de Identificacion");
         jPanel4.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 80, 120, 30));
         jPanel4.add(jTextField6, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 90, 170, -1));
+
+        jButton8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Limpiar.png"))); // NOI18N
+        jButton8.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton8ActionPerformed(evt);
+            }
+        });
+        jPanel4.add(jButton8, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 280, -1, -1));
 
         jTabbedPane1.addTab("tab1", jPanel4);
 
@@ -249,7 +271,7 @@ public class VistaSu extends javax.swing.JFrame {
         jPanel6.setLayout(jPanel6Layout);
         jPanel6Layout.setHorizontalGroup(
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 648, Short.MAX_VALUE)
+            .addGap(0, 678, Short.MAX_VALUE)
         );
         jPanel6Layout.setVerticalGroup(
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -262,7 +284,7 @@ public class VistaSu extends javax.swing.JFrame {
         jPanel7.setLayout(jPanel7Layout);
         jPanel7Layout.setHorizontalGroup(
             jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 648, Short.MAX_VALUE)
+            .addGap(0, 678, Short.MAX_VALUE)
         );
         jPanel7Layout.setVerticalGroup(
             jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -275,7 +297,7 @@ public class VistaSu extends javax.swing.JFrame {
         jPanel8.setLayout(jPanel8Layout);
         jPanel8Layout.setHorizontalGroup(
             jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 648, Short.MAX_VALUE)
+            .addGap(0, 678, Short.MAX_VALUE)
         );
         jPanel8Layout.setVerticalGroup(
             jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -284,7 +306,7 @@ public class VistaSu extends javax.swing.JFrame {
 
         jTabbedPane1.addTab("tab5", jPanel8);
 
-        jPanel1.add(jTabbedPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 60, 650, 390));
+        jPanel1.add(jTabbedPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 60, 680, 390));
 
         jLabel1.setBackground(new java.awt.Color(0, 0, 0));
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/5.jpg"))); // NOI18N
@@ -347,6 +369,12 @@ public class VistaSu extends javax.swing.JFrame {
         }catch (Exception ex ){
           System.err.println("Error:" + ex);
         }
+        String puesto = (String) jComboBox1.getSelectedItem();
+        if(puesto == "Selecione un Puesto"){
+            JOptionPane.showMessageDialog(null,"Seleccione un puesto valido");
+
+        }
+
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
@@ -374,7 +402,9 @@ public class VistaSu extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton6ActionPerformed
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
-        // TODO add your handling code here:
+            //Estos botones son para el caso en que encontrar
+            jButton3.setEnabled(false);
+            jButton3.setVisible(false);
         try{
             Connection conexion = new Conexion().getConexion();
             psSU = (PreparedStatement) conexion.prepareStatement("select * from funcionario where ci = ? "); 
@@ -383,7 +413,7 @@ public class VistaSu extends javax.swing.JFrame {
             if(rsSU.next()){
                 jTextField2.setText(rsSU.getString("nombreFuncionario"));
                 jTextField4.setText(rsSU.getString("telefono"));
-                
+                jTextField6.setText(rsSU.getString("ci"));
                 jTextField3.setText(String.valueOf(rsSU.getDate("fechaNacimiento")));
                 jComboBox1.setSelectedIndex(rsSU.getInt("idPuesto"));
                 jTextField5.setText(rsSU.getString("IDFUNCIONARIO"));
@@ -402,15 +432,21 @@ public class VistaSu extends javax.swing.JFrame {
         jComboBox1.setSelectedIndex(0);
         jTextField3.setText(null);
         jTextField4.setText(null);
-    }
-    private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
-        // TODO add your handling code here:
-        limpiar();
-    }//GEN-LAST:event_jButton7ActionPerformed
+        jTextField6.setText(null);
 
+    }
     private void jTextField5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField5ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField5ActionPerformed
+
+    private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
+        // TODO add your handling code here:
+        limpiar();
+    }//GEN-LAST:event_jButton8ActionPerformed
+
+    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -454,7 +490,7 @@ public class VistaSu extends javax.swing.JFrame {
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
     private javax.swing.JButton jButton6;
-    private javax.swing.JButton jButton7;
+    private javax.swing.JButton jButton8;
     private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
