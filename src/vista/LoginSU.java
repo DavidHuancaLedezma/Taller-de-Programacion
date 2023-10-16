@@ -174,7 +174,7 @@ public class LoginSU extends javax.swing.JFrame {
                 vistaSU.setVisible(true);     
                 dispose();
             }else{
-                JOptionPane.showMessageDialog(null, "Contraseña incorrecta ", "Control de contraseña",
+                JOptionPane.showMessageDialog(null, "Datos invalidos", "Control del super usuario",
                 JOptionPane.ERROR_MESSAGE);
             }
         
