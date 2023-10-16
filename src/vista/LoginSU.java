@@ -23,9 +23,9 @@ public class LoginSU extends javax.swing.JFrame {
     }
     private void componentesTransparentes(){
         //jButton3.setBackground(new java.awt.Color(0,0,0,1));
-        jPasswordField1.setBackground(new java.awt.Color(0,0,0,0));
+        cajaContraseñaSU.setBackground(new java.awt.Color(0,0,0,0));
 
-        jTextField1.setBackground(new java.awt.Color(0,0,0,0));
+        cajaUsuarioSU.setBackground(new java.awt.Color(0,0,0,0));
 
     }
 
@@ -49,9 +49,9 @@ public class LoginSU extends javax.swing.JFrame {
         jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
-        jTextField1 = new javax.swing.JTextField();
+        cajaUsuarioSU = new javax.swing.JTextField();
         jLabel9 = new javax.swing.JLabel();
-        jPasswordField1 = new javax.swing.JPasswordField();
+        cajaContraseñaSU = new javax.swing.JPasswordField();
         jLabel1 = new javax.swing.JLabel();
 
         jScrollPane1.setViewportView(jEditorPane1);
@@ -90,12 +90,10 @@ public class LoginSU extends javax.swing.JFrame {
         jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(-20, 130, 410, 210));
 
         jLabel7.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
-        jLabel7.setForeground(new java.awt.Color(0, 0, 0));
         jLabel7.setText("Usuario");
         jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 340, -1, -1));
 
         jLabel8.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
-        jLabel8.setForeground(new java.awt.Color(0, 0, 0));
         jLabel8.setText("Contraseña");
         jPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 370, -1, -1));
 
@@ -109,13 +107,13 @@ public class LoginSU extends javax.swing.JFrame {
         });
         jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 440, -1, -1));
 
-        jTextField1.setBorder(null);
-        jTextField1.addActionListener(new java.awt.event.ActionListener() {
+        cajaUsuarioSU.setBorder(null);
+        cajaUsuarioSU.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField1ActionPerformed(evt);
+                cajaUsuarioSUActionPerformed(evt);
             }
         });
-        jPanel1.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 340, 170, -1));
+        jPanel1.add(cajaUsuarioSU, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 340, 170, -1));
 
         jLabel9.setBackground(new java.awt.Color(0, 0, 0));
         jLabel9.setFont(new java.awt.Font("Microsoft YaHei UI", 2, 24)); // NOI18N
@@ -123,13 +121,13 @@ public class LoginSU extends javax.swing.JFrame {
         jLabel9.setText("SUPER USUARIO");
         jPanel1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 100, 210, -1));
 
-        jPasswordField1.setBorder(null);
-        jPasswordField1.addActionListener(new java.awt.event.ActionListener() {
+        cajaContraseñaSU.setBorder(null);
+        cajaContraseñaSU.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jPasswordField1ActionPerformed(evt);
+                cajaContraseñaSUActionPerformed(evt);
             }
         });
-        jPanel1.add(jPasswordField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 370, 170, -1));
+        jPanel1.add(cajaContraseñaSU, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 370, 170, -1));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Copia de UNIVERSIDAD DE BAJA CALIFORNIA (1).jpg"))); // NOI18N
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 500, 500));
@@ -153,13 +151,13 @@ public class LoginSU extends javax.swing.JFrame {
         System.exit(0);
     }//GEN-LAST:event_jButton2ActionPerformed
 
-    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
+    private void cajaUsuarioSUActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cajaUsuarioSUActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField1ActionPerformed
+    }//GEN-LAST:event_cajaUsuarioSUActionPerformed
 
-    private void jPasswordField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jPasswordField1ActionPerformed
+    private void cajaContraseñaSUActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cajaContraseñaSUActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jPasswordField1ActionPerformed
+    }//GEN-LAST:event_cajaContraseñaSUActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         // TODO add your handling code here:
@@ -168,28 +166,25 @@ public class LoginSU extends javax.swing.JFrame {
         dispose();
     }//GEN-LAST:event_jButton3ActionPerformed
     private void iniciarSesion(){
-    Verificador verificador = new Verificador();
-        if(verificador.campoUsuarioLleno(jTextField1.getText())&&verificador.campoContraseñaLleno(jPasswordField1.getPassword())){
-            if(verificador.existeCuenta(jTextField1.getText(),jPasswordField1.getPassword())){
-                String contra = "";
-                char []password = jPasswordField1.getPassword();
-                for(int i=0;i<password.length;i++){
-                    contra += password[i];
-                }
-                VistaSu vistaSu = new VistaSu();
-                vistaSu.setVisible(true);     
+        Verificador verificador = new Verificador();
+        if(verificador.campoUsuarioLleno(cajaUsuarioSU.getText())&&verificador.campoContraseñaLleno(cajaContraseñaSU.getPassword())){
+            if(verificador.existeCuentaSU(cajaUsuarioSU.getText(),cajaContraseñaSU.getPassword())){
+                
+                VistaSu vistaSU = new VistaSu();
+                vistaSU.setVisible(true);     
                 dispose();
             }else{
                 JOptionPane.showMessageDialog(null, "Contraseña incorrecta ", "Control de contraseña",
                 JOptionPane.ERROR_MESSAGE);
-                jLabel9.setText("Usuario o contraseña incorrectos");
             }
         
         }else{
-            jLabel9.setText("*Campos vacios");
+            JOptionPane.showMessageDialog(null, "Datos no llenados ", "Control de Datos",
+                JOptionPane.ERROR_MESSAGE);
         
         } 
     }
+    
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // llamar al metodo para verificar si es el usuario.
         iniciarSesion();
@@ -231,6 +226,8 @@ public class LoginSU extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JPasswordField cajaContraseñaSU;
+    private javax.swing.JTextField cajaUsuarioSU;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
@@ -243,8 +240,6 @@ public class LoginSU extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JPasswordField jPasswordField1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextField jTextField1;
     // End of variables declaration//GEN-END:variables
 }
