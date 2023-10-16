@@ -47,7 +47,18 @@ public class Verificador {
         
         return res;
     }
-    
+    public boolean existeCuentaSU(String usuario,char []contraseña){
+        boolean res = false;
+        String contra = "";
+        
+        for(int i=0;i<contraseña.length;i++){
+            contra += contraseña[i];
+        }
+        
+        res = verificarEnBDSU(usuario,contra);
+        
+        return res;
+    }
     private boolean verificarEnBD(String usuario,String contraseña){
         boolean res = false;
         try{
@@ -65,11 +76,11 @@ public class Verificador {
         }
         return res;
     }
-    private boolean verificarEnBDSu(String usuario,String contraseña){
+    private boolean verificarEnBDSU(String usuario,String contraseña){
         boolean res = false;
         try{
             Connection con = new Conexion().getConexion();
-            ps = con.prepareStatement("select * from cuentasuperusuario where usuario = ? and contrasena = ?");
+            ps = con.prepareStatement("select * from superusuario where usuario = ? and contrasena = ?");
             ps.setString(1,usuario);
             ps.setString(2,contraseña);
             rs = ps.executeQuery();
