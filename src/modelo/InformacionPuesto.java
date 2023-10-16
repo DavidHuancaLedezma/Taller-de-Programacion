@@ -1,0 +1,43 @@
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+ */
+package modelo;
+
+import com.mysql.jdbc.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.util.ArrayList;
+
+/**
+ *
+ * @author Usuario
+ */
+public class InformacionPuesto {
+ //Podemos llevar a otra clase los otros 2 
+    private ResultSet resultado;
+    private PreparedStatement ps; //Variable para ejecutar consultas.
+    private Connection con;
+public ArrayList<Puesto> getListaPuestos(){
+        ArrayList <Puesto> puestos = new ArrayList();
+        Puesto puesto = null;
+        
+        try{
+
+            con = new Conexion().getConexion();
+            ps = con.prepareStatement("select nombrepuesto from puestotrabajo");
+            resultado = ps.executeQuery();
+            while(resultado.next()){
+                puesto = new Puesto();
+                puesto.setPuesto(resultado.getString("nombrepuesto"));
+                puestos.add(puesto);
+                
+            }
+        }catch(Exception ex){
+        
+        }
+       
+
+        return puestos;
+    }
+}

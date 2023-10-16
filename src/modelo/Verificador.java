@@ -52,7 +52,7 @@ public class Verificador {
         boolean res = false;
         try{
             Connection con = new Conexion().getConexion();
-            ps = con.prepareStatement("select * from cuenta where usuario = ? and contraseña = ?");
+            ps = con.prepareStatement("select * from cuenta where usuario = ? and contrasena = ?");
             ps.setString(1,usuario);
             ps.setString(2,contraseña);
             rs = ps.executeQuery();
@@ -65,6 +65,22 @@ public class Verificador {
         }
         return res;
     }
-    
+    private boolean verificarEnBDSu(String usuario,String contraseña){
+        boolean res = false;
+        try{
+            Connection con = new Conexion().getConexion();
+            ps = con.prepareStatement("select * from cuentasuperusuario where usuario = ? and contrasena = ?");
+            ps.setString(1,usuario);
+            ps.setString(2,contraseña);
+            rs = ps.executeQuery();
+            if(rs.next()){
+                res = true;
+            }
+            con.close();
+        }catch(Exception ex){
+            System.err.println("Error:" + ex);
+        }
+        return res;
+    }
     
 }

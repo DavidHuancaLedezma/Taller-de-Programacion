@@ -7,6 +7,7 @@ import java.sql.Connection;
 import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.util.ArrayList;
 import javax.swing.JOptionPane;
 import modelo.*;
 
@@ -21,10 +22,21 @@ public class VistaSu extends javax.swing.JFrame {
      */
     PreparedStatement psSU ; 
     ResultSet rsSU ;
+    //Conexion prueba;
+    ArrayList<Puesto>lista;
+    Conexion prueba;
     public VistaSu() {
         initComponents();
         jTextField5.setVisible(false);
-       // funcionalidadesInvisibles();
+        funcionalidadesInvisibles();
+        llenarComboBox();
+    }
+    public void llenarComboBox(){
+        jComboBox1.removeAllItems();
+        lista = new InformacionPuesto().getListaPuestos();
+        for(int i=0; i<lista.size(); i++){
+            jComboBox1.addItem(lista.get(i).toString());
+        }
     }
     public void funcionalidadesInvisibles(){
         jButton3.setContentAreaFilled(false); // Desactiva el relleno del botón
@@ -134,11 +146,10 @@ public class VistaSu extends javax.swing.JFrame {
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addContainerGap()
                 .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(28, 28, 28)
+                .addGap(18, 18, 18)
                 .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(220, Short.MAX_VALUE))
+                .addContainerGap(236, Short.MAX_VALUE))
         );
 
         jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 60, 150, 390));
@@ -148,34 +159,33 @@ public class VistaSu extends javax.swing.JFrame {
         jPanel4.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel3.setText("Nombre del funcionario");
-        jPanel4.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 60, -1, -1));
+        jPanel4.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 60, -1, -1));
 
         jLabel5.setText("Fecha de nacimiento");
-        jPanel4.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 120, -1, 20));
+        jPanel4.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 140, -1, 20));
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccion Puesto", "Rector", "Acesor Juridico", "Secretaria del titular ", "Analista especializado en vinculacion", "Secretario Academico", "Secretario del Secr. Academico", "Secretario Adminitrativo", "Secretaria del Secr. Administrativo" }));
         jComboBox1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jComboBox1ActionPerformed(evt);
             }
         });
-        jPanel4.add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 230, -1, -1));
+        jPanel4.add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 190, 210, -1));
 
         jTextField4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextField4ActionPerformed(evt);
             }
         });
-        jPanel4.add(jTextField4, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 90, 170, -1));
-        jPanel4.add(jTextField3, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 120, 170, -1));
+        jPanel4.add(jTextField4, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 120, 170, -1));
+        jPanel4.add(jTextField3, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 150, 170, -1));
         jPanel4.add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 60, 170, -1));
 
         jLabel4.setText("Telefono");
-        jPanel4.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 90, -1, -1));
+        jPanel4.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 110, -1, -1));
 
         jLabel2.setBackground(new java.awt.Color(0, 0, 0));
         jLabel2.setText("nombre del puesto");
-        jPanel4.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 160, -1, -1));
+        jPanel4.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 180, -1, -1));
 
         jButton4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Eliminar.png"))); // NOI18N
         jButton4.addActionListener(new java.awt.event.ActionListener() {
@@ -217,7 +227,13 @@ public class VistaSu extends javax.swing.JFrame {
             }
         });
         jPanel4.add(jButton7, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 300, 90, 40));
-        jPanel4.add(jTextField5, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 20, 50, 20));
+
+        jTextField5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField5ActionPerformed(evt);
+            }
+        });
+        jPanel4.add(jTextField5, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 90, 170, 20));
 
         jTabbedPane1.addTab("tab1", jPanel4);
 
@@ -354,7 +370,7 @@ public class VistaSu extends javax.swing.JFrame {
         // TODO add your handling code here:
         try{
             Connection conexion = new Conexion().getConexion();
-            psSU = (PreparedStatement) conexion.prepareStatement("select * from funcionario where nombreFuncionario = ? "); 
+            psSU = (PreparedStatement) conexion.prepareStatement("select * from funcionario where ci = ? "); 
             psSU.setString(1,jTextField1.getText());
             rsSU = psSU.executeQuery(); 
             if(rsSU.next()){
@@ -384,6 +400,10 @@ public class VistaSu extends javax.swing.JFrame {
         // TODO add your handling code here:
         limpiar();
     }//GEN-LAST:event_jButton7ActionPerformed
+
+    private void jTextField5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField5ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField5ActionPerformed
 
     /**
      * @param args the command line arguments

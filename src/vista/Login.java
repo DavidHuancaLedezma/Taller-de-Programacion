@@ -5,7 +5,7 @@
  */
 package vista;
 
-import com.sun.glass.events.KeyEvent;
+//import com.sun.glass.events.KeyEvent;
 import modelo.Verificador;
 
 /**
@@ -237,21 +237,21 @@ public class Login extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton2KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jButton2KeyPressed
-        if(evt.getKeyCode() == KeyEvent.VK_ENTER){
+       /*if(evt.getKeyCode() == KeyEvent.VK_ENTER){
             iniciarSesion();
-        }
+        }*/
     }//GEN-LAST:event_jButton2KeyPressed
-
+    
     private void jTextField1KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField1KeyPressed
-        if(evt.getKeyCode() == KeyEvent.VK_ENTER){
+        /*if(evt.getKeyCode() == KeyEvent.VK_ENTER){
             iniciarSesion();
-        }
+        }*/
     }//GEN-LAST:event_jTextField1KeyPressed
 
     private void jPasswordField1KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jPasswordField1KeyPressed
-        if(evt.getKeyCode() == KeyEvent.VK_ENTER){
-            iniciarSesion();
-        }
+       //if(evt.getKeyCode() == KeyEvent.VK_ENTER){
+         //   iniciarSesion();
+        //}
     }//GEN-LAST:event_jPasswordField1KeyPressed
 
     /**
