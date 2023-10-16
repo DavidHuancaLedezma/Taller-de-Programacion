@@ -47,7 +47,7 @@ public class Verificador {
         
         return res;
     }
-    //metodo añadido
+    //metodo añadido para SU
     public boolean existeCuentaSU(String usuario,char []contraseña){
         boolean res = false;
         String contra = "";
