@@ -45,7 +45,9 @@ public class InformacionFuncionario extends javax.swing.JFrame {
         cargarPersonal(new Funcionario(usuario, contraseña).getPersonalBajoSuMando());
         jLabel27.setText(new Funcionario(usuario, contraseña).getDepatamento());
         jLabel29.setText(new Funcionario(usuario, contraseña).getDepartamentoSuperior());
+        
         cargarCurriculum();
+        cargarFunciones();
     }
     
     private void activarFondoDeEtiquetas(){
@@ -131,7 +133,37 @@ public class InformacionFuncionario extends javax.swing.JFrame {
         }
     }
     
-   
+    private void cargarFunciones(){
+        jTextArea3.setEditable(false);
+        FuncionGeneral();
+        FuncionEspecificas();
+        jTextArea3.moveCaretPosition(0); // hace que la barra de desplazamiento inicie desde el inicio del texto
+    }
+    private void FuncionGeneral(){
+        ArrayList<String>contenido = new Funcionario(usuario,contraseña).getFuncionGeneralBD();
+        jTextArea3.append("FUNCION GENERAL\n");
+        jTextArea3.append("\n");
+        if(contenido.size()>0){
+            for(int i=0;i<contenido.size();i++){
+                jTextArea3.append(" - " + contenido.get(i) + "\n");
+            }
+        }else{
+            jTextArea3.append(" - " + "Ninguno!\n");
+        }
+    }
+    
+    private void FuncionEspecificas(){
+        ArrayList<String>contenido = new Funcionario(usuario,contraseña).getFuncionesEspecificasBD();
+        jTextArea3.append("\n FUNCIONES ESPECIFICAS\n");
+        jTextArea3.append("\n");
+        if(contenido.size()>0){
+            for(int i=0;i<contenido.size();i++){
+                jTextArea3.append(" - " + contenido.get(i) + "\n");
+            }
+        }else{
+            jTextArea3.append(" - " + "Ninguno!\n");
+        }
+    }
     
     private void desaparecerBotonesDePaneles(){
         jTabbedPane1.setUI(new BasicTabbedPaneUI(){
@@ -196,7 +228,10 @@ public class InformacionFuncionario extends javax.swing.JFrame {
         jScrollPane2 = new javax.swing.JScrollPane();
         jTextArea2 = new javax.swing.JTextArea();
         jPanel8 = new javax.swing.JPanel();
-        jLabel13 = new javax.swing.JLabel();
+        jLabel11 = new javax.swing.JLabel();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        jTextArea3 = new javax.swing.JTextArea();
+        jSeparator4 = new javax.swing.JSeparator();
         jPanel9 = new javax.swing.JPanel();
         jLabel14 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
@@ -303,7 +338,8 @@ public class InformacionFuncionario extends javax.swing.JFrame {
         jLabel16.setBackground(new java.awt.Color(0, 0, 0));
         jLabel16.setForeground(new java.awt.Color(255, 255, 255));
         jLabel16.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel16.setText("PROXIMAMENTE");
+        jLabel16.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Diseño sin título.png"))); // NOI18N
+        jLabel16.setText("FUNCIONES");
         jLabel16.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jLabel16MouseClicked(evt);
@@ -342,21 +378,17 @@ public class InformacionFuncionario extends javax.swing.JFrame {
         jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel3.setFont(new java.awt.Font("Arial", 2, 14)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(0, 0, 0));
         jLabel3.setText("Nombre:");
         jPanel3.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 50, 60, 20));
 
         jLabel4.setFont(new java.awt.Font("Arial", 2, 14)); // NOI18N
-        jLabel4.setForeground(new java.awt.Color(0, 0, 0));
         jPanel3.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 50, 220, 20));
 
         jLabel5.setFont(new java.awt.Font("Arial", 2, 14)); // NOI18N
-        jLabel5.setForeground(new java.awt.Color(0, 0, 0));
         jLabel5.setText("Cargo oficial:");
         jPanel3.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 140, 90, 20));
 
         jLabel6.setFont(new java.awt.Font("Arial", 2, 14)); // NOI18N
-        jLabel6.setForeground(new java.awt.Color(0, 0, 0));
         jPanel3.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 140, 220, 20));
 
         jLabel18.setFont(new java.awt.Font("Arial", 2, 18)); // NOI18N
@@ -368,48 +400,38 @@ public class InformacionFuncionario extends javax.swing.JFrame {
         jPanel3.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 30, 310, 10));
 
         jLabel10.setFont(new java.awt.Font("Arial", 2, 14)); // NOI18N
-        jLabel10.setForeground(new java.awt.Color(0, 0, 0));
         jLabel10.setText("Telefono:");
         jPanel3.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 80, 60, 20));
 
         jLabel19.setFont(new java.awt.Font("Arial", 2, 14)); // NOI18N
-        jLabel19.setForeground(new java.awt.Color(0, 0, 0));
         jLabel19.setText("Fecha de nacimiento:");
         jPanel3.add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 110, 140, 20));
 
         jLabel20.setFont(new java.awt.Font("Arial", 2, 14)); // NOI18N
-        jLabel20.setForeground(new java.awt.Color(0, 0, 0));
         jPanel3.add(jLabel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 80, 220, 20));
 
         jLabel21.setFont(new java.awt.Font("Arial", 2, 14)); // NOI18N
-        jLabel21.setForeground(new java.awt.Color(0, 0, 0));
         jPanel3.add(jLabel21, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 110, 170, 20));
 
         jLabel22.setFont(new java.awt.Font("Arial", 2, 14)); // NOI18N
-        jLabel22.setForeground(new java.awt.Color(0, 0, 0));
         jLabel22.setText("Jefe inmediato:");
         jPanel3.add(jLabel22, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 170, 100, 20));
 
         jLabel23.setFont(new java.awt.Font("Arial", 2, 14)); // NOI18N
-        jLabel23.setForeground(new java.awt.Color(0, 0, 0));
         jPanel3.add(jLabel23, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 170, 210, 20));
 
         jLabel26.setFont(new java.awt.Font("Arial", 2, 14)); // NOI18N
-        jLabel26.setForeground(new java.awt.Color(0, 0, 0));
         jLabel26.setText("Pertenece al depatamento:");
         jPanel3.add(jLabel26, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 200, 180, 20));
 
         jLabel27.setFont(new java.awt.Font("Arial", 2, 14)); // NOI18N
-        jLabel27.setForeground(new java.awt.Color(0, 0, 0));
         jPanel3.add(jLabel27, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 200, 220, 20));
 
         jLabel28.setFont(new java.awt.Font("Arial", 2, 14)); // NOI18N
-        jLabel28.setForeground(new java.awt.Color(0, 0, 0));
         jLabel28.setText("Departamento superior:");
         jPanel3.add(jLabel28, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 230, -1, 20));
 
         jLabel29.setFont(new java.awt.Font("Arial", 2, 14)); // NOI18N
-        jLabel29.setForeground(new java.awt.Color(0, 0, 0));
         jPanel3.add(jLabel29, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 230, 180, 20));
 
         jLabel30.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/icono_jefePNG180x180.png"))); // NOI18N
@@ -428,10 +450,8 @@ public class InformacionFuncionario extends javax.swing.JFrame {
         jSeparator2.setBackground(new java.awt.Color(0, 51, 255));
         jPanel4.add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 30, 240, 10));
 
-        jTextArea1.setBackground(new java.awt.Color(255, 255, 255));
         jTextArea1.setColumns(20);
         jTextArea1.setFont(new java.awt.Font("Arial", 2, 14)); // NOI18N
-        jTextArea1.setForeground(new java.awt.Color(0, 0, 0));
         jTextArea1.setRows(5);
         jTextArea1.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
         jScrollPane1.setViewportView(jTextArea1);
@@ -454,10 +474,8 @@ public class InformacionFuncionario extends javax.swing.JFrame {
         jSeparator3.setBackground(new java.awt.Color(0, 51, 255));
         jPanel5.add(jSeparator3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 30, 280, 10));
 
-        jTextArea2.setBackground(new java.awt.Color(255, 255, 255));
         jTextArea2.setColumns(20);
         jTextArea2.setFont(new java.awt.Font("Arial", 2, 14)); // NOI18N
-        jTextArea2.setForeground(new java.awt.Color(0, 0, 0));
         jTextArea2.setRows(5);
         jScrollPane2.setViewportView(jTextArea2);
 
@@ -468,8 +486,21 @@ public class InformacionFuncionario extends javax.swing.JFrame {
         jPanel8.setBackground(new java.awt.Color(255, 255, 255));
         jPanel8.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel13.setText("Panel4");
-        jPanel8.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 140, -1, -1));
+        jLabel11.setFont(new java.awt.Font("Arial", 2, 18)); // NOI18N
+        jLabel11.setForeground(new java.awt.Color(51, 102, 255));
+        jLabel11.setText("FUNCIONES GENERALES Y ESPECIFICAS");
+        jPanel8.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, 490, -1));
+
+        jTextArea3.setColumns(20);
+        jTextArea3.setFont(new java.awt.Font("Arial", 2, 14)); // NOI18N
+        jTextArea3.setRows(5);
+        jTextArea3.setName(""); // NOI18N
+        jScrollPane3.setViewportView(jTextArea3);
+
+        jPanel8.add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 30, 630, 310));
+
+        jSeparator4.setBackground(new java.awt.Color(51, 102, 255));
+        jPanel8.add(jSeparator4, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, 370, 10));
 
         jTabbedPane1.addTab("tab4", jPanel8);
 
@@ -614,7 +645,7 @@ public class InformacionFuncionario extends javax.swing.JFrame {
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
-    private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
@@ -652,11 +683,14 @@ public class InformacionFuncionario extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel9;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator2;
     private javax.swing.JSeparator jSeparator3;
+    private javax.swing.JSeparator jSeparator4;
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JTextArea jTextArea1;
     private javax.swing.JTextArea jTextArea2;
+    private javax.swing.JTextArea jTextArea3;
     // End of variables declaration//GEN-END:variables
 }
