@@ -597,6 +597,8 @@ public class VistaSu extends javax.swing.JFrame {
             conexion.close();
             insertarExperiencia(pk);
             insertarHabilidadDestreza(pk);
+            insertarEscolaridad(pk);
+            
             }catch (Exception ex ){
                 System.err.println("Error:" + ex);
             }
@@ -617,12 +619,12 @@ public class VistaSu extends javax.swing.JFrame {
             System.err.println("Error:" + ex);
         }
     }
-    private void escolaridad(int pk){
+    private void insertarEscolaridad(int pk){
         try{
           Connection conexion = new Conexion().getConexion();
-        psSU= conexion.prepareStatement("insert into escolaridad (idEscolaridad,IdDescripcionPuesto) values(?,?)");
-        psSU.setString(1,jTextArea3.getText());
-        psSU.setInt(2, pk);
+        psSU= conexion.prepareStatement("insert into escolaridad (IdDescripcionPuesto,datoescolaridad) values(?,?)");
+        psSU.setString(2,jTextArea3.getText());
+        psSU.setInt(1, pk);
         psSU.executeUpdate();
             psSU.close();
         }catch(Exception ex){
