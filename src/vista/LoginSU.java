@@ -205,7 +205,7 @@ public class LoginSU extends javax.swing.JFrame {
         // llamar al metodo para verificar si es el usuario.
         iniciarSesion();
     }//GEN-LAST:event_jButton1ActionPerformed
-
+//evento keyPressed
     private void jButton1KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jButton1KeyPressed
         if(evt.getKeyCode() == KeyEvent.VK_ENTER){
             iniciarSesion();
