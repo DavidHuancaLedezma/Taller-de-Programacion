@@ -351,7 +351,23 @@ public class VistaSu extends javax.swing.JFrame {
     }//GEN-LAST:event_jTextField4ActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-        // TODO add your handling code here:
+        
+           try{
+           Connection  conexion = new Conexion().getConexion();
+           psSU = conexion.prepareStatement("delete from funcionario where CI=?");
+           psSU.setString(1,jTextField6.getText());
+           int res = psSU.executeUpdate();
+           if(res>0){
+           JOptionPane.showMessageDialog(null, "registro eliminado");
+           limpiar();
+           }else{
+           JOptionPane.showMessageDialog(null, "error al eliminar al registro");
+           limpiar();
+           }
+           conexion.close();    
+           }catch(Exception ex){
+           System.err.println("Error, "+ex);
+           }
         
     }//GEN-LAST:event_jButton4ActionPerformed
 //nos vamos a tirar XDD
