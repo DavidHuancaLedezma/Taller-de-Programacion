@@ -441,6 +441,7 @@ public class VistaSu extends javax.swing.JFrame {
         jTextField6.setText(null);
 
     }
+    //SAMKLDMSA
     private void jTextField5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField5ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField5ActionPerformed
