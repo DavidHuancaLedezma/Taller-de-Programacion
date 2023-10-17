@@ -21,8 +21,8 @@ public class VistaSu extends javax.swing.JFrame {
     /**
      * Creates new form VistaSu
      */
-    PreparedStatement psSU ; 
-    ResultSet rsSU ;
+    PreparedStatement psSU, psAux ; 
+    ResultSet rsSU, rsAux ;
     //Conexion prueba;
     ArrayList<Puesto>lista;
     Conexion prueba;
@@ -45,6 +45,7 @@ public class VistaSu extends javax.swing.JFrame {
         
     }
     public void funcionalidadesInvisibles(){
+        jTextField7.setVisible(false);
         jButton3.setContentAreaFilled(false); // Desactiva el relleno del botón
         jButton3.setBorderPainted(false); // Desactiva el borde del botón
         jButton4.setContentAreaFilled(false);
@@ -84,6 +85,7 @@ public class VistaSu extends javax.swing.JFrame {
         jPanel2 = new javax.swing.JPanel();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
+        jButton9 = new javax.swing.JButton();
         jTabbedPane1 = new javax.swing.JTabbedPane();
         jPanel4 = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
@@ -102,8 +104,19 @@ public class VistaSu extends javax.swing.JFrame {
         jLabel7 = new javax.swing.JLabel();
         jTextField6 = new javax.swing.JTextField();
         jButton8 = new javax.swing.JButton();
+        jTextField7 = new javax.swing.JTextField();
         jPanel5 = new javax.swing.JPanel();
         jPanel6 = new javax.swing.JPanel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTextArea1 = new javax.swing.JTextArea();
+        jLabel8 = new javax.swing.JLabel();
+        jButton7 = new javax.swing.JButton();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        jTextArea2 = new javax.swing.JTextArea();
+        jLabel9 = new javax.swing.JLabel();
+        jLabel10 = new javax.swing.JLabel();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        jTextArea3 = new javax.swing.JTextArea();
         jPanel7 = new javax.swing.JPanel();
         jPanel8 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
@@ -149,10 +162,17 @@ public class VistaSu extends javax.swing.JFrame {
             }
         });
 
-        jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/icono con nombre.png"))); // NOI18N
+        jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/cargos.png"))); // NOI18N
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton2ActionPerformed(evt);
+            }
+        });
+
+        jButton9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Descripcion.png"))); // NOI18N
+        jButton9.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton9ActionPerformed(evt);
             }
         });
 
@@ -162,18 +182,22 @@ public class VistaSu extends javax.swing.JFrame {
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(15, 15, 15)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
-                .addContainerGap(38, Short.MAX_VALUE))
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jButton9, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)))
+                .addContainerGap(35, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(236, Short.MAX_VALUE))
+                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(28, 28, 28)
+                .addComponent(jButton9, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(126, Short.MAX_VALUE))
         );
 
         jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 60, 120, 390));
@@ -269,20 +293,89 @@ public class VistaSu extends javax.swing.JFrame {
         });
         jPanel4.add(jButton8, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 280, -1, -1));
 
+        jTextField7.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField7ActionPerformed(evt);
+            }
+        });
+        jPanel4.add(jTextField7, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 220, 170, -1));
+
         jTabbedPane1.addTab("tab1", jPanel4);
 
         jPanel5.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
         jTabbedPane1.addTab("tab2", jPanel5);
 
+        jPanel6.setBackground(new java.awt.Color(51, 51, 51));
+
+        jTextArea1.setColumns(20);
+        jTextArea1.setRows(5);
+        jScrollPane1.setViewportView(jTextArea1);
+
+        jLabel8.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel8.setText("Experiencia");
+
+        jButton7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Guardar.png"))); // NOI18N
+        jButton7.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton7ActionPerformed(evt);
+            }
+        });
+
+        jTextArea2.setColumns(20);
+        jTextArea2.setRows(5);
+        jScrollPane2.setViewportView(jTextArea2);
+
+        jLabel9.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel9.setText("Habilida y Destreza");
+
+        jLabel10.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel10.setText("Escolaridad");
+
+        jTextArea3.setColumns(20);
+        jTextArea3.setRows(5);
+        jScrollPane3.setViewportView(jTextArea3);
+
         javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
         jPanel6.setLayout(jPanel6Layout);
         jPanel6Layout.setHorizontalGroup(
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 678, Short.MAX_VALUE)
+            .addGroup(jPanel6Layout.createSequentialGroup()
+                .addGap(1, 1, 1)
+                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel6Layout.createSequentialGroup()
+                        .addComponent(jLabel8)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(35, 35, 35)
+                        .addComponent(jLabel9, javax.swing.GroupLayout.DEFAULT_SIZE, 114, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel6Layout.createSequentialGroup()
+                        .addComponent(jLabel10)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap())
+            .addGroup(jPanel6Layout.createSequentialGroup()
+                .addGap(16, 16, 16)
+                .addComponent(jButton7)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel6Layout.setVerticalGroup(
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 364, Short.MAX_VALUE)
+            .addGroup(jPanel6Layout.createSequentialGroup()
+                .addGap(48, 48, 48)
+                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel8)
+                    .addComponent(jLabel9))
+                .addGap(25, 25, 25)
+                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel10)
+                    .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 36, Short.MAX_VALUE)
+                .addComponent(jButton7, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(14, 14, 14))
         );
 
         jTabbedPane1.addTab("tab3", jPanel6);
@@ -354,8 +447,8 @@ public class VistaSu extends javax.swing.JFrame {
         
            try{
            Connection  conexion = new Conexion().getConexion();
-           psSU = conexion.prepareStatement("delete from funcionario where CI=?");
-           psSU.setString(1,jTextField6.getText());
+           psSU = conexion.prepareStatement("delete from funcionario where IDFUNCIONARIO=?");
+           psSU.setString(1,jTextField7.getText());
            int res = psSU.executeUpdate();
            if(res>0){
            JOptionPane.showMessageDialog(null, "registro eliminado");
@@ -370,9 +463,9 @@ public class VistaSu extends javax.swing.JFrame {
            }
         
     }//GEN-LAST:event_jButton4ActionPerformed
-//nos vamos a tirar XDD
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         // TODO add your handling code here:
+        
         try {
              Connection conexion = new Conexion().getConexion();
              psSU = conexion.prepareStatement("insert into funcionario (nombreFuncionario,IDPUESTO,CI,telefono,fechaNacimiento)values(?,?,?,?,?)");
@@ -397,6 +490,8 @@ public class VistaSu extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null,"Seleccione un puesto valido");
 
         }
+        //jTabbedPane1.setSelectedIndex(4);
+
 
     }//GEN-LAST:event_jButton3ActionPerformed
 
@@ -438,7 +533,7 @@ public class VistaSu extends javax.swing.JFrame {
                 jTextField6.setText(rsSU.getString("ci"));
                 jTextField3.setText(String.valueOf(rsSU.getDate("fechaNacimiento")));
                 jComboBox1.setSelectedIndex(rsSU.getInt("idPuesto"));
-                jTextField5.setText(rsSU.getString("IDFUNCIONARIO"));
+                jTextField7.setText(rsSU.getString("IDFUNCIONARIO"));
             }else{
                 JOptionPane.showMessageDialog(null,"Registro no encontrado");                
             }
@@ -473,6 +568,85 @@ public class VistaSu extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField1ActionPerformed
 
+    private void jTextField7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField7ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField7ActionPerformed
+
+    private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton9ActionPerformed
+        // TODO add your handling code here:
+        jTabbedPane1.setSelectedIndex(2);
+    }//GEN-LAST:event_jButton9ActionPerformed
+
+    private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
+        // TODO add your handling code here:
+        try {
+             
+            Connection conexion = new Conexion().getConexion();
+             
+            psSU = conexion.prepareStatement(" insert into DescripcionPuesto() values()");
+            psSU.executeUpdate();
+            psSU.close();
+            psAux = conexion.prepareStatement("SELECT MAX(IdDescripcionPuesto) FROM DescripcionPuesto");
+            rsAux = psAux.executeQuery();
+            int pk = 0; // Inicializar pk
+
+            if (rsAux.next()) {
+                pk = rsAux.getInt(1); // Obtener el valor de la columna 1 (la única columna en este caso)
+                //System.out.println(pk);
+            }
+            conexion.close();
+            insertarExperiencia(pk);
+            insertarHabilidadDestreza(pk);
+            }catch (Exception ex ){
+                System.err.println("Error:" + ex);
+            }
+        
+    }//GEN-LAST:event_jButton7ActionPerformed
+    /**
+     * @Erick 
+     */
+    private void insertarExperiencia(int pk){
+        try{
+        Connection conexion = new Conexion().getConexion();
+        psSU = conexion.prepareStatement("insert into Experiencia (descripcionExperiencia,IdDescripcionPuesto) values(?,?)");
+        psSU.setString(1,jTextArea1.getText());
+        psSU.setInt(2, pk);
+        psSU.executeUpdate();
+            psSU.close();
+        }catch(Exception ex){
+            System.err.println("Error:" + ex);
+        }
+    }
+    private void escolaridad(int pk){
+        try{
+          Connection conexion = new Conexion().getConexion();
+        psSU= conexion.prepareStatement("insert into escolaridad (idEscolaridad,IdDescripcionPuesto) values(?,?)");
+        psSU.setString(1,jTextArea3.getText());
+        psSU.setInt(2, pk);
+        psSU.executeUpdate();
+            psSU.close();
+        }catch(Exception ex){
+          System.err.println("Error:" + ex);
+        }
+    }
+    /**
+     * 
+     * @Juan 
+     */
+    private void insertarHabilidadDestreza(int pk){
+        
+        try{
+          Connection conexion = new Conexion().getConexion();
+        psSU= conexion.prepareStatement("insert into HabilidadDestreza (DatoHabilidadDestreza,IdDescripcionPuesto) values(?,?)");
+        psSU.setString(1,jTextArea2.getText());
+        psSU.setInt(2, pk);
+        psSU.executeUpdate();
+            psSU.close();
+        }catch(Exception ex){
+          System.err.println("Error:" + ex);
+        }
+    }
+    
     /**
      * @param args the command line arguments
      */
@@ -515,15 +689,20 @@ public class VistaSu extends javax.swing.JFrame {
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
     private javax.swing.JButton jButton6;
+    private javax.swing.JButton jButton7;
     private javax.swing.JButton jButton8;
+    private javax.swing.JButton jButton9;
     private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
@@ -532,12 +711,19 @@ public class VistaSu extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel6;
     private javax.swing.JPanel jPanel7;
     private javax.swing.JPanel jPanel8;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JTabbedPane jTabbedPane1;
+    private javax.swing.JTextArea jTextArea1;
+    private javax.swing.JTextArea jTextArea2;
+    private javax.swing.JTextArea jTextArea3;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField2;
     private javax.swing.JTextField jTextField3;
     private javax.swing.JTextField jTextField4;
     private javax.swing.JTextField jTextField5;
     private javax.swing.JTextField jTextField6;
+    private javax.swing.JTextField jTextField7;
     // End of variables declaration//GEN-END:variables
 }
