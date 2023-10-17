@@ -93,6 +93,26 @@ public class Funcionario {
      public ArrayList<String> getFuncionesEspecificasBD(){
         return FuncionesEspecificasBD();
     }
+     
+    public ArrayList<String>getEscolaridad(){
+        return escolaridadBD();
+    }
+    
+    public ArrayList<String> getExperiencia(){
+        return experienciaBD();
+    }
+    
+    public ArrayList<String> getHabilidades(){
+        return habilidadesBD();
+    }
+    
+    public ArrayList<String> getAptitudes(){
+        return aptitudesBD();
+    }
+    
+    public ArrayList<Esfuerzo> getEsfuerzo(){
+        return esfuerzoBD();
+    }
     private String[] getDatos(){
         String[] res = new String[5];
         try{
@@ -285,4 +305,95 @@ public class Funcionario {
         }   
         return res;
    }
+   
+   public ArrayList<String>escolaridadBD(){
+        ArrayList<String>res = new ArrayList<String>();
+        try{
+            Connection con = new Conexion().getConexion();
+            ps = con.prepareStatement("call sp_escolaridad(?,?)");
+            ps.setString(1,usuario);
+            ps.setString(2,contraseña);
+            rs = ps.executeQuery();
+            while(rs.next()){
+                res.add(rs.getString("escolaridad"));
+            }
+            con.close();
+        }catch(Exception ex){
+            System.err.println("Error:" + ex);
+        }
+        return res;
+    }
+    
+    public ArrayList<String>experienciaBD(){
+        ArrayList<String>res = new ArrayList<String>();
+        try{
+            Connection con = new Conexion().getConexion();
+            ps = con.prepareStatement("call sp_experiencia(?,?)");
+            ps.setString(1,usuario);
+            ps.setString(2,contraseña);
+            rs = ps.executeQuery();
+            while(rs.next()){
+                res.add(rs.getString("experiencia"));
+            }
+            con.close();
+        }catch(Exception ex){
+            System.err.println("Error:" + ex);
+        }
+        return res;
+    }
+    
+    public ArrayList<String>habilidadesBD(){
+        ArrayList<String>res = new ArrayList<String>();
+        try{
+            Connection con = new Conexion().getConexion();
+            ps = con.prepareStatement("call sp_habilidades_de_destreza(?,?)");
+            ps.setString(1,usuario);
+            ps.setString(2,contraseña);
+            rs = ps.executeQuery();
+            while(rs.next()){
+                res.add(rs.getString("habilidades"));
+            }
+            con.close();
+        }catch(Exception ex){
+            System.err.println("Error:" + ex);
+        }
+        return res;
+    }
+    
+    public ArrayList<String>aptitudesBD(){
+        ArrayList<String>res = new ArrayList<String>();
+        try{
+            Connection con = new Conexion().getConexion();
+            ps = con.prepareStatement("call sp_aptitudes(?,?)");
+            ps.setString(1,usuario);
+            ps.setString(2,contraseña);
+            rs = ps.executeQuery();
+            while(rs.next()){
+                res.add(rs.getString("aptitudes"));
+            }
+            con.close();
+        }catch(Exception ex){
+            System.err.println("Error:" + ex);
+        }
+        return res;
+    }
+    
+    public ArrayList<Esfuerzo>esfuerzoBD(){
+        ArrayList<Esfuerzo>res = new ArrayList<Esfuerzo>();
+        try{
+            Connection con = new Conexion().getConexion();
+            ps = con.prepareStatement("call sp_esfuerzo(?,?)");
+            ps.setString(1,usuario);
+            ps.setString(2,contraseña);
+            rs = ps.executeQuery();
+            while(rs.next()){
+                Esfuerzo esfuerzo = new Esfuerzo(rs.getString("tipo_de_esfuerzo"),rs.getString("esfuerzo"));
+                res.add(esfuerzo);
+            }
+            con.close();
+        }catch(Exception ex){
+            System.err.println("Error:" + ex);
+        }
+        return res;
+    }
 }
