@@ -87,7 +87,12 @@ public class Funcionario {
     public ArrayList<String>getActividadesProfesionales(){
         return actividadesProfesionalesBD();
     }
-    
+    public ArrayList<String>getFuncionGeneralBD(){
+        return FuncionGeneralBD();
+    }
+     public ArrayList<String> getFuncionesEspecificasBD(){
+        return FuncionesEspecificasBD();
+    }
     private String[] getDatos(){
         String[] res = new String[5];
         try{
@@ -132,7 +137,6 @@ public class Funcionario {
         }
         return res;
     }
-    
     
     private ArrayList<String> personalBajoSuMandoBD(){
         ArrayList<String> res = new ArrayList<String>();
@@ -245,5 +249,40 @@ public class Funcionario {
         }
         return res;
     }
-      
+      private ArrayList<String> FuncionGeneralBD(){
+        ArrayList<String> res = new ArrayList<String>();
+        try{
+            Connection con = new Conexion().getConexion();
+            ps = con.prepareStatement("call sp_funcion_general(?,?)");
+            ps.setString(1,usuario);
+            ps.setString(2,contraseña);
+            rs = ps.executeQuery();
+            while(rs.next()){
+                res.add(rs.getString("funcion_general"));
+            }
+            con.close();
+        
+        }catch(Exception ex){
+            System.err.println("Error:" + ex);
+        }   
+        return res;
+    }
+   public ArrayList<String> FuncionesEspecificasBD(){
+       ArrayList<String> res = new ArrayList<String>();
+        try{
+            Connection con = new Conexion().getConexion();
+            ps = con.prepareStatement("call sp_funciones_especificas(?,?)");
+            ps.setString(1,usuario);
+            ps.setString(2,contraseña);
+            rs = ps.executeQuery();
+            while(rs.next()){
+                res.add(rs.getString("funciones_especificas"));
+            }
+            con.close();
+        
+        }catch(Exception ex){
+            System.err.println("Error:" + ex);
+        }   
+        return res;
+   }
 }
