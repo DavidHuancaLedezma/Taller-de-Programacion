@@ -20,7 +20,7 @@ public class Esfuerzo {
     }
     
     public String getTipoEsfuerzo(){
-        return tipoDeEsfuerzo;//r
+        return tipoDeEsfuerzo;//r hola
     }
     
     public String getDescripcionEsfuerzo(){
