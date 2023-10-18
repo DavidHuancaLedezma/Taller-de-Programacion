@@ -8,6 +8,7 @@ import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
+import javax.swing.DefaultComboBoxModel;
 import javax.swing.JOptionPane;
 import javax.swing.plaf.basic.BasicTabbedPaneUI;
 import modelo.*;
@@ -21,6 +22,15 @@ public class VistaSu extends javax.swing.JFrame {
     /**
      * Creates new form VistaSu
      */
+    private DefaultComboBoxModel modelo;
+    private DefaultComboBoxModel modelo2;
+    private ArrayList<String>funcionGeneral = new ArrayList<String>();
+    private ArrayList<String>funcionesEspesificas = new ArrayList<String>();
+    
+    
+    
+    
+    
     PreparedStatement psSU, psAux ; 
     ResultSet rsSU, rsAux ;
     //Conexion prueba;
@@ -86,6 +96,7 @@ public class VistaSu extends javax.swing.JFrame {
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         jButton9 = new javax.swing.JButton();
+        jButton10 = new javax.swing.JButton();
         jTabbedPane1 = new javax.swing.JTabbedPane();
         jPanel4 = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
@@ -118,6 +129,21 @@ public class VistaSu extends javax.swing.JFrame {
         jScrollPane3 = new javax.swing.JScrollPane();
         jTextArea3 = new javax.swing.JTextArea();
         jPanel7 = new javax.swing.JPanel();
+        jLabel11 = new javax.swing.JLabel();
+        jComboBox2 = new javax.swing.JComboBox<>();
+        jComboBox3 = new javax.swing.JComboBox<>();
+        jLabel12 = new javax.swing.JLabel();
+        jLabel13 = new javax.swing.JLabel();
+        jLabel14 = new javax.swing.JLabel();
+        jLabel15 = new javax.swing.JLabel();
+        jLabel16 = new javax.swing.JLabel();
+        jTextField8 = new javax.swing.JTextField();
+        jTextField9 = new javax.swing.JTextField();
+        jTextField10 = new javax.swing.JTextField();
+        jButton11 = new javax.swing.JButton();
+        jButton12 = new javax.swing.JButton();
+        jButton13 = new javax.swing.JButton();
+        jLabel17 = new javax.swing.JLabel();
         jPanel8 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
 
@@ -176,6 +202,13 @@ public class VistaSu extends javax.swing.JFrame {
             }
         });
 
+        jButton10.setText("Añadir PT");
+        jButton10.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton10ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -183,11 +216,12 @@ public class VistaSu extends javax.swing.JFrame {
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(15, 15, 15)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jButton10)
                     .addComponent(jButton9, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                         .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)))
-                .addContainerGap(35, Short.MAX_VALUE))
+                .addContainerGap(26, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -197,7 +231,9 @@ public class VistaSu extends javax.swing.JFrame {
                 .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(28, 28, 28)
                 .addComponent(jButton9, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(126, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addComponent(jButton10, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(45, Short.MAX_VALUE))
         );
 
         jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 60, 120, 390));
@@ -380,16 +416,85 @@ public class VistaSu extends javax.swing.JFrame {
 
         jTabbedPane1.addTab("tab3", jPanel6);
 
-        javax.swing.GroupLayout jPanel7Layout = new javax.swing.GroupLayout(jPanel7);
-        jPanel7.setLayout(jPanel7Layout);
-        jPanel7Layout.setHorizontalGroup(
-            jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 678, Short.MAX_VALUE)
-        );
-        jPanel7Layout.setVerticalGroup(
-            jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 364, Short.MAX_VALUE)
-        );
+        jPanel7.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel11.setFont(new java.awt.Font("Arial", 2, 14)); // NOI18N
+        jLabel11.setForeground(new java.awt.Color(0, 51, 255));
+        jLabel11.setText("AÑADIR UN NUEVO PUESTO DE TRABAJO");
+        jPanel7.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 290, 30));
+
+        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jComboBox2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboBox2ActionPerformed(evt);
+            }
+        });
+        jPanel7.add(jComboBox2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 190, 170, 30));
+
+        jComboBox3.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jPanel7.add(jComboBox3, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 190, 170, 30));
+
+        jLabel12.setForeground(new java.awt.Color(255, 0, 0));
+        jLabel12.setText("*pertenecera al departamento");
+        jPanel7.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 170, 170, -1));
+
+        jLabel13.setForeground(new java.awt.Color(255, 0, 0));
+        jLabel13.setText("*su puesto superior sera");
+        jPanel7.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 170, 170, -1));
+
+        jLabel14.setFont(new java.awt.Font("Arial", 2, 14)); // NOI18N
+        jLabel14.setText("Nombre del puesto:");
+        jPanel7.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 40, -1, -1));
+
+        jLabel15.setFont(new java.awt.Font("Arial", 2, 14)); // NOI18N
+        jLabel15.setText("Funcion General:");
+        jPanel7.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 80, 110, -1));
+
+        jLabel16.setFont(new java.awt.Font("Arial", 2, 14)); // NOI18N
+        jLabel16.setText("Funciones Especificas:");
+        jPanel7.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 120, -1, -1));
+
+        jTextField8.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField8ActionPerformed(evt);
+            }
+        });
+        jPanel7.add(jTextField8, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 40, 410, -1));
+
+        jTextField9.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField9ActionPerformed(evt);
+            }
+        });
+        jPanel7.add(jTextField9, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 80, 410, -1));
+        jPanel7.add(jTextField10, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 120, 410, 30));
+
+        jButton11.setText("Añadir F.G");
+        jButton11.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton11ActionPerformed(evt);
+            }
+        });
+        jPanel7.add(jButton11, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 80, -1, -1));
+
+        jButton12.setText("Añadir F.E");
+        jButton12.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton12ActionPerformed(evt);
+            }
+        });
+        jPanel7.add(jButton12, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 120, -1, -1));
+
+        jButton13.setText("REGISTRAR");
+        jButton13.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton13ActionPerformed(evt);
+            }
+        });
+        jPanel7.add(jButton13, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 310, 140, 40));
+
+        jLabel17.setForeground(new java.awt.Color(255, 0, 0));
+        jPanel7.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 260, 420, 20));
 
         jTabbedPane1.addTab("tab4", jPanel7);
 
@@ -604,6 +709,120 @@ public class VistaSu extends javax.swing.JFrame {
             }
         
     }//GEN-LAST:event_jButton7ActionPerformed
+    //INICIO CODIGO DAVID
+    private void jButton10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton10ActionPerformed
+        jTabbedPane1.setSelectedIndex(3);
+        cargarComboBoxDepartamentos();
+        Departamento dep = (Departamento)(jComboBox2.getSelectedItem());
+        cargarComboBoxPuestoTrabajo(dep.getIdDepartamento());
+    }//GEN-LAST:event_jButton10ActionPerformed
+
+    private void jTextField9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField9ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField9ActionPerformed
+
+    private void jButton11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton11ActionPerformed
+        if(!jTextField9.getText().equals("")){
+            jLabel17.setText("");
+            funcionGeneral.add(jTextField9.getText());
+            jTextField9.setText("");
+            JOptionPane.showMessageDialog(null,"Funcion general registrada con exito");
+        }else{
+            jLabel17.setText("*error campo funcion general vacio");
+        }
+    }//GEN-LAST:event_jButton11ActionPerformed
+
+    private void jComboBox2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox2ActionPerformed
+        Departamento dep = (Departamento)(jComboBox2.getSelectedItem());
+        cargarComboBoxPuestoTrabajo(dep.getIdDepartamento());
+    }//GEN-LAST:event_jComboBox2ActionPerformed
+
+    private void jButton12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton12ActionPerformed
+        if(!jTextField10.getText().equals("")){
+            jLabel17.setText("");
+            funcionesEspesificas.add(jTextField10.getText());
+            jTextField10.setText("");
+            JOptionPane.showMessageDialog(null,"Funcion especifica registrada con exito");
+        }else{
+            jLabel17.setText("error campo funciones especificas vacio");
+        }
+    }//GEN-LAST:event_jButton12ActionPerformed
+
+    private void jButton13ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton13ActionPerformed
+        if(camposLlenos()){
+            int idPuest;
+            DatosPuestoTrabajo dpt = new DatosPuestoTrabajo();
+            PuestoTrabajo pt = (PuestoTrabajo)(jComboBox3.getSelectedItem());
+            Departamento dep = (Departamento)(jComboBox2.getSelectedItem());
+            dpt.insertarPuesto(jTextField8.getText(),pt.getIdPuesto(),dep.getIdDepartamento());
+            idPuest = dpt.getIdUltimoPuestoInsertado();
+            
+            for(int i=0;i<funcionGeneral.size();i++){
+                dpt.insertarFuncionGeneral(idPuest, funcionGeneral.get(i));
+            }
+            
+            for(int i=0;i<funcionesEspesificas.size();i++){
+                dpt.insertarFuncionesEspesificas(idPuest,funcionesEspesificas.get(i));
+            }
+            
+            
+            for(int i=0;i<funcionGeneral.size();i++){
+                funcionGeneral.remove(i);
+            }
+            
+            for(int i=0;i<funcionesEspesificas.size();i++){
+                funcionesEspesificas.remove(i);
+            }
+            
+            LimpiadorDespuesDeAñadirPT();
+            JOptionPane.showMessageDialog(null,"Registrado con EXITO!");
+        }
+    }//GEN-LAST:event_jButton13ActionPerformed
+
+    private void jTextField8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField8ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField8ActionPerformed
+    public boolean camposLlenos(){
+        boolean res = false;
+        if(!jTextField8.getText().equals("")&&(funcionGeneral.size()>0)&&(funcionesEspesificas.size()>0)){
+            jLabel17.setText("");
+            res = true;
+        }else{
+            jLabel17.setText("*error algunos campos siguen vacios F.G o F.E o nombre del puesto");   
+        }
+        return res;
+    }
+    
+    private void LimpiadorDespuesDeAñadirPT(){
+        jTextField8.setText("");
+        jTextField9.setText("");
+        jTextField10.setText("");
+        jComboBox2.setSelectedIndex(0);
+    }
+    
+    
+    private void cargarComboBoxDepartamentos(){
+        modelo = new DefaultComboBoxModel();
+        ArrayList<Departamento>contenido = new DatosPuestoTrabajo().getDepartamentos();
+        for(int i=0;i<contenido.size();i++){
+            modelo.addElement(contenido.get(i));
+        }
+        jComboBox2.setModel(modelo);
+    }
+    
+    private void cargarComboBoxPuestoTrabajo(int id){
+        modelo2 = new DefaultComboBoxModel();
+        ArrayList<PuestoTrabajo>contenido = new DatosPuestoTrabajo(id).getPuestosTrabajo();
+        for(int i=0;i<contenido.size();i++){
+        modelo2.addElement(contenido.get(i));
+        }
+        jComboBox3.setModel(modelo2);
+    
+    }
+    // FIN CODIGO DAVID
+    
+    
+    
     /**
      * @Erick 
      */
@@ -686,6 +905,10 @@ public class VistaSu extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton10;
+    private javax.swing.JButton jButton11;
+    private javax.swing.JButton jButton12;
+    private javax.swing.JButton jButton13;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
@@ -695,8 +918,17 @@ public class VistaSu extends javax.swing.JFrame {
     private javax.swing.JButton jButton8;
     private javax.swing.JButton jButton9;
     private javax.swing.JComboBox<String> jComboBox1;
+    private javax.swing.JComboBox<String> jComboBox2;
+    private javax.swing.JComboBox<String> jComboBox3;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel14;
+    private javax.swing.JLabel jLabel15;
+    private javax.swing.JLabel jLabel16;
+    private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -721,11 +953,14 @@ public class VistaSu extends javax.swing.JFrame {
     private javax.swing.JTextArea jTextArea2;
     private javax.swing.JTextArea jTextArea3;
     private javax.swing.JTextField jTextField1;
+    private javax.swing.JTextField jTextField10;
     private javax.swing.JTextField jTextField2;
     private javax.swing.JTextField jTextField3;
     private javax.swing.JTextField jTextField4;
     private javax.swing.JTextField jTextField5;
     private javax.swing.JTextField jTextField6;
     private javax.swing.JTextField jTextField7;
+    private javax.swing.JTextField jTextField8;
+    private javax.swing.JTextField jTextField9;
     // End of variables declaration//GEN-END:variables
 }
