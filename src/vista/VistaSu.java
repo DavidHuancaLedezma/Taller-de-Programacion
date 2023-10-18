@@ -416,6 +416,7 @@ public class VistaSu extends javax.swing.JFrame {
 
         jTabbedPane1.addTab("tab3", jPanel6);
 
+        jPanel7.setBackground(new java.awt.Color(255, 255, 255));
         jPanel7.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel11.setFont(new java.awt.Font("Arial", 2, 14)); // NOI18N
@@ -819,7 +820,7 @@ public class VistaSu extends javax.swing.JFrame {
         jComboBox3.setModel(modelo2);
     
     }
-    // FIN CODIGO DAVID
+    // FIN CODIGO DAVID....
     
     
     
