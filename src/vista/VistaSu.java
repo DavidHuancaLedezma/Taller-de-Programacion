@@ -15,7 +15,7 @@ import modelo.*;
 
 /**
  *
- * @author Usuario
+ * Se realizo cambios
  */
 public class VistaSu extends javax.swing.JFrame {
 
