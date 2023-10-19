@@ -16,7 +16,7 @@ import java.util.ArrayList;
  * @author DavidH
  */
 public class Conexion {
-    private String URL = "jdbc:mysql://localhost:3306/tallerprogramacion3?autoReconnet=true&useSSL=false"; // corregir con datos originales
+    private String URL = "jdbc:mysql://localhost:3306/tallerprogramacion1?autoReconnet=true&useSSL=false"; // corregir con datos originales
     private String usuario = "root";  // usuario por defecto
     private String password = "1234"; // la base de datos del xampp no tiene contraseña
 
