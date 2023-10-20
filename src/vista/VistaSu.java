@@ -1125,6 +1125,7 @@ public class VistaSu extends javax.swing.JFrame {
 
     private void jTextField12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField12ActionPerformed
         // TODO add your handling code here:
+        // texto donde aparece el iddepaartamento
     }//GEN-LAST:event_jTextField12ActionPerformed
     public void limpiarDepartamento(){
         jTextField11.setText(null);
