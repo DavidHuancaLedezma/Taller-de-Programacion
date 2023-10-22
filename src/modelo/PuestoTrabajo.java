@@ -5,6 +5,8 @@
  */
 package modelo;
 
+import java.util.Objects;
+
 /**
  *
  * @author AlexanderH-DELUX
@@ -42,6 +44,16 @@ public class PuestoTrabajo {
     public String toString(){
         return nombrePuesto;
     
+    }
+    
+    
+    @Override
+    public boolean equals(Object otroObjeto) {
+        if (this == otroObjeto) return true;
+        if (otroObjeto == null || getClass() != otroObjeto.getClass()) return false;
+        PuestoTrabajo otro = (PuestoTrabajo) otroObjeto;
+        return idPuesto == otro.idPuesto &&
+               Objects.equals(nombrePuesto, otro.nombrePuesto);
     }
     
 }
