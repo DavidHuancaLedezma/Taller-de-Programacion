@@ -978,13 +978,13 @@
                       <Group type="102" attributes="0">
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="102" alignment="0" attributes="0">
-                                  <EmptySpace min="-2" pref="19" max="-2" attributes="0"/>
-                                  <Component id="jTextField12" min="-2" pref="43" max="-2" attributes="0"/>
-                                  <EmptySpace min="-2" pref="53" max="-2" attributes="0"/>
+                                  <EmptySpace min="-2" pref="33" max="-2" attributes="0"/>
+                                  <Component id="jButton20" min="-2" pref="79" max="-2" attributes="0"/>
+                                  <EmptySpace min="-2" pref="41" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="0" attributes="0">
+                                      <Component id="jButton15" min="-2" pref="88" max="-2" attributes="0"/>
                                       <Component id="jLabel18" alignment="0" min="-2" pref="145" max="-2" attributes="0"/>
                                       <Component id="jLabel19" alignment="0" min="-2" pref="135" max="-2" attributes="0"/>
-                                      <Component id="jButton15" alignment="1" min="-2" pref="88" max="-2" attributes="0"/>
                                   </Group>
                                   <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="0" attributes="0">
@@ -996,6 +996,12 @@
                                   </Group>
                               </Group>
                               <Group type="102" alignment="0" attributes="0">
+                                  <EmptySpace min="-2" pref="16" max="-2" attributes="0"/>
+                                  <Component id="jTextField12" min="-2" pref="43" max="-2" attributes="0"/>
+                                  <EmptySpace min="-2" pref="186" max="-2" attributes="0"/>
+                                  <Component id="jLabel21" min="-2" pref="171" max="-2" attributes="0"/>
+                              </Group>
+                              <Group type="102" alignment="0" attributes="0">
                                   <EmptySpace min="-2" pref="41" max="-2" attributes="0"/>
                                   <Component id="jButton16" min="-2" pref="109" max="-2" attributes="0"/>
                                   <EmptySpace min="-2" pref="33" max="-2" attributes="0"/>
@@ -1004,10 +1010,6 @@
                                   <Component id="jButton18" min="-2" pref="121" max="-2" attributes="0"/>
                                   <EmptySpace min="-2" pref="35" max="-2" attributes="0"/>
                                   <Component id="jButton19" min="-2" pref="120" max="-2" attributes="0"/>
-                              </Group>
-                              <Group type="102" alignment="0" attributes="0">
-                                  <EmptySpace min="-2" pref="245" max="-2" attributes="0"/>
-                                  <Component id="jLabel21" min="-2" pref="171" max="-2" attributes="0"/>
                               </Group>
                           </Group>
                           <EmptySpace pref="61" max="32767" attributes="0"/>
@@ -1018,12 +1020,15 @@
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace min="-2" pref="17" max="-2" attributes="0"/>
-                          <Component id="jLabel21" min="-2" pref="24" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="jLabel21" alignment="3" min="-2" pref="24" max="-2" attributes="0"/>
+                              <Component id="jTextField12" alignment="3" min="-2" max="-2" attributes="0"/>
+                          </Group>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
                               <Component id="jButton15" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="jComboBox4" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="jTextField12" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="jButton20" alignment="1" max="32767" attributes="0"/>
                           </Group>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
@@ -1042,7 +1047,7 @@
                               <Component id="jButton18" min="-2" pref="49" max="-2" attributes="0"/>
                               <Component id="jButton19" alignment="0" pref="0" max="32767" attributes="0"/>
                           </Group>
-                          <EmptySpace pref="63" max="32767" attributes="0"/>
+                          <EmptySpace min="-2" pref="63" max="-2" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -1140,6 +1145,14 @@
                   <Properties>
                     <Property name="text" type="java.lang.String" value="DEPARTAMENTOS"/>
                   </Properties>
+                </Component>
+                <Component class="javax.swing.JButton" name="jButton20">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Actualizar"/>
+                  </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton20ActionPerformed"/>
+                  </Events>
                 </Component>
               </SubComponents>
             </Container>
