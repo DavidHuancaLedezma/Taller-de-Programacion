@@ -151,5 +151,44 @@ public class DatosPuestoTrabajo {
     }
     
     
+    public ArrayList<PuestoTrabajo>getAllPuestosTrabajo(){
+        ArrayList<PuestoTrabajo>res = new ArrayList<PuestoTrabajo>(); //implementar
+        try{
+            Connection con = new Conexion().getConexion();
+            ps = con.prepareStatement("select * from puestotrabajo");
+            rs = ps.executeQuery();
+            while(rs.next()){
+                res.add(new PuestoTrabajo(rs.getInt("IDPUESTO"),rs.getString("NOMBREPUESTO"))); 
+            }
+            con.close();
+        
+        }catch(Exception ex){
+            System.err.println("Error:" + ex);
+        
+        }
+        return res;
+    }
+    
+    public boolean actualizarNombreDepartamento(String nombre,int idPuesto){  //implementar
+        boolean res = false;
+        try{
+            Connection con = new Conexion().getConexion();
+            ps = con.prepareStatement("update puestotrabajo set nombrepuesto = ? where idpuesto = ?");
+            ps.setString(1, nombre);
+            ps.setInt(2, idPuesto);
+            if(ps.executeUpdate()>0){
+                res = true;
+                System.out.println("Se actualizo con exito");
+            }
+        
+        }catch(Exception ex){
+            System.err.println("Error:" + ex);
+        }
+        return res;
+    
+    
+    }
+    
+    
     
 }

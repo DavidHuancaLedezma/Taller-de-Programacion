@@ -24,6 +24,7 @@ public class VistaSu extends javax.swing.JFrame {
      */
     private DefaultComboBoxModel modelo;
     private DefaultComboBoxModel modelo2;
+    private DefaultComboBoxModel modelo3;
     private ArrayList<String>funcionGeneral = new ArrayList<String>();
     private ArrayList<String>funcionesEspesificas = new ArrayList<String>();
     
@@ -188,6 +189,7 @@ public class VistaSu extends javax.swing.JFrame {
         jButton12 = new javax.swing.JButton();
         jButton13 = new javax.swing.JButton();
         jLabel17 = new javax.swing.JLabel();
+        jButton22 = new javax.swing.JButton();
         jPanel8 = new javax.swing.JPanel();
         jPanel9 = new javax.swing.JPanel();
         jLabel18 = new javax.swing.JLabel();
@@ -204,6 +206,16 @@ public class VistaSu extends javax.swing.JFrame {
         jLabel21 = new javax.swing.JLabel();
         jButton20 = new javax.swing.JButton();
         jPanel10 = new javax.swing.JPanel();
+        jLabel23 = new javax.swing.JLabel();
+        jTextField13 = new javax.swing.JTextField();
+        jComboBox8 = new javax.swing.JComboBox<>();
+        jLabel24 = new javax.swing.JLabel();
+        jLabel25 = new javax.swing.JLabel();
+        jLabel26 = new javax.swing.JLabel();
+        jComboBox9 = new javax.swing.JComboBox<>();
+        jComboBox10 = new javax.swing.JComboBox<>();
+        jButton21 = new javax.swing.JButton();
+        jLabel27 = new javax.swing.JLabel();
         jPanel11 = new javax.swing.JPanel();
         jPanel12 = new javax.swing.JPanel();
         jPanel13 = new javax.swing.JPanel();
@@ -636,6 +648,14 @@ public class VistaSu extends javax.swing.JFrame {
         jLabel17.setForeground(new java.awt.Color(255, 0, 0));
         jPanel7.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 260, 420, 20));
 
+        jButton22.setText("ACTUALIZAR DATOS");
+        jButton22.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton22ActionPerformed(evt);
+            }
+        });
+        jPanel7.add(jButton22, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 310, 170, 40));
+
         jTabbedPane1.addTab("tab4", jPanel7);
 
         javax.swing.GroupLayout jPanel8Layout = new javax.swing.GroupLayout(jPanel8);
@@ -750,10 +770,11 @@ public class VistaSu extends javax.swing.JFrame {
                     .addComponent(jLabel21, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jTextField12, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton15)
-                    .addComponent(jComboBox4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton20, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jButton20, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jButton15)
+                        .addComponent(jComboBox4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel18, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -773,16 +794,44 @@ public class VistaSu extends javax.swing.JFrame {
 
         jTabbedPane1.addTab("tab6", jPanel9);
 
-        javax.swing.GroupLayout jPanel10Layout = new javax.swing.GroupLayout(jPanel10);
-        jPanel10.setLayout(jPanel10Layout);
-        jPanel10Layout.setHorizontalGroup(
-            jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 678, Short.MAX_VALUE)
-        );
-        jPanel10Layout.setVerticalGroup(
-            jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 364, Short.MAX_VALUE)
-        );
+        jPanel10.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel23.setText("Nombre del puesto:");
+        jPanel10.add(jLabel23, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 30, 120, -1));
+        jPanel10.add(jTextField13, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 30, 300, -1));
+
+        jComboBox8.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jPanel10.add(jComboBox8, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 90, 200, -1));
+
+        jLabel24.setForeground(new java.awt.Color(255, 0, 0));
+        jLabel24.setText("*Buscar puesto de trabajo");
+        jPanel10.add(jLabel24, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 10, 160, -1));
+
+        jLabel25.setText("Seleccione nuevo departamento");
+        jPanel10.add(jLabel25, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 70, -1, -1));
+
+        jLabel26.setText("Seleccione nuevo puesto superior");
+        jPanel10.add(jLabel26, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 70, -1, -1));
+
+        jComboBox9.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jComboBox9.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboBox9ActionPerformed(evt);
+            }
+        });
+        jPanel10.add(jComboBox9, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 30, 160, -1));
+
+        jComboBox10.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jPanel10.add(jComboBox10, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 90, 200, -1));
+
+        jButton21.setText("Actualizar");
+        jButton21.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton21ActionPerformed(evt);
+            }
+        });
+        jPanel10.add(jButton21, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 120, -1, -1));
+        jPanel10.add(jLabel27, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 120, 300, 20));
 
         jTabbedPane1.addTab("tab7", jPanel10);
 
@@ -1338,6 +1387,50 @@ De nuevo erick y juan haciendo esta parte
     System.err.println("Error al actualizar el JComboBox: " + ex);
 }
     }//GEN-LAST:event_jButton20ActionPerformed
+
+    private void jComboBox9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox9ActionPerformed
+        PuestoTrabajo pt = (PuestoTrabajo)(jComboBox9.getSelectedItem());   //implementar
+        jTextField13.setText(pt.getNombrePuesto());
+        Departamento dep = new Departamento(4,"Unidad de Gestion Escolar");
+        jComboBox8.setSelectedItem(dep);
+        // continuar aquiiiiii el codigo
+    }//GEN-LAST:event_jComboBox9ActionPerformed
+
+    private void jButton22ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton22ActionPerformed
+        jTabbedPane1.setSelectedIndex(6);    //implementar
+        llenarBuscarPT();
+        jComboBox2.setSelectedIndex(0);
+    }//GEN-LAST:event_jButton22ActionPerformed
+
+    private void jButton21ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton21ActionPerformed
+        if(!jTextField13.getText().equals("")){ //implementar
+            jLabel27.setText("");
+             PuestoTrabajo pt = (PuestoTrabajo)(jComboBox9.getSelectedItem());   // codigo david
+             int id = pt.getIdPuesto();
+             String nuevoNombre = jTextField13.getText();
+             if(new DatosPuestoTrabajo().actualizarNombreDepartamento(nuevoNombre, id)){
+                 JOptionPane.showMessageDialog(null,"Datos Actualizados");
+                 llenarBuscarPT();
+                 jTextField13.setText("");
+             }else{
+                 JOptionPane.showMessageDialog(null,"Error al Actualizar");
+        
+             }
+        
+        }else{
+            jLabel27.setText("*Error hay un campo vacio");
+        }
+    }//GEN-LAST:event_jButton21ActionPerformed
+    
+    private void llenarBuscarPT(){   //implementar
+        modelo3 = new DefaultComboBoxModel();
+        ArrayList<PuestoTrabajo>contenido = new DatosPuestoTrabajo().getAllPuestosTrabajo();
+        for(int i=0;i<contenido.size();i++){
+            modelo3.addElement(contenido.get(i));
+        }
+        jComboBox9.setModel(modelo3);
+    }
+    
     public void limpiarDepartamento(){
         jTextField11.setText(null);
         jComboBox4.setSelectedIndex(0);
@@ -1372,6 +1465,8 @@ De nuevo erick y juan haciendo esta parte
             modelo.addElement(contenido.get(i));
         }
         jComboBox2.setModel(modelo);
+        
+        jComboBox8.setModel(modelo); //para actualizar implementar solo esta linea
     }
     
     private void cargarComboBoxPuestoTrabajo(int id){
@@ -1381,6 +1476,8 @@ De nuevo erick y juan haciendo esta parte
         modelo2.addElement(contenido.get(i));
         }
         jComboBox3.setModel(modelo2);
+        
+        jComboBox10.setModel(modelo2);//para actualizar actualizar solo esta linea
     
     }
     // FIN CODIGO DAVID....
@@ -1506,6 +1603,8 @@ De nuevo erick y juan haciendo esta parte
     private javax.swing.JButton jButton19;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton20;
+    private javax.swing.JButton jButton21;
+    private javax.swing.JButton jButton22;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
@@ -1514,12 +1613,15 @@ De nuevo erick y juan haciendo esta parte
     private javax.swing.JButton jButton8;
     private javax.swing.JButton jButton9;
     private javax.swing.JComboBox<String> jComboBox1;
+    private javax.swing.JComboBox<String> jComboBox10;
     private javax.swing.JComboBox<String> jComboBox2;
     private javax.swing.JComboBox<String> jComboBox3;
     private javax.swing.JComboBox<String> jComboBox4;
     private javax.swing.JComboBox<String> jComboBox5;
     private javax.swing.JComboBox<String> jComboBox6;
     private javax.swing.JComboBox<String> jComboBox7;
+    private javax.swing.JComboBox<String> jComboBox8;
+    private javax.swing.JComboBox<String> jComboBox9;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -1535,6 +1637,11 @@ De nuevo erick y juan haciendo esta parte
     private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel21;
     private javax.swing.JLabel jLabel22;
+    private javax.swing.JLabel jLabel23;
+    private javax.swing.JLabel jLabel24;
+    private javax.swing.JLabel jLabel25;
+    private javax.swing.JLabel jLabel26;
+    private javax.swing.JLabel jLabel27;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
@@ -1574,6 +1681,7 @@ De nuevo erick y juan haciendo esta parte
     private javax.swing.JTextField jTextField10;
     private javax.swing.JTextField jTextField11;
     private javax.swing.JTextField jTextField12;
+    private javax.swing.JTextField jTextField13;
     private javax.swing.JTextField jTextField2;
     private javax.swing.JTextField jTextField3;
     private javax.swing.JTextField jTextField4;
