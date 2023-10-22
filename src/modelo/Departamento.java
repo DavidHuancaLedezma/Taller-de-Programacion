@@ -5,6 +5,8 @@
  */
 package modelo;
 
+import java.util.Objects;
+
 /**
  *
  * @author AlexanderH-DELUX
@@ -39,4 +41,14 @@ public class Departamento {
         return nombreDepartamento;
     }
     
+    
+    
+    @Override
+    public boolean equals(Object otroObjeto) {
+        if (this == otroObjeto) return true;
+        if (otroObjeto == null || getClass() != otroObjeto.getClass()) return false;
+        Departamento otro = (Departamento) otroObjeto;
+        return idDepartamento == otro.idDepartamento &&
+               Objects.equals(nombreDepartamento, otro.nombreDepartamento);
+    }
 }
