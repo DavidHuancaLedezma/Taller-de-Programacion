@@ -542,7 +542,7 @@ public class VistaSu extends javax.swing.JFrame {
                         .addComponent(jLabel9)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(15, Short.MAX_VALUE))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(jPanel6Layout.createSequentialGroup()
                         .addComponent(jComboBox6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -669,6 +669,11 @@ public class VistaSu extends javax.swing.JFrame {
         });
 
         jButton17.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Modificar.png"))); // NOI18N
+        jButton17.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton17ActionPerformed(evt);
+            }
+        });
 
         jButton18.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Eliminar.png"))); // NOI18N
         jButton18.addActionListener(new java.awt.event.ActionListener() {
@@ -1276,6 +1281,29 @@ De nuevo erick y juan haciendo esta parte
     private void jComboBox7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox7ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jComboBox7ActionPerformed
+
+    private void jButton17ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton17ActionPerformed
+        // TODO add your handling code here:
+         try {
+             Connection conexion = new Conexion().getConexion();
+             
+             psSU = conexion.prepareStatement("update departamento set NOMBREDEPARTAMENTO=?,DEP_IDDEPARTAMENTO=? where IDDEPARTAMENTO=?");
+             psSU.setString(1,jTextField11.getText());
+             psSU.setInt(2,jComboBox5.getSelectedIndex());
+             psSU.setString(3,jTextField12.getText());
+             
+
+            int resultado = psSU.executeUpdate();
+            if(resultado > 0 ){
+                JOptionPane.showMessageDialog(null,"Modificación realizada");
+            }else{
+                JOptionPane.showMessageDialog(null,"Error en la modificación");
+            }
+            conexion.close();
+        }catch (Exception ex ){
+          System.err.println("Error:" + ex);
+        }
+    }//GEN-LAST:event_jButton17ActionPerformed
     public void limpiarDepartamento(){
         jTextField11.setText(null);
         jComboBox4.setSelectedIndex(0);
