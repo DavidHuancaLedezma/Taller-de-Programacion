@@ -1391,9 +1391,11 @@ De nuevo erick y juan haciendo esta parte
     private void jComboBox9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox9ActionPerformed
         PuestoTrabajo pt = (PuestoTrabajo)(jComboBox9.getSelectedItem());   //implementar
         jTextField13.setText(pt.getNombrePuesto());
-        Departamento dep = new Departamento(4,"Unidad de Gestion Escolar");
+        Departamento dep = new DatosPuestoTrabajo().getDepartamento(pt.getIdPuesto());
         jComboBox8.setSelectedItem(dep);
         // continuar aquiiiiii el codigo
+        
+        
     }//GEN-LAST:event_jComboBox9ActionPerformed
 
     private void jButton22ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton22ActionPerformed
@@ -1408,6 +1410,8 @@ De nuevo erick y juan haciendo esta parte
              PuestoTrabajo pt = (PuestoTrabajo)(jComboBox9.getSelectedItem());   // codigo david
              int id = pt.getIdPuesto();
              String nuevoNombre = jTextField13.getText();
+             
+             
              if(new DatosPuestoTrabajo().actualizarNombreDepartamento(nuevoNombre, id)){
                  JOptionPane.showMessageDialog(null,"Datos Actualizados");
                  llenarBuscarPT();
@@ -1416,6 +1420,7 @@ De nuevo erick y juan haciendo esta parte
                  JOptionPane.showMessageDialog(null,"Error al Actualizar");
         
              }
+             
         
         }else{
             jLabel27.setText("*Error hay un campo vacio");

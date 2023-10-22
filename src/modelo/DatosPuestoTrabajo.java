@@ -158,7 +158,9 @@ public class DatosPuestoTrabajo {
             ps = con.prepareStatement("select * from puestotrabajo");
             rs = ps.executeQuery();
             while(rs.next()){
-                res.add(new PuestoTrabajo(rs.getInt("IDPUESTO"),rs.getString("NOMBREPUESTO"))); 
+                if(rs.getInt("IDPUESTO")!=28){  // JUNTA DIRECTIVA NO ES UN PUESTO DE TRABAJO
+                   res.add(new PuestoTrabajo(rs.getInt("IDPUESTO"),rs.getString("NOMBREPUESTO"))); 
+                }
             }
             con.close();
         
@@ -187,6 +189,24 @@ public class DatosPuestoTrabajo {
         return res;
     
     
+    }
+    
+    
+    public Departamento getDepartamento(int id){
+        Departamento dep = null;
+        try{
+            Connection con = new Conexion().getConexion();
+            ps = con.prepareStatement("select dep.IDDEPARTAMENTO,dep.NOMBREDEPARTAMENTO from puestotrabajo as pt, departamento as dep where pt.IDDEPARTAMENTO = dep.IDDEPARTAMENTO and pt.IDPUESTO = ?");
+            ps.setInt(1, id);
+            rs = ps.executeQuery();
+            if(rs.next()){
+                dep = new Departamento(rs.getInt("IDDEPARTAMENTO"),rs.getString("NOMBREDEPARTAMENTO"));
+            }
+        }catch(Exception ex){
+            System.err.println("Error:" + ex);
+        
+        }
+        return dep;
     }
     
     
