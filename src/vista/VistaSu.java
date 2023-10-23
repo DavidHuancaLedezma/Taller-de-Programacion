@@ -219,6 +219,7 @@ public class VistaSu extends javax.swing.JFrame {
         jButton23 = new javax.swing.JButton();
         jButton24 = new javax.swing.JButton();
         jSeparator1 = new javax.swing.JSeparator();
+        jButton25 = new javax.swing.JButton();
         jPanel11 = new javax.swing.JPanel();
         jPanel12 = new javax.swing.JPanel();
         jPanel13 = new javax.swing.JPanel();
@@ -858,6 +859,14 @@ public class VistaSu extends javax.swing.JFrame {
         jPanel10.add(jButton24, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 140, 190, 30));
         jPanel10.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 210, 680, 10));
 
+        jButton25.setText("Atras");
+        jButton25.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton25ActionPerformed(evt);
+            }
+        });
+        jPanel10.add(jButton25, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 330, -1, -1));
+
         jTabbedPane1.addTab("tab7", jPanel10);
 
         javax.swing.GroupLayout jPanel11Layout = new javax.swing.GroupLayout(jPanel11);
@@ -1485,6 +1494,10 @@ De nuevo erick y juan haciendo esta parte
             JOptionPane.showMessageDialog(null,"Error al modificar el puesto de trabajo superior");
         }
     }//GEN-LAST:event_jButton24ActionPerformed
+
+    private void jButton25ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton25ActionPerformed
+        jTabbedPane1.setSelectedIndex(3);
+    }//GEN-LAST:event_jButton25ActionPerformed
     
     private void llenarBuscarPT(){   //implementar
         modelo3 = new DefaultComboBoxModel();
@@ -1671,6 +1684,7 @@ De nuevo erick y juan haciendo esta parte
     private javax.swing.JButton jButton22;
     private javax.swing.JButton jButton23;
     private javax.swing.JButton jButton24;
+    private javax.swing.JButton jButton25;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
