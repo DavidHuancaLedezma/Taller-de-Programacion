@@ -218,6 +218,7 @@ public class VistaSu extends javax.swing.JFrame {
         jLabel27 = new javax.swing.JLabel();
         jButton23 = new javax.swing.JButton();
         jButton24 = new javax.swing.JButton();
+        jSeparator1 = new javax.swing.JSeparator();
         jPanel11 = new javax.swing.JPanel();
         jPanel12 = new javax.swing.JPanel();
         jPanel13 = new javax.swing.JPanel();
@@ -855,6 +856,7 @@ public class VistaSu extends javax.swing.JFrame {
             }
         });
         jPanel10.add(jButton24, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 140, 190, 30));
+        jPanel10.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 210, 680, 10));
 
         jTabbedPane1.addTab("tab7", jPanel10);
 
@@ -1442,6 +1444,7 @@ De nuevo erick y juan haciendo esta parte
                  JOptionPane.showMessageDialog(null,"Datos Actualizados");
                  llenarBuscarPT();
                  jTextField13.setText("");
+                 jComboBox8.setSelectedIndex(0);
                  
              }else{
                  JOptionPane.showMessageDialog(null,"Error al Actualizar");
@@ -1460,6 +1463,7 @@ De nuevo erick y juan haciendo esta parte
         if(new DatosPuestoTrabajo().actualizarDepartamentoPertenece(dep.getIdDepartamento(),pt.getIdPuesto())){
             JOptionPane.showMessageDialog(null,"Se modifico con exito el departamento");
             jTextField13.setText("");
+            jComboBox8.setSelectedIndex(0);
         }else{
             JOptionPane.showMessageDialog(null,"Error al modificar el departamento");
         }
@@ -1476,6 +1480,7 @@ De nuevo erick y juan haciendo esta parte
         if(new DatosPuestoTrabajo().actualizarJefeSuperior(puestoSuperior.getIdPuesto(),pt.getIdPuesto())){
             JOptionPane.showMessageDialog(null,"Se modifico con exito el puesto de trabajo superior");
             jTextField13.setText("");
+            jComboBox8.setSelectedIndex(0);
         }else{
             JOptionPane.showMessageDialog(null,"Error al modificar el puesto de trabajo superior");
         }
@@ -1732,6 +1737,7 @@ De nuevo erick y juan haciendo esta parte
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JScrollPane jScrollPane5;
+    private javax.swing.JSeparator jSeparator1;
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JTextArea jTextArea1;
     private javax.swing.JTextArea jTextArea2;
