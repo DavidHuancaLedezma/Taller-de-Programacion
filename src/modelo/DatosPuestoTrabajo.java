@@ -209,6 +209,63 @@ public class DatosPuestoTrabajo {
         return dep;
     }
     
+    public PuestoTrabajo getPuestoSuperior(int id){
+       PuestoTrabajo pt = null;
+        try{
+            Connection con = new Conexion().getConexion();
+            ps = con.prepareStatement("select IDPUESTO, NOMBREPUESTO from puestotrabajo where IDPUESTO = (select PUE_IDPUESTO from puestotrabajo where IDPUESTO = ?)");
+            ps.setInt(1, id);
+            rs = ps.executeQuery();
+            if(rs.next()){
+                pt = new PuestoTrabajo(rs.getInt("IDPUESTO"),rs.getString("NOMBREPUESTO"));
+            }
+        }catch(Exception ex){
+            System.err.println("Error:" + ex);
+        
+        }
+        return pt;
+    }
+    
+    public boolean actualizarDepartamentoPertenece(int idNuevoDepartamento,int idPuesto){
+        boolean res = false;
+        try{
+            Connection con = new Conexion().getConexion();
+            ps = con.prepareStatement("update puestotrabajo set IDDEPARTAMENTO = ? where idpuesto = ?");
+            ps.setInt(1, idNuevoDepartamento);
+            ps.setInt(2, idPuesto);
+            if(ps.executeUpdate()>0){
+                res = true;
+                System.out.println("Se actualizo con exito");
+            }
+        
+        }catch(Exception ex){
+            System.err.println("Error:" + ex);
+        }
+        return res;
+    
+    
+    }
+    
+    public boolean actualizarJefeSuperior(int idNuevoJefe,int idPuesto){
+        boolean res = false;
+        try{
+            Connection con = new Conexion().getConexion();
+            ps = con.prepareStatement("update puestotrabajo set PUE_IDPUESTO = ? where idpuesto = ?");
+            ps.setInt(1, idNuevoJefe);
+            ps.setInt(2, idPuesto);
+            if(ps.executeUpdate()>0){
+                res = true;
+                System.out.println("Se actualizo con exito");
+            }
+        
+        }catch(Exception ex){
+            System.err.println("Error:" + ex);
+        }
+        return res;
+    
+    
+    }
+    
     
     
 }

@@ -216,6 +216,8 @@ public class VistaSu extends javax.swing.JFrame {
         jComboBox10 = new javax.swing.JComboBox<>();
         jButton21 = new javax.swing.JButton();
         jLabel27 = new javax.swing.JLabel();
+        jButton23 = new javax.swing.JButton();
+        jButton24 = new javax.swing.JButton();
         jPanel11 = new javax.swing.JPanel();
         jPanel12 = new javax.swing.JPanel();
         jPanel13 = new javax.swing.JPanel();
@@ -797,21 +799,26 @@ public class VistaSu extends javax.swing.JFrame {
         jPanel10.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel23.setText("Nombre del puesto:");
-        jPanel10.add(jLabel23, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 30, 120, -1));
-        jPanel10.add(jTextField13, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 30, 300, -1));
+        jPanel10.add(jLabel23, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 20, 120, -1));
+        jPanel10.add(jTextField13, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 40, 280, -1));
 
         jComboBox8.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        jPanel10.add(jComboBox8, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 90, 200, -1));
+        jComboBox8.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboBox8ActionPerformed(evt);
+            }
+        });
+        jPanel10.add(jComboBox8, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 90, 280, 30));
 
         jLabel24.setForeground(new java.awt.Color(255, 0, 0));
         jLabel24.setText("*Buscar puesto de trabajo");
         jPanel10.add(jLabel24, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 10, 160, -1));
 
         jLabel25.setText("Seleccione nuevo departamento");
-        jPanel10.add(jLabel25, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 70, -1, -1));
+        jPanel10.add(jLabel25, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 70, -1, -1));
 
         jLabel26.setText("Seleccione nuevo puesto superior");
-        jPanel10.add(jLabel26, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 70, -1, -1));
+        jPanel10.add(jLabel26, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 120, -1, -1));
 
         jComboBox9.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         jComboBox9.addActionListener(new java.awt.event.ActionListener() {
@@ -822,16 +829,32 @@ public class VistaSu extends javax.swing.JFrame {
         jPanel10.add(jComboBox9, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 30, 160, -1));
 
         jComboBox10.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        jPanel10.add(jComboBox10, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 90, 200, -1));
+        jPanel10.add(jComboBox10, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 140, 280, -1));
 
-        jButton21.setText("Actualizar");
+        jButton21.setText("Actualizar Nombre");
         jButton21.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton21ActionPerformed(evt);
             }
         });
-        jPanel10.add(jButton21, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 120, -1, -1));
-        jPanel10.add(jLabel27, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 120, 300, 20));
+        jPanel10.add(jButton21, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 40, 140, -1));
+        jPanel10.add(jLabel27, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 170, 300, 20));
+
+        jButton23.setText("Actualizar Departamento");
+        jButton23.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton23ActionPerformed(evt);
+            }
+        });
+        jPanel10.add(jButton23, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 90, 180, 30));
+
+        jButton24.setText("Actualizar Puesto Superior");
+        jButton24.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton24ActionPerformed(evt);
+            }
+        });
+        jPanel10.add(jButton24, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 140, 190, 30));
 
         jTabbedPane1.addTab("tab7", jPanel10);
 
@@ -1390,9 +1413,12 @@ De nuevo erick y juan haciendo esta parte
 
     private void jComboBox9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox9ActionPerformed
         PuestoTrabajo pt = (PuestoTrabajo)(jComboBox9.getSelectedItem());   //implementar
+        
         jTextField13.setText(pt.getNombrePuesto());
         Departamento dep = new DatosPuestoTrabajo().getDepartamento(pt.getIdPuesto());
+        PuestoTrabajo ptCombo = new DatosPuestoTrabajo().getPuestoSuperior(pt.getIdPuesto());
         jComboBox8.setSelectedItem(dep);
+        jComboBox10.setSelectedItem(ptCombo);
         // continuar aquiiiiii el codigo
         
         
@@ -1416,6 +1442,7 @@ De nuevo erick y juan haciendo esta parte
                  JOptionPane.showMessageDialog(null,"Datos Actualizados");
                  llenarBuscarPT();
                  jTextField13.setText("");
+                 
              }else{
                  JOptionPane.showMessageDialog(null,"Error al Actualizar");
         
@@ -1426,6 +1453,33 @@ De nuevo erick y juan haciendo esta parte
             jLabel27.setText("*Error hay un campo vacio");
         }
     }//GEN-LAST:event_jButton21ActionPerformed
+
+    private void jButton23ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton23ActionPerformed
+        Departamento dep = (Departamento)jComboBox8.getSelectedItem();
+        PuestoTrabajo pt = (PuestoTrabajo)jComboBox9.getSelectedItem();
+        if(new DatosPuestoTrabajo().actualizarDepartamentoPertenece(dep.getIdDepartamento(),pt.getIdPuesto())){
+            JOptionPane.showMessageDialog(null,"Se modifico con exito el departamento");
+            jTextField13.setText("");
+        }else{
+            JOptionPane.showMessageDialog(null,"Error al modificar el departamento");
+        }
+        
+    }//GEN-LAST:event_jButton23ActionPerformed
+
+    private void jComboBox8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox8ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jComboBox8ActionPerformed
+
+    private void jButton24ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton24ActionPerformed
+        PuestoTrabajo puestoSuperior = (PuestoTrabajo)jComboBox10.getSelectedItem();
+        PuestoTrabajo pt = (PuestoTrabajo)jComboBox9.getSelectedItem();
+        if(new DatosPuestoTrabajo().actualizarJefeSuperior(puestoSuperior.getIdPuesto(),pt.getIdPuesto())){
+            JOptionPane.showMessageDialog(null,"Se modifico con exito el puesto de trabajo superior");
+            jTextField13.setText("");
+        }else{
+            JOptionPane.showMessageDialog(null,"Error al modificar el puesto de trabajo superior");
+        }
+    }//GEN-LAST:event_jButton24ActionPerformed
     
     private void llenarBuscarPT(){   //implementar
         modelo3 = new DefaultComboBoxModel();
@@ -1610,6 +1664,8 @@ De nuevo erick y juan haciendo esta parte
     private javax.swing.JButton jButton20;
     private javax.swing.JButton jButton21;
     private javax.swing.JButton jButton22;
+    private javax.swing.JButton jButton23;
+    private javax.swing.JButton jButton24;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
