@@ -4,14 +4,12 @@
  */
 package modelo;
 
-import java.util.ArrayList;
-
 /**
  *
  * 
  */
 public class Puesto{
-    //private int idPuesto;
+    private int idPuesto;
     private String puesto;
     
     public Puesto(){
@@ -28,6 +26,14 @@ public class Puesto{
     public void setPuesto(String puesto){
         this.puesto = puesto;
     }
+    public void setIdPuesto(int idPuesto){
+        this.idPuesto = idPuesto;
+    }
+    public int getIdPuesto(){
+        return idPuesto;
+    }
+    
+    
     //El metodo de abajo es para convertir la direccion de memoria en String
     @Override
     public String toString(){

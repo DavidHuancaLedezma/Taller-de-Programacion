@@ -27,11 +27,12 @@ public ArrayList<Puesto> getListaPuestosDisponibles(){
         try{
 
             con = new Conexion().getConexion();
-            ps = con.prepareStatement("select nombrepuesto from puestotrabajo \n" +"where not exists (select nombrepuesto from funcionario where puestotrabajo.idpuesto = funcionario.idpuesto) and nombrepuesto != 'Junta Directiva'");
+            ps = con.prepareStatement("select IdPuesto,nombrepuesto from puestotrabajo \n" +"where not exists (select nombrepuesto from funcionario where puestotrabajo.idpuesto = funcionario.idpuesto) and nombrepuesto != 'Junta Directiva'");
             resultado = ps.executeQuery();
             while(resultado.next()){
                 puesto = new Puesto();
                 puesto.setPuesto(resultado.getString("nombrepuesto"));
+                puesto.setIdPuesto(resultado.getInt("IdPuesto"));
                 puestos.add(puesto);
                 
             }

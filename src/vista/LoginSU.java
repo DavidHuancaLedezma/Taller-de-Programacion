@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 package vista;
-import com.sun.glass.events.KeyEvent;
+//import com.sun.glass.events.KeyEvent;
 import javax.swing.JOptionPane;
 import modelo.*;
 /**
@@ -207,21 +207,21 @@ public class LoginSU extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton1ActionPerformed
 //evento keyPressed
     private void jButton1KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jButton1KeyPressed
-        if(evt.getKeyCode() == KeyEvent.VK_ENTER){
-            iniciarSesion();
-        }
+        //if(evt.getKeyCode() == KeyEvent.VK_ENTER){
+         //   iniciarSesion();
+        //}
     }//GEN-LAST:event_jButton1KeyPressed
 
     private void cajaUsuarioSUKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_cajaUsuarioSUKeyPressed
-       if(evt.getKeyCode() == KeyEvent.VK_ENTER){
-            iniciarSesion();
-        }
+       //if(evt.getKeyCode() == KeyEvent.VK_ENTER){
+         //   iniciarSesion();
+        //}
     }//GEN-LAST:event_cajaUsuarioSUKeyPressed
 
     private void cajaContraseñaSUKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_cajaContraseñaSUKeyPressed
-      if(evt.getKeyCode() == KeyEvent.VK_ENTER){
-            iniciarSesion();
-        }
+      //if(evt.getKeyCode() == KeyEvent.VK_ENTER){
+        //    iniciarSesion();
+        //}
     }//GEN-LAST:event_cajaContraseñaSUKeyPressed
 
     /**

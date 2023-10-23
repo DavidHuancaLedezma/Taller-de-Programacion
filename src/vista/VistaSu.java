@@ -28,7 +28,7 @@ public class VistaSu extends javax.swing.JFrame {
     private ArrayList<String>funcionGeneral = new ArrayList<String>();
     private ArrayList<String>funcionesEspesificas = new ArrayList<String>();
     
-    
+    public int aux =-1; //Variable exclusiva para la insercion en otra tabla creada por erick
     
     
     
@@ -52,13 +52,25 @@ public class VistaSu extends javax.swing.JFrame {
     /*
     @author Erick--> Inicio codigo de combo box para hacer la automatizacines
     */
-    public void llenarComboBoxPuestosDisponibles(){
-        jComboBox1.removeAllItems();
+   public void llenarComboBoxPuestosDisponibles(){
+        //jComboBox1.removeAllItems();
+        modelo = new DefaultComboBoxModel(); //se puede comentar despues
         lista = new InformacionPuesto().getListaPuestosDisponibles();
-        jComboBox1.addItem("Selecione un Puesto");
+        //jComboBox1.addItem("Selecione un Puesto");
         for(int i=0; i<lista.size(); i++){
-            jComboBox1.addItem(lista.get(i).toString());
+            //jComboBox1.addItem(lista.get(i).getPuesto());
+            modelo.addElement(lista.get(i));
         }
+        jComboBox1.setModel(modelo);
+        /**
+         * modelo = new DefaultComboBoxModel();
+        ArrayList<Departamento>contenido = new DatosPuestoTrabajo().getDepartamentos();
+        for(int i=0;i<contenido.size();i++){
+            modelo.addElement(contenido.get(i));
+        }
+        jComboBox2.setModel(modelo);
+         */
+        
     }
     public void llenarComboBoxPuestos(){
         jComboBox7.removeAllItems();
@@ -516,23 +528,19 @@ public class VistaSu extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jComboBox6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jComboBox7, javax.swing.GroupLayout.PREFERRED_SIZE, 164, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jComboBox7, javax.swing.GroupLayout.PREFERRED_SIZE, 164, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jButton7))
                         .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(jPanel6Layout.createSequentialGroup()
+                        .addGap(52, 52, 52)
                         .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel6Layout.createSequentialGroup()
-                                .addGap(52, 52, 52)
-                                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel22)
-                                    .addComponent(jLabel20))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addGroup(jPanel6Layout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jButton7)))
-                        .addContainerGap(109, Short.MAX_VALUE))))
+                            .addComponent(jLabel22)
+                            .addComponent(jLabel20))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
         jPanel6Layout.setVerticalGroup(
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -559,7 +567,7 @@ public class VistaSu extends javax.swing.JFrame {
                         .addComponent(jLabel9)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addContainerGap(49, Short.MAX_VALUE))
                     .addGroup(jPanel6Layout.createSequentialGroup()
                         .addComponent(jComboBox6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -987,6 +995,8 @@ public class VistaSu extends javax.swing.JFrame {
 
     private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
         // TODO add your handling code here:
+        Puesto puesto = (Puesto)(jComboBox1.getSelectedItem());
+        aux = puesto.getIdPuesto();
     }//GEN-LAST:event_jComboBox1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
