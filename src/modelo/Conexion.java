@@ -13,9 +13,9 @@ import java.sql.DriverManager;
  * @author DavidH
  */
 public class Conexion {
-    private String URL = "jdbc:mysql://localhost:3306/tallerprogramacion3?autoReconnet=true&useSSL=false"; // corregir con datos originales
+    private String URL = "jdbc:mysql://localhost:3306/taller_de_programacion_beta6?autoReconnet=true&useSSL=false"; // corregir con datos originales
     private String usuario = "root";  // usuario por defecto
-    private String password = "1234"; // la base de datos del xampp no tiene contraseña
+    private String password = ""; // la base de datos del xampp no tiene contraseña
 
     public Connection getConexion() {
         Connection conexion = null;
