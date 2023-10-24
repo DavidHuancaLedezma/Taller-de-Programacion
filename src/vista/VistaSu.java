@@ -31,7 +31,7 @@ public class VistaSu extends javax.swing.JFrame {
     public int aux =-1; //Variable exclusiva para la insercion en otra tabla creada por erick
     
     
-    
+    int idCurriculum;
     PreparedStatement psSU, psAux ; 
     ResultSet rsSU, rsAux ;
     //Conexion prueba;
@@ -732,18 +732,53 @@ public class VistaSu extends javax.swing.JFrame {
         jScrollPane9.setViewportView(jTextArea9);
 
         jButton27.setText("crear");
+        jButton27.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton27ActionPerformed(evt);
+            }
+        });
 
         jButton28.setText("añadir");
+        jButton28.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton28ActionPerformed(evt);
+            }
+        });
 
         jButton29.setText("crear");
+        jButton29.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton29ActionPerformed(evt);
+            }
+        });
 
         jButton30.setText("crear");
+        jButton30.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton30ActionPerformed(evt);
+            }
+        });
 
         jButton31.setText("crear");
+        jButton31.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton31ActionPerformed(evt);
+            }
+        });
 
         jButton32.setText("añadir");
+        jButton32.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton32ActionPerformed(evt);
+            }
+        });
 
         jButton33.setText("añadir");
+        jButton33.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton33ActionPerformed(evt);
+            }
+        });
 
         jButton34.setText("añadir");
         jButton34.addActionListener(new java.awt.event.ActionListener() {
@@ -1695,8 +1730,105 @@ De nuevo erick y juan haciendo esta parte
     }//GEN-LAST:event_jButton26ActionPerformed
 
     private void jButton34ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton34ActionPerformed
-        // TODO add your handling code here:
+      if(jTextArea9.getText().equals("")){
+          JOptionPane.showMessageDialog(null, "campos vacios");
+        }else{
+          try{Connection conexion = new Conexion().getConexion();
+           //creamos actividades para el curriculum 
+            psSU = conexion.prepareStatement(" insert into estudioacademico(IDCURRICULUM,DATOSESTUDIOACADEMICO) values(?,?)");
+            psSU.setInt(1,idCurriculum );
+            psSU.setString(2,jTextArea9.getText());
+            psSU.executeUpdate();
+            psSU.close();
+            JOptionPane.showMessageDialog(null,"dato registrado correctamente");
+            jButton34.setEnabled(false);  
+          }catch(Exception e){
+        
+        }   
+          
+        }  
     }//GEN-LAST:event_jButton34ActionPerformed
+
+    private void jButton27ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton27ActionPerformed
+       jTextArea6.setText("");
+       jButton28.setEnabled(true);
+    }//GEN-LAST:event_jButton27ActionPerformed
+
+    private void jButton31ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton31ActionPerformed
+        jTextArea7.setText("");
+        jButton33.setEnabled(true);
+    }//GEN-LAST:event_jButton31ActionPerformed
+
+    private void jButton29ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton29ActionPerformed
+        jTextArea8.setText("");
+        jButton32.setEnabled(true);
+    }//GEN-LAST:event_jButton29ActionPerformed
+
+    private void jButton30ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton30ActionPerformed
+       jTextArea9.setText("");
+     jButton34.setEnabled(true);
+    }//GEN-LAST:event_jButton30ActionPerformed
+
+    private void jButton28ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton28ActionPerformed
+          
+        if(jTextArea6.getText().equals("")){
+          JOptionPane.showMessageDialog(null, "campos vacios");
+        }else{
+          try{Connection conexion = new Conexion().getConexion();
+           //creamos actividades para el curriculum 
+            psSU = conexion.prepareStatement(" insert into actividaddocente(IDCURRICULUM,ACTIVIDADDOCENTE) values(?,?)");
+            psSU.setInt(1,idCurriculum );
+            psSU.setString(2,jTextArea6.getText());
+            psSU.executeUpdate();
+            psSU.close();
+            JOptionPane.showMessageDialog(null,"dato registrado correctamente");
+            jButton28.setEnabled(false);  
+          }catch(Exception e){
+        
+        }   
+          
+        }
+    }//GEN-LAST:event_jButton28ActionPerformed
+
+    private void jButton32ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton32ActionPerformed
+      if(jTextArea8.getText().equals("")){
+          JOptionPane.showMessageDialog(null, "campos vacios");
+        }else{
+          try{Connection conexion = new Conexion().getConexion();
+           //creamos actividades para el curriculum
+            psSU = conexion.prepareStatement(" insert into actividadprofesional(IDCURRICULUM,DATOSACTIVIDADPROFESIONAL) values(?,?)");
+            psSU.setInt(1,idCurriculum );
+            psSU.setString(2,jTextArea8.getText());
+            psSU.executeUpdate();
+            psSU.close();
+            JOptionPane.showMessageDialog(null,"dato registrado correctamente");
+            jButton32.setEnabled(false);  
+          }catch(Exception e){
+        
+        }   
+          
+        }    
+    }//GEN-LAST:event_jButton32ActionPerformed
+
+    private void jButton33ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton33ActionPerformed
+         if(jTextArea7.getText().equals("")){
+          JOptionPane.showMessageDialog(null, "campos vacios");
+        }else{
+          try{Connection conexion = new Conexion().getConexion();
+           //creamos actividades para el curriculum 
+            psSU = conexion.prepareStatement(" insert into cargosoficialesdesempenados(IDCURRICULUM,DATOSDESEMPENADO) values(?,?)");
+            psSU.setInt(1,idCurriculum );
+            psSU.setString(2,jTextArea7.getText());
+            psSU.executeUpdate();
+            psSU.close();
+            JOptionPane.showMessageDialog(null,"dato registrado correctamente");
+            jButton33.setEnabled(false);  
+          }catch(Exception e){
+        
+        }   
+          
+        }
+    }//GEN-LAST:event_jButton33ActionPerformed
    private void mostrarActividadProfesional(String c){
     Integer ci = Integer.parseInt(jTextField6.getText());
         int claveFuncionario = buscarIDFuncionario(ci);
@@ -1710,6 +1842,7 @@ De nuevo erick y juan haciendo esta parte
       rsSU = psSU.executeQuery();
       if(rsSU.next()){
       jTextArea8.setText(""+rsSU.getString("DATOSACTIVIDADPROFESIONAL"));
+      idCurriculum = rsSU.getInt("IDCURRICULUM");
       }
       
       
