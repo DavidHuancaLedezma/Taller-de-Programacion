@@ -262,6 +262,14 @@ public class VistaSu extends javax.swing.JFrame {
         jButton24 = new javax.swing.JButton();
         jSeparator1 = new javax.swing.JSeparator();
         jButton25 = new javax.swing.JButton();
+        jLabel34treintaYcuatro = new javax.swing.JLabel();
+        jLabel35treintaYcinco = new javax.swing.JLabel();
+        jTextField15 = new javax.swing.JTextField();
+        jTextField16 = new javax.swing.JTextField();
+        jComboBox12 = new javax.swing.JComboBox<>();
+        jComboBox11once = new javax.swing.JComboBox<>();
+        jButton35treintaYcinco = new javax.swing.JButton();
+        jButton36treintaYseis = new javax.swing.JButton();
         jPanel11 = new javax.swing.JPanel();
         jPanel13 = new javax.swing.JPanel();
         jPanel14 = new javax.swing.JPanel();
@@ -611,7 +619,7 @@ public class VistaSu extends javax.swing.JFrame {
                                     .addGap(21, 21, 21))
                                 .addGroup(jPanel6Layout.createSequentialGroup()
                                     .addContainerGap()
-                                    .addComponent(jButton26, javax.swing.GroupLayout.DEFAULT_SIZE, 66, Short.MAX_VALUE)
+                                    .addComponent(jButton26, javax.swing.GroupLayout.DEFAULT_SIZE, 68, Short.MAX_VALUE)
                                     .addGap(26, 26, 26)))
                             .addGroup(jPanel6Layout.createSequentialGroup()
                                 .addContainerGap()
@@ -648,7 +656,7 @@ public class VistaSu extends javax.swing.JFrame {
                             .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jComboBox7, javax.swing.GroupLayout.PREFERRED_SIZE, 164, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jButton7))))
-                .addContainerGap(7, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel6Layout.setVerticalGroup(
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1165,15 +1173,35 @@ public class VistaSu extends javax.swing.JFrame {
             }
         });
         jPanel10.add(jButton24, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 140, 190, 30));
-        jPanel10.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 210, 680, 10));
+        jPanel10.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 190, 680, 10));
 
-        jButton25.setText("Atras");
+        jButton25.setText("Regresar Atras");
         jButton25.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton25ActionPerformed(evt);
             }
         });
-        jPanel10.add(jButton25, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 330, -1, -1));
+        jPanel10.add(jButton25, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 150, -1, -1));
+
+        jLabel34treintaYcuatro.setText("Funcion general:");
+        jPanel10.add(jLabel34treintaYcuatro, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 200, -1, -1));
+
+        jLabel35treintaYcinco.setText("Funcion especifica:");
+        jPanel10.add(jLabel35treintaYcinco, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 230, 110, -1));
+        jPanel10.add(jTextField15, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 280, 520, -1));
+        jPanel10.add(jTextField16, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 320, 520, -1));
+
+        jComboBox12.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jPanel10.add(jComboBox12, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 230, 550, -1));
+
+        jComboBox11once.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jPanel10.add(jComboBox11once, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 200, 550, -1));
+
+        jButton35treintaYcinco.setText("Actualizar F.G");
+        jPanel10.add(jButton35treintaYcinco, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 280, 110, 30));
+
+        jButton36treintaYseis.setText("Actualizar F.E");
+        jPanel10.add(jButton36treintaYseis, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 320, 110, 30));
 
         jTabbedPane1.addTab("tab7", jPanel10);
 
@@ -2574,7 +2602,9 @@ De nuevo erick y juan haciendo esta parte
     private javax.swing.JButton jButton33;
     private javax.swing.JButton jButton34;
     private javax.swing.JButton jButton35;
+    private javax.swing.JButton jButton35treintaYcinco;
     private javax.swing.JButton jButton36;
+    private javax.swing.JButton jButton36treintaYseis;
     private javax.swing.JButton jButton37;
     private javax.swing.JButton jButton38;
     private javax.swing.JButton jButton39;
@@ -2593,6 +2623,8 @@ De nuevo erick y juan haciendo esta parte
     private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JComboBox<String> jComboBox10;
     private javax.swing.JComboBox<String> jComboBox11;
+    private javax.swing.JComboBox<String> jComboBox11once;
+    private javax.swing.JComboBox<String> jComboBox12;
     private javax.swing.JComboBox<String> jComboBox2;
     private javax.swing.JComboBox<String> jComboBox3;
     private javax.swing.JComboBox<String> jComboBox4;
@@ -2629,7 +2661,9 @@ De nuevo erick y juan haciendo esta parte
     private javax.swing.JLabel jLabel32;
     private javax.swing.JLabel jLabel33;
     private javax.swing.JLabel jLabel34;
+    private javax.swing.JLabel jLabel34treintaYcuatro;
     private javax.swing.JLabel jLabel35;
+    private javax.swing.JLabel jLabel35treintaYcinco;
     private javax.swing.JLabel jLabel36;
     private javax.swing.JLabel jLabel37;
     private javax.swing.JLabel jLabel38;
@@ -2692,6 +2726,8 @@ De nuevo erick y juan haciendo esta parte
     private javax.swing.JTextField jTextField12;
     private javax.swing.JTextField jTextField13;
     private javax.swing.JTextField jTextField14;
+    private javax.swing.JTextField jTextField15;
+    private javax.swing.JTextField jTextField16;
     private javax.swing.JTextField jTextField2;
     private javax.swing.JTextField jTextField3;
     private javax.swing.JTextField jTextField4;
