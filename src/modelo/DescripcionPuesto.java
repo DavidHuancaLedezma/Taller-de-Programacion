@@ -50,7 +50,9 @@ public void insertarDescripcionPuesto(int idPuesto){
         }
 
 public void insertarExperiencia(int idDescripcionPuesto,String textoExperiencia){
+    
     try{
+        
         Connection conexion = new Conexion().getConexion();
         ps = conexion.prepareStatement("insert into Experiencia (descripcionExperiencia,IdDescripcionPuesto) values(?,?)");
         ps.setString(1,textoExperiencia);
@@ -98,6 +100,19 @@ try{
         }catch(Exception ex){
             System.err.print("Eroor:"+ex);
         }
+    }
+    public void insertarEsfuerzo(int idDescripcionPuesto, String tipoEsfuerzo, String descripcionPuesto){
+        try{
+        Connection conexion = new Conexion().getConexion();
+        ps = conexion.prepareStatement("insert into esfuerzo(IdDescripcionPuesto,TipoDeEsfuerzo,DESCRIPCIONDELESFUERZO) values(?,?,?)");
+        ps.setInt(1, idDescripcionPuesto);
+        ps.setString(2,tipoEsfuerzo);
+        ps.setString(3, descripcionPuesto);
+        ps.executeUpdate();
+        ps.close();
+        }catch(Exception ex){
+            System.err.print("Eroor:"+ex);
+        } 
     }
 }
 
