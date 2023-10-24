@@ -28,8 +28,8 @@ public class VistaSu extends javax.swing.JFrame {
     private ArrayList<String>funcionGeneral = new ArrayList<String>();
     private ArrayList<String>funcionesEspesificas = new ArrayList<String>();
     
-    public int aux =-1; //Variable exclusiva para la insercion en otra tabla creada por erick
-    
+    public int idPuesto =-1; //Variable exclusiva para la insercion en otra tabla creada por erick
+    public int idDescripcionPuesto=0;
     
     int idCurriculum;
     PreparedStatement psSU, psAux ; 
@@ -166,6 +166,7 @@ public class VistaSu extends javax.swing.JFrame {
         jButton8 = new javax.swing.JButton();
         jTextField7 = new javax.swing.JTextField();
         jButton26 = new javax.swing.JButton();
+        jButton35 = new javax.swing.JButton();
         jPanel5 = new javax.swing.JPanel();
         jPanel6 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
@@ -257,12 +258,25 @@ public class VistaSu extends javax.swing.JFrame {
         jSeparator1 = new javax.swing.JSeparator();
         jButton25 = new javax.swing.JButton();
         jPanel11 = new javax.swing.JPanel();
-        jPanel12 = new javax.swing.JPanel();
         jPanel13 = new javax.swing.JPanel();
         jPanel14 = new javax.swing.JPanel();
         jPanel15 = new javax.swing.JPanel();
         jPanel16 = new javax.swing.JPanel();
         jPanel17 = new javax.swing.JPanel();
+        jPanel12 = new javax.swing.JPanel();
+        jScrollPane10 = new javax.swing.JScrollPane();
+        jTextArea10 = new javax.swing.JTextArea();
+        jScrollPane11 = new javax.swing.JScrollPane();
+        jTextArea11 = new javax.swing.JTextArea();
+        jScrollPane12 = new javax.swing.JScrollPane();
+        jTextArea12 = new javax.swing.JTextArea();
+        jScrollPane13 = new javax.swing.JScrollPane();
+        jTextArea13 = new javax.swing.JTextArea();
+        jLabel34 = new javax.swing.JLabel();
+        jLabel35 = new javax.swing.JLabel();
+        jLabel36 = new javax.swing.JLabel();
+        jLabel37 = new javax.swing.JLabel();
+        jButton36 = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
 
         jTextField5.addActionListener(new java.awt.event.ActionListener() {
@@ -470,6 +484,14 @@ public class VistaSu extends javax.swing.JFrame {
             }
         });
         jPanel4.add(jButton26, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 150, 90, 40));
+
+        jButton35.setText("Siguiente");
+        jButton35.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton35ActionPerformed(evt);
+            }
+        });
+        jPanel4.add(jButton35, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 220, 80, 30));
 
         jTabbedPane1.addTab("tab1", jPanel4);
 
@@ -1094,19 +1116,6 @@ public class VistaSu extends javax.swing.JFrame {
 
         jTabbedPane1.addTab("tab8", jPanel11);
 
-        javax.swing.GroupLayout jPanel12Layout = new javax.swing.GroupLayout(jPanel12);
-        jPanel12.setLayout(jPanel12Layout);
-        jPanel12Layout.setHorizontalGroup(
-            jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 678, Short.MAX_VALUE)
-        );
-        jPanel12Layout.setVerticalGroup(
-            jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 364, Short.MAX_VALUE)
-        );
-
-        jTabbedPane1.addTab("tab9", jPanel12);
-
         javax.swing.GroupLayout jPanel13Layout = new javax.swing.GroupLayout(jPanel13);
         jPanel13.setLayout(jPanel13Layout);
         jPanel13Layout.setHorizontalGroup(
@@ -1172,6 +1181,107 @@ public class VistaSu extends javax.swing.JFrame {
 
         jTabbedPane1.addTab("tab14", jPanel17);
 
+        jPanel12.setBackground(new java.awt.Color(51, 51, 51));
+
+        jTextArea10.setColumns(20);
+        jTextArea10.setRows(5);
+        jScrollPane10.setViewportView(jTextArea10);
+
+        jTextArea11.setColumns(20);
+        jTextArea11.setRows(5);
+        jScrollPane11.setViewportView(jTextArea11);
+
+        jTextArea12.setColumns(20);
+        jTextArea12.setRows(5);
+        jScrollPane12.setViewportView(jTextArea12);
+
+        jTextArea13.setColumns(20);
+        jTextArea13.setRows(5);
+        jScrollPane13.setViewportView(jTextArea13);
+
+        jLabel34.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel34.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel34.setText("Experiencia");
+
+        jLabel35.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel35.setText("Escolaridad");
+
+        jLabel36.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel36.setText("Habilidad y destreza");
+
+        jLabel37.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel37.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel37.setText("Aptitudes");
+
+        jButton36.setText("Registrar");
+        jButton36.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton36ActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel12Layout = new javax.swing.GroupLayout(jPanel12);
+        jPanel12.setLayout(jPanel12Layout);
+        jPanel12Layout.setHorizontalGroup(
+            jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel12Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(jPanel12Layout.createSequentialGroup()
+                        .addComponent(jLabel36)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(jPanel12Layout.createSequentialGroup()
+                        .addComponent(jLabel34)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jScrollPane10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel12Layout.createSequentialGroup()
+                        .addComponent(jLabel35)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 51, Short.MAX_VALUE)
+                        .addComponent(jScrollPane11, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel12Layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(jScrollPane12, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGroup(jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel12Layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 86, Short.MAX_VALUE)
+                        .addGroup(jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jScrollPane13, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel37))
+                        .addGap(23, 23, 23))
+                    .addGroup(jPanel12Layout.createSequentialGroup()
+                        .addGap(110, 110, 110)
+                        .addComponent(jButton36, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+        );
+        jPanel12Layout.setVerticalGroup(
+            jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel12Layout.createSequentialGroup()
+                .addGap(20, 20, 20)
+                .addGroup(jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel12Layout.createSequentialGroup()
+                        .addGroup(jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel34)
+                            .addComponent(jScrollPane10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addGroup(jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jScrollPane11, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel35))
+                        .addGap(18, 18, 18)
+                        .addComponent(jLabel36)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 11, Short.MAX_VALUE)
+                        .addComponent(jScrollPane12, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(32, 32, 32))
+                    .addGroup(jPanel12Layout.createSequentialGroup()
+                        .addComponent(jLabel37)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jScrollPane13, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jButton36, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(57, 57, 57))))
+        );
+
+        jTabbedPane1.addTab("tab9", jPanel12);
+
         jPanel1.add(jTabbedPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 60, 680, 390));
 
         jLabel1.setBackground(new java.awt.Color(0, 0, 0));
@@ -1198,9 +1308,8 @@ public class VistaSu extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
-        // TODO add your handling code here:
         Puesto puesto = (Puesto)(jComboBox1.getSelectedItem());
-        aux = puesto.getIdPuesto();
+        idPuesto = puesto.getIdPuesto();
     }//GEN-LAST:event_jComboBox1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
@@ -1829,6 +1938,23 @@ De nuevo erick y juan haciendo esta parte
           
         }
     }//GEN-LAST:event_jButton33ActionPerformed
+
+    private void jButton35ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton35ActionPerformed
+        new Funcionario().insercionFuncionario(jTextField2.getText(),idPuesto,jTextField6.getText(),jTextField4.getText(),Date.valueOf(jTextField3.getText()));
+        DescripcionPuesto inserciones = new DescripcionPuesto();
+        inserciones.insertarDescripcionPuesto(idPuesto);
+        idDescripcionPuesto = inserciones.getIdDescripcionPuesto();
+        jTabbedPane1.setSelectedIndex(13);
+    }//GEN-LAST:event_jButton35ActionPerformed
+
+    private void jButton36ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton36ActionPerformed
+        DescripcionPuesto inserciones = new DescripcionPuesto();
+        //int idDescripcionPuesto = inserciones.getIdDescripcionPuesto();
+        inserciones.insertarExperiencia(idDescripcionPuesto, jTextArea10.getText());
+        inserciones.insertarHabilidadDestreza(idDescripcionPuesto, jTextArea12.getText());
+        inserciones.insertarEscolaridad(idDescripcionPuesto, jTextArea11.getText());
+        inserciones.insertarAptitudes(idDescripcionPuesto, jTextArea13.getText());
+    }//GEN-LAST:event_jButton36ActionPerformed
    private void mostrarActividadProfesional(String c){
     Integer ci = Integer.parseInt(jTextField6.getText());
         int claveFuncionario = buscarIDFuncionario(ci);
@@ -1836,9 +1962,9 @@ De nuevo erick y juan haciendo esta parte
       try{
       Connection conexion = new Conexion().getConexion();    
       psSU = conexion.prepareStatement("select * " +
-"FROM funcionario f, curriculum c,   actividadprofesional a " +
-"where f.IDFUNCIONARIO = c.IDFUNCIONARIO and c.IDCURRICULUM= a.IDCURRICULUM " +
-" and f.IDFUNCIONARIO="+claveFuncionario);
+    "FROM funcionario f, curriculum c,   actividadprofesional a " +
+    "where f.IDFUNCIONARIO = c.IDFUNCIONARIO and c.IDCURRICULUM= a.IDCURRICULUM " +
+    " and f.IDFUNCIONARIO="+claveFuncionario);
       rsSU = psSU.executeQuery();
       if(rsSU.next()){
       jTextArea8.setText(""+rsSU.getString("DATOSACTIVIDADPROFESIONAL"));
@@ -2128,6 +2254,8 @@ De nuevo erick y juan haciendo esta parte
     private javax.swing.JButton jButton32;
     private javax.swing.JButton jButton33;
     private javax.swing.JButton jButton34;
+    private javax.swing.JButton jButton35;
+    private javax.swing.JButton jButton36;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
     private javax.swing.JButton jButton6;
@@ -2171,6 +2299,10 @@ De nuevo erick y juan haciendo esta parte
     private javax.swing.JLabel jLabel31;
     private javax.swing.JLabel jLabel32;
     private javax.swing.JLabel jLabel33;
+    private javax.swing.JLabel jLabel34;
+    private javax.swing.JLabel jLabel35;
+    private javax.swing.JLabel jLabel36;
+    private javax.swing.JLabel jLabel37;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
@@ -2195,6 +2327,10 @@ De nuevo erick y juan haciendo esta parte
     private javax.swing.JPanel jPanel8;
     private javax.swing.JPanel jPanel9;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane10;
+    private javax.swing.JScrollPane jScrollPane11;
+    private javax.swing.JScrollPane jScrollPane12;
+    private javax.swing.JScrollPane jScrollPane13;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
@@ -2206,6 +2342,10 @@ De nuevo erick y juan haciendo esta parte
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JTextArea jTextArea1;
+    private javax.swing.JTextArea jTextArea10;
+    private javax.swing.JTextArea jTextArea11;
+    private javax.swing.JTextArea jTextArea12;
+    private javax.swing.JTextArea jTextArea13;
     private javax.swing.JTextArea jTextArea2;
     private javax.swing.JTextArea jTextArea3;
     private javax.swing.JTextArea jTextArea4;

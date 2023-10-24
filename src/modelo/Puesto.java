@@ -15,7 +15,8 @@ public class Puesto{
     public Puesto(){
     }
     
-    public Puesto(String puesto){
+    public Puesto(String puesto, int idPuesto){
+        this.idPuesto = idPuesto;
         this.puesto  = puesto;
     }
     

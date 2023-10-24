@@ -6,24 +6,54 @@
 package modelo;
 
 import com.mysql.jdbc.Connection;
+import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
+import javax.swing.JOptionPane;
 
 /**
  *
  * @author DavidH
  */
 public class Funcionario {
-    private PreparedStatement ps;
-    private ResultSet rs;
+    private PreparedStatement ps,psAux;
+    private ResultSet rs,rsAux;
     private String usuario;
     private String contraseña;
     
+    public Funcionario(){
+        
+    }
     public Funcionario(String usuario,String contraseña){
         this.usuario = usuario;
         this.contraseña = contraseña;
     }
+    /*
+    Inserciones hecho por erick
+    */
+    public void insercionFuncionario(String nombreFuncionario,int IdPuesto,String ci, String telefono,Date fecha){
+    try {
+             java.sql.Connection conexion = new Conexion().getConexion();
+             ps = conexion.prepareStatement("insert into funcionario (nombreFuncionario,IdPuesto,CI,telefono,fechaNacimiento)values(?,?,?,?,?)");
+             ps.setString(1,nombreFuncionario);
+             ps.setInt(2,IdPuesto);
+             ps.setString(3, ci);
+             ps.setString(4,telefono);
+             ps.setDate(5,fecha);
+             int resultado = ps.executeUpdate();
+            psAux = conexion.prepareStatement("SELECT MAX(IDFUNCIONARIO) FROM FUNCIONARIO");
+            rsAux = psAux.executeQuery();
+            int idFuncionario = 0; 
+            if (rsAux.next()) {
+                idFuncionario = rsAux.getInt(1); // Obtener el valor de la columna 1 (la única columna en este caso)
+            }
+            conexion.close();
+        }catch (Exception ex ){
+          System.err.println("Error:" + ex);
+        }
+    }
+    
     
     public String getNombre(){
         String res = "";

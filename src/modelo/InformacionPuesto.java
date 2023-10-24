@@ -22,7 +22,7 @@ public class InformacionPuesto {
     private Connection con;
 public ArrayList<Puesto> getListaPuestosDisponibles(){
         ArrayList <Puesto> puestos = new ArrayList();
-        Puesto puesto = null;
+        Puesto puesto;
         
         try{
 
