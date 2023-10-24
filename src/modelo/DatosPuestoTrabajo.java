@@ -268,4 +268,79 @@ public class DatosPuestoTrabajo {
     
     
     
+    
+    public ArrayList<FuncionGeneral> getFuncinesGenerales(int id){
+        ArrayList<FuncionGeneral>res = new ArrayList<FuncionGeneral>();
+        try{
+            Connection con = new Conexion().getConexion();
+            ps = con.prepareStatement("select fg.IDFUNCION,fg.DATOFUNCIONGENERAL as descripcion from puestotrabajo as pt, funciongeneral as fg where pt.IDPUESTO = fg.IDPUESTO and pt.IDPUESTO = ?");
+            ps.setInt(1,id);
+            rs = ps.executeQuery();
+            while(rs.next()){
+                res.add(new FuncionGeneral(rs.getInt("IDFUNCION"),rs.getString("descripcion")));
+            }
+        }catch(Exception ex){
+            System.err.println("Error:" + ex);
+        }
+        return res;
+    }
+    
+    
+    
+    
+    
+    public ArrayList<FuncionEspecifica> getFuncinesEspecificas(int id){
+        ArrayList<FuncionEspecifica>res = new ArrayList<FuncionEspecifica>();
+        try{
+            Connection con = new Conexion().getConexion();
+            ps = con.prepareStatement("select fe.IDFUNCIONESPECIFICA as id, fe.DESCRIPCIONFUNCION as descripcion from puestotrabajo as pt, funcionespecifica as fe where pt.IDPUESTO = fe.IDPUESTO and pt.IDPUESTO = ?");
+            ps.setInt(1,id);
+            rs = ps.executeQuery();
+            while(rs.next()){
+                res.add(new FuncionEspecifica(rs.getInt("id"),rs.getString("descripcion")));
+            }
+        }catch(Exception ex){
+            System.err.println("Error:" + ex);
+        }
+        return res;
+    }
+    
+    public boolean actualizarFG(String descripcion,int id){
+        boolean res = false;
+        try{
+            Connection con = new Conexion().getConexion();
+            ps = con.prepareStatement("update funciongeneral set DATOFUNCIONGENERAL = ? where IDFUNCION = ?");
+            ps.setString(1, descripcion);
+            ps.setInt(2, id);
+            if(ps.executeUpdate()>0){
+                res = true;
+            }
+            
+        }catch(Exception ex){
+            System.err.println("Error:" + ex);
+        }
+        
+        return res;
+    
+    }
+    
+    
+    public boolean actualizarFE(String descripcion,int id){
+        boolean res = false;
+        try{
+            Connection con = new Conexion().getConexion();
+            ps = con.prepareStatement("update funcionespecifica set DESCRIPCIONFUNCION = ? where IDFUNCIONESPECIFICA = ?");
+            ps.setString(1, descripcion);
+            ps.setInt(2, id);
+            if(ps.executeUpdate()>0){
+                res = true;
+            }   
+        }catch(Exception ex){
+            System.err.println("Error:" + ex);
+        }
+        return res;
+    }
+    
+    
+    
 }
