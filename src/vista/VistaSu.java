@@ -280,6 +280,8 @@ public class VistaSu extends javax.swing.JFrame {
         jComboBox11once = new javax.swing.JComboBox<>();
         jButton35treintaYcinco = new javax.swing.JButton();
         jButton36treintaYseis = new javax.swing.JButton();
+        jButton500 = new javax.swing.JButton();
+        jTextField500 = new javax.swing.JTextField();
         jPanel11 = new javax.swing.JPanel();
         jPanel13 = new javax.swing.JPanel();
         jPanel14 = new javax.swing.JPanel();
@@ -1238,8 +1240,8 @@ public class VistaSu extends javax.swing.JFrame {
 
         jLabel35treintaYcinco.setText("Funcion especifica:");
         jPanel10.add(jLabel35treintaYcinco, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 230, 110, -1));
-        jPanel10.add(jTextField15, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 280, 520, -1));
-        jPanel10.add(jTextField16, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 320, 520, -1));
+        jPanel10.add(jTextField15, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 260, 520, -1));
+        jPanel10.add(jTextField16, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 290, 520, -1));
 
         jComboBox12.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         jComboBox12.addActionListener(new java.awt.event.ActionListener() {
@@ -1263,7 +1265,7 @@ public class VistaSu extends javax.swing.JFrame {
                 jButton35treintaYcincoActionPerformed(evt);
             }
         });
-        jPanel10.add(jButton35treintaYcinco, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 280, 110, 30));
+        jPanel10.add(jButton35treintaYcinco, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 260, 110, 30));
 
         jButton36treintaYseis.setText("Actualizar F.E");
         jButton36treintaYseis.addActionListener(new java.awt.event.ActionListener() {
@@ -1271,7 +1273,11 @@ public class VistaSu extends javax.swing.JFrame {
                 jButton36treintaYseisActionPerformed(evt);
             }
         });
-        jPanel10.add(jButton36treintaYseis, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 320, 110, 30));
+        jPanel10.add(jButton36treintaYseis, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 290, 110, 30));
+
+        jButton500.setText("Adicionar Nueva F.E");
+        jPanel10.add(jButton500, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 320, 150, -1));
+        jPanel10.add(jTextField500, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 320, 490, 30));
 
         jTabbedPane1.addTab("tab7", jPanel10);
 
@@ -2855,6 +2861,7 @@ De nuevo erick y juan haciendo esta parte
     private javax.swing.JButton jButton47;
     private javax.swing.JButton jButton5;
     private javax.swing.JButton jButton50;
+    private javax.swing.JButton jButton500;
     private javax.swing.JButton jButton51;
     private javax.swing.JButton jButton6;
     private javax.swing.JButton jButton7;
@@ -2972,6 +2979,7 @@ De nuevo erick y juan haciendo esta parte
     private javax.swing.JTextField jTextField3;
     private javax.swing.JTextField jTextField4;
     private javax.swing.JTextField jTextField5;
+    private javax.swing.JTextField jTextField500;
     private javax.swing.JTextField jTextField6;
     private javax.swing.JTextField jTextField7;
     private javax.swing.JTextField jTextField8;
