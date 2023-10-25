@@ -1276,6 +1276,11 @@ public class VistaSu extends javax.swing.JFrame {
         jPanel10.add(jButton36treintaYseis, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 290, 110, 30));
 
         jButton500.setText("Adicionar Nueva F.E");
+        jButton500.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton500ActionPerformed(evt);
+            }
+        });
         jPanel10.add(jButton500, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 320, 150, -1));
         jPanel10.add(jTextField500, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 320, 490, 30));
 
@@ -2082,6 +2087,7 @@ De nuevo erick y juan haciendo esta parte
         jTextField15.setText(fg.getDescripcionFG());
         FuncionEspecifica fe = (FuncionEspecifica)jComboBox12.getSelectedItem();
         jTextField16.setText(fe.getDescripcionFE());
+        jTextField500.setText("");
     }//GEN-LAST:event_jButton22ActionPerformed
 
     private void jButton21ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton21ActionPerformed
@@ -2536,6 +2542,21 @@ De nuevo erick y juan haciendo esta parte
        }catch(Exception e){
        } 
     }//GEN-LAST:event_jButton51ActionPerformed
+
+    private void jButton500ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton500ActionPerformed
+        String descripcion = jTextField500.getText();           // codigo hecho por David
+        PuestoTrabajo pt = (PuestoTrabajo)jComboBox9.getSelectedItem();
+        int idPuesto = pt.getIdPuesto();
+        
+        if(!descripcion.equals("")){
+            new DatosPuestoTrabajo().insertarFuncionesEspesificas(idPuesto, descripcion);
+            JOptionPane.showMessageDialog(null,"Nueva Funcion Especifica agregada con exito");
+            jTextField500.setText("");
+        }else{
+            JOptionPane.showMessageDialog(null,"Error,campo vacio");
+        
+        }
+    }//GEN-LAST:event_jButton500ActionPerformed
    /**
     * Fin de codigo erick 
     */
