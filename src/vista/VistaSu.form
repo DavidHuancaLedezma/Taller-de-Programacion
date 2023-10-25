@@ -1069,6 +1069,7 @@
                                   <Group type="103" groupAlignment="0" attributes="0">
                                       <Component id="jButton31" min="-2" max="-2" attributes="0"/>
                                       <Component id="jButton33" min="-2" max="-2" attributes="0"/>
+                                      <Component id="jButton50" min="-2" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
                               <Group type="102" alignment="0" attributes="0">
@@ -1077,6 +1078,7 @@
                                   <Group type="103" groupAlignment="0" attributes="0">
                                       <Component id="jButton27" min="-2" max="-2" attributes="0"/>
                                       <Component id="jButton28" min="-2" max="-2" attributes="0"/>
+                                      <Component id="jButton46" min="-2" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
                           </Group>
@@ -1088,6 +1090,7 @@
                                   <Group type="103" groupAlignment="0" attributes="0">
                                       <Component id="jButton30" min="-2" max="-2" attributes="0"/>
                                       <Component id="jButton34" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="jButton51" min="-2" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
                               <Group type="102" attributes="0">
@@ -1096,12 +1099,13 @@
                                   <Group type="103" groupAlignment="0" attributes="0">
                                       <Component id="jButton32" min="-2" max="-2" attributes="0"/>
                                       <Component id="jButton29" min="-2" max="-2" attributes="0"/>
+                                      <Component id="jButton47" min="-2" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
                               <Component id="jLabel31" min="-2" max="-2" attributes="0"/>
                               <Component id="jLabel32" min="-2" max="-2" attributes="0"/>
                           </Group>
-                          <EmptySpace max="32767" attributes="0"/>
+                          <EmptySpace pref="86" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -1131,11 +1135,15 @@
                               <Component id="jScrollPane6" min="-2" max="-2" attributes="0"/>
                               <Component id="jScrollPane8" min="-2" max="-2" attributes="0"/>
                               <Group type="102" alignment="1" attributes="0">
+                                  <Component id="jButton46" min="-2" pref="15" max="-2" attributes="0"/>
+                                  <EmptySpace max="-2" attributes="0"/>
                                   <Component id="jButton27" min="-2" pref="15" max="-2" attributes="0"/>
                                   <EmptySpace max="-2" attributes="0"/>
                                   <Component id="jButton28" min="-2" pref="15" max="-2" attributes="0"/>
                               </Group>
                               <Group type="102" alignment="1" attributes="0">
+                                  <Component id="jButton47" min="-2" pref="15" max="-2" attributes="0"/>
+                                  <EmptySpace max="-2" attributes="0"/>
                                   <Component id="jButton29" min="-2" pref="15" max="-2" attributes="0"/>
                                   <EmptySpace max="-2" attributes="0"/>
                                   <Component id="jButton32" min="-2" pref="15" max="-2" attributes="0"/>
@@ -1149,12 +1157,16 @@
                           <EmptySpace max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="102" alignment="1" attributes="0">
+                                  <Component id="jButton51" min="-2" pref="15" max="-2" attributes="0"/>
+                                  <EmptySpace max="-2" attributes="0"/>
                                   <Component id="jButton30" min="-2" pref="15" max="-2" attributes="0"/>
                                   <EmptySpace max="-2" attributes="0"/>
                                   <Component id="jButton34" min="-2" pref="15" max="-2" attributes="0"/>
                               </Group>
                               <Group type="103" groupAlignment="1" attributes="0">
                                   <Group type="102" attributes="0">
+                                      <Component id="jButton50" min="-2" pref="15" max="-2" attributes="0"/>
+                                      <EmptySpace max="-2" attributes="0"/>
                                       <Component id="jButton31" min="-2" pref="15" max="-2" attributes="0"/>
                                       <EmptySpace max="-2" attributes="0"/>
                                       <Component id="jButton33" min="-2" pref="15" max="-2" attributes="0"/>
@@ -1332,6 +1344,38 @@
                   <Properties>
                     <Property name="text" type="java.lang.String" value="CI"/>
                   </Properties>
+                </Component>
+                <Component class="javax.swing.JButton" name="jButton46">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Eliminar"/>
+                  </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton46ActionPerformed"/>
+                  </Events>
+                </Component>
+                <Component class="javax.swing.JButton" name="jButton47">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Eliminar"/>
+                  </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton47ActionPerformed"/>
+                  </Events>
+                </Component>
+                <Component class="javax.swing.JButton" name="jButton50">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Eliminar"/>
+                  </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton50ActionPerformed"/>
+                  </Events>
+                </Component>
+                <Component class="javax.swing.JButton" name="jButton51">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Eliminar"/>
+                  </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton51ActionPerformed"/>
+                  </Events>
                 </Component>
               </SubComponents>
             </Container>

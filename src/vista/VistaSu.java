@@ -34,6 +34,10 @@ public class VistaSu extends javax.swing.JFrame {
     public int idDescripcionPuesto=0;
     
     int idCurriculum;
+    int idActividadDocente;
+    int idActividadPofesional;
+    int idCargosDesempeñados;
+    int idEstudiosAcademicos;
     
     PreparedStatement psSU, psAux ; 
     ResultSet rsSU, rsAux ;
@@ -235,6 +239,10 @@ public class VistaSu extends javax.swing.JFrame {
         jButton33 = new javax.swing.JButton();
         jButton34 = new javax.swing.JButton();
         jLabel33 = new javax.swing.JLabel();
+        jButton46 = new javax.swing.JButton();
+        jButton47 = new javax.swing.JButton();
+        jButton50 = new javax.swing.JButton();
+        jButton51 = new javax.swing.JButton();
         jPanel9 = new javax.swing.JPanel();
         jLabel18 = new javax.swing.JLabel();
         jLabel19 = new javax.swing.JLabel();
@@ -889,6 +897,34 @@ public class VistaSu extends javax.swing.JFrame {
 
         jLabel33.setText("CI");
 
+        jButton46.setText("Eliminar");
+        jButton46.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton46ActionPerformed(evt);
+            }
+        });
+
+        jButton47.setText("Eliminar");
+        jButton47.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton47ActionPerformed(evt);
+            }
+        });
+
+        jButton50.setText("Eliminar");
+        jButton50.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton50ActionPerformed(evt);
+            }
+        });
+
+        jButton51.setText("Eliminar");
+        jButton51.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton51ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel8Layout = new javax.swing.GroupLayout(jPanel8);
         jPanel8.setLayout(jPanel8Layout);
         jPanel8Layout.setHorizontalGroup(
@@ -911,13 +947,15 @@ public class VistaSu extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jButton31)
-                            .addComponent(jButton33)))
+                            .addComponent(jButton33)
+                            .addComponent(jButton50)))
                     .addGroup(jPanel8Layout.createSequentialGroup()
                         .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jButton27)
-                            .addComponent(jButton28))))
+                            .addComponent(jButton28)
+                            .addComponent(jButton46))))
                 .addGap(12, 12, 12)
                 .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel8Layout.createSequentialGroup()
@@ -925,16 +963,18 @@ public class VistaSu extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jButton30)
-                            .addComponent(jButton34)))
+                            .addComponent(jButton34)
+                            .addComponent(jButton51)))
                     .addGroup(jPanel8Layout.createSequentialGroup()
                         .addComponent(jScrollPane8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jButton32)
-                            .addComponent(jButton29)))
+                            .addComponent(jButton29)
+                            .addComponent(jButton47)))
                     .addComponent(jLabel31)
                     .addComponent(jLabel32))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(86, Short.MAX_VALUE))
         );
         jPanel8Layout.setVerticalGroup(
             jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -957,10 +997,14 @@ public class VistaSu extends javax.swing.JFrame {
                     .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jScrollPane8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel8Layout.createSequentialGroup()
+                        .addComponent(jButton46, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jButton27, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jButton28, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel8Layout.createSequentialGroup()
+                        .addComponent(jButton47, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jButton29, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jButton32, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -971,11 +1015,15 @@ public class VistaSu extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel8Layout.createSequentialGroup()
+                        .addComponent(jButton51, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jButton30, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jButton34, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                         .addGroup(jPanel8Layout.createSequentialGroup()
+                            .addComponent(jButton50, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                             .addComponent(jButton31, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                             .addComponent(jButton33, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -2413,6 +2461,75 @@ De nuevo erick y juan haciendo esta parte
         
         }
     }//GEN-LAST:event_jButton36treintaYseisActionPerformed
+
+    private void jButton46ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton46ActionPerformed
+      
+       try{
+       Connection conexion = new Conexion().getConexion();
+       psSU = conexion.prepareStatement("delete from actividaddocente where IDACTIVIDADDOCENTE="+idActividadDocente);
+       
+       int resultado = psSU.executeUpdate();
+       if(resultado>0){
+       JOptionPane.showMessageDialog(null, "dato eliminado correctamente");
+       jTextArea6.setText("");
+       }else{
+       JOptionPane.showMessageDialog(null, "error al eliminar");
+       }
+       conexion.close();
+       }catch(Exception e){
+       } 
+    }//GEN-LAST:event_jButton46ActionPerformed
+
+    private void jButton47ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton47ActionPerformed
+      try{
+       Connection conexion = new Conexion().getConexion();
+       psSU = conexion.prepareStatement("delete from actividadprofesional where IDACTIVIDADPROFESIONAL="+idActividadPofesional);
+       
+       int resultado = psSU.executeUpdate();
+       if(resultado>0){
+       JOptionPane.showMessageDialog(null, "dato eliminado correctamente");
+       jTextArea8.setText("");
+       }else{
+       JOptionPane.showMessageDialog(null, "error al eliminar");
+       }
+       conexion.close();
+       }catch(Exception e){
+       } 
+    }//GEN-LAST:event_jButton47ActionPerformed
+
+    private void jButton50ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton50ActionPerformed
+       try{
+       Connection conexion = new Conexion().getConexion();
+       psSU = conexion.prepareStatement("delete from cargosoficialesdesempenados where IDCARGODESEMPENADO="+idCargosDesempeñados);
+       
+       int resultado = psSU.executeUpdate();
+       if(resultado>0){
+       JOptionPane.showMessageDialog(null, "dato eliminado correctamente");
+       jTextArea7.setText("");
+       }else{
+       JOptionPane.showMessageDialog(null, "error al eliminar");
+       }
+       conexion.close();
+       }catch(Exception e){
+       } 
+    }//GEN-LAST:event_jButton50ActionPerformed
+
+    private void jButton51ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton51ActionPerformed
+        try{
+       Connection conexion = new Conexion().getConexion();
+       psSU = conexion.prepareStatement("delete from estudioacademico where IDESTUDIOACADEMICO="+idEstudiosAcademicos);
+       
+       int resultado = psSU.executeUpdate();
+       if(resultado>0){
+       JOptionPane.showMessageDialog(null, "dato eliminado correctamente");
+       jTextArea9.setText("");
+       }else{
+       JOptionPane.showMessageDialog(null, "error al eliminar");
+       }
+       conexion.close();
+       }catch(Exception e){
+       } 
+    }//GEN-LAST:event_jButton51ActionPerformed
    /**
     * Fin de codigo erick 
     */
@@ -2430,6 +2547,7 @@ De nuevo erick y juan haciendo esta parte
       if(rsSU.next()){
       jTextArea8.setText(""+rsSU.getString("DATOSACTIVIDADPROFESIONAL"));
       idCurriculum = rsSU.getInt("IDCURRICULUM");
+      idActividadPofesional = rsSU.getInt("IDACTIVIDADPROFESIONAL");
       }
       
       
@@ -2451,6 +2569,7 @@ De nuevo erick y juan haciendo esta parte
       rsSU = psSU.executeQuery();
       if(rsSU.next()){
       jTextArea7.setText(""+rsSU.getString("DATOSDESEMPENADO"));
+      idCargosDesempeñados = rsSU.getInt("IDCARGODESEMPENADO");
       }
       
       
@@ -2472,6 +2591,7 @@ De nuevo erick y juan haciendo esta parte
       rsSU = psSU.executeQuery();
       if(rsSU.next()){
       jTextArea9.setText(""+rsSU.getString("DATOSESTUDIOACADEMICO"));
+      idEstudiosAcademicos = rsSU.getInt("IDESTUDIOACADEMICO");
       }
       
       
@@ -2493,6 +2613,7 @@ De nuevo erick y juan haciendo esta parte
       rsSU = psSU.executeQuery();
       if(rsSU.next()){
       jTextArea6.setText(""+rsSU.getString("ACTIVIDADDOCENTE"));
+      idActividadDocente = rsSU.getInt("IDACTIVIDADDOCENTE");
       }
       
       
@@ -2730,7 +2851,11 @@ De nuevo erick y juan haciendo esta parte
     private javax.swing.JButton jButton43;
     private javax.swing.JButton jButton44;
     private javax.swing.JButton jButton45;
+    private javax.swing.JButton jButton46;
+    private javax.swing.JButton jButton47;
     private javax.swing.JButton jButton5;
+    private javax.swing.JButton jButton50;
+    private javax.swing.JButton jButton51;
     private javax.swing.JButton jButton6;
     private javax.swing.JButton jButton7;
     private javax.swing.JButton jButton8;
