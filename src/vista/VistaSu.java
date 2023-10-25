@@ -25,6 +25,8 @@ public class VistaSu extends javax.swing.JFrame {
     private DefaultComboBoxModel modelo;
     private DefaultComboBoxModel modelo2;
     private DefaultComboBoxModel modelo3;
+    private DefaultComboBoxModel modelo4;
+    private DefaultComboBoxModel modelo5;
     private ArrayList<String>funcionGeneral = new ArrayList<String>();
     private ArrayList<String>funcionesEspesificas = new ArrayList<String>();
     
@@ -1192,15 +1194,35 @@ public class VistaSu extends javax.swing.JFrame {
         jPanel10.add(jTextField16, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 320, 520, -1));
 
         jComboBox12.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jComboBox12.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboBox12ActionPerformed(evt);
+            }
+        });
         jPanel10.add(jComboBox12, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 230, 550, -1));
 
         jComboBox11once.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jComboBox11once.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboBox11onceActionPerformed(evt);
+            }
+        });
         jPanel10.add(jComboBox11once, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 200, 550, -1));
 
         jButton35treintaYcinco.setText("Actualizar F.G");
+        jButton35treintaYcinco.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton35treintaYcincoActionPerformed(evt);
+            }
+        });
         jPanel10.add(jButton35treintaYcinco, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 280, 110, 30));
 
         jButton36treintaYseis.setText("Actualizar F.E");
+        jButton36treintaYseis.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton36treintaYseisActionPerformed(evt);
+            }
+        });
         jPanel10.add(jButton36treintaYseis, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 320, 110, 30));
 
         jTabbedPane1.addTab("tab7", jPanel10);
@@ -1936,22 +1958,76 @@ De nuevo erick y juan haciendo esta parte
     }//GEN-LAST:event_jButton20ActionPerformed
 
     private void jComboBox9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox9ActionPerformed
-        PuestoTrabajo pt = (PuestoTrabajo)(jComboBox9.getSelectedItem());   //implementar
+        PuestoTrabajo pt = (PuestoTrabajo)(jComboBox9.getSelectedItem());   //codigo David
         
         jTextField13.setText(pt.getNombrePuesto());
         Departamento dep = new DatosPuestoTrabajo().getDepartamento(pt.getIdPuesto());
         PuestoTrabajo ptCombo = new DatosPuestoTrabajo().getPuestoSuperior(pt.getIdPuesto());
         jComboBox8.setSelectedItem(dep);
         jComboBox10.setSelectedItem(ptCombo);
-        // continuar aquiiiiii el codigo
+        
+        cargarComboFG();
+        cargarComboFE();
+        
+        FuncionGeneral fg = (FuncionGeneral)jComboBox11once.getSelectedItem();
+        jTextField15.setText(fg.getDescripcionFG());
+        FuncionEspecifica fe = (FuncionEspecifica)jComboBox12.getSelectedItem();
+        jTextField16.setText(fe.getDescripcionFE());
         
         
     }//GEN-LAST:event_jComboBox9ActionPerformed
 
+    private void cargarComboFG(){
+        modelo4 = new DefaultComboBoxModel();   //codigo David
+        PuestoTrabajo pt = (PuestoTrabajo)jComboBox9.getSelectedItem();
+        ArrayList<FuncionGeneral>contenido = new DatosPuestoTrabajo().getFuncinesGenerales(pt.getIdPuesto());
+        if(contenido.size()>0){
+            for(int i=0;i<contenido.size();i++){
+                modelo4.addElement(contenido.get(i));
+            
+            }
+        
+        }else{
+            modelo4.addElement("Ninguno");
+        
+        }
+        jComboBox11once.setModel(modelo4);
+    
+    }
+    
+    private void cargarComboFE(){
+        modelo5 = new DefaultComboBoxModel();  //codigo David
+        PuestoTrabajo pt = (PuestoTrabajo)jComboBox9.getSelectedItem();
+        ArrayList<FuncionEspecifica>contenido = new DatosPuestoTrabajo().getFuncinesEspecificas(pt.getIdPuesto());
+        if(contenido.size()>0){
+            for(int i=0;i<contenido.size();i++){
+                modelo5.addElement(contenido.get(i));
+            
+            }
+        
+        }else{
+            modelo5.addElement("Ninguno");
+        
+        }
+        jComboBox12.setModel(modelo5);
+    
+    }
+    
+    
     private void jButton22ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton22ActionPerformed
         jTabbedPane1.setSelectedIndex(6);    //implementar
         llenarBuscarPT();
+        
         jComboBox2.setSelectedIndex(0);
+        PuestoTrabajo pt = (PuestoTrabajo)jComboBox9.getSelectedItem();
+        jTextField13.setText(pt.getNombrePuesto());
+        cargarComboFG();
+        cargarComboFE();
+        
+        FuncionGeneral fg = (FuncionGeneral)jComboBox11once.getSelectedItem();
+        jTextField15.setText(fg.getDescripcionFG());
+        FuncionEspecifica fe = (FuncionEspecifica)jComboBox12.getSelectedItem();
+        jTextField16.setText(fe.getDescripcionFE());
     }//GEN-LAST:event_jButton22ActionPerformed
 
     private void jButton21ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton21ActionPerformed
@@ -2010,6 +2086,7 @@ De nuevo erick y juan haciendo esta parte
 
     private void jButton25ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton25ActionPerformed
         jTabbedPane1.setSelectedIndex(3);
+        jComboBox2.setSelectedIndex(0);
     }//GEN-LAST:event_jButton25ActionPerformed
 
     private void jButton34ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton34ActionPerformed
@@ -2298,6 +2375,44 @@ De nuevo erick y juan haciendo esta parte
     private void jComboBox5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox5ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jComboBox5ActionPerformed
+
+    private void jComboBox11onceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox11onceActionPerformed
+        FuncionGeneral fg = (FuncionGeneral)jComboBox11once.getSelectedItem(); // Hecho por David
+        jTextField15.setText(fg.getDescripcionFG());
+    }//GEN-LAST:event_jComboBox11onceActionPerformed
+
+    private void jComboBox12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox12ActionPerformed
+        FuncionEspecifica fe = (FuncionEspecifica)jComboBox12.getSelectedItem(); // Hecho por David
+        jTextField16.setText(fe.getDescripcionFE());
+    }//GEN-LAST:event_jComboBox12ActionPerformed
+
+    private void jButton35treintaYcincoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton35treintaYcincoActionPerformed
+        if(!jTextField15.getText().equals("")){                                  // Hecho por David
+           FuncionGeneral fg = (FuncionGeneral)jComboBox11once.getSelectedItem();
+           if(new DatosPuestoTrabajo().actualizarFG(jTextField15.getText(),fg.getIdFuncion())){
+               JOptionPane.showMessageDialog(null,"Funcion General actualizada");
+           }else{
+               JOptionPane.showMessageDialog(null,"Error al actualizar Funcion General");
+           }
+        }else{
+            JOptionPane.showMessageDialog(null,"Error campo vacio");
+        
+        }
+    }//GEN-LAST:event_jButton35treintaYcincoActionPerformed
+
+    private void jButton36treintaYseisActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton36treintaYseisActionPerformed
+       if(!jTextField16.getText().equals("")){                                   //Hecho por David
+           FuncionEspecifica fe = (FuncionEspecifica)jComboBox12.getSelectedItem();
+           if(new DatosPuestoTrabajo().actualizarFE(jTextField16.getText(),fe.getIdFuncionEspecifica())){
+               JOptionPane.showMessageDialog(null,"Funcion Especifica actualizada");
+           }else{
+               JOptionPane.showMessageDialog(null,"Error al actualizar Funcion Especifica");
+           }
+        }else{
+            JOptionPane.showMessageDialog(null,"Error campo vacio");
+        
+        }
+    }//GEN-LAST:event_jButton36treintaYseisActionPerformed
    /**
     * Fin de codigo erick 
     */
