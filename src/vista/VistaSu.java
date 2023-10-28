@@ -1899,6 +1899,9 @@ De nuevo erick y juan haciendo esta parte
 
     private void jButton16ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton16ActionPerformed
         // TODO add your handling code here:
+        if(jTextField11.getText().isEmpty() || jComboBox5.getSelectedIndex()==0){
+            JOptionPane.showMessageDialog(null,"campo vacio");
+        }else{
         try {
              Connection conexion = new Conexion().getConexion();
              psSU = conexion.prepareStatement("insert into departamento (DEP_IDDEPARTAMENTO,NOMBREDEPARTAMENTO)values(?,?)");
@@ -1916,6 +1919,7 @@ De nuevo erick y juan haciendo esta parte
         }catch (Exception ex ){
           System.err.println("Error:" + ex);
         }
+    }
         String departamento = (String) jComboBox5.getSelectedItem();
         if(departamento == "Selecione un departamento"){
             JOptionPane.showMessageDialog(null,"Seleccione un departamento valido");
