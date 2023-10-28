@@ -2241,6 +2241,7 @@ De nuevo erick y juan haciendo esta parte
             inserciones.insertarDescripcionPuesto(idPuesto);
             idDescripcionPuesto = inserciones.getIdDescripcionPuesto();
             jTabbedPane1.setSelectedIndex(13);
+            
         }
 
     }//GEN-LAST:event_jButton35ActionPerformed
@@ -2255,13 +2256,26 @@ De nuevo erick y juan haciendo esta parte
         inserciones.insertarAptitudes(idDescripcionPuesto, jTextField20.getText());
         inserciones.insertarEsfuerzo(idDescripcionPuesto,(String)jComboBox11.getSelectedItem() ,jTextField21.getText());
         jTabbedPane1.setSelectedIndex(4);
+        Integer cii = Integer.parseInt(jTextField6.getText());
+            int claveFuncionario = buscarIDFuncionario(cii);
+            try{
+            Connection conexion = new Conexion().getConexion();
+            psAux= conexion.prepareStatement(" insert into curriculum (IDFUNCIONARIO) values(?)");
+            psAux.setInt(1, claveFuncionario);
+            psAux.executeUpdate();
+            psAux.close();
+            
+            }catch(Exception e) {
+                System.err.println();
+            }
+        
       String  claveCurriculum = jTextField6.getText();
         jTextField14.setText(claveCurriculum);
         jButton28.setEnabled(false);
         jButton32.setEnabled(false);
         jButton33.setEnabled(false);
         jButton34.setEnabled(false);
-        
+      mostraridCurriculum();
       mostrarDatosActividadDocente(claveCurriculum);  
       mostrarActividadProfesional(claveCurriculum);
       mostrarCargosOficialesDesempeñados(claveCurriculum);
@@ -2546,6 +2560,26 @@ De nuevo erick y juan haciendo esta parte
    /**
     * Fin de codigo erick 
     */
+    private void mostraridCurriculum(){
+    Integer ci = Integer.parseInt(jTextField6.getText());
+        int claveFuncionario = buscarIDFuncionario(ci);
+        
+      try{
+      Connection conexion = new Conexion().getConexion();    
+      psSU = conexion.prepareStatement("select * " +
+    "FROM funcionario f, curriculum c,   actividadprofesional a " +
+    "where f.IDFUNCIONARIO = c.IDFUNCIONARIO " +
+    " and f.IDFUNCIONARIO="+claveFuncionario);
+      rsSU = psSU.executeQuery();
+      if(rsSU.next()){
+      idCurriculum = rsSU.getInt("IDCURRICULUM");
+      }
+      
+      
+      }catch(Exception e){
+      
+      } 
+    }
     private void mostrarActividadProfesional(String c){
     Integer ci = Integer.parseInt(jTextField6.getText());
         int claveFuncionario = buscarIDFuncionario(ci);
