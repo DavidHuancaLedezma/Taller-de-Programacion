@@ -35,7 +35,7 @@ public void insertarDescripcionPuesto(int idPuesto){
             }
             conexion.close();
             
-            JOptionPane.showMessageDialog(null,"datos registrados correctamente");
+            //JOptionPane.showMessageDialog(null,"datos registrados correctamente");
             
             }catch (Exception ex ){
                 System.err.println("Error:" + ex);

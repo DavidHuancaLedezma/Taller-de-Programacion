@@ -173,7 +173,6 @@ public class VistaSu extends javax.swing.JFrame {
         jButton8 = new javax.swing.JButton();
         jTextField7 = new javax.swing.JTextField();
         jButton35 = new javax.swing.JButton();
-        jButton49 = new javax.swing.JButton();
         jPanel5 = new javax.swing.JPanel();
         jPanel6 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
@@ -308,7 +307,7 @@ public class VistaSu extends javax.swing.JFrame {
         jTextField19 = new javax.swing.JTextField();
         jTextField20 = new javax.swing.JTextField();
         jTextField21 = new javax.swing.JTextField();
-        jLabel1 = new javax.swing.JLabel();
+        ImagenFondo = new javax.swing.JLabel();
 
         jTextField5.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -384,14 +383,14 @@ public class VistaSu extends javax.swing.JFrame {
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(15, 15, 15)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                .addContainerGap()
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButton9, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButton10)
-                    .addComponent(jButton14, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
-                .addContainerGap(35, Short.MAX_VALUE))
+                    .addComponent(jButton14, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -408,7 +407,7 @@ public class VistaSu extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 60, 120, 390));
+        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 90, 80, 390));
 
         jTabbedPane1.setEnabled(false);
 
@@ -515,14 +514,6 @@ public class VistaSu extends javax.swing.JFrame {
             }
         });
         jPanel4.add(jButton35, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 220, 80, 30));
-
-        jButton49.setText("Actualizar");
-        jButton49.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton49ActionPerformed(evt);
-            }
-        });
-        jPanel4.add(jButton49, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 90, -1, -1));
 
         jTabbedPane1.addTab("tab1", jPanel4);
 
@@ -946,7 +937,7 @@ public class VistaSu extends javax.swing.JFrame {
             .addGroup(jPanel8Layout.createSequentialGroup()
                 .addGap(272, 272, 272)
                 .addComponent(jLabel28)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 107, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 108, Short.MAX_VALUE)
                 .addComponent(jLabel33)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jTextField14, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -1479,7 +1470,7 @@ public class VistaSu extends javax.swing.JFrame {
                                 .addComponent(jButton40)
                                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel12Layout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 21, Short.MAX_VALUE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 26, Short.MAX_VALUE)
                                 .addComponent(jButton39)
                                 .addGap(115, 115, 115))))
                     .addGroup(jPanel12Layout.createSequentialGroup()
@@ -1554,11 +1545,10 @@ public class VistaSu extends javax.swing.JFrame {
 
         jTabbedPane1.addTab("tab9", jPanel12);
 
-        jPanel1.add(jTabbedPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 60, 680, 390));
+        jPanel1.add(jTabbedPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 70, 680, 390));
 
-        jLabel1.setBackground(new java.awt.Color(0, 0, 0));
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/5.jpg"))); // NOI18N
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+        ImagenFondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Library-many-books-path_930-530 (1).jpg"))); // NOI18N
+        jPanel1.add(ImagenFondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(-2, 0, 930, 530));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -1726,7 +1716,7 @@ public class VistaSu extends javax.swing.JFrame {
         jTextField5.setText(null);
         jTextField1.setText(null);
         jTextField2.setText(null);
-        jComboBox1.setSelectedIndex(0);
+        //jComboBox1.setSelectedIndex(0);
         jTextField3.setText(null);
         jTextField4.setText(null);
         jTextField6.setText(null);
@@ -2604,15 +2594,12 @@ De nuevo erick y juan haciendo esta parte
             if (respuesta == JOptionPane.YES_OPTION){
                 JOptionPane.showMessageDialog(null, "Finalizado con Exito", "Salir", JOptionPane.INFORMATION_MESSAGE);
                 limpiar();
-                jTabbedPane1.setSelectedIndex(0);  
+                jTabbedPane1.setSelectedIndex(0);
+                //jComboBox1.removeAllItems();
+                llenarComboBoxPuestosDisponibles();
             }
         }
     }//GEN-LAST:event_jButton48ActionPerformed
-
-    private void jButton49ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton49ActionPerformed
-        // TODO add your handling code here:
-        
-    }//GEN-LAST:event_jButton49ActionPerformed
    /**
     * Fin de codigo erick 
     */
@@ -2912,6 +2899,7 @@ De nuevo erick y juan haciendo esta parte
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel ImagenFondo;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton10;
     private javax.swing.JButton jButton11;
@@ -2957,7 +2945,6 @@ De nuevo erick y juan haciendo esta parte
     private javax.swing.JButton jButton46;
     private javax.swing.JButton jButton47;
     private javax.swing.JButton jButton48;
-    private javax.swing.JButton jButton49;
     private javax.swing.JButton jButton5;
     private javax.swing.JButton jButton50;
     private javax.swing.JButton jButton500;
@@ -2979,7 +2966,6 @@ De nuevo erick y juan haciendo esta parte
     private javax.swing.JComboBox<String> jComboBox7;
     private javax.swing.JComboBox<String> jComboBox8;
     private javax.swing.JComboBox<String> jComboBox9;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
