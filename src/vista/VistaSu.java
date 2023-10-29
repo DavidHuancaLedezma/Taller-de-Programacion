@@ -173,6 +173,7 @@ public class VistaSu extends javax.swing.JFrame {
         jButton8 = new javax.swing.JButton();
         jTextField7 = new javax.swing.JTextField();
         jButton35 = new javax.swing.JButton();
+        jButton49 = new javax.swing.JButton();
         jPanel5 = new javax.swing.JPanel();
         jPanel6 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
@@ -243,6 +244,7 @@ public class VistaSu extends javax.swing.JFrame {
         jButton47 = new javax.swing.JButton();
         jButton50 = new javax.swing.JButton();
         jButton51 = new javax.swing.JButton();
+        jButton48 = new javax.swing.JButton();
         jPanel9 = new javax.swing.JPanel();
         jLabel18 = new javax.swing.JLabel();
         jLabel19 = new javax.swing.JLabel();
@@ -514,6 +516,14 @@ public class VistaSu extends javax.swing.JFrame {
         });
         jPanel4.add(jButton35, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 220, 80, 30));
 
+        jButton49.setText("Actualizar");
+        jButton49.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton49ActionPerformed(evt);
+            }
+        });
+        jPanel4.add(jButton49, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 90, -1, -1));
+
         jTabbedPane1.addTab("tab1", jPanel4);
 
         jPanel5.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -711,7 +721,7 @@ public class VistaSu extends javax.swing.JFrame {
                         .addComponent(jComboBox7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(jButton7, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 16, Short.MAX_VALUE))))
+                        .addGap(0, 0, Short.MAX_VALUE))))
         );
 
         jTabbedPane1.addTab("tab3", jPanel6);
@@ -922,6 +932,13 @@ public class VistaSu extends javax.swing.JFrame {
             }
         });
 
+        jButton48.setText("FINALIZAR");
+        jButton48.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton48ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel8Layout = new javax.swing.GroupLayout(jPanel8);
         jPanel8.setLayout(jPanel8Layout);
         jPanel8Layout.setHorizontalGroup(
@@ -971,7 +988,11 @@ public class VistaSu extends javax.swing.JFrame {
                             .addComponent(jButton47)))
                     .addComponent(jLabel31)
                     .addComponent(jLabel32))
-                .addContainerGap(86, Short.MAX_VALUE))
+                .addContainerGap(94, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel8Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jButton48, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(74, 74, 74))
         );
         jPanel8Layout.setVerticalGroup(
             jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1027,7 +1048,9 @@ public class VistaSu extends javax.swing.JFrame {
                         .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jScrollPane7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jScrollPane9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(88, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 28, Short.MAX_VALUE)
+                .addComponent(jButton48, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(16, 16, 16))
         );
 
         jTabbedPane1.addTab("tab5", jPanel8);
@@ -1526,7 +1549,7 @@ public class VistaSu extends javax.swing.JFrame {
                     .addGroup(jPanel12Layout.createSequentialGroup()
                         .addGap(18, 18, 18)
                         .addComponent(jComboBox11, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(16, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("tab9", jPanel12);
@@ -1999,7 +2022,7 @@ De nuevo erick y juan haciendo esta parte
     
     } catch (Exception ex) {
     System.err.println("Error al actualizar el JComboBox: " + ex);
-}
+     }
     }//GEN-LAST:event_jButton20ActionPerformed
 
     private void jComboBox9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox9ActionPerformed
@@ -2237,31 +2260,39 @@ De nuevo erick y juan haciendo esta parte
     }//GEN-LAST:event_jButton33ActionPerformed
 
     private void jButton35ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton35ActionPerformed
-        if(jTextField2.getText().isEmpty() || jTextField6.getText().isEmpty() || jTextField4.getText().isEmpty() || jTextField3.getText().isEmpty()){
+         if(jTextField2.getText().isEmpty() || jTextField6.getText().isEmpty() || jTextField4.getText().isEmpty() || jTextField3.getText().isEmpty()){
            JOptionPane.showMessageDialog(null, "Por favor Registre todos los datos", "ERROR",JOptionPane.INFORMATION_MESSAGE );
         }else{
-            new Funcionario().insercionFuncionario(jTextField2.getText(),idPuesto,jTextField6.getText(),jTextField4.getText(),Date.valueOf(jTextField3.getText()));
-            DescripcionPuesto inserciones = new DescripcionPuesto();
-            inserciones.insertarDescripcionPuesto(idPuesto);
-            idDescripcionPuesto = inserciones.getIdDescripcionPuesto();
-            jTabbedPane1.setSelectedIndex(13);
-            
-        }
+            int respuesta=JOptionPane.showOptionDialog(this, "Si esta seguro que su informacion es correcta haz click en Guardar Datos de lo contrario haz click en Cancelar", "Confirma tu Informacion", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE, null, new Object[]{"Guardar Datos","Cancelar"}, "Guardar Datos");
+            if (respuesta == JOptionPane.YES_OPTION) {
+                new Funcionario().insercionFuncionario(jTextField2.getText(),idPuesto,jTextField6.getText(),jTextField4.getText(),Date.valueOf(jTextField3.getText()));
+                DescripcionPuesto inserciones = new DescripcionPuesto();
+                inserciones.insertarDescripcionPuesto(idPuesto);
+                idDescripcionPuesto = inserciones.getIdDescripcionPuesto();
+                JOptionPane.showMessageDialog(null,"Se registro correctamente","Registro",JOptionPane.INFORMATION_MESSAGE );
+                jTabbedPane1.setSelectedIndex(13);
+            }
+        }    
 
     }//GEN-LAST:event_jButton35ActionPerformed
 
     private void jButton36ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton36ActionPerformed
-        DescripcionPuesto inserciones = new DescripcionPuesto();
-        //int idDescripcionPuesto = inserciones.getIdDescripcionPuesto();
-        //if(){}
-        inserciones.insertarExperiencia(idDescripcionPuesto, jTextField17.getText());
-        inserciones.insertarHabilidadDestreza(idDescripcionPuesto, jTextField19.getText());
-        inserciones.insertarEscolaridad(idDescripcionPuesto, jTextField18.getText());
-        inserciones.insertarAptitudes(idDescripcionPuesto, jTextField20.getText());
-        inserciones.insertarEsfuerzo(idDescripcionPuesto,(String)jComboBox11.getSelectedItem() ,jTextField21.getText());
-        jTabbedPane1.setSelectedIndex(4);
-        Integer cii = Integer.parseInt(jTextField6.getText());
-            int claveFuncionario = buscarIDFuncionario(cii);
+         if(jTextField17.getText().isEmpty() || jTextField18.getText().isEmpty() || jTextField19.getText().isEmpty() || jTextField20.getText().isEmpty()||jTextField21.getText().isEmpty() ){
+            JOptionPane.showMessageDialog(null, "Por favor Registre todos los datos", "ERROR",JOptionPane.INFORMATION_MESSAGE );
+        }else{
+            int respuesta=JOptionPane.showOptionDialog(this, "Si esta seguro que su informacion es correcta haz click en Guardar Datos de lo contrario haz click en Cancelar", "Confirma tu Informacion", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE, null, new Object[]{"Guardar Datos","Cancelar"}, "Guardar Datos");
+            if (respuesta == JOptionPane.YES_OPTION){
+                DescripcionPuesto inserciones = new DescripcionPuesto();
+                //int idDescripcionPuesto = inserciones.getIdDescripcionPuesto();
+                //if(){}
+                inserciones.insertarExperiencia(idDescripcionPuesto, jTextField17.getText());
+                inserciones.insertarHabilidadDestreza(idDescripcionPuesto, jTextField19.getText());
+                inserciones.insertarEscolaridad(idDescripcionPuesto, jTextField18.getText());
+                inserciones.insertarAptitudes(idDescripcionPuesto, jTextField20.getText());
+                inserciones.insertarEsfuerzo(idDescripcionPuesto,(String)jComboBox11.getSelectedItem() ,jTextField21.getText());
+                jTabbedPane1.setSelectedIndex(4);
+                Integer cii = Integer.parseInt(jTextField6.getText());
+                int claveFuncionario = buscarIDFuncionario(cii);
             try{
             Connection conexion = new Conexion().getConexion();
             psAux= conexion.prepareStatement(" insert into curriculum (IDFUNCIONARIO) values(?)");
@@ -2273,17 +2304,19 @@ De nuevo erick y juan haciendo esta parte
                 System.err.println();
             }
         
-      String  claveCurriculum = jTextField6.getText();
+        String  claveCurriculum = jTextField6.getText();
         jTextField14.setText(claveCurriculum);
         jButton28.setEnabled(false);
         jButton32.setEnabled(false);
         jButton33.setEnabled(false);
         jButton34.setEnabled(false);
-      mostraridCurriculum();
-      mostrarDatosActividadDocente(claveCurriculum);  
-      mostrarActividadProfesional(claveCurriculum);
-      mostrarCargosOficialesDesempeñados(claveCurriculum);
-      mostrarEstudiosAcademicos(claveCurriculum);
+         mostraridCurriculum();
+         mostrarDatosActividadDocente(claveCurriculum);  
+         mostrarActividadProfesional(claveCurriculum);
+         mostrarCargosOficialesDesempeñados(claveCurriculum);
+         mostrarEstudiosAcademicos(claveCurriculum);
+            }
+        }
     }//GEN-LAST:event_jButton36ActionPerformed
 
     private void jComboBox11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox11ActionPerformed
@@ -2561,6 +2594,25 @@ De nuevo erick y juan haciendo esta parte
     private void jTextField17ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField17ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField17ActionPerformed
+
+    private void jButton48ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton48ActionPerformed
+        // TODO add your handling code here:
+        if(jTextArea6.getText().isEmpty() || jTextArea7.getText().isEmpty()||jTextArea8.getText().isEmpty()||jTextArea7.getText().isEmpty()){
+            JOptionPane.showMessageDialog(null, "Por favor Registre todos los datos", "ERROR",JOptionPane.INFORMATION_MESSAGE );
+        }else{
+            int respuesta=JOptionPane.showOptionDialog(this, "¿Esta Segur@ de Finalizar el registro?", "Finalizar el Registro", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE, null, new Object[]{"SI","NO"}, "Guardar Datos");
+            if (respuesta == JOptionPane.YES_OPTION){
+                JOptionPane.showMessageDialog(null, "Finalizado con Exito", "Salir", JOptionPane.INFORMATION_MESSAGE);
+                limpiar();
+                jTabbedPane1.setSelectedIndex(0);  
+            }
+        }
+    }//GEN-LAST:event_jButton48ActionPerformed
+
+    private void jButton49ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton49ActionPerformed
+        // TODO add your handling code here:
+        
+    }//GEN-LAST:event_jButton49ActionPerformed
    /**
     * Fin de codigo erick 
     */
@@ -2904,6 +2956,8 @@ De nuevo erick y juan haciendo esta parte
     private javax.swing.JButton jButton45;
     private javax.swing.JButton jButton46;
     private javax.swing.JButton jButton47;
+    private javax.swing.JButton jButton48;
+    private javax.swing.JButton jButton49;
     private javax.swing.JButton jButton5;
     private javax.swing.JButton jButton50;
     private javax.swing.JButton jButton500;

@@ -441,6 +441,19 @@
                     </Constraint>
                   </Constraints>
                 </Component>
+                <Component class="javax.swing.JButton" name="jButton49">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Actualizar"/>
+                  </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton49ActionPerformed"/>
+                  </Events>
+                  <Constraints>
+                    <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+                      <AbsoluteConstraints x="10" y="90" width="-1" height="-1"/>
+                    </Constraint>
+                  </Constraints>
+                </Component>
               </SubComponents>
             </Container>
             <Container class="javax.swing.JPanel" name="jPanel5">
@@ -1105,7 +1118,12 @@
                               <Component id="jLabel31" min="-2" max="-2" attributes="0"/>
                               <Component id="jLabel32" min="-2" max="-2" attributes="0"/>
                           </Group>
-                          <EmptySpace pref="86" max="32767" attributes="0"/>
+                          <EmptySpace pref="94" max="32767" attributes="0"/>
+                      </Group>
+                      <Group type="102" alignment="1" attributes="0">
+                          <EmptySpace max="32767" attributes="0"/>
+                          <Component id="jButton48" min="-2" pref="141" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="74" max="-2" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -1177,7 +1195,9 @@
                                   </Group>
                               </Group>
                           </Group>
-                          <EmptySpace pref="88" max="32767" attributes="0"/>
+                          <EmptySpace pref="28" max="32767" attributes="0"/>
+                          <Component id="jButton48" min="-2" pref="44" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="16" max="-2" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -1375,6 +1395,14 @@
                   </Properties>
                   <Events>
                     <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton51ActionPerformed"/>
+                  </Events>
+                </Component>
+                <Component class="javax.swing.JButton" name="jButton48">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="FINALIZAR"/>
+                  </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton48ActionPerformed"/>
                   </Events>
                 </Component>
               </SubComponents>
