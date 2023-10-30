@@ -6,7 +6,9 @@ package vista;
 
 import java.awt.Color;
 import java.awt.event.MouseEvent;
+import java.util.ArrayList;
 import javax.swing.plaf.basic.BasicTabbedPaneUI;
+import manualProcedimiento.DatosProcedimientos;
 
 /**
  *
@@ -26,12 +28,28 @@ public class Procedimientos extends javax.swing.JFrame {
         initComponents();
         this.setLocationRelativeTo(null);
        // jTextArea1.setEditable(false);
-      desaparecerBotonesDePaneles();
-      
-       
-        
+      desaparecerBotonesDePaneles();  
+      cargarDatosDeProcedimientos();
     }
-   private void desaparecerBotonesDePaneles(){
+    
+    private void cargarDatosDeProcedimientos(){
+        cargarPoliticaDeOperacion();
+    }
+    
+    private void cargarPoliticaDeOperacion(){
+        ArrayList<String>contenido = new DatosProcedimientos().politicaDeOperacion(idProcedimiento);
+        if(contenido.size()>0){
+            for(int i=0;i<contenido.size();i++){
+                jTextArea1.append(" - " + contenido.get(i) + "\n");
+            }
+        }else{
+            jTextArea1.append(" - Ninguno ");
+        }
+    }
+    
+    
+    
+    private void desaparecerBotonesDePaneles(){
         jTabbedPane1.setUI(new BasicTabbedPaneUI(){
             @Override
             protected int calculateTabAreaHeight(int tapPlacement,int horizRunCount,int maxTapHeight){
