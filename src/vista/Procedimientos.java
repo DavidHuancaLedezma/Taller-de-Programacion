@@ -34,6 +34,12 @@ public class Procedimientos extends javax.swing.JFrame {
     
     private void cargarDatosDeProcedimientos(){
         cargarPoliticaDeOperacion();
+        configuracionesAreaDeTexto();
+    }
+    
+    private void configuracionesAreaDeTexto(){
+        jTextArea1.setEditable(false);
+        jTextArea1.moveCaretPosition(0); // hace que la barra de desplazamiento inicie desde el inicio del texto
     }
     
     private void cargarPoliticaDeOperacion(){
