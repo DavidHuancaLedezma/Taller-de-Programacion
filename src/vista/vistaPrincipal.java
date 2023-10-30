@@ -270,9 +270,13 @@ public class vistaPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_jComboBox1ActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-         Procedimientos p = new Procedimientos();
-        p.setVisible(true);
-        dispose();
+        if(existeProcedimiento){
+            Procedimiento pro = (Procedimiento)jComboBox2.getSelectedItem();
+            Procedimientos p = new Procedimientos(pro.getIdProcedimiento());
+            p.setVisible(true);
+            dispose();
+        }
+
     }//GEN-LAST:event_jButton4ActionPerformed
 
     /**

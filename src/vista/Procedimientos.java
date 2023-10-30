@@ -17,7 +17,12 @@ public class Procedimientos extends javax.swing.JFrame {
     /**
      * Creates new form Procedimientos
      */
-    public Procedimientos() {
+    
+    private int idProcedimiento;
+    
+    
+    public Procedimientos(int idProcedimiento) {
+        this.idProcedimiento = idProcedimiento;
         initComponents();
         this.setLocationRelativeTo(null);
        // jTextArea1.setEditable(false);
@@ -252,7 +257,7 @@ public class Procedimientos extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Procedimientos().setVisible(true);
+               // new Procedimientos().setVisible(true);
             }
         });
     }
