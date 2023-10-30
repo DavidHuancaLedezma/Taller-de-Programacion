@@ -4,7 +4,13 @@
  */
 package vista;
 
+import java.util.ArrayList;
+import javax.swing.DefaultComboBoxModel;
 import javax.swing.ImageIcon;
+import manualProcedimiento.DatosProcedimientos;
+import manualProcedimiento.Procedimiento;
+import modelo.DatosPuestoTrabajo;
+import modelo.Departamento;
 
 /**
  *
@@ -15,6 +21,11 @@ public class vistaPrincipal extends javax.swing.JFrame {
     /**
      * Creates new form vistaPrincipal
      */
+    private DefaultComboBoxModel modelo;
+    private DefaultComboBoxModel modelo2;
+    private boolean existeProcedimiento = false;
+    
+    
     
     ImageIcon imagenes[] = new ImageIcon [3] ;
     int contador = 1;
@@ -28,6 +39,49 @@ public class vistaPrincipal extends javax.swing.JFrame {
         jLabel1.setIcon(imagenes[1]); //Podemos poner como imagen cualquier posicion valida de nuestro arreglo
         
         setLocationRelativeTo(null);
+        cargarComboDepartamento();
+        tipoDeDatoProcedimiento();
+    }
+    
+    
+    
+    private void cargarComboDepartamento(){
+        modelo = new DefaultComboBoxModel();
+        ArrayList<Departamento>contenido = new DatosPuestoTrabajo().getDepartamentos();
+        for(int i=0;i<contenido.size();i++){
+            modelo.addElement(contenido.get(i));
+        }
+        jComboBox1.setModel(modelo);
+        cargarComboProcedimientos();
+    }
+    
+    private void cargarComboProcedimientos(){
+        modelo2 = new DefaultComboBoxModel();
+        Departamento dep = (Departamento)jComboBox1.getSelectedItem();
+        ArrayList<Procedimiento>contenido = new DatosProcedimientos().getProcedimientosDelDepartamento(dep.getIdDepartamento());
+        if(contenido.size()>0){
+            for(int i=0;i<contenido.size();i++){
+                modelo2.addElement(contenido.get(i));
+            }
+        
+        }else{
+            modelo2.addElement("No tiene ningun Procedimiento");
+        }
+        jComboBox2.setModel(modelo2);
+        
+    }
+    
+    private void tipoDeDatoProcedimiento(){
+        Object seleccionado = jComboBox2.getSelectedItem();
+        if(seleccionado instanceof Procedimiento){
+            existeProcedimiento = true;
+        }else if(seleccionado instanceof String){
+            existeProcedimiento = false;
+        }else{
+            System.out.println("Hay un error en el tipo de dato al seleccionar un procedimiento");
+        }
+        
+        System.out.println(existeProcedimiento);
     }
 
     /**
@@ -46,6 +100,8 @@ public class vistaPrincipal extends javax.swing.JFrame {
         jButton1 = new javax.swing.JButton();
         jComboBox1 = new javax.swing.JComboBox<>();
         jComboBox2 = new javax.swing.JComboBox<>();
+        jLabel64 = new javax.swing.JLabel();
+        jLabel65 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
@@ -81,34 +137,54 @@ public class vistaPrincipal extends javax.swing.JFrame {
         });
 
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jComboBox1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboBox1ActionPerformed(evt);
+            }
+        });
 
         jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+
+        jLabel64.setForeground(new java.awt.Color(255, 0, 0));
+        jLabel64.setText("Seleccione el departamento");
+
+        jLabel65.setForeground(new java.awt.Color(255, 0, 0));
+        jLabel65.setText("Seleccione el procedimiento");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addContainerGap(479, Short.MAX_VALUE)
-                .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(48, 48, 48)
-                .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(161, 161, 161)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 400, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel64, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(12, 12, 12)
+                        .addComponent(jLabel65, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 208, Short.MAX_VALUE))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jComboBox2, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
                 .addComponent(jButton1)
                 .addGap(28, 28, 28))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(41, 41, 41)
+                .addGap(19, 19, 19)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel64)
+                    .addComponent(jLabel65))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton1)
-                    .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(73, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(56, 56, 56))
+                    .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(67, Short.MAX_VALUE))
         );
 
         jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 930, 140));
@@ -173,6 +249,11 @@ public class vistaPrincipal extends javax.swing.JFrame {
         jLabel1.setIcon(imagenes[contador]);
     }//GEN-LAST:event_jButton3ActionPerformed
 
+    private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
+        cargarComboProcedimientos();
+        tipoDeDatoProcedimiento();
+    }//GEN-LAST:event_jComboBox1ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -215,6 +296,8 @@ public class vistaPrincipal extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JComboBox<String> jComboBox2;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel64;
+    private javax.swing.JLabel jLabel65;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenuBar jMenuBar1;
