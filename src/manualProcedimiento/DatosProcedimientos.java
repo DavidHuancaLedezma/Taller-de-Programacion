@@ -33,7 +33,26 @@ public class DatosProcedimientos {
             while(rs.next()){
                 res.add(new Procedimiento(rs.getInt("id"), rs.getString("nombre")));
             }
+            con.close();
         
+        }catch(Exception ex){
+            System.err.println("Error:" + ex);
+        }
+        return res;
+    }
+    
+    
+    public ArrayList<String>politicaDeOperacion(int idProcedimiento){
+        ArrayList<String>res = new ArrayList<String>();
+        try{
+            Connection con = new Conexion().getConexion();
+            ps = con.prepareStatement("select p.DESCRIPCIONPOLITICA as descripcion from politicasdeoperacion p,procedimiento pro where pro.IDPROCIMIENTO = p.IDPROCIMIENTO and pro.IDPROCIMIENTO = ?");
+            ps.setInt(1, idProcedimiento);
+            rs = ps.executeQuery();
+            while(rs.next()){
+                res.add(rs.getString("descripcion"));
+            }
+            con.close();
         }catch(Exception ex){
             System.err.println("Error:" + ex);
         }
