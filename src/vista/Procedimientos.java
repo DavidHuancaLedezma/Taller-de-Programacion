@@ -57,6 +57,9 @@ public class Procedimientos extends javax.swing.JFrame {
         jLabel12 = new javax.swing.JLabel();
         jPanel4 = new javax.swing.JPanel();
         jLabel13 = new javax.swing.JLabel();
+        jSeparator1 = new javax.swing.JSeparator();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTextArea1 = new javax.swing.JTextArea();
         jLabel10 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
@@ -116,25 +119,24 @@ public class Procedimientos extends javax.swing.JFrame {
 
         jTabbedPane1.addTab("tab2", jPanel3);
 
-        jLabel13.setFont(new java.awt.Font("Eras Demi ITC", 0, 14)); // NOI18N
-        jLabel13.setText("Politica de Operacion");
+        jPanel4.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel4.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
-        jPanel4.setLayout(jPanel4Layout);
-        jPanel4Layout.setHorizontalGroup(
-            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel4Layout.createSequentialGroup()
-                .addGap(213, 213, 213)
-                .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(206, Short.MAX_VALUE))
-        );
-        jPanel4Layout.setVerticalGroup(
-            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel4Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel13)
-                .addContainerGap(251, Short.MAX_VALUE))
-        );
+        jLabel13.setFont(new java.awt.Font("Eras Demi ITC", 0, 18)); // NOI18N
+        jLabel13.setForeground(new java.awt.Color(51, 102, 255));
+        jLabel13.setText("Politica de Operacion");
+        jPanel4.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 200, 20));
+
+        jSeparator1.setBackground(new java.awt.Color(51, 0, 255));
+        jPanel4.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, 160, 10));
+
+        jTextArea1.setBackground(new java.awt.Color(255, 255, 255));
+        jTextArea1.setColumns(20);
+        jTextArea1.setFont(new java.awt.Font("Arial", 2, 14)); // NOI18N
+        jTextArea1.setRows(5);
+        jScrollPane1.setViewportView(jTextArea1);
+
+        jPanel4.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 30, 580, 250));
 
         jTabbedPane1.addTab("tab3", jPanel4);
 
@@ -166,14 +168,9 @@ public class Procedimientos extends javax.swing.JFrame {
             }
         });
         jPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 100, 160, 30));
-
-        jLabel7.setIcon(new javax.swing.ImageIcon("A:\\neetbeans\\Taller-de-Programacion\\src\\imagenes\\morado20.png")); // NOI18N
         jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 180, 160, 30));
-
-        jLabel6.setIcon(new javax.swing.ImageIcon("A:\\neetbeans\\Taller-de-Programacion\\src\\imagenes\\morado20.png")); // NOI18N
         jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 140, 160, 30));
 
-        jLabel5.setIcon(new javax.swing.ImageIcon("A:\\Download\\download operaGX\\morado2.png")); // NOI18N
         jLabel5.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jLabel5MouseClicked(evt);
@@ -280,6 +277,9 @@ public class Procedimientos extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JSeparator jSeparator1;
     private javax.swing.JTabbedPane jTabbedPane1;
+    private javax.swing.JTextArea jTextArea1;
     // End of variables declaration//GEN-END:variables
 }
