@@ -24,7 +24,8 @@ public class vistaPrincipal extends javax.swing.JFrame {
     private DefaultComboBoxModel modelo;
     private DefaultComboBoxModel modelo2;
     private boolean existeProcedimiento = false;
-    
+    private String nombreDep;
+    private int idProcedimiento;
     
     
     ImageIcon imagenes[] = new ImageIcon [3] ;
@@ -272,13 +273,20 @@ public class vistaPrincipal extends javax.swing.JFrame {
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
         if(existeProcedimiento){
             Procedimiento pro = (Procedimiento)jComboBox2.getSelectedItem();
+            nombreDep= "" +(Procedimiento)jComboBox2.getSelectedItem();
             Procedimientos p = new Procedimientos(pro.getIdProcedimiento());
+            idProcedimiento = pro.getIdProcedimiento();
             p.setVisible(true);
             dispose();
         }
 
     }//GEN-LAST:event_jButton4ActionPerformed
-
+   public String getNombreDep(){
+   return nombreDep;
+   }
+   public int getIdProcedimiento(){
+   return idProcedimiento;
+   }
     /**
      * @param args the command line arguments
      */

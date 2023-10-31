@@ -6,14 +6,21 @@ package vista;
 
 import java.awt.Color;
 import java.awt.event.MouseEvent;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.util.ArrayList;
 import javax.swing.plaf.basic.BasicTabbedPaneUI;
 import manualProcedimiento.DatosProcedimientos;
 import manualProcedimiento.*;
+import java.util.ArrayList;
+import modelo.Conexion;
 /**
  *
  * @author Usuario
+ * 
  */
+  
 public class Procedimientos extends javax.swing.JFrame {
 
     /**
@@ -21,7 +28,10 @@ public class Procedimientos extends javax.swing.JFrame {
      */
     
     private int idProcedimiento;
-    
+    private int idDepartamento;
+    private PreparedStatement ps;
+    private ResultSet rs;
+    ArrayList<String> listaObjetivos = new ArrayList <>();
     
     public Procedimientos(int idProcedimiento) {
         this.idProcedimiento = idProcedimiento;
@@ -102,6 +112,17 @@ public class Procedimientos extends javax.swing.JFrame {
         jSeparator1 = new javax.swing.JSeparator();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTextArea1 = new javax.swing.JTextArea();
+        jPanel5 = new javax.swing.JPanel();
+        jLabel14 = new javax.swing.JLabel();
+        jLabel15 = new javax.swing.JLabel();
+        jLabel16 = new javax.swing.JLabel();
+        jLabel17 = new javax.swing.JLabel();
+        jTextField1 = new javax.swing.JTextField();
+        jTextField2 = new javax.swing.JTextField();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        jTextArea3 = new javax.swing.JTextArea();
+        jLabel20 = new javax.swing.JLabel();
+        jLabel19 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
@@ -112,6 +133,7 @@ public class Procedimientos extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
+        jLabel18 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -192,7 +214,78 @@ public class Procedimientos extends javax.swing.JFrame {
 
         jTabbedPane1.addTab("tab3", jPanel4);
 
+        jLabel14.setText("Nombre de Procedimiento:");
+
+        jLabel15.setText("nombre del departamento:");
+
+        jLabel16.setText("Objetivos:");
+
+        jLabel17.setText("Descripcion de procedimiento");
+
+        jTextArea3.setColumns(20);
+        jTextArea3.setRows(5);
+        jScrollPane3.setViewportView(jTextArea3);
+
+        javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
+        jPanel5.setLayout(jPanel5Layout);
+        jPanel5Layout.setHorizontalGroup(
+            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel17)
+                .addGap(203, 203, 203))
+            .addGroup(jPanel5Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 441, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel14)
+                    .addComponent(jLabel15)
+                    .addComponent(jLabel16)
+                    .addGroup(jPanel5Layout.createSequentialGroup()
+                        .addGap(6, 6, 6)
+                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jTextField1, javax.swing.GroupLayout.DEFAULT_SIZE, 504, Short.MAX_VALUE)
+                            .addComponent(jTextField2))))
+                .addContainerGap(62, Short.MAX_VALUE))
+        );
+        jPanel5Layout.setVerticalGroup(
+            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel5Layout.createSequentialGroup()
+                .addGap(9, 9, 9)
+                .addComponent(jLabel17)
+                .addGap(18, 18, 18)
+                .addComponent(jLabel14)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel15)
+                .addGap(7, 7, 7)
+                .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jLabel16)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(15, Short.MAX_VALUE))
+        );
+
+        jTabbedPane1.addTab("tab4", jPanel5);
+
         jPanel1.add(jTabbedPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 60, 580, 300));
+
+        jLabel20.setText("                 Descripcion ");
+        jLabel20.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel20MouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jLabel20MouseEntered(evt);
+            }
+        });
+        jPanel1.add(jLabel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 230, 160, 30));
+
+        jLabel19.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/morado2.png"))); // NOI18N
+        jLabel19.setText("Descripcion de Puesto");
+        jPanel1.add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 230, 160, 30));
 
         jLabel10.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
         jLabel10.setText("Politica De Operacion");
@@ -246,6 +339,9 @@ public class Procedimientos extends javax.swing.JFrame {
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/color .png"))); // NOI18N
         jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 760, 370));
 
+        jLabel18.setText("jLabel18");
+        jPanel1.add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 230, -1, -1));
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -276,6 +372,64 @@ public class Procedimientos extends javax.swing.JFrame {
         jTabbedPane1.setSelectedIndex(2);
     }//GEN-LAST:event_jLabel10MouseClicked
 
+    private void jLabel20MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel20MouseClicked
+       jTabbedPane1.setSelectedIndex(3);
+       idDepartamento();
+       llenarNombrePNombreD();
+       jTextField1.setEditable(false);
+       jTextField2.setEditable(false);
+       cargarObjetivos();
+       jTextArea3.setEditable(false);
+       
+    }//GEN-LAST:event_jLabel20MouseClicked
+    private void llenarNombrePNombreD(){
+     try{
+     Connection conexion = new Conexion().getConexion();
+     ps = conexion.prepareStatement("select * from procedimiento p, departamento d " +
+"where   d.IDDEPARTAMENTO = p.IDDEPARTAMENTO and d.IDDEPARTAMENTO ="+idDepartamento+
+             " and p.IDPROCIMIENTO = "+idProcedimiento);
+     rs=ps.executeQuery();
+     if(rs.next()){
+      jTextField1.setText(rs.getString("NOMBREPROCEDIMIENTO"));
+      jTextField2.setText(rs.getString("NOMBREDEPARTAMENTO"));
+     }
+     
+     }catch(Exception e){
+     
+     }
+    }
+    private void cargarObjetivos(){
+       ArrayList<String>contenido = new DatosProcedimientos().objetivos(idDepartamento);
+        if(contenido.size()>0){
+            for(int i=0;i<contenido.size();i++){
+                jTextArea3.append( contenido.get(i) + "\n");
+            }
+        }else{
+            jTextArea1.append(" - Ninguno ");
+        }
+    }
+    private void jLabel20MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel20MouseEntered
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jLabel20MouseEntered
+    private int idDepartamento(){
+   
+     try{
+            Connection con = new Conexion().getConexion();
+            ps = con.prepareStatement("select * from procedimiento p, departamento d " +
+"where   d.IDDEPARTAMENTO = p.IDDEPARTAMENTO and p.IDPROCIMIENTO ="+idProcedimiento);
+           
+            rs = ps.executeQuery();
+            if(rs.next()){
+                idDepartamento=rs.getInt("IDDEPARTAMENTO");
+            }
+            con.close();
+        }catch(Exception ex){
+            System.err.println("Error:" + ex);
+        }
+        
+        return idDepartamento;
+    }  
+    
     /**
      * @param args the command line arguments
      */
@@ -317,7 +471,14 @@ public class Procedimientos extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel14;
+    private javax.swing.JLabel jLabel15;
+    private javax.swing.JLabel jLabel16;
+    private javax.swing.JLabel jLabel17;
+    private javax.swing.JLabel jLabel18;
+    private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
@@ -329,11 +490,16 @@ public class Procedimientos extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
+    private javax.swing.JPanel jPanel5;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JTextArea jTextArea1;
     private javax.swing.JTextArea jTextArea2;
+    private javax.swing.JTextArea jTextArea3;
+    private javax.swing.JTextField jTextField1;
+    private javax.swing.JTextField jTextField2;
     // End of variables declaration//GEN-END:variables
 }

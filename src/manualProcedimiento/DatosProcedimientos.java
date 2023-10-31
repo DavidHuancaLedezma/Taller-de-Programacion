@@ -59,4 +59,22 @@ public class DatosProcedimientos {
         return res;
     }
     
+    public ArrayList<String>objetivos(int idDepartamento){
+    ArrayList<String>res = new ArrayList<String>();
+        try{
+            Connection con = new Conexion().getConexion();
+            ps = con.prepareStatement("select * from procedimiento p, departamento d " +
+"where   d.IDDEPARTAMENTO = p.IDDEPARTAMENTO and d.IDDEPARTAMENTO = "+idDepartamento);
+            
+            rs = ps.executeQuery();
+            while(rs.next()){
+                res.add(rs.getString("OBJETIVOPROCEDIMIENTO"));
+            }
+            con.close();
+        }catch(Exception ex){
+            System.err.println("Error:" + ex);
+        }
+        return res;
+    }
+    
 }
