@@ -48,6 +48,7 @@ public class VistaSu extends javax.swing.JFrame {
     public VistaSu() {
         initComponents();
         jTextField5.setVisible(false);
+        jButton3.setVisible(false);
         funcionalidadesInvisibles();
         this.setLocationRelativeTo(null);
         llenarComboBoxPuestosDisponibles();
@@ -114,7 +115,7 @@ public class VistaSu extends javax.swing.JFrame {
         jButton3.setContentAreaFilled(false); // Desactiva el relleno del botón
         jButton3.setBorderPainted(false); // Desactiva el borde del botón
         jButton4.setContentAreaFilled(false);
-        jButton4.setBorderPainted(false);
+       jButton4.setBorderPainted(false);
         jButton8.setContentAreaFilled(false);
         jButton8.setBorderPainted(false);
         jButton6.setContentAreaFilled(false);
@@ -171,6 +172,7 @@ public class VistaSu extends javax.swing.JFrame {
         jButton8 = new javax.swing.JButton();
         jTextField7 = new javax.swing.JTextField();
         jButton35 = new javax.swing.JButton();
+        btnCerrarSesionSU = new javax.swing.JButton();
         jPanel5 = new javax.swing.JPanel();
         jPanel6 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
@@ -454,6 +456,7 @@ public class VistaSu extends javax.swing.JFrame {
         jPanel4.add(jButton6, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 280, -1, -1));
 
         jButton5.setText("Buscar");
+        jButton5.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
         jButton5.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton5ActionPerformed(evt);
@@ -495,6 +498,16 @@ public class VistaSu extends javax.swing.JFrame {
             }
         });
         jPanel4.add(jButton35, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 220, 80, 30));
+
+        btnCerrarSesionSU.setBackground(new java.awt.Color(255, 204, 0));
+        btnCerrarSesionSU.setText("Cerrar Sesion");
+        btnCerrarSesionSU.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
+        btnCerrarSesionSU.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCerrarSesionSUActionPerformed(evt);
+            }
+        });
+        jPanel4.add(btnCerrarSesionSU, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 20, 120, -1));
 
         jTabbedPane1.addTab("tab1", jPanel4);
 
@@ -1039,7 +1052,7 @@ public class VistaSu extends javax.swing.JFrame {
         jLabel19.setForeground(new java.awt.Color(255, 255, 255));
         jLabel19.setText("Departamento Superior");
         jPanel9.add(jLabel19);
-        jLabel19.setBounds(370, 320, 135, 16);
+        jLabel19.setBounds(370, 320, 135, 14);
 
         jButton15.setText("Buscar");
         jButton15.addActionListener(new java.awt.event.ActionListener() {
@@ -1106,7 +1119,7 @@ public class VistaSu extends javax.swing.JFrame {
             }
         });
         jPanel9.add(jTextField12);
-        jTextField12.setBounds(16, 34, 43, 24);
+        jTextField12.setBounds(16, 34, 43, 20);
 
         jLabel21.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/uni449-PhotoRoom.png"))); // NOI18N
         jLabel21.setText("DEPARTAMENTOS");
@@ -1126,8 +1139,6 @@ public class VistaSu extends javax.swing.JFrame {
         jLabel39.setText("jLabel39");
         jPanel9.add(jLabel39);
         jLabel39.setBounds(0, 80, 470, 350);
-
-        jLabel40.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Diseño sin título.gif"))); // NOI18N
         jPanel9.add(jLabel40);
         jLabel40.setBounds(10, 0, 820, 260);
 
@@ -1510,7 +1521,7 @@ public class VistaSu extends javax.swing.JFrame {
 
         ImagenFondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Library-many-books-path_930-530 (1).jpg"))); // NOI18N
         ImagenFondo.setPreferredSize(new java.awt.Dimension(930, 530));
-        jPanel1.add(ImagenFondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(-2, 0, 950, 540));
+        jPanel1.add(ImagenFondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 950, 540));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -1529,9 +1540,9 @@ public class VistaSu extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
         jTabbedPane1.setSelectedIndex(0);
-        jButton3.setVisible(false);
-        jButton4.setVisible(false);
-        jButton6.setVisible(false);
+        
+        //jButton4.setVisible(false);
+        //jButton6.setVisible(false);
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
@@ -1664,7 +1675,7 @@ public class VistaSu extends javax.swing.JFrame {
                 jTextField4.setText(rsSU.getString("telefono"));
                 jTextField6.setText(rsSU.getString("ci"));
                 jTextField3.setText(String.valueOf(rsSU.getDate("fechaNacimiento")));
-                jComboBox1.setSelectedIndex(rsSU.getInt("idPuesto"));
+                //jComboBox1.setSelectedIndex(rsSU.getInt("idPuesto"));
                 jTextField7.setText(rsSU.getString("IDFUNCIONARIO"));
             }else{
                 JOptionPane.showMessageDialog(null,"Registro no encontrado");                
@@ -2562,6 +2573,12 @@ De nuevo erick y juan haciendo esta parte
             }
         }
     }//GEN-LAST:event_jButton48ActionPerformed
+
+    private void btnCerrarSesionSUActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCerrarSesionSUActionPerformed
+         vistaPrincipal vp = new vistaPrincipal();
+        vp.setVisible(true);
+        dispose();
+    }//GEN-LAST:event_btnCerrarSesionSUActionPerformed
    /**
     * Fin de codigo erick 
     */
@@ -2862,6 +2879,7 @@ De nuevo erick y juan haciendo esta parte
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel ImagenFondo;
+    private javax.swing.JButton btnCerrarSesionSU;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton10;
     private javax.swing.JButton jButton11;
