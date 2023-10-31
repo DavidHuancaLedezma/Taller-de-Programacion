@@ -33,6 +33,8 @@ public class Funcionario {
     Inserciones hecho por erick
     */
     public void insercionFuncionario(String nombreFuncionario,int IdPuesto,String ci, String telefono,Date fecha){
+        String nombreF  = "";
+        String ciF = "" ; 
     try {
              java.sql.Connection conexion = new Conexion().getConexion();
              ps = conexion.prepareStatement("insert into funcionario (nombreFuncionario,IdPuesto,CI,telefono,fechaNacimiento)values(?,?,?,?,?)");
@@ -49,11 +51,35 @@ public class Funcionario {
                 idFuncionario = rsAux.getInt(1); // Obtener el valor de la columna 1 (la única columna en este caso)
             }
             conexion.close();
+                 nombreF = nombreFuncionario;
+                 ciF = ci;
+             crearCuenta(idFuncionario,nombreF,ciF);
+            if(resultado > 0 ){
+                JOptionPane.showMessageDialog(null,"Funcionario registrado\n"
+                        + "Se creo la cuenta del funcionario con los datos siguientes : \n"
+                        + "Usuario : "+nombreF+"\n"
+                        + "Contraseña : "+ci);
+                
+            }else{
+                JOptionPane.showMessageDialog(null,"Registro incorrecta");
+            }
         }catch (Exception ex ){
           System.err.println("Error:" + ex);
         }
     }
-    
+    private void crearCuenta(int idFuncionario , String nombreFuncionario , String ci ){
+        try{
+        Connection conexion = new Conexion().getConexion();
+        ps = conexion.prepareStatement("insert into cuenta (IDFUNCIONARIO,USUARIO,CONTRASENA) values(?,?,?)");
+        ps.setInt(1,idFuncionario);
+        ps.setString(2, nombreFuncionario);
+        ps.setString(3, ci);
+        ps.executeUpdate();
+        ps.close();
+        }catch(Exception ex){
+            System.err.println("Error:" + ex);
+        }
+    }
     
     public String getNombre(){
         String res = "";
