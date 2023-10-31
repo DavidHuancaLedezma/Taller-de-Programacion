@@ -9,7 +9,7 @@ import java.awt.event.MouseEvent;
 import java.util.ArrayList;
 import javax.swing.plaf.basic.BasicTabbedPaneUI;
 import manualProcedimiento.DatosProcedimientos;
-
+import manualProcedimiento.*;
 /**
  *
  * @author Usuario
@@ -30,6 +30,7 @@ public class Procedimientos extends javax.swing.JFrame {
        // jTextArea1.setEditable(false);
       desaparecerBotonesDePaneles();  
       cargarDatosDeProcedimientos();
+      cargarInterventores();
     }
     
     private void cargarDatosDeProcedimientos(){
@@ -40,20 +41,35 @@ public class Procedimientos extends javax.swing.JFrame {
     private void configuracionesAreaDeTexto(){
         jTextArea1.setEditable(false);
         jTextArea1.moveCaretPosition(0); // hace que la barra de desplazamiento inicie desde el inicio del texto
+        jTextArea2.setEditable(false);
+        jTextArea2.moveCaretPosition(0);
     }
     
     private void cargarPoliticaDeOperacion(){
         ArrayList<String>contenido = new DatosProcedimientos().politicaDeOperacion(idProcedimiento);
         if(contenido.size()>0){
             for(int i=0;i<contenido.size();i++){
-                jTextArea1.append(" - " + contenido.get(i) + "\n");
+                jTextArea1.append( contenido.get(i) + "\n");
             }
         }else{
             jTextArea1.append(" - Ninguno ");
         }
     }
     
-    
+    private void cargarInterventores(){
+        //ArrayList <Interventor> interventores = new Interventor().getInterventores();
+        //ArrayList<Interventor> interventores;
+        ArrayList<String>interventores;
+        interventores = new Interventor().getInterventores(idProcedimiento);
+        if(!interventores.isEmpty()){
+            for(int i=0;i<interventores.size();i++){
+                jTextArea2.append(" º " + interventores.get(i) + "\n");
+            }
+        }else{
+            jTextArea2.append(" - Ninguno ");
+        }
+
+    } 
     
     private void desaparecerBotonesDePaneles(){
         jTabbedPane1.setUI(new BasicTabbedPaneUI(){
@@ -79,6 +95,8 @@ public class Procedimientos extends javax.swing.JFrame {
         jLabel11 = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
         jLabel12 = new javax.swing.JLabel();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        jTextArea2 = new javax.swing.JTextArea();
         jPanel4 = new javax.swing.JPanel();
         jLabel13 = new javax.swing.JLabel();
         jSeparator1 = new javax.swing.JSeparator();
@@ -124,6 +142,10 @@ public class Procedimientos extends javax.swing.JFrame {
         jLabel12.setFont(new java.awt.Font("Eras Demi ITC", 0, 14)); // NOI18N
         jLabel12.setText("Interventores");
 
+        jTextArea2.setColumns(20);
+        jTextArea2.setRows(5);
+        jScrollPane2.setViewportView(jTextArea2);
+
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
@@ -132,13 +154,19 @@ public class Procedimientos extends javax.swing.JFrame {
                 .addGap(244, 244, 244)
                 .addComponent(jLabel12)
                 .addContainerGap(245, Short.MAX_VALUE))
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane2)
+                .addContainerGap())
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel12)
-                .addContainerGap(251, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 227, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
         jTabbedPane1.addTab("tab2", jPanel3);
@@ -302,8 +330,10 @@ public class Procedimientos extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JTextArea jTextArea1;
+    private javax.swing.JTextArea jTextArea2;
     // End of variables declaration//GEN-END:variables
 }
