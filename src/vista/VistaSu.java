@@ -979,7 +979,7 @@ public class VistaSu extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel8Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jButton48, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(74, 74, 74))
+                .addGap(83, 83, 83))
         );
         jPanel8Layout.setVerticalGroup(
             jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1035,9 +1035,9 @@ public class VistaSu extends javax.swing.JFrame {
                         .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jScrollPane7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jScrollPane9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 44, Short.MAX_VALUE)
                 .addComponent(jButton48, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(16, 16, 16))
+                .addGap(70, 70, 70))
         );
 
         jTabbedPane1.addTab("tab5", jPanel8);
@@ -2580,6 +2580,10 @@ De nuevo erick y juan haciendo esta parte
             int respuesta=JOptionPane.showOptionDialog(this, "¿Esta Segur@ de Finalizar el registro?", "Finalizar el Registro", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE, null, new Object[]{"SI","NO"}, "Guardar Datos");
             if (respuesta == JOptionPane.YES_OPTION){
                 JOptionPane.showMessageDialog(null, "Finalizado con Exito", "Salir", JOptionPane.INFORMATION_MESSAGE);
+                llenarActividadDocente();
+                llenarAtividadProfecional();
+                cargosOficialesDesempeniados();
+                llenarEstudiosAcademicos();
                 limpiar();
                 jTabbedPane1.setSelectedIndex(0);
                 //jComboBox1.removeAllItems();
@@ -2587,7 +2591,62 @@ De nuevo erick y juan haciendo esta parte
             }
         }
     }//GEN-LAST:event_jButton48ActionPerformed
-
+    private void llenarActividadDocente(){
+        try{Connection conexion = new Conexion().getConexion();
+           //creamos actividades para el curriculum 
+            psSU = conexion.prepareStatement(" insert into actividaddocente(IDCURRICULUM,ACTIVIDADDOCENTE) values(?,?)");
+            psSU.setInt(1,idCurriculum );
+            psSU.setString(2,jTextArea6.getText());
+            psSU.executeUpdate();
+            psSU.close();
+            //JOptionPane.showMessageDialog(null,"dato registrado correctamente");
+            //jButton28.setEnabled(false);  
+          }catch(Exception e){
+        
+        }
+    }
+    private void llenarAtividadProfecional(){
+        try{Connection conexion = new Conexion().getConexion();
+           //creamos actividades para el curriculum
+            psSU = conexion.prepareStatement(" insert into actividadprofesional(IDCURRICULUM,DATOSACTIVIDADPROFESIONAL) values(?,?)");
+            psSU.setInt(1,idCurriculum );
+            psSU.setString(2,jTextArea8.getText());
+            psSU.executeUpdate();
+            psSU.close();
+            //JOptionPane.showMessageDialog(null,"dato registrado correctamente");
+            //jButton32.setEnabled(false);  
+          }catch(Exception e){
+        
+        }   
+    }
+    private void cargosOficialesDesempeniados(){
+        try{Connection conexion = new Conexion().getConexion();
+           //creamos actividades para el curriculum 
+            psSU = conexion.prepareStatement(" insert into cargosoficialesdesempenados(IDCURRICULUM,DATOSDESEMPENADO) values(?,?)");
+            psSU.setInt(1,idCurriculum );
+            psSU.setString(2,jTextArea7.getText());
+            psSU.executeUpdate();
+            psSU.close();
+            //JOptionPane.showMessageDialog(null,"dato registrado correctamente");
+            //jButton33.setEnabled(false);  
+          }catch(Exception e){
+        
+        }   
+    }
+    private void llenarEstudiosAcademicos(){
+        try{Connection conexion = new Conexion().getConexion();
+           //creamos actividades para el curriculum 
+            psSU = conexion.prepareStatement(" insert into estudioacademico(IDCURRICULUM,DATOSESTUDIOACADEMICO) values(?,?)");
+            psSU.setInt(1,idCurriculum );
+            psSU.setString(2,jTextArea9.getText());
+            psSU.executeUpdate();
+            psSU.close();
+            //JOptionPane.showMessageDialog(null,"dato registrado correctamente");
+            //jButton34.setEnabled(false);  
+          }catch(Exception e){
+        
+        }   
+    }
     private void btnCerrarSesionSUActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCerrarSesionSUActionPerformed
          vistaPrincipal vp = new vistaPrincipal();
         vp.setVisible(true);
