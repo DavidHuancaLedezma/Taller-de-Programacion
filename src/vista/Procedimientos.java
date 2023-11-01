@@ -14,6 +14,8 @@ import javax.swing.plaf.basic.BasicTabbedPaneUI;
 import manualProcedimiento.DatosProcedimientos;
 import manualProcedimiento.*;
 import java.util.ArrayList;
+import javax.swing.JTable;
+import javax.swing.table.DefaultTableModel; 
 import modelo.Conexion;
 /**
  *
@@ -32,6 +34,8 @@ public class Procedimientos extends javax.swing.JFrame {
     private PreparedStatement ps;
     private ResultSet rs;
     ArrayList<String> listaObjetivos = new ArrayList <>();
+    private DefaultTableModel modelo1;
+
     
     public Procedimientos(int idProcedimiento) {
         this.idProcedimiento = idProcedimiento;
@@ -47,6 +51,7 @@ public class Procedimientos extends javax.swing.JFrame {
     private void cargarDatosDeProcedimientos(){
         cargarPoliticaDeOperacion();
         configuracionesAreaDeTexto();
+        cargarprocedimientos();
     }
     
     private void configuracionesAreaDeTexto(){
@@ -85,7 +90,22 @@ public class Procedimientos extends javax.swing.JFrame {
         }
 
     } 
-    
+    private void cargarprocedimientos(){
+        modelo1= new DefaultTableModel();
+        modelo1.addColumn("orden");
+        modelo1.addColumn("interventor");
+        modelo1.addColumn("Procedimiento");
+       ArrayList<Tablaprocedimientos>contenido = new DatosProcedimientos().cargarLista(idProcedimiento);
+       for(int i=0; i< contenido.size(); i++){
+           String[] columnas= new String[3];
+           columnas[0]=contenido.get(i).getOrdenlista()+"";
+           columnas[1]=contenido.get(i).getNombreinterventor();
+           columnas[2]=contenido.get(i).getDescripcionprocedimiento();
+           modelo1.addRow(columnas);
+       }
+       jTable1.setModel(modelo1);
+
+    }
     private void desaparecerBotonesDePaneles(){
         jTabbedPane1.setUI(new BasicTabbedPaneUI(){
             @Override
@@ -108,6 +128,8 @@ public class Procedimientos extends javax.swing.JFrame {
         jTabbedPane1 = new javax.swing.JTabbedPane();
         jPanel2 = new javax.swing.JPanel();
         jLabel11 = new javax.swing.JLabel();
+        jScrollPane4 = new javax.swing.JScrollPane();
+        jTable1 = new javax.swing.JTable();
         jPanel3 = new javax.swing.JPanel();
         jLabel12 = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
@@ -144,6 +166,19 @@ public class Procedimientos extends javax.swing.JFrame {
         jLabel11.setFont(new java.awt.Font("Eras Demi ITC", 0, 14)); // NOI18N
         jLabel11.setText("Lista De Actividades");
 
+        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3"
+            }
+        ));
+        jScrollPane4.setViewportView(jTable1);
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -151,14 +186,17 @@ public class Procedimientos extends javax.swing.JFrame {
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(231, 231, 231)
                 .addComponent(jLabel11)
-                .addContainerGap(210, Short.MAX_VALUE))
+                .addContainerGap(212, Short.MAX_VALUE))
+            .addComponent(jScrollPane4)
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel11)
-                .addContainerGap(251, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 242, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("tab1", jPanel2);
@@ -206,7 +244,6 @@ public class Procedimientos extends javax.swing.JFrame {
         jSeparator1.setBackground(new java.awt.Color(51, 0, 255));
         jPanel4.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, 160, 10));
 
-        jTextArea1.setBackground(new java.awt.Color(255, 255, 255));
         jTextArea1.setColumns(20);
         jTextArea1.setFont(new java.awt.Font("Arial", 2, 14)); // NOI18N
         jTextArea1.setRows(5);
@@ -500,8 +537,10 @@ public class Procedimientos extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JTabbedPane jTabbedPane1;
+    private javax.swing.JTable jTable1;
     private javax.swing.JTextArea jTextArea1;
     private javax.swing.JTextArea jTextArea2;
     private javax.swing.JTextArea jTextArea3;
