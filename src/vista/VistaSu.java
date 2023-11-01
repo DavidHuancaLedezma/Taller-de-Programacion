@@ -285,6 +285,8 @@ public class VistaSu extends javax.swing.JFrame {
         jButton36treintaYseis = new javax.swing.JButton();
         jButton500 = new javax.swing.JButton();
         jTextField500 = new javax.swing.JTextField();
+        jButton49 = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
         jPanel11 = new javax.swing.JPanel();
         jPanel13 = new javax.swing.JPanel();
         jPanel14 = new javax.swing.JPanel();
@@ -1052,7 +1054,7 @@ public class VistaSu extends javax.swing.JFrame {
         jLabel19.setForeground(new java.awt.Color(255, 255, 255));
         jLabel19.setText("Departamento Superior");
         jPanel9.add(jLabel19);
-        jLabel19.setBounds(370, 320, 135, 14);
+        jLabel19.setBounds(370, 320, 135, 16);
 
         jButton15.setText("Buscar");
         jButton15.addActionListener(new java.awt.event.ActionListener() {
@@ -1119,7 +1121,7 @@ public class VistaSu extends javax.swing.JFrame {
             }
         });
         jPanel9.add(jTextField12);
-        jTextField12.setBounds(16, 34, 43, 20);
+        jTextField12.setBounds(16, 34, 43, 24);
 
         jLabel21.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/uni449-PhotoRoom.png"))); // NOI18N
         jLabel21.setText("DEPARTAMENTOS");
@@ -1160,7 +1162,7 @@ public class VistaSu extends javax.swing.JFrame {
 
         jLabel24.setForeground(new java.awt.Color(255, 0, 0));
         jLabel24.setText("*Buscar puesto de trabajo");
-        jPanel10.add(jLabel24, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 10, 160, -1));
+        jPanel10.add(jLabel24, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 10, 160, -1));
 
         jLabel25.setText("Seleccione nuevo departamento");
         jPanel10.add(jLabel25, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 70, -1, -1));
@@ -1174,7 +1176,7 @@ public class VistaSu extends javax.swing.JFrame {
                 jComboBox9ActionPerformed(evt);
             }
         });
-        jPanel10.add(jComboBox9, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 30, 160, -1));
+        jPanel10.add(jComboBox9, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 30, 160, -1));
 
         jComboBox10.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         jPanel10.add(jComboBox10, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 140, 280, -1));
@@ -1211,7 +1213,7 @@ public class VistaSu extends javax.swing.JFrame {
                 jButton25ActionPerformed(evt);
             }
         });
-        jPanel10.add(jButton25, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 150, -1, -1));
+        jPanel10.add(jButton25, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 380, -1, -1));
 
         jLabel34treintaYcuatro.setText("Funcion general:");
         jPanel10.add(jLabel34treintaYcuatro, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 200, -1, -1));
@@ -1261,6 +1263,18 @@ public class VistaSu extends javax.swing.JFrame {
         });
         jPanel10.add(jButton500, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 320, 150, -1));
         jPanel10.add(jTextField500, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 320, 490, 30));
+
+        jButton49.setText("Eliminar");
+        jButton49.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton49ActionPerformed(evt);
+            }
+        });
+        jPanel10.add(jButton49, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 30, 150, 30));
+
+        jLabel1.setForeground(new java.awt.Color(255, 0, 0));
+        jLabel1.setText("Eliminar puesto de trabajo");
+        jPanel10.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 10, -1, -1));
 
         jTabbedPane1.addTab("tab7", jPanel10);
 
@@ -2579,6 +2593,21 @@ De nuevo erick y juan haciendo esta parte
         vp.setVisible(true);
         dispose();
     }//GEN-LAST:event_btnCerrarSesionSUActionPerformed
+
+    private void jButton49ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton49ActionPerformed
+        PuestoTrabajo pt = (PuestoTrabajo)jComboBox9.getSelectedItem();
+        int confirmacion = JOptionPane.showConfirmDialog(null,"Seguro de Eliminar?","Eliminar puesto de trabajo",0,JOptionPane.YES_NO_CANCEL_OPTION,null); // 0 = si ,  1 = no
+        if(confirmacion == 0){
+            if(new DatosPuestoTrabajo().eliminarPuestoTrabajo(pt.getIdPuesto())){
+                JOptionPane.showMessageDialog(null,"Puesto de trabajo Eliminado con exito");
+                llenarBuscarPT();
+                
+            }else{
+                JOptionPane.showMessageDialog(null,"Error al eliminar puesto de trabajo");
+            }
+        
+        }
+    }//GEN-LAST:event_jButton49ActionPerformed
    /**
     * Fin de codigo erick 
     */
@@ -2925,6 +2954,7 @@ De nuevo erick y juan haciendo esta parte
     private javax.swing.JButton jButton46;
     private javax.swing.JButton jButton47;
     private javax.swing.JButton jButton48;
+    private javax.swing.JButton jButton49;
     private javax.swing.JButton jButton5;
     private javax.swing.JButton jButton50;
     private javax.swing.JButton jButton500;
@@ -2946,6 +2976,7 @@ De nuevo erick y juan haciendo esta parte
     private javax.swing.JComboBox<String> jComboBox7;
     private javax.swing.JComboBox<String> jComboBox8;
     private javax.swing.JComboBox<String> jComboBox9;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;

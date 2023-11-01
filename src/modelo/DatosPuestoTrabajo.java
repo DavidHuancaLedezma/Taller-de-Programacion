@@ -340,6 +340,23 @@ public class DatosPuestoTrabajo {
         }
         return res;
     }
+    
+    
+     public boolean eliminarPuestoTrabajo(int id){
+        boolean res = false;
+        try{
+            Connection con = new Conexion().getConexion();
+            ps = con.prepareStatement("delete from puestotrabajo where IDPUESTO = ?");
+            ps.setInt(1, id);
+            if(ps.executeUpdate()>0){
+                res = true;
+            }
+        }catch(Exception ex){
+            System.err.println("Error:" + ex);
+        }
+        return res;
+    
+    }
  
     
     
