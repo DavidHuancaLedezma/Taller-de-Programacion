@@ -9,6 +9,7 @@ import com.mysql.jdbc.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
+import javax.swing.table.DefaultTableModel;
 import modelo.Conexion;
 
 /**
@@ -76,5 +77,21 @@ public class DatosProcedimientos {
         }
         return res;
     }
-    
+    public ArrayList<Tablaprocedimientos> cargarLista(int idProcedimiento){
+        ArrayList<Tablaprocedimientos> resultado= new ArrayList<Tablaprocedimientos>();
+        try{
+            Connection con = new Conexion().getConexion();
+            ps=con.prepareStatement("select la.ORDENLISTA,i.NOMBREINTERVENTOR,la.DESCRIPCIONDEACTIVIDAD from procedimiento p inner join interventores i on  p.IDPROCIMIENTO= i.IDPROCIMIENTO inner  join listadeactividades la on i.IDINTERVENTOR= la.IDINTERVENTOR where p.IDPROCIMIENTO=? order by la.ORDENLISTA asc");
+            ps.setInt(1, idProcedimiento);
+            rs = ps.executeQuery();
+            while(rs.next()){
+                resultado.add(new Tablaprocedimientos(rs.getInt("ORDENLISTA"), rs.getString("NOMBREINTERVENTOR"), rs.getString("DESCRIPCIONDEACTIVIDAD")));
+            }
+        }catch(Exception ex){
+            System.err.println("Error:" + ex);
+        }
+         
+        return resultado;
+    }
+
 }
