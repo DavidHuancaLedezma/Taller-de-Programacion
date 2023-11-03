@@ -71,21 +71,29 @@ public class VistaSu extends javax.swing.JFrame {
         modelo = new DefaultComboBoxModel(); //se puede comentar despues
         lista = new InformacionPuesto().getListaPuestosDisponibles();
         //jComboBox1.addItem("Selecione un Puesto");
+
         for(int i=0; i<lista.size(); i++){
             //jComboBox1.addItem(lista.get(i).getPuesto());
             modelo.addElement(lista.get(i));
         }
         jComboBox1.setModel(modelo);
-        /**
-         * modelo = new DefaultComboBoxModel();
-        ArrayList<Departamento>contenido = new DatosPuestoTrabajo().getDepartamentos();
-        for(int i=0;i<contenido.size();i++){
-            modelo.addElement(contenido.get(i));
-        }
-        jComboBox2.setModel(modelo);
-         */
         
     }
+   
+   public void llenarComboBoxPuestosDisponibles(int idPuesto, String nombrePuesto){
+        //jComboBox1.removeAllItems();
+        modelo = new DefaultComboBoxModel(); //se puede comentar despues
+        lista = new InformacionPuesto().getListaPuestosDisponibles();
+        //jComboBox1.addItem("Selecione un Puesto");
+        modelo.addElement(new Puesto(nombrePuesto,idPuesto));
+        for(int i=0; i<lista.size(); i++){
+            //jComboBox1.addItem(lista.get(i).getPuesto());
+            modelo.addElement(lista.get(i));
+        }
+        jComboBox1.setModel(modelo);
+        
+    }
+   
     public void llenarComboBoxPuestos(){
         jComboBox7.removeAllItems();
         lista = new InformacionPuesto().getlistaPuesto();
@@ -648,7 +656,7 @@ public class VistaSu extends javax.swing.JFrame {
                                     .addGap(21, 21, 21))
                                 .addGroup(jPanel6Layout.createSequentialGroup()
                                     .addContainerGap()
-                                    .addComponent(jButton26, javax.swing.GroupLayout.PREFERRED_SIZE, 68, Short.MAX_VALUE)
+                                    .addComponent(jButton26, javax.swing.GroupLayout.DEFAULT_SIZE, 68, Short.MAX_VALUE)
                                     .addGap(26, 26, 26)))
                             .addGroup(jPanel6Layout.createSequentialGroup()
                                 .addContainerGap()
@@ -832,7 +840,11 @@ public class VistaSu extends javax.swing.JFrame {
         jLabel28.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
         jLabel28.setText("Curriculum");
 
-        jTextField14.setText("jTextField14");
+        jTextField14.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField14ActionPerformed(evt);
+            }
+        });
 
         jLabel29.setText("Actividad de Docente:");
 
@@ -1146,7 +1158,7 @@ public class VistaSu extends javax.swing.JFrame {
             }
         });
         jPanel9.add(jTextField12);
-        jTextField12.setBounds(16, 34, 43, 22);
+        jTextField12.setBounds(16, 34, 43, 24);
 
         jLabel21.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/uni449-PhotoRoom.png"))); // NOI18N
         jLabel21.setText("DEPARTAMENTOS");
@@ -1713,7 +1725,7 @@ public class VistaSu extends javax.swing.JFrame {
             btnSiguienteBuscar.setVisible(true);
         try{
             Connection conexion = new Conexion().getConexion();
-            psSU = (PreparedStatement) conexion.prepareStatement("select * from funcionario where ci = ? "); 
+            psSU = (PreparedStatement) conexion.prepareStatement("select IDFUNCIONARIO,PT.IDPUESTO,ci,nombreFuncionario,telefono,fechaNacimiento,NOMBREPUESTO from funcionario f, puestoTrabajo pt where f.idpuesto = pt.idpuesto AND CI = ?"); 
             psSU.setString(1,jTextField1.getText());
             rsSU = psSU.executeQuery(); 
             if(rsSU.next()){
@@ -1721,12 +1733,15 @@ public class VistaSu extends javax.swing.JFrame {
                 jTextField4.setText(rsSU.getString("telefono"));
                 jTextField6.setText(rsSU.getString("ci"));
                 jTextField3.setText(String.valueOf(rsSU.getDate("fechaNacimiento")));
+                //jComboBox1
                 //jComboBox1.setSelectedIndex(rsSU.getInt("idPuesto"));
                 jTextField7.setText(rsSU.getString("IDFUNCIONARIO"));
-                cajaIDPuesto.setText(rsSU.getString("idPuesto"));
-                jComboBox1.setVisible(false);
-                obtenerNombreDelPuesto();
-                obtenerDescripcionPuesto();
+                llenarComboBoxPuestosDisponibles(rsSU.getInt("IDPUESTO"),rsSU.getString("NOMBREPUESTO"));
+
+                //cajaIDPuesto.setText(rsSU.getString("IDPUESTO"));
+                //jComboBox1.setVisible(true);
+                //obtenerNombreDelPuesto();
+                //obtenerDescripcionPuesto();
             }else{
                 JOptionPane.showMessageDialog(null,"Registro no encontrado");                
             }
@@ -2825,13 +2840,17 @@ De nuevo erick y juan haciendo esta parte
         }
     }//GEN-LAST:event_jButton49ActionPerformed
 
-    private void btnSiguienteBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSiguienteBuscarActionPerformed
-       jTabbedPane1.setSelectedIndex(13);
-    }//GEN-LAST:event_btnSiguienteBuscarActionPerformed
-
     private void btnContinuarBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnContinuarBuscarActionPerformed
         jTabbedPane1.setSelectedIndex(4);
     }//GEN-LAST:event_btnContinuarBuscarActionPerformed
+
+    private void btnSiguienteBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSiguienteBuscarActionPerformed
+        jTabbedPane1.setSelectedIndex(13);
+    }//GEN-LAST:event_btnSiguienteBuscarActionPerformed
+
+    private void jTextField14ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField14ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField14ActionPerformed
    /**
     * Fin de codigo erick 
     */
