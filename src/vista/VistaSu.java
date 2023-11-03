@@ -39,6 +39,12 @@ public class VistaSu extends javax.swing.JFrame {
     int idCargosDesempeñados;
     int idEstudiosAcademicos;
     
+    int idEscolaridad ;
+    int idAptitud;
+    int idEsfuerzo;
+    int codExperiencia; 
+    int idHabilidadDestreza;
+    
     PreparedStatement psSU, psAux ; 
     ResultSet rsSU, rsAux ;
     //Conexion prueba;
@@ -111,15 +117,20 @@ public class VistaSu extends javax.swing.JFrame {
     }
     public void funcionalidadesInvisibles(){
         jTextField7.setVisible(false);
+        cajaIDPuesto.setVisible(false);
+        cajaNombrePuesto.setVisible(false);
         jTextField12.setVisible(false);
+        btnSiguienteBuscar.setVisible(false);
+       btnContinuarBuscar.setVisible(false);
         jButton3.setContentAreaFilled(false); // Desactiva el relleno del botón
         jButton3.setBorderPainted(false); // Desactiva el borde del botón
         jButton4.setContentAreaFilled(false);
-       jButton4.setBorderPainted(false);
+        jButton4.setBorderPainted(false);
         jButton8.setContentAreaFilled(false);
         jButton8.setBorderPainted(false);
         jButton6.setContentAreaFilled(false);
         jButton6.setBorderPainted(false);
+        
         /*
         Aca para adelante estaran las funcionalidades invisibles del panel
         */
@@ -173,6 +184,9 @@ public class VistaSu extends javax.swing.JFrame {
         jTextField7 = new javax.swing.JTextField();
         jButton35 = new javax.swing.JButton();
         btnCerrarSesionSU = new javax.swing.JButton();
+        cajaNombrePuesto = new javax.swing.JTextField();
+        cajaIDPuesto = new javax.swing.JTextField();
+        btnSiguienteBuscar = new javax.swing.JButton();
         jPanel5 = new javax.swing.JPanel();
         jPanel6 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
@@ -311,6 +325,7 @@ public class VistaSu extends javax.swing.JFrame {
         jTextField19 = new javax.swing.JTextField();
         jTextField20 = new javax.swing.JTextField();
         jTextField21 = new javax.swing.JTextField();
+        btnContinuarBuscar = new javax.swing.JButton();
         jLabel6 = new javax.swing.JLabel();
         ImagenFondo = new javax.swing.JLabel();
 
@@ -464,7 +479,7 @@ public class VistaSu extends javax.swing.JFrame {
                 jButton5ActionPerformed(evt);
             }
         });
-        jPanel4.add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 10, -1, -1));
+        jPanel4.add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 10, 60, 30));
 
         jTextField1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -491,7 +506,7 @@ public class VistaSu extends javax.swing.JFrame {
                 jTextField7ActionPerformed(evt);
             }
         });
-        jPanel4.add(jTextField7, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 220, 170, -1));
+        jPanel4.add(jTextField7, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 60, 170, -1));
 
         jButton35.setText("Siguiente");
         jButton35.addActionListener(new java.awt.event.ActionListener() {
@@ -499,7 +514,7 @@ public class VistaSu extends javax.swing.JFrame {
                 jButton35ActionPerformed(evt);
             }
         });
-        jPanel4.add(jButton35, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 220, 80, 30));
+        jPanel4.add(jButton35, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 240, 80, 30));
 
         btnCerrarSesionSU.setBackground(new java.awt.Color(255, 204, 0));
         btnCerrarSesionSU.setText("Cerrar Sesion");
@@ -510,6 +525,16 @@ public class VistaSu extends javax.swing.JFrame {
             }
         });
         jPanel4.add(btnCerrarSesionSU, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 20, 120, -1));
+        jPanel4.add(cajaNombrePuesto, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 210, 190, -1));
+        jPanel4.add(cajaIDPuesto, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 210, 80, -1));
+
+        btnSiguienteBuscar.setText("Siguiente");
+        btnSiguienteBuscar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSiguienteBuscarActionPerformed(evt);
+            }
+        });
+        jPanel4.add(btnSiguienteBuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 210, -1, -1));
 
         jTabbedPane1.addTab("tab1", jPanel4);
 
@@ -623,7 +648,7 @@ public class VistaSu extends javax.swing.JFrame {
                                     .addGap(21, 21, 21))
                                 .addGroup(jPanel6Layout.createSequentialGroup()
                                     .addContainerGap()
-                                    .addComponent(jButton26, javax.swing.GroupLayout.DEFAULT_SIZE, 68, Short.MAX_VALUE)
+                                    .addComponent(jButton26, javax.swing.GroupLayout.PREFERRED_SIZE, 68, Short.MAX_VALUE)
                                     .addGap(26, 26, 26)))
                             .addGroup(jPanel6Layout.createSequentialGroup()
                                 .addContainerGap()
@@ -1121,7 +1146,7 @@ public class VistaSu extends javax.swing.JFrame {
             }
         });
         jPanel9.add(jTextField12);
-        jTextField12.setBounds(16, 34, 43, 24);
+        jTextField12.setBounds(16, 34, 43, 22);
 
         jLabel21.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/uni449-PhotoRoom.png"))); // NOI18N
         jLabel21.setText("DEPARTAMENTOS");
@@ -1430,6 +1455,13 @@ public class VistaSu extends javax.swing.JFrame {
             }
         });
 
+        btnContinuarBuscar.setText("Continuar");
+        btnContinuarBuscar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnContinuarBuscarActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel12Layout = new javax.swing.GroupLayout(jPanel12);
         jPanel12.setLayout(jPanel12Layout);
         jPanel12Layout.setHorizontalGroup(
@@ -1437,6 +1469,20 @@ public class VistaSu extends javax.swing.JFrame {
             .addGroup(jPanel12Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel12Layout.createSequentialGroup()
+                        .addGap(483, 483, 483)
+                        .addGroup(jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel12Layout.createSequentialGroup()
+                                .addGap(27, 27, 27)
+                                .addGroup(jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(jButton40)
+                                    .addComponent(jButton39)))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel12Layout.createSequentialGroup()
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 170, Short.MAX_VALUE)
+                                .addGroup(jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(jButton36, javax.swing.GroupLayout.DEFAULT_SIZE, 102, Short.MAX_VALUE)
+                                    .addComponent(btnContinuarBuscar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addGap(49, 49, 49))))
                     .addGroup(jPanel12Layout.createSequentialGroup()
                         .addGroup(jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addGroup(jPanel12Layout.createSequentialGroup()
@@ -1447,41 +1493,28 @@ public class VistaSu extends javax.swing.JFrame {
                                 .addComponent(jLabel35)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(jTextField18)))
-                        .addGroup(jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel12Layout.createSequentialGroup()
-                                .addGap(18, 18, 18)
-                                .addComponent(jButton40)
-                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel12Layout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 156, Short.MAX_VALUE)
-                                .addComponent(jButton39)
-                                .addGap(115, 115, 115))))
-                    .addGroup(jPanel12Layout.createSequentialGroup()
-                        .addGroup(jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel12Layout.createSequentialGroup()
-                                .addComponent(jLabel37)
-                                .addGap(32, 32, 32)
-                                .addComponent(jTextField20, javax.swing.GroupLayout.PREFERRED_SIZE, 400, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(jLabel38)
-                            .addComponent(jLabel36))
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel12Layout.createSequentialGroup()
+                        .addComponent(jLabel36)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jTextField19, javax.swing.GroupLayout.PREFERRED_SIZE, 400, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jButton41)
+                        .addGap(175, 175, 175))
                     .addGroup(jPanel12Layout.createSequentialGroup()
-                        .addGap(83, 83, 83)
                         .addGroup(jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jTextField19, javax.swing.GroupLayout.PREFERRED_SIZE, 388, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel37)
+                            .addComponent(jLabel38))
+                        .addGap(18, 18, 18)
+                        .addGroup(jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jTextField20, javax.swing.GroupLayout.PREFERRED_SIZE, 400, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jTextField21, javax.swing.GroupLayout.PREFERRED_SIZE, 400, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jComboBox11, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(46, 46, 46)
                         .addGroup(jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel12Layout.createSequentialGroup()
-                                .addGap(27, 27, 27)
-                                .addGroup(jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(jButton42)
-                                    .addComponent(jButton41)
-                                    .addComponent(jButton43)))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel12Layout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jButton36, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(49, 49, 49))))))
+                            .addComponent(jButton43)
+                            .addComponent(jButton42))
+                        .addGap(0, 0, Short.MAX_VALUE))))
         );
         jPanel12Layout.setVerticalGroup(
             jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1496,34 +1529,28 @@ public class VistaSu extends javax.swing.JFrame {
                     .addComponent(jLabel35)
                     .addComponent(jTextField18, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButton40))
-                .addGap(26, 26, 26)
-                .addComponent(jLabel36)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(23, 23, 23)
                 .addGroup(jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel36)
                     .addComponent(jTextField19, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButton41))
-                .addGroup(jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel12Layout.createSequentialGroup()
-                        .addGap(28, 28, 28)
-                        .addGroup(jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jButton42)
-                            .addComponent(jTextField20, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(jPanel12Layout.createSequentialGroup()
-                        .addGap(20, 20, 20)
-                        .addComponent(jLabel37)))
-                .addGap(37, 37, 37)
+                .addGap(24, 24, 24)
+                .addGroup(jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel37)
+                    .addComponent(jTextField20, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton42))
+                .addGap(31, 31, 31)
                 .addGroup(jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel38)
                     .addComponent(jTextField21, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButton43))
-                .addGroup(jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel12Layout.createSequentialGroup()
-                        .addGap(36, 36, 36)
-                        .addComponent(jButton36, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel12Layout.createSequentialGroup()
-                        .addGap(18, 18, 18)
-                        .addComponent(jComboBox11, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(26, 26, 26)
+                .addComponent(jComboBox11, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(4, 4, 4)
+                .addComponent(btnContinuarBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jButton36, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(55, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("tab9", jPanel12);
@@ -1679,6 +1706,11 @@ public class VistaSu extends javax.swing.JFrame {
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
             //Estos botones son para el caso en que encontrar
             jButton3.setEnabled(false);
+            jButton35.setVisible(false);
+            btnContinuarBuscar.setVisible(true);
+            jButton35.setVisible(false);
+            cajaNombrePuesto.setVisible(true);
+            btnSiguienteBuscar.setVisible(true);
         try{
             Connection conexion = new Conexion().getConexion();
             psSU = (PreparedStatement) conexion.prepareStatement("select * from funcionario where ci = ? "); 
@@ -1691,6 +1723,10 @@ public class VistaSu extends javax.swing.JFrame {
                 jTextField3.setText(String.valueOf(rsSU.getDate("fechaNacimiento")));
                 //jComboBox1.setSelectedIndex(rsSU.getInt("idPuesto"));
                 jTextField7.setText(rsSU.getString("IDFUNCIONARIO"));
+                cajaIDPuesto.setText(rsSU.getString("idPuesto"));
+                jComboBox1.setVisible(false);
+                obtenerNombreDelPuesto();
+                obtenerDescripcionPuesto();
             }else{
                 JOptionPane.showMessageDialog(null,"Registro no encontrado");                
             }
@@ -1699,6 +1735,127 @@ public class VistaSu extends javax.swing.JFrame {
             System.err.println("ERROR, "+ex);
         }
     }//GEN-LAST:event_jButton5ActionPerformed
+    private void obtenerNombreDelPuesto(){
+         try{
+            Connection conexion = new Conexion().getConexion();
+            psSU = (PreparedStatement) conexion.prepareStatement("select NOMBREPUESTO from PuestoTrabajo where idPuesto = ?"); 
+            psSU.setString(1,cajaIDPuesto.getText());
+            rsSU = psSU.executeQuery(); 
+            if(rsSU.next()){
+                cajaNombrePuesto.setText(rsSU.getString("NOMBREPUESTO"));
+            }else{
+                JOptionPane.showMessageDialog(null,"Registro no encontrado");                
+            }
+            conexion.close();
+        }catch(Exception ex ){
+            System.err.println("ERROR, "+ex);
+        }
+    }
+    private void obtenerDescripcionPuesto(){
+        llenarExperiencia();
+         llenarHabilidadDestreza();
+         llenarEscolaridad();
+         llenarAptitudes();
+         llenarEsfuerzo();
+    }
+    private void llenarEsfuerzo(){
+        try{
+            Connection conexion = new Conexion().getConexion();
+            psSU = (PreparedStatement) conexion.prepareStatement("select esf.IDESFUERZO ,esf.DESCRIPCIONDELESFUERZO from esfuerzo esf , descripcionpuesto dp , puestotrabajo pt\n" +
+"where pt.IDPUESTO = dp.IDPUESTO and   dp.IDDESCRIPCIONPUESTO=esf.IDDESCRIPCIONPUESTO and pt.IDPUESTO=? "); 
+            
+            psSU.setInt(1,Integer.parseInt(cajaIDPuesto.getText()));
+            rsSU = psSU.executeQuery(); 
+            if(rsSU.next()){
+                jTextField21.setText(rsSU.getString("esf.DESCRIPCIONDELESFUERZO"));
+                idEsfuerzo = rsSU.getInt("esf.IDESFUERZO");
+            }else{
+                JOptionPane.showMessageDialog(null,"Registro no encontrado");                
+            }
+            conexion.close();
+        }catch(Exception ex ){
+            System.err.println("ERROR, "+ex);
+        }
+   }
+    private void llenarAptitudes(){
+       try{
+            Connection conexion = new Conexion().getConexion();
+            psSU = (PreparedStatement) conexion.prepareStatement("select a.IDAPTITUD, a.NOMBREAAPTITUD from aptitudes a , descripcionpuesto dp , puestotrabajo pt\n" +
+            "where pt.IDPUESTO = dp.IDPUESTO and   dp.IDDESCRIPCIONPUESTO=a.IDDESCRIPCIONPUESTO and pt.IDPUESTO=? "); 
+            
+            psSU.setInt(1,Integer.parseInt(cajaIDPuesto.getText()));
+            rsSU = psSU.executeQuery(); 
+            if(rsSU.next()){
+                jTextField20.setText(rsSU.getString("a.NOMBREAAPTITUD"));
+                  idAptitud = rsSU.getInt("a.IDAPTITUD");
+            }else{
+                JOptionPane.showMessageDialog(null,"Registro no encontrado");                
+            }
+            conexion.close();
+        }catch(Exception ex ){
+            System.err.println("ERROR, "+ex);
+        }
+   }
+    private void llenarEscolaridad(){
+        
+        try{
+            Connection conexion = new Conexion().getConexion();
+            psSU = (PreparedStatement) conexion.prepareStatement("select esc.IDESCOLARIDAD ,esc.DATOESCOLARIDAD from escolaridad esc , descripcionpuesto dp , puestotrabajo pt\n" +
+"where pt.IDPUESTO = dp.IDPUESTO and   dp.IDDESCRIPCIONPUESTO=esc.IDDESCRIPCIONPUESTO and pt.IDPUESTO=? "); 
+            
+            psSU.setInt(1,Integer.parseInt(cajaIDPuesto.getText()));
+            
+            rsSU = psSU.executeQuery(); 
+            if(rsSU.next()){
+                jTextField18.setText(rsSU.getString("esc.DATOESCOLARIDAD"));
+                idEscolaridad = rsSU.getInt("esc.IDESCOLARIDAD");
+            }else{
+                JOptionPane.showMessageDialog(null,"Registro no encontrado");                
+            }
+            
+            conexion.close();
+        }catch(Exception ex ){
+            System.err.println("ERROR, "+ex);
+        }
+    }
+    private void llenarHabilidadDestreza(){
+        try{
+            Connection conexion = new Conexion().getConexion();
+            psSU = (PreparedStatement) conexion.prepareStatement("select hd.IDHABILIDADDESTREZA ,hd.DATOHABILIDADDESTREZA from habilidaddestreza hd , descripcionpuesto dp , puestotrabajo pt\n" +
+"where pt.IDPUESTO = dp.IDPUESTO and   dp.IDDESCRIPCIONPUESTO=hd.IDDESCRIPCIONPUESTO and pt.IDPUESTO=? "); 
+            
+            psSU.setInt(1,Integer.parseInt(cajaIDPuesto.getText()));
+            rsSU = psSU.executeQuery(); 
+            if(rsSU.next()){
+                jTextField19.setText(rsSU.getString("hd.DATOHABILIDADDESTREZA"));
+                idHabilidadDestreza = rsSU.getInt("hd.IDHABILIDADDESTREZA");
+            }else{
+                JOptionPane.showMessageDialog(null,"Registro no encontrado");                
+            }
+            conexion.close();
+        }catch(Exception ex ){
+            System.err.println("ERROR, "+ex);
+        }
+    }
+    private void llenarExperiencia(){
+        try{
+            Connection conexion = new Conexion().getConexion();
+            psSU = (PreparedStatement) conexion.prepareStatement("select ex.CODEXPERIENCIA ,ex.DESCRIPCIONEXPERIENCIA from experiencia ex , descripcionpuesto dp , puestotrabajo pt\n" +
+            "where pt.IDPUESTO = dp.IDPUESTO and   dp.IDDESCRIPCIONPUESTO=ex.IDDESCRIPCIONPUESTO and pt.IDPUESTO=? "); 
+            
+            psSU.setInt(1,Integer.parseInt(cajaIDPuesto.getText()));
+            rsSU = psSU.executeQuery(); 
+            if(rsSU.next()){
+                jTextField17.setText(rsSU.getString("ex.DESCRIPCIONEXPERIENCIA"));
+                codExperiencia = rsSU.getInt("ex.CODEXPERIENCIA");
+            }else{
+                JOptionPane.showMessageDialog(null,"Registro no encontrado");                
+            }
+            conexion.close();
+        }catch(Exception ex ){
+            System.err.println("ERROR, "+ex);
+        }
+    }
     public void limpiar(){
         jTextField5.setText(null);
         jTextField1.setText(null);
@@ -2667,6 +2824,14 @@ De nuevo erick y juan haciendo esta parte
         
         }
     }//GEN-LAST:event_jButton49ActionPerformed
+
+    private void btnSiguienteBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSiguienteBuscarActionPerformed
+       jTabbedPane1.setSelectedIndex(13);
+    }//GEN-LAST:event_btnSiguienteBuscarActionPerformed
+
+    private void btnContinuarBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnContinuarBuscarActionPerformed
+        jTabbedPane1.setSelectedIndex(4);
+    }//GEN-LAST:event_btnContinuarBuscarActionPerformed
    /**
     * Fin de codigo erick 
     */
@@ -2968,6 +3133,10 @@ De nuevo erick y juan haciendo esta parte
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel ImagenFondo;
     private javax.swing.JButton btnCerrarSesionSU;
+    private javax.swing.JButton btnContinuarBuscar;
+    private javax.swing.JButton btnSiguienteBuscar;
+    private javax.swing.JTextField cajaIDPuesto;
+    private javax.swing.JTextField cajaNombrePuesto;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton10;
     private javax.swing.JButton jButton11;
