@@ -2763,6 +2763,11 @@ De nuevo erick y juan haciendo esta parte
         if(!descripcion.equals("")){
             new DatosPuestoTrabajo().insertarFuncionesEspesificas(idPuesto, descripcion);
             JOptionPane.showMessageDialog(null,"Nueva Funcion Especifica agregada con exito");
+            cargarComboFE();
+            if(jComboBox12.getSelectedItem() instanceof FuncionEspecifica){
+                FuncionEspecifica fe = (FuncionEspecifica)jComboBox12.getSelectedItem();
+                jTextField16.setText(fe.getDescripcionFE());
+            }
             jTextField500.setText("");
         }else{
             JOptionPane.showMessageDialog(null,"Error,campo vacio");
@@ -2910,6 +2915,9 @@ De nuevo erick y juan haciendo esta parte
                 cargarComboFE();
                 if(jComboBox12.getSelectedItem() instanceof String){
                     jTextField16.setText("Ninguno");
+                }else{
+                    FuncionEspecifica feRefrescar = (FuncionEspecifica)jComboBox12.getSelectedItem();
+                    jTextField16.setText(feRefrescar.getDescripcionFE());
                 }
             }else{
                 JOptionPane.showMessageDialog(null,"Error al eliminar Funcion Espesifica");
