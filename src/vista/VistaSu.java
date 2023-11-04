@@ -309,6 +309,7 @@ public class VistaSu extends javax.swing.JFrame {
         jTextField500 = new javax.swing.JTextField();
         jButton49 = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
+        jButton52 = new javax.swing.JButton();
         jPanel11 = new javax.swing.JPanel();
         jPanel13 = new javax.swing.JPanel();
         jPanel14 = new javax.swing.JPanel();
@@ -1313,6 +1314,14 @@ public class VistaSu extends javax.swing.JFrame {
         jLabel1.setText("Eliminar puesto de trabajo");
         jPanel10.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 10, -1, -1));
 
+        jButton52.setText("Eliminar F.E");
+        jButton52.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton52ActionPerformed(evt);
+            }
+        });
+        jPanel10.add(jButton52, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 230, 100, 30));
+
         jTabbedPane1.addTab("tab7", jPanel10);
 
         javax.swing.GroupLayout jPanel11Layout = new javax.swing.GroupLayout(jPanel11);
@@ -2252,9 +2261,14 @@ De nuevo erick y juan haciendo esta parte
         
         FuncionGeneral fg = (FuncionGeneral)jComboBox11once.getSelectedItem();
         jTextField15.setText(fg.getDescripcionFG());
-        FuncionEspecifica fe = (FuncionEspecifica)jComboBox12.getSelectedItem();
-        jTextField16.setText(fe.getDescripcionFE());
+        if(jComboBox12.getSelectedItem() instanceof FuncionEspecifica){
+            FuncionEspecifica fe = (FuncionEspecifica)jComboBox12.getSelectedItem();
+            jTextField16.setText(fe.getDescripcionFE());
+        }else{
+            jTextField16.setText("Ninguno");
+        }
         jTextField500.setText("");
+        
     }//GEN-LAST:event_jButton22ActionPerformed
 
     private void jButton21ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton21ActionPerformed
@@ -2633,8 +2647,12 @@ De nuevo erick y juan haciendo esta parte
     }//GEN-LAST:event_jComboBox11onceActionPerformed
 
     private void jComboBox12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox12ActionPerformed
-        FuncionEspecifica fe = (FuncionEspecifica)jComboBox12.getSelectedItem(); // Hecho por David
-        jTextField16.setText(fe.getDescripcionFE());
+        if(jComboBox12.getSelectedItem() instanceof FuncionEspecifica){
+            FuncionEspecifica fe = (FuncionEspecifica)jComboBox12.getSelectedItem(); // Hecho por David
+            jTextField16.setText(fe.getDescripcionFE());
+        }else{
+            jTextField16.setText("Ninguno");
+        }
     }//GEN-LAST:event_jComboBox12ActionPerformed
 
     private void jButton35treintaYcincoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton35treintaYcincoActionPerformed
@@ -2652,10 +2670,12 @@ De nuevo erick y juan haciendo esta parte
     }//GEN-LAST:event_jButton35treintaYcincoActionPerformed
 
     private void jButton36treintaYseisActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton36treintaYseisActionPerformed
-       if(!jTextField16.getText().equals("")){                                   //Hecho por David
+       if(jComboBox12.getSelectedItem() instanceof FuncionEspecifica){
+        if(!jTextField16.getText().equals("")){                                   //Hecho por David
            FuncionEspecifica fe = (FuncionEspecifica)jComboBox12.getSelectedItem();
            if(new DatosPuestoTrabajo().actualizarFE(jTextField16.getText(),fe.getIdFuncionEspecifica())){
                JOptionPane.showMessageDialog(null,"Funcion Especifica actualizada");
+               cargarComboFE();
            }else{
                JOptionPane.showMessageDialog(null,"Error al actualizar Funcion Especifica");
            }
@@ -2663,6 +2683,7 @@ De nuevo erick y juan haciendo esta parte
             JOptionPane.showMessageDialog(null,"Error campo vacio");
         
         }
+       }
     }//GEN-LAST:event_jButton36treintaYseisActionPerformed
 
     private void jButton46ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton46ActionPerformed
@@ -2879,6 +2900,22 @@ De nuevo erick y juan haciendo esta parte
     private void jTextField14ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField14ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField14ActionPerformed
+
+    private void jButton52ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton52ActionPerformed
+        // Eliminar una funcion espesifica
+        if(jComboBox12.getSelectedItem() instanceof FuncionEspecifica){
+            FuncionEspecifica fe = (FuncionEspecifica)jComboBox12.getSelectedItem();
+            if(new DatosPuestoTrabajo().eliminarFuncionEspesifica(fe.getIdFuncionEspecifica())){
+                JOptionPane.showMessageDialog(null,"Funcion Espesifica eliminada con exito");
+                cargarComboFE();
+                if(jComboBox12.getSelectedItem() instanceof String){
+                    jTextField16.setText("Ninguno");
+                }
+            }else{
+                JOptionPane.showMessageDialog(null,"Error al eliminar Funcion Espesifica");
+            }
+        }
+    }//GEN-LAST:event_jButton52ActionPerformed
    /**
     * Fin de codigo erick 
     */
@@ -3238,6 +3275,7 @@ De nuevo erick y juan haciendo esta parte
     private javax.swing.JButton jButton50;
     private javax.swing.JButton jButton500;
     private javax.swing.JButton jButton51;
+    private javax.swing.JButton jButton52;
     private javax.swing.JButton jButton6;
     private javax.swing.JButton jButton7;
     private javax.swing.JButton jButton8;

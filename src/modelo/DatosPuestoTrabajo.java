@@ -365,6 +365,21 @@ public class DatosPuestoTrabajo {
         return res;
     
     }
+     
+    public boolean eliminarFuncionEspesifica(int idFuncionEspesifica){
+        boolean res = false;
+        try{
+            Connection con = new Conexion().getConexion();
+            ps = con.prepareStatement("delete from funcionespecifica where IDFUNCIONESPECIFICA = ?");
+            ps.setInt(1, idFuncionEspesifica);
+            if(ps.executeUpdate()>0){
+                res = true;
+            }
+        }catch(Exception ex){
+            System.err.println("Error:" + ex);
+        }
+        return res;
+    }
  
     
     
