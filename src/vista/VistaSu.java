@@ -3174,7 +3174,7 @@ De nuevo erick y juan haciendo esta parte
     }
     
     /**
-     * 
+     * ----
      * @Juan 
      */
     private void insertarHabilidadDestreza(int pk){
