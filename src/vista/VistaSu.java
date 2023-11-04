@@ -2007,11 +2007,20 @@ De nuevo erick y juan haciendo esta parte
 
     private void jButton13ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton13ActionPerformed
         if(camposLlenos()){
-            int idPuest;
+            int idPuest;   // linea de codigo numero 1841 clase VistaSU
             DatosPuestoTrabajo dpt = new DatosPuestoTrabajo();
-            PuestoTrabajo pt = (PuestoTrabajo)(jComboBox3.getSelectedItem());
+            int idPuestoSuperior;
+            
+            if(jComboBox3.getSelectedItem() instanceof PuestoTrabajo){
+               PuestoTrabajo pt = (PuestoTrabajo)(jComboBox3.getSelectedItem());
+               idPuestoSuperior = pt.getIdPuesto();
+            }else{
+               idPuestoSuperior = 0; 
+            }
+            
             Departamento dep = (Departamento)(jComboBox2.getSelectedItem());
-            dpt.insertarPuesto(jTextField8.getText(),pt.getIdPuesto(),dep.getIdDepartamento());
+            
+            dpt.insertarPuesto(jTextField8.getText(),idPuestoSuperior,dep.getIdDepartamento());
             idPuest = dpt.getIdUltimoPuestoInsertado();
             
             for(int i=0;i<funcionGeneral.size();i++){
@@ -2832,6 +2841,7 @@ De nuevo erick y juan haciendo esta parte
             if(new DatosPuestoTrabajo().eliminarPuestoTrabajo(pt.getIdPuesto())){
                 JOptionPane.showMessageDialog(null,"Puesto de trabajo Eliminado con exito");
                 llenarBuscarPT();
+                actualizarDespuesDeEliminarPT();
                 
             }else{
                 JOptionPane.showMessageDialog(null,"Error al eliminar puesto de trabajo");
@@ -2839,7 +2849,25 @@ De nuevo erick y juan haciendo esta parte
         
         }
     }//GEN-LAST:event_jButton49ActionPerformed
+    
 
+ private void actualizarDespuesDeEliminarPT(){
+        PuestoTrabajo pt = (PuestoTrabajo)(jComboBox9.getSelectedItem());   //codigo David
+        //linea de codigo 2621
+        jTextField13.setText(pt.getNombrePuesto());
+        Departamento dep = new DatosPuestoTrabajo().getDepartamento(pt.getIdPuesto());
+        PuestoTrabajo ptCombo = new DatosPuestoTrabajo().getPuestoSuperior(pt.getIdPuesto());
+        jComboBox8.setSelectedItem(dep);
+        jComboBox10.setSelectedItem(ptCombo);
+        
+        cargarComboFG();
+        cargarComboFE();
+        
+        FuncionGeneral fg = (FuncionGeneral)jComboBox11once.getSelectedItem();
+        jTextField15.setText(fg.getDescripcionFG());
+        FuncionEspecifica fe = (FuncionEspecifica)jComboBox12.getSelectedItem();
+        jTextField16.setText(fe.getDescripcionFE());
+    }
     private void btnContinuarBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnContinuarBuscarActionPerformed
         jTabbedPane1.setSelectedIndex(4);
     }//GEN-LAST:event_btnContinuarBuscarActionPerformed
@@ -3029,10 +3057,14 @@ De nuevo erick y juan haciendo esta parte
     }
     
     private void cargarComboBoxPuestoTrabajo(int id){
-        modelo2 = new DefaultComboBoxModel();
+        modelo2 = new DefaultComboBoxModel();  // linea 2806 de codigo
         ArrayList<PuestoTrabajo>contenido = new DatosPuestoTrabajo(id).getPuestosTrabajo();
-        for(int i=0;i<contenido.size();i++){
-        modelo2.addElement(contenido.get(i));
+        if(contenido.size()>0){
+           for(int i=0;i<contenido.size();i++){
+               modelo2.addElement(contenido.get(i));
+           }
+        }else{
+           modelo2.addElement("No existen puestos en el departamento");
         }
         jComboBox3.setModel(modelo2);
         

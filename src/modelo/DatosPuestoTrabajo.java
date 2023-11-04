@@ -70,11 +70,19 @@ public class DatosPuestoTrabajo {
     
     public void insertarPuesto(String nombrePuesto,int idPuestoSuperior,int departamentoAlQuePertenece){
         try{
-            Connection con = new Conexion().getConexion();
-            ps = con.prepareStatement("insert into puestotrabajo(PUE_IDPUESTO,IDDEPARTAMENTO,NOMBREPUESTO)values(?,?,?)");
-            ps.setInt(1,idPuestoSuperior);
-            ps.setInt(2,departamentoAlQuePertenece);
-            ps.setString(3,nombrePuesto);
+            Connection con = new Conexion().getConexion(); // linea de codigo 75 clase DatosPuestoTrabajo
+            if(idPuestoSuperior!=0){
+                ps = con.prepareStatement("insert into puestotrabajo(PUE_IDPUESTO,IDDEPARTAMENTO,NOMBREPUESTO)values(?,?,?)");
+                ps.setInt(1,idPuestoSuperior);
+                ps.setInt(2,departamentoAlQuePertenece);
+                ps.setString(3,nombrePuesto);
+            }else{
+                ps = con.prepareStatement("insert into puestotrabajo(IDDEPARTAMENTO,NOMBREPUESTO)values(?,?)");
+                ps.setInt(1,departamentoAlQuePertenece);
+                ps.setString(2,nombrePuesto);
+            }
+            
+            
             if(ps.executeUpdate()>0){
                 System.out.println("insertado con exito puesto de trabajo");
             
