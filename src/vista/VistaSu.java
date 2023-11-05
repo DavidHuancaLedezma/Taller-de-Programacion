@@ -45,6 +45,7 @@ public class VistaSu extends javax.swing.JFrame {
     int codExperiencia; 
      int codExperiencia1;
     int idHabilidadDestreza;
+    int indiceActual=0;
     
     PreparedStatement psSU, psAux ; 
     ResultSet rsSU, rsAux ;
@@ -284,6 +285,11 @@ public class VistaSu extends javax.swing.JFrame {
         jButton50 = new javax.swing.JButton();
         jButton51 = new javax.swing.JButton();
         jButton48 = new javax.swing.JButton();
+        jButton53 = new javax.swing.JButton();
+        jButton54 = new javax.swing.JButton();
+        jButton55 = new javax.swing.JButton();
+        jButton56 = new javax.swing.JButton();
+        jButton57 = new javax.swing.JButton();
         jPanel9 = new javax.swing.JPanel();
         jLabel18 = new javax.swing.JLabel();
         jLabel19 = new javax.swing.JLabel();
@@ -1097,18 +1103,45 @@ public class VistaSu extends javax.swing.JFrame {
             }
         });
 
+        jButton53.setText("Buscar");
+        jButton53.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton53ActionPerformed(evt);
+            }
+        });
+
+        jButton54.setText(">");
+        jButton54.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton54ActionPerformed(evt);
+            }
+        });
+
+        jButton55.setText(">");
+        jButton55.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton55ActionPerformed(evt);
+            }
+        });
+
+        jButton56.setText(">");
+        jButton56.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton56ActionPerformed(evt);
+            }
+        });
+
+        jButton57.setText(">");
+        jButton57.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton57ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel8Layout = new javax.swing.GroupLayout(jPanel8);
         jPanel8.setLayout(jPanel8Layout);
         jPanel8Layout.setHorizontalGroup(
             jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel8Layout.createSequentialGroup()
-                .addGap(272, 272, 272)
-                .addComponent(jLabel28)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 238, Short.MAX_VALUE)
-                .addComponent(jLabel33)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jTextField14, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(94, 94, 94))
             .addGroup(jPanel8Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1116,27 +1149,42 @@ public class VistaSu extends javax.swing.JFrame {
                     .addComponent(jLabel30)
                     .addGroup(jPanel8Layout.createSequentialGroup()
                         .addComponent(jScrollPane7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jButton31)
-                            .addComponent(jButton33)
-                            .addComponent(jButton50)))
+                            .addGroup(jPanel8Layout.createSequentialGroup()
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jButton31)
+                                    .addComponent(jButton33)
+                                    .addComponent(jButton50)))
+                            .addGroup(jPanel8Layout.createSequentialGroup()
+                                .addGap(32, 32, 32)
+                                .addComponent(jButton57))))
                     .addGroup(jPanel8Layout.createSequentialGroup()
                         .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jButton27)
-                            .addComponent(jButton28)
-                            .addComponent(jButton46))))
+                            .addGroup(jPanel8Layout.createSequentialGroup()
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jButton27)
+                                    .addComponent(jButton28)
+                                    .addComponent(jButton46)))
+                            .addGroup(jPanel8Layout.createSequentialGroup()
+                                .addGap(23, 23, 23)
+                                .addComponent(jButton56)))))
                 .addGap(12, 12, 12)
                 .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel8Layout.createSequentialGroup()
                         .addComponent(jScrollPane9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jButton30)
-                            .addComponent(jButton34)
-                            .addComponent(jButton51)))
+                            .addGroup(jPanel8Layout.createSequentialGroup()
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jButton30)
+                                    .addComponent(jButton34)
+                                    .addComponent(jButton51)))
+                            .addGroup(jPanel8Layout.createSequentialGroup()
+                                .addGap(32, 32, 32)
+                                .addComponent(jButton55))))
                     .addGroup(jPanel8Layout.createSequentialGroup()
                         .addComponent(jScrollPane8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -1146,11 +1194,24 @@ public class VistaSu extends javax.swing.JFrame {
                             .addComponent(jButton47)))
                     .addComponent(jLabel31)
                     .addComponent(jLabel32))
-                .addContainerGap(224, Short.MAX_VALUE))
+                .addContainerGap(166, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel8Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jButton48, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(83, 83, 83))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel8Layout.createSequentialGroup()
+                .addGap(172, 172, 172)
+                .addComponent(jLabel28)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jButton53)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jButton54)
+                    .addGroup(jPanel8Layout.createSequentialGroup()
+                        .addComponent(jLabel33)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jTextField14, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(94, 94, 94))
         );
         jPanel8Layout.setVerticalGroup(
             jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1163,22 +1224,27 @@ public class VistaSu extends javax.swing.JFrame {
                         .addGap(15, 15, 15)
                         .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jTextField14, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel33))))
-                .addGap(9, 9, 9)
+                            .addComponent(jLabel33)
+                            .addComponent(jButton53))))
+                .addGap(13, 13, 13)
                 .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel29)
                     .addComponent(jLabel31))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jScrollPane8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel8Layout.createSequentialGroup()
+                        .addComponent(jButton56)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jButton46, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jButton27, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jButton28, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel8Layout.createSequentialGroup()
+                        .addComponent(jButton54)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jButton47, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jButton29, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -1191,13 +1257,17 @@ public class VistaSu extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel8Layout.createSequentialGroup()
+                        .addComponent(jButton55)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jButton51, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jButton30, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jButton34, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                         .addGroup(jPanel8Layout.createSequentialGroup()
+                            .addComponent(jButton57)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jButton50, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                             .addComponent(jButton31, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -1206,7 +1276,7 @@ public class VistaSu extends javax.swing.JFrame {
                         .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jScrollPane7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jScrollPane9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 44, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 30, Short.MAX_VALUE)
                 .addComponent(jButton48, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(70, 70, 70))
         );
@@ -1551,7 +1621,7 @@ public class VistaSu extends javax.swing.JFrame {
         jLabel37.setForeground(new java.awt.Color(255, 255, 255));
         jLabel37.setText("Aptitudes");
 
-        jButton36.setText("Continuar");
+        jButton36.setText("Continuar (nuevos user)");
         jButton36.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton36ActionPerformed(evt);
@@ -1609,7 +1679,7 @@ public class VistaSu extends javax.swing.JFrame {
             }
         });
 
-        btnContinuarBuscar.setText("Continuar");
+        btnContinuarBuscar.setText("Continuar (user existente)");
         btnContinuarBuscar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnContinuarBuscarActionPerformed(evt);
@@ -1632,9 +1702,9 @@ public class VistaSu extends javax.swing.JFrame {
                                     .addComponent(jButton40)
                                     .addComponent(jButton39)))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel12Layout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 170, Short.MAX_VALUE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 106, Short.MAX_VALUE)
                                 .addGroup(jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(jButton36, javax.swing.GroupLayout.DEFAULT_SIZE, 102, Short.MAX_VALUE)
+                                    .addComponent(jButton36, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                     .addComponent(btnContinuarBuscar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                                 .addGap(49, 49, 49))))
                     .addGroup(jPanel12Layout.createSequentialGroup()
@@ -3029,6 +3099,17 @@ De nuevo erick y juan haciendo esta parte
     }
     private void btnContinuarBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnContinuarBuscarActionPerformed
         jTabbedPane1.setSelectedIndex(4);
+        String  claveCurriculum = jTextField6.getText();
+        jTextField14.setText(claveCurriculum);
+        jButton28.setEnabled(false);
+        jButton32.setEnabled(false);
+        jButton33.setEnabled(false);
+        jButton34.setEnabled(false);
+         mostraridCurriculum();
+         mostrarDatosActividadDocente(claveCurriculum);  
+         mostrarActividadProfesional(claveCurriculum);
+         mostrarCargosOficialesDesempeñados(claveCurriculum);
+         mostrarEstudiosAcademicos(claveCurriculum);
     }//GEN-LAST:event_btnContinuarBuscarActionPerformed
 
     private void btnSiguienteBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSiguienteBuscarActionPerformed
@@ -3085,6 +3166,284 @@ De nuevo erick y juan haciendo esta parte
             jTabbedPaneEx.setSelectedIndex(indiceActual);
         }
     }//GEN-LAST:event_btnSigActionPerformed
+
+    private void jButton53ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton53ActionPerformed
+        // TODO add your handling code here:
+        try{
+            Connection conexion = new Conexion().getConexion();
+            psSU = (PreparedStatement) conexion.prepareStatement(" select * from funcionario where CI=?"); 
+            psSU.setString(1,jTextField14.getText());
+            rsSU = psSU.executeQuery(); 
+            if(rsSU.next()){
+                mostrarActividadDocente();
+                
+                mostrarcargosDesempenado();
+                
+                mostraractividadProfesional();
+                mostrarEstudiosAcademios();
+            }else{
+                JOptionPane.showMessageDialog(null,"Registro no encontrado");                
+            }
+            conexion.close();
+        }catch(Exception ex ){
+            System.err.println("ERROR, "+ex);
+        }
+    }//GEN-LAST:event_jButton53ActionPerformed
+
+    private void jButton54ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton54ActionPerformed
+        // TODO add your handling code here:
+        mostrarSiguienteDatoActividadProfesional();
+    }//GEN-LAST:event_jButton54ActionPerformed
+
+    private void mostrarSiguienteDatoActividadProfesional(){
+          ArrayList<String> resultados=new ArrayList<>();
+        try{
+            Connection conexion = new Conexion().getConexion();
+            psSU = (PreparedStatement) conexion.prepareStatement("SELECT ap.DATOSACTIVIDADPROFESIONAL\n" +
+"FROM funcionario f\n" +
+"LEFT JOIN curriculum c ON f.IDFUNCIONARIO = c.IDFUNCIONARIO\n" +
+"LEFT JOIN actividadprofesional ap ON c.IDCURRICULUM = ap.IDCURRICULUM\n" +
+"WHERE f.CI =  ? "); 
+            
+            psSU.setString(1,jTextField14.getText());
+            rsSU = psSU.executeQuery(); 
+            while(rsSU.next()){
+                String  datosEstudiosAcademicos=rsSU.getString("ap.DATOSACTIVIDADPROFESIONAL");
+                resultados.add(datosEstudiosAcademicos);
+            }
+            if(indiceActual< resultados.size()){
+                String resultado=resultados.get(indiceActual);
+                jTextArea8.setText(resultado);
+                indiceActual++;
+            }else{
+                if(indiceActual>=resultados.size()){
+                    indiceActual=0;
+                }
+            }
+            conexion.close();
+        }catch(Exception ex ){
+            System.err.println("ERROR, "+ex);
+        }
+    }
+    private void jButton55ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton55ActionPerformed
+        // TODO add your handling code here:
+        mostrarSiguienteDatoEstudiosAcademicos();
+    }//GEN-LAST:event_jButton55ActionPerformed
+
+    private void jButton56ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton56ActionPerformed
+        // TODO add your handling code here:
+        mostrarSiguienteDatoActividadDocente();
+    }//GEN-LAST:event_jButton56ActionPerformed
+
+    private void jButton57ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton57ActionPerformed
+        // TODO add your handling code here:
+        mostrarSiguienteDatoCargosOficialesDesempenado();
+    }//GEN-LAST:event_jButton57ActionPerformed
+    private void mostrarSiguienteDatoCargosOficialesDesempenado(){
+          ArrayList<String> resultados=new ArrayList<>();
+        try{
+            Connection conexion = new Conexion().getConexion();
+            psSU = (PreparedStatement) conexion.prepareStatement("SELECT cd.DATOSDESEMPENADO\n" +
+"FROM funcionario f\n" +
+"LEFT JOIN curriculum c ON f.IDFUNCIONARIO = c.IDFUNCIONARIO\n" +
+"LEFT JOIN cargosoficialesdesempenados cd ON c.IDCURRICULUM = cd.IDCURRICULUM\n" +
+"WHERE f.CI =? "); 
+            
+            psSU.setString(1,jTextField14.getText());
+            rsSU = psSU.executeQuery(); 
+            while(rsSU.next()){
+                String  datosEstudiosAcademicos=rsSU.getString("cd.DATOSDESEMPENADO");
+                resultados.add(datosEstudiosAcademicos);
+            }
+            if(indiceActual< resultados.size()){
+                String resultado=resultados.get(indiceActual);
+                jTextArea7.setText(resultado);
+                indiceActual++;
+            }else{
+                if(indiceActual>=resultados.size()){
+                    indiceActual=0;
+                }
+            }
+            conexion.close();
+        }catch(Exception ex ){
+            System.err.println("ERROR, "+ex);
+        }
+    }
+    private void mostrarSiguienteDatoActividadDocente(){
+          ArrayList<String> resultados=new ArrayList<>();
+        try{
+            Connection conexion = new Conexion().getConexion();
+            psSU = (PreparedStatement) conexion.prepareStatement("SELECT a.ACTIVIDADDOCENTE\n" +
+"FROM funcionario f \n" +
+"LEFT JOIN curriculum c ON f.IDFUNCIONARIO = c.IDFUNCIONARIO\n" +
+"LEFT JOIN actividaddocente a ON c.IDCURRICULUM = a.IDCURRICULUM\n" +
+"WHERE f.CI =? "); 
+            
+            psSU.setString(1,jTextField14.getText());
+            rsSU = psSU.executeQuery(); 
+            while(rsSU.next()){
+                String  datosEstudiosAcademicos=rsSU.getString("a.ACTIVIDADDOCENTE");
+                resultados.add(datosEstudiosAcademicos);
+            }
+            if(indiceActual< resultados.size()){
+                String resultado=resultados.get(indiceActual);
+                jTextArea6.setText(resultado);
+                indiceActual++;
+            }else{
+                if(indiceActual>=resultados.size()){
+                    indiceActual=0;
+                }
+            }
+            conexion.close();
+        }catch(Exception ex ){
+            System.err.println("ERROR, "+ex);
+        }
+    }
+    private void mostrarSiguienteDatoEstudiosAcademicos(){
+          ArrayList<String> resultados=new ArrayList<>();
+        try{
+            Connection conexion = new Conexion().getConexion();
+            psSU = (PreparedStatement) conexion.prepareStatement("SELECT e.DATOSESTUDIOACADEMICO\n" +
+"FROM funcionario f\n" +
+"LEFT JOIN curriculum c ON f.IDFUNCIONARIO = c.IDFUNCIONARIO\n" +
+"LEFT JOIN estudioacademico e ON c.IDCURRICULUM = e.IDCURRICULUM\n" +
+"WHERE f.CI = ? "); 
+            
+            psSU.setString(1,jTextField14.getText());
+            rsSU = psSU.executeQuery(); 
+            while(rsSU.next()){
+                String  datosEstudiosAcademicos=rsSU.getString("e.DATOSESTUDIOACADEMICO");
+                resultados.add(datosEstudiosAcademicos);
+            }
+            if(indiceActual< resultados.size()){
+                String resultado=resultados.get(indiceActual);
+                jTextArea9.setText(resultado);
+                indiceActual++;
+            }else{
+                if(indiceActual>=resultados.size()){
+                    indiceActual=0;
+                }
+            }
+            conexion.close();
+        }catch(Exception ex ){
+            System.err.println("ERROR, "+ex);
+        }
+    }
+    private void mostraractividadProfesional(){
+         ArrayList<String> resultados=new ArrayList<>();
+        try{
+            Connection conexion = new Conexion().getConexion();
+            psSU = (PreparedStatement) conexion.prepareStatement("SELECT ap.DATOSACTIVIDADPROFESIONAL\n" +
+"FROM funcionario f\n" +
+"LEFT JOIN curriculum c ON f.IDFUNCIONARIO = c.IDFUNCIONARIO\n" +
+"LEFT JOIN actividadprofesional ap ON c.IDCURRICULUM = ap.IDCURRICULUM\n" +
+"WHERE f.CI =  ? "); 
+            
+            psSU.setString(1,jTextField14.getText());
+            rsSU = psSU.executeQuery(); 
+            while(rsSU.next()){
+                String  datosEstudiosAcademicos=rsSU.getString("ap.DATOSACTIVIDADPROFESIONAL");
+                resultados.add(datosEstudiosAcademicos);
+            }
+            if(!resultados.isEmpty()){
+                String primerresultado=resultados.get(0);
+                jTextArea8.setText(primerresultado);
+                
+            }else{
+                JOptionPane.showMessageDialog(null,"Registro no encontrado");                
+            }
+            conexion.close();
+        }catch(Exception ex ){
+            System.err.println("ERROR, "+ex);
+        }
+    }
+    private void mostrarActividadDocente(){
+       ArrayList<String> resultados=new ArrayList<>();
+        try{
+            Connection conexion = new Conexion().getConexion();
+            psSU = (PreparedStatement) conexion.prepareStatement("SELECT a.ACTIVIDADDOCENTE\n" +
+"FROM funcionario f \n" +
+"LEFT JOIN curriculum c ON f.IDFUNCIONARIO = c.IDFUNCIONARIO\n" +
+"LEFT JOIN actividaddocente a ON c.IDCURRICULUM = a.IDCURRICULUM\n" +
+"WHERE f.CI =  ? "); 
+            
+            psSU.setString(1,jTextField14.getText());
+            rsSU = psSU.executeQuery(); 
+            while(rsSU.next()){
+                String  datosEstudiosAcademicos=rsSU.getString("a.ACTIVIDADDOCENTE");
+                resultados.add(datosEstudiosAcademicos);
+            }
+            if(indiceActual< resultados.size()){
+                String resultado=resultados.get(indiceActual);
+                jTextArea6.setText(resultado);
+                indiceActual++;
+            }else{
+                if(indiceActual>=resultados.size()){
+                    indiceActual=0;
+                }
+            }
+            conexion.close();
+        }catch(Exception ex ){
+            System.err.println("ERROR, "+ex);
+        }
+    }
+     private void mostrarEstudiosAcademios(){
+         ArrayList<String> resultados=new ArrayList<>();
+        try{
+            Connection conexion = new Conexion().getConexion();
+            psSU = (PreparedStatement) conexion.prepareStatement("SELECT e.DATOSESTUDIOACADEMICO\n" +
+"FROM funcionario f\n" +
+"LEFT JOIN curriculum c ON f.IDFUNCIONARIO = c.IDFUNCIONARIO\n" +
+"LEFT JOIN estudioacademico e ON c.IDCURRICULUM = e.IDCURRICULUM\n" +
+"WHERE f.CI = ? "); 
+            
+            psSU.setString(1,jTextField14.getText());
+            rsSU = psSU.executeQuery(); 
+            while(rsSU.next()){
+                String  datosEstudiosAcademicos=rsSU.getString("e.DATOSESTUDIOACADEMICO");
+                resultados.add(datosEstudiosAcademicos);
+            }
+            if(!resultados.isEmpty()){
+                String primerresultado=resultados.get(0);
+                jTextArea9.setText(primerresultado);
+                
+            }else{
+                JOptionPane.showMessageDialog(null,"Registro no encontrado");                
+            }
+            conexion.close();
+        }catch(Exception ex ){
+            System.err.println("ERROR, "+ex);
+        }
+    }
+    
+    private void mostrarcargosDesempenado(){
+       ArrayList<String> resultados=new ArrayList<>();
+        try{
+            Connection conexion = new Conexion().getConexion();
+            psSU = (PreparedStatement) conexion.prepareStatement("SELECT cd.DATOSDESEMPENADO\n" +
+"FROM funcionario f\n" +
+"LEFT JOIN curriculum c ON f.IDFUNCIONARIO = c.IDFUNCIONARIO\n" +
+"LEFT JOIN cargosoficialesdesempenados cd ON c.IDCURRICULUM = cd.IDCURRICULUM\n" +
+"WHERE f.CI = ? "); 
+            
+            psSU.setString(1,jTextField14.getText());
+            rsSU = psSU.executeQuery(); 
+            while(rsSU.next()){
+                String  datosEstudiosAcademicos=rsSU.getString("cd.DATOSDESEMPENADO");
+                resultados.add(datosEstudiosAcademicos);
+            }
+            if(!resultados.isEmpty()){
+                String primerresultado=resultados.get(0);
+                jTextArea7.setText(primerresultado);
+                
+            }else{
+                JOptionPane.showMessageDialog(null,"Registro no encontrado");                
+            }
+            conexion.close();
+        }catch(Exception ex ){
+            System.err.println("ERROR, "+ex);
+        }
+    }
     private void limp(){
         jTextArea1.setText("");
         jTextArea02.setText("");
@@ -3572,6 +3931,11 @@ De nuevo erick y juan haciendo esta parte
     private javax.swing.JButton jButton500;
     private javax.swing.JButton jButton51;
     private javax.swing.JButton jButton52;
+    private javax.swing.JButton jButton53;
+    private javax.swing.JButton jButton54;
+    private javax.swing.JButton jButton55;
+    private javax.swing.JButton jButton56;
+    private javax.swing.JButton jButton57;
     private javax.swing.JButton jButton6;
     private javax.swing.JButton jButton7;
     private javax.swing.JButton jButton8;
