@@ -2341,11 +2341,16 @@ De nuevo erick y juan haciendo esta parte
         
         cargarComboFG();
         cargarComboFE();
-        
-        FuncionGeneral fg = (FuncionGeneral)jComboBox11once.getSelectedItem();
-        jTextField15.setText(fg.getDescripcionFG());
-        FuncionEspecifica fe = (FuncionEspecifica)jComboBox12.getSelectedItem();
-        jTextField16.setText(fe.getDescripcionFE());
+        try{
+            FuncionGeneral fg = (FuncionGeneral)jComboBox11once.getSelectedItem();
+            jTextField15.setText(fg.getDescripcionFG());
+            FuncionEspecifica fe = (FuncionEspecifica)jComboBox12.getSelectedItem();
+            jTextField16.setText(fe.getDescripcionFE());
+        }catch(Exception ex){
+            System.err.println("Error de casteo:" + ex);
+            jTextField15.setText("");
+            jTextField16.setText("");
+        }
         
         
     }//GEN-LAST:event_jComboBox9ActionPerformed
