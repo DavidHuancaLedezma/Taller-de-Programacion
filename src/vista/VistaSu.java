@@ -3083,22 +3083,26 @@ De nuevo erick y juan haciendo esta parte
 
     private void mostrarSiguienteDatoActividadProfesional(){
           ArrayList<String> resultados=new ArrayList<>();
+          ArrayList<Integer> idsAD=new ArrayList<>();
+          Integer ci = Integer.parseInt(jTextField6.getText());
+          int claveFuncionario = buscarIDFuncionario(ci);
         try{
             Connection conexion = new Conexion().getConexion();
-            psSU = (PreparedStatement) conexion.prepareStatement("SELECT ap.DATOSACTIVIDADPROFESIONAL\n" +
-"FROM funcionario f\n" +
-"LEFT JOIN curriculum c ON f.IDFUNCIONARIO = c.IDFUNCIONARIO\n" +
-"LEFT JOIN actividadprofesional ap ON c.IDCURRICULUM = ap.IDCURRICULUM\n" +
-"WHERE f.CI =  ? "); 
+            psSU = (PreparedStatement) conexion.prepareStatement("select * \n" +
+"FROM funcionario f, curriculum c, actividadprofesional a \n" +
+"where f.IDFUNCIONARIO= c.IDFUNCIONARIO and c.IDCURRICULUM= a.IDCURRICULUM\n" +
+" and f.IDFUNCIONARIO= " + claveFuncionario); 
             
-            psSU.setString(1,jTextField14.getText());
+            
             rsSU = psSU.executeQuery(); 
             while(rsSU.next()){
-                String  datosEstudiosAcademicos=rsSU.getString("ap.DATOSACTIVIDADPROFESIONAL");
+                String  datosEstudiosAcademicos=rsSU.getString("DATOSACTIVIDADPROFESIONAL");
                 resultados.add(datosEstudiosAcademicos);
+                idsAD.add(rsSU.getInt("IDACTIVIDADPROFESIONAL"));
             }
             if(indiceActual< resultados.size()){
                 String resultado=resultados.get(indiceActual);
+                idActividadPofesional = idsAD.get(indiceActual);
                 jTextArea8.setText(resultado);
                 indiceActual++;
             }else{
@@ -3170,22 +3174,26 @@ De nuevo erick y juan haciendo esta parte
     }//GEN-LAST:event_jToggleButton1ActionPerformed
     private void mostrarSiguienteDatoCargosOficialesDesempenado(){
           ArrayList<String> resultados=new ArrayList<>();
+          ArrayList<Integer> idsAD=new ArrayList<>();
+          Integer ci = Integer.parseInt(jTextField6.getText());
+          int claveFuncionario = buscarIDFuncionario(ci);
         try{
             Connection conexion = new Conexion().getConexion();
-            psSU = (PreparedStatement) conexion.prepareStatement("SELECT cd.DATOSDESEMPENADO\n" +
-"FROM funcionario f\n" +
-"LEFT JOIN curriculum c ON f.IDFUNCIONARIO = c.IDFUNCIONARIO\n" +
-"LEFT JOIN cargosoficialesdesempenados cd ON c.IDCURRICULUM = cd.IDCURRICULUM\n" +
-"WHERE f.CI =? "); 
+            psSU = (PreparedStatement) conexion.prepareStatement("select * \n" +
+"FROM funcionario f, curriculum c, cargosoficialesdesempenados a \n" +
+"where f.IDFUNCIONARIO= c.IDFUNCIONARIO and c.IDCURRICULUM= a.IDCURRICULUM\n" +
+" and f.IDFUNCIONARIO=" + claveFuncionario); 
             
-            psSU.setString(1,jTextField14.getText());
+            
             rsSU = psSU.executeQuery(); 
             while(rsSU.next()){
-                String  datosEstudiosAcademicos=rsSU.getString("cd.DATOSDESEMPENADO");
+                String  datosEstudiosAcademicos=rsSU.getString("DATOSDESEMPENADO");
                 resultados.add(datosEstudiosAcademicos);
+                idsAD.add(rsSU.getInt("IDCARGODESEMPENADO"));
             }
             if(indiceActual< resultados.size()){
                 String resultado=resultados.get(indiceActual);
+                idCargosDesempeñados = idsAD.get(indiceActual);
                 jTextArea7.setText(resultado);
                 indiceActual++;
             }else{
@@ -3200,23 +3208,30 @@ De nuevo erick y juan haciendo esta parte
     }
     private void mostrarSiguienteDatoActividadDocente(){
           ArrayList<String> resultados=new ArrayList<>();
+          ArrayList<Integer> idsAD=new ArrayList<>();
+          Integer ci = Integer.parseInt(jTextField6.getText());
+          int claveFuncionario = buscarIDFuncionario(ci);
+          
         try{
             Connection conexion = new Conexion().getConexion();
-            psSU = (PreparedStatement) conexion.prepareStatement("SELECT a.ACTIVIDADDOCENTE\n" +
-"FROM funcionario f \n" +
-"LEFT JOIN curriculum c ON f.IDFUNCIONARIO = c.IDFUNCIONARIO\n" +
-"LEFT JOIN actividaddocente a ON c.IDCURRICULUM = a.IDCURRICULUM\n" +
-"WHERE f.CI =? "); 
+            psSU = (PreparedStatement) conexion.prepareStatement("select * " +
+    "FROM funcionario f, curriculum c,   actividaddocente a " +
+    "where f.IDFUNCIONARIO = c.IDFUNCIONARIO " +" and c.IDCURRICULUM = a.IDCURRICULUM " +
+    " and f.IDFUNCIONARIO="+claveFuncionario);
             
-            psSU.setString(1,jTextField14.getText());
+            
             rsSU = psSU.executeQuery(); 
             while(rsSU.next()){
-                String  datosEstudiosAcademicos=rsSU.getString("a.ACTIVIDADDOCENTE");
+                String  datosEstudiosAcademicos=rsSU.getString("ACTIVIDADDOCENTE");
                 resultados.add(datosEstudiosAcademicos);
+                 idsAD.add(rsSU.getInt("IDACTIVIDADDOCENTE"));
+                
             }
             if(indiceActual< resultados.size()){
                 String resultado=resultados.get(indiceActual);
+                idActividadDocente = idsAD.get(indiceActual);
                 jTextArea6.setText(resultado);
+                System.out.println(idActividadDocente);
                 indiceActual++;
             }else{
                 if(indiceActual>=resultados.size()){
@@ -3230,23 +3245,27 @@ De nuevo erick y juan haciendo esta parte
     }
     private void mostrarSiguienteDatoEstudiosAcademicos(){
           ArrayList<String> resultados=new ArrayList<>();
+          ArrayList<Integer> idsAD=new ArrayList<>();
+          Integer ci = Integer.parseInt(jTextField6.getText());
+          int claveFuncionario = buscarIDFuncionario(ci);
         try{
             Connection conexion = new Conexion().getConexion();
-            psSU = (PreparedStatement) conexion.prepareStatement("SELECT e.DATOSESTUDIOACADEMICO\n" +
-"FROM funcionario f\n" +
-"LEFT JOIN curriculum c ON f.IDFUNCIONARIO = c.IDFUNCIONARIO\n" +
-"LEFT JOIN estudioacademico e ON c.IDCURRICULUM = e.IDCURRICULUM\n" +
-"WHERE f.CI = ? "); 
+            psSU = (PreparedStatement) conexion.prepareStatement("select * \n" +
+"FROM funcionario f, curriculum c, estudioacademico a \n" +
+"where f.IDFUNCIONARIO= c.IDFUNCIONARIO and c.IDCURRICULUM= a.IDCURRICULUM\n" +
+" and f.IDFUNCIONARIO=" +claveFuncionario); 
             
-            psSU.setString(1,jTextField14.getText());
+            
             rsSU = psSU.executeQuery(); 
             while(rsSU.next()){
-                String  datosEstudiosAcademicos=rsSU.getString("e.DATOSESTUDIOACADEMICO");
+                String  datosEstudiosAcademicos=rsSU.getString("DATOSESTUDIOACADEMICO");
                 resultados.add(datosEstudiosAcademicos);
+                idsAD.add(rsSU.getInt("IDESTUDIOACADEMICO"));
             }
             if(indiceActual< resultados.size()){
                 String resultado=resultados.get(indiceActual);
                 jTextArea9.setText(resultado);
+                idEstudiosAcademicos = idsAD.get(indiceActual);
                 indiceActual++;
             }else{
                 if(indiceActual>=resultados.size()){
