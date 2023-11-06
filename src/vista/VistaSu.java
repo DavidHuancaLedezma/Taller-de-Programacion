@@ -3251,7 +3251,7 @@ De nuevo erick y juan haciendo esta parte
         try{
             Connection conexion = new Conexion().getConexion();
             psSU = (PreparedStatement) conexion.prepareStatement("select * \n" +
-"FROM funcionario f, curriculum c, estudioacademico a  \n" +
+"FROM funcionario f, curriculum c, estudioacademico a \n" +
 "where f.IDFUNCIONARIO= c.IDFUNCIONARIO and c.IDCURRICULUM= a.IDCURRICULUM\n" +
 " and f.IDFUNCIONARIO=" +claveFuncionario); 
             
