@@ -130,10 +130,8 @@ public class VistaSu extends javax.swing.JFrame {
     public void funcionalidadesInvisibles(){
         jTextField7.setVisible(false);
         cajaIDPuesto.setVisible(false);
-        cajaNombrePuesto.setVisible(false);
+       // cajaNombrePuesto.setVisible(false);
         jTextField12.setVisible(false);
-        btnSiguienteBuscar.setVisible(false);
-       btnContinuarBuscar.setVisible(false);
         jButton3.setContentAreaFilled(false); // Desactiva el relleno del botón
         jButton3.setBorderPainted(false); // Desactiva el borde del botón
         jButton4.setContentAreaFilled(false);
@@ -175,7 +173,6 @@ public class VistaSu extends javax.swing.JFrame {
         jButton9 = new javax.swing.JButton();
         jButton10 = new javax.swing.JButton();
         jButton14 = new javax.swing.JButton();
-        jButton58 = new javax.swing.JButton();
         jTabbedPane1 = new javax.swing.JTabbedPane();
         jPanel4 = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
@@ -197,9 +194,8 @@ public class VistaSu extends javax.swing.JFrame {
         jTextField7 = new javax.swing.JTextField();
         jButton35 = new javax.swing.JButton();
         btnCerrarSesionSU = new javax.swing.JButton();
-        cajaNombrePuesto = new javax.swing.JTextField();
         cajaIDPuesto = new javax.swing.JTextField();
-        btnSiguienteBuscar = new javax.swing.JButton();
+        jButton58 = new javax.swing.JButton();
         jPanel5 = new javax.swing.JPanel();
         jPanel6 = new javax.swing.JPanel();
         jLabel8 = new javax.swing.JLabel();
@@ -348,7 +344,6 @@ public class VistaSu extends javax.swing.JFrame {
         jTextField19 = new javax.swing.JTextField();
         jTextField20 = new javax.swing.JTextField();
         jTextField21 = new javax.swing.JTextField();
-        btnContinuarBuscar = new javax.swing.JButton();
         jLabel6 = new javax.swing.JLabel();
         ImagenFondo = new javax.swing.JLabel();
 
@@ -400,13 +395,6 @@ public class VistaSu extends javax.swing.JFrame {
             }
         });
 
-        jButton58.setText("jButton58");
-        jButton58.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton58ActionPerformed(evt);
-            }
-        });
-
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -420,10 +408,6 @@ public class VistaSu extends javax.swing.JFrame {
                     .addComponent(jButton14, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButton10, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButton58)
-                .addContainerGap())
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -438,9 +422,7 @@ public class VistaSu extends javax.swing.JFrame {
                 .addComponent(jButton10, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jButton14)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButton58)
-                .addGap(13, 13, 13))
+                .addGap(43, 43, 43))
         );
 
         jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 80, 80, 430));
@@ -542,7 +524,7 @@ public class VistaSu extends javax.swing.JFrame {
                 jTextField7ActionPerformed(evt);
             }
         });
-        jPanel4.add(jTextField7, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 60, 170, -1));
+        jPanel4.add(jTextField7, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 60, 170, -1));
 
         jButton35.setText("Siguiente");
         jButton35.addActionListener(new java.awt.event.ActionListener() {
@@ -550,7 +532,7 @@ public class VistaSu extends javax.swing.JFrame {
                 jButton35ActionPerformed(evt);
             }
         });
-        jPanel4.add(jButton35, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 240, 80, 30));
+        jPanel4.add(jButton35, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 220, 80, 30));
 
         btnCerrarSesionSU.setBackground(new java.awt.Color(255, 204, 0));
         btnCerrarSesionSU.setText("Cerrar Sesion");
@@ -561,16 +543,15 @@ public class VistaSu extends javax.swing.JFrame {
             }
         });
         jPanel4.add(btnCerrarSesionSU, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 20, 120, -1));
-        jPanel4.add(cajaNombrePuesto, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 210, 190, -1));
-        jPanel4.add(cajaIDPuesto, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 210, 80, -1));
+        jPanel4.add(cajaIDPuesto, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 220, 80, -1));
 
-        btnSiguienteBuscar.setText("Siguiente");
-        btnSiguienteBuscar.addActionListener(new java.awt.event.ActionListener() {
+        jButton58.setText("Editar Curriculum");
+        jButton58.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnSiguienteBuscarActionPerformed(evt);
+                jButton58ActionPerformed(evt);
             }
         });
-        jPanel4.add(btnSiguienteBuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 210, -1, -1));
+        jPanel4.add(jButton58, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 100, -1, -1));
 
         jTabbedPane1.addTab("tab1", jPanel4);
 
@@ -1622,13 +1603,6 @@ public class VistaSu extends javax.swing.JFrame {
             }
         });
 
-        btnContinuarBuscar.setText("Continuar (user existente)");
-        btnContinuarBuscar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnContinuarBuscarActionPerformed(evt);
-            }
-        });
-
         javax.swing.GroupLayout jPanel12Layout = new javax.swing.GroupLayout(jPanel12);
         jPanel12.setLayout(jPanel12Layout);
         jPanel12Layout.setHorizontalGroup(
@@ -1646,9 +1620,7 @@ public class VistaSu extends javax.swing.JFrame {
                                     .addComponent(jButton39)))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel12Layout.createSequentialGroup()
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 106, Short.MAX_VALUE)
-                                .addGroup(jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(jButton36, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(btnContinuarBuscar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addComponent(jButton36, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(49, 49, 49))))
                     .addGroup(jPanel12Layout.createSequentialGroup()
                         .addGroup(jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
@@ -1665,7 +1637,7 @@ public class VistaSu extends javax.swing.JFrame {
                         .addComponent(jLabel36)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jTextField19, javax.swing.GroupLayout.PREFERRED_SIZE, 400, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 45, Short.MAX_VALUE)
                         .addComponent(jButton41)
                         .addGap(175, 175, 175))
                     .addGroup(jPanel12Layout.createSequentialGroup()
@@ -1713,11 +1685,9 @@ public class VistaSu extends javax.swing.JFrame {
                     .addComponent(jButton43))
                 .addGap(26, 26, 26)
                 .addComponent(jComboBox11, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(4, 4, 4)
-                .addComponent(btnContinuarBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addGap(54, 54, 54)
                 .addComponent(jButton36, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(55, Short.MAX_VALUE))
+                .addContainerGap(51, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("tab9", jPanel12);
@@ -1851,12 +1821,14 @@ public class VistaSu extends javax.swing.JFrame {
         try {
              Connection conexion = new Conexion().getConexion();
              
-             psSU = conexion.prepareStatement("update funcionario set nombreFuncionario=?,idPuesto=?,telefono=?,fechaNacimiento=? where IDFUNCIONARIO=?");
-             psSU.setString(1,jTextField2.getText());
-             psSU.setInt(2,jComboBox1.getSelectedIndex());
-             psSU.setString(3,jTextField4.getText());
-             psSU.setDate(4,Date.valueOf(jTextField3.getText()));
-             psSU.setInt(5,Integer.parseInt(jTextField5.getText()));
+             psSU = conexion.prepareStatement("update funcionario set idPuesto=?, ci = ?, nombreFuncionario=?,telefono=?,fechaNacimiento=? where IDFUNCIONARIO=?");
+             Puesto p = (Puesto)jComboBox1.getSelectedItem();
+            psSU.setInt(1,p.getIdPuesto());
+            psSU.setInt(2,Integer.parseInt(jTextField6.getText()));
+            psSU.setString(3,jTextField2.getText());
+            psSU.setString(4,jTextField4.getText());
+            psSU.setDate(5,Date.valueOf(jTextField3.getText()));
+            psSU.setInt(6,Integer.parseInt(jTextField7.getText()));
 
             int resultado = psSU.executeUpdate();
             if(resultado > 0 ){
@@ -1874,10 +1846,8 @@ public class VistaSu extends javax.swing.JFrame {
             //Estos botones son para el caso en que encontrar
             jButton3.setEnabled(false);
             jButton35.setVisible(false);
-            btnContinuarBuscar.setVisible(true);
             jButton35.setVisible(false);
-            cajaNombrePuesto.setVisible(true);
-            btnSiguienteBuscar.setVisible(true);
+            //cajaNombrePuesto.setVisible(true);
         try{
             Connection conexion = new Conexion().getConexion();
             psSU = (PreparedStatement) conexion.prepareStatement("select IDFUNCIONARIO,PT.IDPUESTO,ci,nombreFuncionario,telefono,fechaNacimiento,NOMBREPUESTO from funcionario f, puestoTrabajo pt where f.idpuesto = pt.idpuesto AND CI = ?"); 
@@ -1905,22 +1875,7 @@ public class VistaSu extends javax.swing.JFrame {
             System.err.println("ERROR, "+ex);
         }
     }//GEN-LAST:event_jButton5ActionPerformed
-    private void obtenerNombreDelPuesto(){
-         try{
-            Connection conexion = new Conexion().getConexion();
-            psSU = (PreparedStatement) conexion.prepareStatement("select NOMBREPUESTO from PuestoTrabajo where idPuesto = ?"); 
-            psSU.setString(1,cajaIDPuesto.getText());
-            rsSU = psSU.executeQuery(); 
-            if(rsSU.next()){
-                cajaNombrePuesto.setText(rsSU.getString("NOMBREPUESTO"));
-            }else{
-                JOptionPane.showMessageDialog(null,"Registro no encontrado");                
-            }
-            conexion.close();
-        }catch(Exception ex ){
-            System.err.println("ERROR, "+ex);
-        }
-    }
+    
     private void obtenerDescripcionPuesto(){
         llenarExperiencia();
          llenarHabilidadDestreza();
@@ -2044,6 +1999,8 @@ public class VistaSu extends javax.swing.JFrame {
     private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
         // TODO add your handling code here:
         jButton3.setEnabled(true);
+        jButton35.setVisible(true);
+
         limpiar();
         
     }//GEN-LAST:event_jButton8ActionPerformed
@@ -3051,25 +3008,6 @@ De nuevo erick y juan haciendo esta parte
         FuncionEspecifica fe = (FuncionEspecifica)jComboBox12.getSelectedItem();
         jTextField16.setText(fe.getDescripcionFE());
     }
-    private void btnContinuarBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnContinuarBuscarActionPerformed
-        jTabbedPane1.setSelectedIndex(4);
-        String  claveCurriculum = jTextField6.getText();
-        jTextField14.setText(claveCurriculum);
-        jButton28.setEnabled(false);
-        jButton32.setEnabled(false);
-        jButton33.setEnabled(false);
-        jButton34.setEnabled(false);
-         mostraridCurriculum();
-         mostrarDatosActividadDocente(claveCurriculum);  
-         mostrarActividadProfesional(claveCurriculum);
-         mostrarCargosOficialesDesempeñados(claveCurriculum);
-         mostrarEstudiosAcademicos(claveCurriculum);
-    }//GEN-LAST:event_btnContinuarBuscarActionPerformed
-
-    private void btnSiguienteBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSiguienteBuscarActionPerformed
-        jTabbedPane1.setSelectedIndex(13);
-    }//GEN-LAST:event_btnSiguienteBuscarActionPerformed
-
     private void jTextField14ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField14ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField14ActionPerformed
@@ -3191,6 +3129,17 @@ De nuevo erick y juan haciendo esta parte
     private void jButton58ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton58ActionPerformed
         // TODO add your handling code here:
         jTabbedPane1.setSelectedIndex(4);
+        String  claveCurriculum = jTextField6.getText();
+        jTextField14.setText(claveCurriculum);
+        jButton28.setEnabled(false);
+        jButton32.setEnabled(false);
+        jButton33.setEnabled(false);
+        jButton34.setEnabled(false);
+         mostraridCurriculum();
+         mostrarDatosActividadDocente(claveCurriculum);  
+         mostrarActividadProfesional(claveCurriculum);
+         mostrarCargosOficialesDesempeñados(claveCurriculum);
+         mostrarEstudiosAcademicos(claveCurriculum);
 
     }//GEN-LAST:event_jButton58ActionPerformed
 
@@ -3832,11 +3781,8 @@ De nuevo erick y juan haciendo esta parte
     private javax.swing.JButton btnAnt;
     private javax.swing.JButton btnBuscarN;
     private javax.swing.JButton btnCerrarSesionSU;
-    private javax.swing.JButton btnContinuarBuscar;
     private javax.swing.JButton btnSig;
-    private javax.swing.JButton btnSiguienteBuscar;
     private javax.swing.JTextField cajaIDPuesto;
-    private javax.swing.JTextField cajaNombrePuesto;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton10;
     private javax.swing.JButton jButton11;
