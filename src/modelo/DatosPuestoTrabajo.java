@@ -166,9 +166,9 @@ public class DatosPuestoTrabajo {
             ps = con.prepareStatement("select * from puestotrabajo");
             rs = ps.executeQuery();
             while(rs.next()){
-                if(rs.getInt("IDPUESTO")!=28){  // JUNTA DIRECTIVA NO ES UN PUESTO DE TRABAJO
+               // if(rs.getInt("IDPUESTO")!=28){  // JUNTA DIRECTIVA NO ES UN PUESTO DE TRABAJO
                    res.add(new PuestoTrabajo(rs.getInt("IDPUESTO"),rs.getString("NOMBREPUESTO"))); 
-                }
+               // }
             }
             con.close();
         
