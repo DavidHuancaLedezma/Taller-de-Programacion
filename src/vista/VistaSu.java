@@ -911,7 +911,12 @@ public class VistaSu extends javax.swing.JFrame {
         jPanel7.add(jButton22, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 310, 170, 40));
 
         jToggleButton1.setText("ON");
-        jPanel7.add(jToggleButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 190, 50, -1));
+        jToggleButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jToggleButton1ActionPerformed(evt);
+            }
+        });
+        jPanel7.add(jToggleButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 190, 60, -1));
 
         jTabbedPane1.addTab("tab4", jPanel7);
 
@@ -2170,7 +2175,12 @@ De nuevo erick y juan haciendo esta parte
             
             Departamento dep = (Departamento)(jComboBox2.getSelectedItem());
             
-            dpt.insertarPuesto(jTextField8.getText(),idPuestoSuperior,dep.getIdDepartamento());
+            if(jToggleButton1.getText().equals("ON")){
+               dpt.insertarPuesto(jTextField8.getText(),idPuestoSuperior,dep.getIdDepartamento());
+            }else{
+                dpt.insertarPuesto(jTextField8.getText(),0,dep.getIdDepartamento());
+            
+            }
             idPuest = dpt.getIdUltimoPuestoInsertado();
             
             for(int i=0;i<funcionGeneral.size();i++){
@@ -3198,6 +3208,17 @@ De nuevo erick y juan haciendo esta parte
         }
         mostrarExperienciaDP();
     }//GEN-LAST:event_btnAntActionPerformed
+
+    private void jToggleButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton1ActionPerformed
+        if(jToggleButton1.isSelected()){
+            jToggleButton1.setText("OFF");
+            jComboBox3.setEnabled(false);
+        
+        }else{
+            jToggleButton1.setText("ON");
+            jComboBox3.setEnabled(true);
+        }
+    }//GEN-LAST:event_jToggleButton1ActionPerformed
     private void mostrarSiguienteDatoCargosOficialesDesempenado(){
           ArrayList<String> resultados=new ArrayList<>();
         try{
