@@ -2189,6 +2189,7 @@ De nuevo erick y juan haciendo esta parte
             
             LimpiadorDespuesDeAñadirPT();
             JOptionPane.showMessageDialog(null,"Registrado con EXITO!");
+            llenarComboBoxPuestosDisponibles();
         }
     }//GEN-LAST:event_jButton13ActionPerformed
 
