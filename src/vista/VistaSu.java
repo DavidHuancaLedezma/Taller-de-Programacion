@@ -2804,7 +2804,7 @@ De nuevo erick y juan haciendo esta parte
       
        try{
        Connection conexion = new Conexion().getConexion();
-       psSU = conexion.prepareStatement("delete from actividaddocente where IDACTIVIDADDOCENTE="+idActividadDocente);
+       psSU = conexion.prepareStatement("delete from actividaddocente where IDACTIVIDADDOCENTE ="+idActividadDocente);
        
        int resultado = psSU.executeUpdate();
        if(resultado>0){
