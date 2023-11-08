@@ -1735,26 +1735,43 @@ public class VistaSu extends javax.swing.JFrame {
     private void jTextField4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField4ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField4ActionPerformed
-
+    private void desocuparPuestoTrabajo(){
+        Integer ci = Integer.parseInt(jTextField6.getText());
+          int claveFuncionario = buscarIDFuncionario(ci);
+      try{
+        Connection  conexion = new Conexion().getConexion();
+        psSU = conexion.prepareStatement("update funcionario set IDPUESTO = null where IDFUNCIONARIO="+claveFuncionario);
+       
+        int res = psSU.executeUpdate();
+         
+         conexion.close(); 
+      }catch(Exception e){
+      
+      
+      }
+    }
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-        
+           Integer ci = Integer.parseInt(jTextField6.getText());
+           int claveFuncionario = buscarIDFuncionario(ci);
            try{
+            desocuparPuestoTrabajo();    
            Connection  conexion = new Conexion().getConexion();
-           psSU = conexion.prepareStatement("delete from funcionario where IDFUNCIONARIO=?");
-           psSU.setString(1,jTextField7.getText());
+           
+           psSU = conexion.prepareStatement("delete from cuenta where IDFUNCIONARIO="+claveFuncionario);
+          
            int res = psSU.executeUpdate();
            if(res>0){
-           JOptionPane.showMessageDialog(null, "registro eliminado");
+           JOptionPane.showMessageDialog(null, "funcionario eliminado");
            limpiar();
            }else{
-           JOptionPane.showMessageDialog(null, "error al eliminar al registro");
+           JOptionPane.showMessageDialog(null, "error al eliminar el funcionario");
            limpiar();
            }
            conexion.close();    
            }catch(Exception ex){
            System.err.println("Error, "+ex);
            }
-        
+    
     }//GEN-LAST:event_jButton4ActionPerformed
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         // TODO add your handling code here:
