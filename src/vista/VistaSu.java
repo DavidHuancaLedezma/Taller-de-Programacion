@@ -3131,7 +3131,7 @@ De nuevo erick y juan haciendo esta parte
     }//GEN-LAST:event_jButton57ActionPerformed
 
     private void jButton58ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton58ActionPerformed
-        // TODO add your handling code here:
+        // TODO add your handling code here
         jTabbedPane1.setSelectedIndex(4);
         String  claveCurriculum = jTextField6.getText();
         jTextField14.setText(claveCurriculum);
