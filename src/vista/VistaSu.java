@@ -382,6 +382,7 @@ public class VistaSu extends javax.swing.JFrame {
             }
         });
 
+        jButton10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/foto_añadir_puesto_de_trabajo (4).png"))); // NOI18N
         jButton10.setText("Añadir PT");
         jButton10.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
