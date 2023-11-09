@@ -242,6 +242,7 @@ public class VistaSu extends javax.swing.JFrame {
         jLabel17 = new javax.swing.JLabel();
         jButton22 = new javax.swing.JButton();
         jToggleButton1 = new javax.swing.JToggleButton();
+        FondoAgregarPT = new javax.swing.JLabel();
         jPanel8 = new javax.swing.JPanel();
         jLabel28 = new javax.swing.JLabel();
         jTextField14 = new javax.swing.JTextField();
@@ -809,7 +810,7 @@ public class VistaSu extends javax.swing.JFrame {
         jPanel7.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel11.setFont(new java.awt.Font("Arial", 2, 14)); // NOI18N
-        jLabel11.setForeground(new java.awt.Color(0, 51, 255));
+        jLabel11.setForeground(new java.awt.Color(51, 51, 255));
         jLabel11.setText("AÑADIR UN NUEVO PUESTO DE TRABAJO");
         jPanel7.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 290, 30));
 
@@ -875,6 +876,8 @@ public class VistaSu extends javax.swing.JFrame {
         });
         jPanel7.add(jButton12, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 120, -1, -1));
 
+        jButton13.setBackground(new java.awt.Color(51, 51, 255));
+        jButton13.setForeground(new java.awt.Color(255, 255, 255));
         jButton13.setText("REGISTRAR");
         jButton13.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -886,6 +889,8 @@ public class VistaSu extends javax.swing.JFrame {
         jLabel17.setForeground(new java.awt.Color(255, 0, 0));
         jPanel7.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 260, 420, 20));
 
+        jButton22.setBackground(new java.awt.Color(51, 51, 255));
+        jButton22.setForeground(new java.awt.Color(255, 255, 255));
         jButton22.setText("ACTUALIZAR DATOS");
         jButton22.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -901,6 +906,9 @@ public class VistaSu extends javax.swing.JFrame {
             }
         });
         jPanel7.add(jToggleButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 190, 60, -1));
+
+        FondoAgregarPT.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/fondo_pt 810x460.jpg"))); // NOI18N
+        jPanel7.add(FondoAgregarPT, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 810, 460));
 
         jTabbedPane1.addTab("tab4", jPanel7);
 
@@ -3837,6 +3845,7 @@ De nuevo erick y juan haciendo esta parte
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel FondoAgregarPT;
     private javax.swing.JLabel ImagenFondo;
     private javax.swing.JButton btnAnt;
     private javax.swing.JButton btnBuscarN;
