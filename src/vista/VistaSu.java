@@ -276,6 +276,7 @@ public class VistaSu extends javax.swing.JFrame {
         jButton55 = new javax.swing.JButton();
         jButton56 = new javax.swing.JButton();
         jButton57 = new javax.swing.JButton();
+        jButton59 = new javax.swing.JButton();
         jPanel9 = new javax.swing.JPanel();
         jLabel18 = new javax.swing.JLabel();
         jLabel19 = new javax.swing.JLabel();
@@ -1063,6 +1064,13 @@ public class VistaSu extends javax.swing.JFrame {
             }
         });
 
+        jButton59.setText("SALIR");
+        jButton59.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton59ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel8Layout = new javax.swing.GroupLayout(jPanel8);
         jPanel8.setLayout(jPanel8Layout);
         jPanel8Layout.setHorizontalGroup(
@@ -1119,11 +1127,7 @@ public class VistaSu extends javax.swing.JFrame {
                             .addComponent(jButton47)))
                     .addComponent(jLabel31)
                     .addComponent(jLabel32))
-                .addContainerGap(166, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel8Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButton48, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(83, 83, 83))
+                .addContainerGap(224, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel8Layout.createSequentialGroup()
                 .addGap(172, 172, 172)
                 .addComponent(jLabel28)
@@ -1137,6 +1141,12 @@ public class VistaSu extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jTextField14, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(94, 94, 94))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel8Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jButton48, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton59, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(83, 83, 83))
         );
         jPanel8Layout.setVerticalGroup(
             jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1203,7 +1213,9 @@ public class VistaSu extends javax.swing.JFrame {
                             .addComponent(jScrollPane9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 32, Short.MAX_VALUE)
                 .addComponent(jButton48, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(70, 70, 70))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jButton59, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(30, 30, 30))
         );
 
         jTabbedPane1.addTab("tab5", jPanel8);
@@ -2009,7 +2021,7 @@ public class VistaSu extends javax.swing.JFrame {
         // TODO add your handling code here:
         jButton3.setEnabled(true);
         jButton35.setVisible(true);
-
+        llenarComboBoxPuestosDisponibles();
         limpiar();
         
     }//GEN-LAST:event_jButton8ActionPerformed
@@ -2915,12 +2927,19 @@ De nuevo erick y juan haciendo esta parte
                 cargosOficialesDesempeniados();
                 llenarEstudiosAcademicos();
                 limpiar();
+                limpiarCurriculum();
                 jTabbedPane1.setSelectedIndex(0);
                 //jComboBox1.removeAllItems();
                 llenarComboBoxPuestosDisponibles();
             }
         }
     }//GEN-LAST:event_jButton48ActionPerformed
+    private void limpiarCurriculum(){
+        jTextArea6.setText("");
+        jTextArea7.setText("");
+        jTextArea8.setText("");
+        jTextArea9.setText("");
+    }
     private void llenarActividadDocente(){
         try{Connection conexion = new Conexion().getConexion();
            //creamos actividades para el curriculum 
@@ -3148,6 +3167,7 @@ De nuevo erick y juan haciendo esta parte
         jButton32.setEnabled(false);
         jButton33.setEnabled(false);
         jButton34.setEnabled(false);
+        jButton48.setVisible(false);
          mostraridCurriculum();
          mostrarDatosActividadDocente(claveCurriculum);  
          mostrarActividadProfesional(claveCurriculum);
@@ -3181,6 +3201,17 @@ De nuevo erick y juan haciendo esta parte
             jComboBox3.setEnabled(true);
         }
     }//GEN-LAST:event_jToggleButton1ActionPerformed
+
+    private void jButton59ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton59ActionPerformed
+        // TODO add your handling code here:
+        int respuesta=JOptionPane.showOptionDialog(this, "¿Esta Segur@ de Salir?", "EXIT", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE, null, new Object[]{"SI","NO"}, "Guardar Datos");
+        if (respuesta == JOptionPane.YES_OPTION){
+        limpiar();
+        limpiarCurriculum();
+        jTabbedPane1.setSelectedIndex(0);
+        llenarComboBoxPuestosDisponibles();    
+        }
+    }//GEN-LAST:event_jButton59ActionPerformed
     private void mostrarSiguienteDatoCargosOficialesDesempenado(){
           ArrayList<String> resultados=new ArrayList<>();
           ArrayList<Integer> idsAD=new ArrayList<>();
@@ -3868,6 +3899,7 @@ De nuevo erick y juan haciendo esta parte
     private javax.swing.JButton jButton56;
     private javax.swing.JButton jButton57;
     private javax.swing.JButton jButton58;
+    private javax.swing.JButton jButton59;
     private javax.swing.JButton jButton6;
     private javax.swing.JButton jButton7;
     private javax.swing.JButton jButton8;
