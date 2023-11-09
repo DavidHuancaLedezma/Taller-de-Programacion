@@ -322,6 +322,7 @@ public class VistaSu extends javax.swing.JFrame {
         jButton49 = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jButton52 = new javax.swing.JButton();
+        fondoActualizarPT = new javax.swing.JLabel();
         jPanel11 = new javax.swing.JPanel();
         jPanel13 = new javax.swing.JPanel();
         jPanel14 = new javax.swing.JPanel();
@@ -1335,10 +1336,13 @@ public class VistaSu extends javax.swing.JFrame {
 
         jPanel10.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        jLabel23.setForeground(new java.awt.Color(255, 255, 255));
         jLabel23.setText("Nombre del puesto:");
         jPanel10.add(jLabel23, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 20, 120, -1));
         jPanel10.add(jTextField13, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 40, 280, -1));
 
+        jComboBox8.setBackground(new java.awt.Color(255, 255, 255));
+        jComboBox8.setFont(new java.awt.Font("Arial", 2, 12)); // NOI18N
         jComboBox8.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         jComboBox8.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1351,12 +1355,16 @@ public class VistaSu extends javax.swing.JFrame {
         jLabel24.setText("*Buscar puesto de trabajo");
         jPanel10.add(jLabel24, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 10, 160, -1));
 
+        jLabel25.setForeground(new java.awt.Color(255, 255, 255));
         jLabel25.setText("Seleccione nuevo departamento");
         jPanel10.add(jLabel25, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 70, -1, -1));
 
+        jLabel26.setForeground(new java.awt.Color(255, 255, 255));
         jLabel26.setText("Seleccione nuevo puesto superior");
         jPanel10.add(jLabel26, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 120, -1, -1));
 
+        jComboBox9.setBackground(new java.awt.Color(255, 255, 255));
+        jComboBox9.setFont(new java.awt.Font("Arial", 2, 12)); // NOI18N
         jComboBox9.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         jComboBox9.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1365,9 +1373,13 @@ public class VistaSu extends javax.swing.JFrame {
         });
         jPanel10.add(jComboBox9, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 30, 160, -1));
 
+        jComboBox10.setBackground(new java.awt.Color(255, 255, 255));
+        jComboBox10.setFont(new java.awt.Font("Arial", 2, 12)); // NOI18N
         jComboBox10.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         jPanel10.add(jComboBox10, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 140, 280, -1));
 
+        jButton21.setBackground(new java.awt.Color(255, 255, 255));
+        jButton21.setForeground(new java.awt.Color(0, 0, 0));
         jButton21.setText("Actualizar Nombre");
         jButton21.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1375,8 +1387,12 @@ public class VistaSu extends javax.swing.JFrame {
             }
         });
         jPanel10.add(jButton21, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 40, 140, -1));
+
+        jLabel27.setForeground(new java.awt.Color(255, 51, 51));
         jPanel10.add(jLabel27, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 170, 300, 20));
 
+        jButton23.setBackground(new java.awt.Color(255, 255, 255));
+        jButton23.setForeground(new java.awt.Color(0, 0, 0));
         jButton23.setText("Actualizar Departamento");
         jButton23.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1385,6 +1401,8 @@ public class VistaSu extends javax.swing.JFrame {
         });
         jPanel10.add(jButton23, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 90, 180, 30));
 
+        jButton24.setBackground(new java.awt.Color(255, 255, 255));
+        jButton24.setForeground(new java.awt.Color(0, 0, 0));
         jButton24.setText("Actualizar Puesto Superior");
         jButton24.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1392,8 +1410,10 @@ public class VistaSu extends javax.swing.JFrame {
             }
         });
         jPanel10.add(jButton24, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 140, 190, 30));
-        jPanel10.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 190, 680, 10));
+        jPanel10.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 190, 810, 10));
 
+        jButton25.setBackground(new java.awt.Color(51, 51, 255));
+        jButton25.setForeground(new java.awt.Color(255, 255, 255));
         jButton25.setText("Regresar Atras");
         jButton25.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1402,14 +1422,18 @@ public class VistaSu extends javax.swing.JFrame {
         });
         jPanel10.add(jButton25, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 380, -1, -1));
 
+        jLabel34treintaYcuatro.setForeground(new java.awt.Color(255, 255, 255));
         jLabel34treintaYcuatro.setText("Funcion general:");
         jPanel10.add(jLabel34treintaYcuatro, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 200, -1, -1));
 
+        jLabel35treintaYcinco.setForeground(new java.awt.Color(255, 255, 255));
         jLabel35treintaYcinco.setText("Funcion especifica:");
         jPanel10.add(jLabel35treintaYcinco, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 230, 110, -1));
         jPanel10.add(jTextField15, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 260, 520, -1));
         jPanel10.add(jTextField16, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 290, 520, -1));
 
+        jComboBox12.setBackground(new java.awt.Color(255, 255, 255));
+        jComboBox12.setFont(new java.awt.Font("Arial", 2, 12)); // NOI18N
         jComboBox12.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         jComboBox12.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1418,6 +1442,8 @@ public class VistaSu extends javax.swing.JFrame {
         });
         jPanel10.add(jComboBox12, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 230, 550, -1));
 
+        jComboBox11once.setBackground(new java.awt.Color(255, 255, 255));
+        jComboBox11once.setFont(new java.awt.Font("Arial", 2, 12)); // NOI18N
         jComboBox11once.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         jComboBox11once.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1426,6 +1452,8 @@ public class VistaSu extends javax.swing.JFrame {
         });
         jPanel10.add(jComboBox11once, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 200, 550, -1));
 
+        jButton35treintaYcinco.setBackground(new java.awt.Color(255, 255, 255));
+        jButton35treintaYcinco.setForeground(new java.awt.Color(0, 0, 0));
         jButton35treintaYcinco.setText("Actualizar F.G");
         jButton35treintaYcinco.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1434,6 +1462,8 @@ public class VistaSu extends javax.swing.JFrame {
         });
         jPanel10.add(jButton35treintaYcinco, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 260, 110, 30));
 
+        jButton36treintaYseis.setBackground(new java.awt.Color(255, 255, 255));
+        jButton36treintaYseis.setForeground(new java.awt.Color(0, 0, 0));
         jButton36treintaYseis.setText("Actualizar F.E");
         jButton36treintaYseis.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1442,6 +1472,8 @@ public class VistaSu extends javax.swing.JFrame {
         });
         jPanel10.add(jButton36treintaYseis, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 290, 110, 30));
 
+        jButton500.setBackground(new java.awt.Color(255, 255, 255));
+        jButton500.setForeground(new java.awt.Color(0, 0, 0));
         jButton500.setText("Adicionar Nueva F.E");
         jButton500.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1451,6 +1483,8 @@ public class VistaSu extends javax.swing.JFrame {
         jPanel10.add(jButton500, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 320, 150, -1));
         jPanel10.add(jTextField500, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 320, 490, 30));
 
+        jButton49.setBackground(new java.awt.Color(255, 51, 51));
+        jButton49.setForeground(new java.awt.Color(255, 255, 255));
         jButton49.setText("Eliminar");
         jButton49.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1463,6 +1497,8 @@ public class VistaSu extends javax.swing.JFrame {
         jLabel1.setText("Eliminar puesto de trabajo");
         jPanel10.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 10, -1, -1));
 
+        jButton52.setBackground(new java.awt.Color(255, 51, 51));
+        jButton52.setForeground(new java.awt.Color(255, 255, 255));
         jButton52.setText("Eliminar F.E");
         jButton52.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1470,6 +1506,9 @@ public class VistaSu extends javax.swing.JFrame {
             }
         });
         jPanel10.add(jButton52, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 230, 100, 30));
+
+        fondoActualizarPT.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/update_foto 810x460.jpg"))); // NOI18N
+        jPanel10.add(fondoActualizarPT, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 810, 460));
 
         jTabbedPane1.addTab("tab7", jPanel10);
 
@@ -3852,6 +3891,7 @@ De nuevo erick y juan haciendo esta parte
     private javax.swing.JButton btnCerrarSesionSU;
     private javax.swing.JButton btnSig;
     private javax.swing.JTextField cajaIDPuesto;
+    private javax.swing.JLabel fondoActualizarPT;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton10;
     private javax.swing.JButton jButton11;
