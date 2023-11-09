@@ -190,6 +190,7 @@ public class DatosPuestoTrabajo {
                 res = true;
                 System.out.println("Se actualizo con exito");
             }
+            con.close();
         
         }catch(Exception ex){
             System.err.println("Error:" + ex);
@@ -210,6 +211,7 @@ public class DatosPuestoTrabajo {
             if(rs.next()){
                 dep = new Departamento(rs.getInt("IDDEPARTAMENTO"),rs.getString("NOMBREDEPARTAMENTO"));
             }
+            con.close();
         }catch(Exception ex){
             System.err.println("Error:" + ex);
         
@@ -227,6 +229,7 @@ public class DatosPuestoTrabajo {
             if(rs.next()){
                 pt = new PuestoTrabajo(rs.getInt("IDPUESTO"),rs.getString("NOMBREPUESTO"));
             }
+            con.close();
         }catch(Exception ex){
             System.err.println("Error:" + ex);
         
@@ -245,7 +248,7 @@ public class DatosPuestoTrabajo {
                 res = true;
                 System.out.println("Se actualizo con exito");
             }
-        
+            con.close();
         }catch(Exception ex){
             System.err.println("Error:" + ex);
         }
@@ -265,7 +268,7 @@ public class DatosPuestoTrabajo {
                 res = true;
                 System.out.println("Se actualizo con exito");
             }
-        
+            con.close();
         }catch(Exception ex){
             System.err.println("Error:" + ex);
         }
@@ -287,6 +290,7 @@ public class DatosPuestoTrabajo {
             while(rs.next()){
                 res.add(new FuncionGeneral(rs.getInt("IDFUNCION"),rs.getString("descripcion")));
             }
+            con.close();
         }catch(Exception ex){
             System.err.println("Error:" + ex);
         }
@@ -307,6 +311,7 @@ public class DatosPuestoTrabajo {
             while(rs.next()){
                 res.add(new FuncionEspecifica(rs.getInt("id"),rs.getString("descripcion")));
             }
+            con.close();
         }catch(Exception ex){
             System.err.println("Error:" + ex);
         }
@@ -323,7 +328,7 @@ public class DatosPuestoTrabajo {
             if(ps.executeUpdate()>0){
                 res = true;
             }
-            
+            con.close();
         }catch(Exception ex){
             System.err.println("Error:" + ex);
         }
@@ -342,7 +347,8 @@ public class DatosPuestoTrabajo {
             ps.setInt(2, id);
             if(ps.executeUpdate()>0){
                 res = true;
-            }   
+            } 
+            con.close();
         }catch(Exception ex){
             System.err.println("Error:" + ex);
         }
@@ -359,6 +365,7 @@ public class DatosPuestoTrabajo {
             if(ps.executeUpdate()>0){
                 res = true;
             }
+            con.close();
         }catch(Exception ex){
             System.err.println("Error:" + ex);
         }
@@ -375,6 +382,7 @@ public class DatosPuestoTrabajo {
             if(ps.executeUpdate()>0){
                 res = true;
             }
+            con.close();
         }catch(Exception ex){
             System.err.println("Error:" + ex);
         }
