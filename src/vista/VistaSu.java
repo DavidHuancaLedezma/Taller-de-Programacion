@@ -298,6 +298,7 @@ public class VistaSu extends javax.swing.JFrame {
         jButton20 = new javax.swing.JButton();
         jLabel39 = new javax.swing.JLabel();
         jLabel40 = new javax.swing.JLabel();
+        jTextField22 = new javax.swing.JTextField();
         jPanel10 = new javax.swing.JPanel();
         jLabel23 = new javax.swing.JLabel();
         jTextField13 = new javax.swing.JTextField();
@@ -726,7 +727,7 @@ public class VistaSu extends javax.swing.JFrame {
                     .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 257, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jScrollPane14, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 257, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 7, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 13, Short.MAX_VALUE)
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(jPanel6Layout.createSequentialGroup()
                         .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -747,7 +748,7 @@ public class VistaSu extends javax.swing.JFrame {
                                 .addComponent(jComboBox7, javax.swing.GroupLayout.PREFERRED_SIZE, 164, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
                                 .addComponent(jComboBox6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                .addContainerGap(21, Short.MAX_VALUE))
+                .addContainerGap(26, Short.MAX_VALUE))
         );
         jPanel6Layout.setVerticalGroup(
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1293,12 +1294,12 @@ public class VistaSu extends javax.swing.JFrame {
         jLabel18.setForeground(new java.awt.Color(255, 255, 255));
         jLabel18.setText("Nombre de Departamento");
         jPanel9.add(jLabel18);
-        jLabel18.setBounds(350, 270, 145, 27);
+        jLabel18.setBounds(320, 240, 145, 27);
 
         jLabel19.setForeground(new java.awt.Color(255, 255, 255));
         jLabel19.setText("Departamento Superior");
         jPanel9.add(jLabel19);
-        jLabel19.setBounds(370, 320, 135, 16);
+        jLabel19.setBounds(330, 320, 135, 16);
 
         jButton15.setText("Buscar");
         jButton15.addActionListener(new java.awt.event.ActionListener() {
@@ -1307,7 +1308,7 @@ public class VistaSu extends javax.swing.JFrame {
             }
         });
         jPanel9.add(jButton15);
-        jButton15.setBounds(370, 180, 100, 30);
+        jButton15.setBounds(340, 150, 100, 30);
 
         jButton16.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Guardar.png"))); // NOI18N
         jButton16.addActionListener(new java.awt.event.ActionListener() {
@@ -1345,10 +1346,10 @@ public class VistaSu extends javax.swing.JFrame {
         jPanel9.add(jButton19);
         jButton19.setBounds(680, 360, 120, 49);
         jPanel9.add(jTextField11);
-        jTextField11.setBounds(490, 270, 320, 30);
+        jTextField11.setBounds(480, 230, 320, 30);
 
         jPanel9.add(jComboBox4);
-        jComboBox4.setBounds(470, 180, 340, 30);
+        jComboBox4.setBounds(460, 150, 340, 30);
 
         jComboBox5.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1356,7 +1357,7 @@ public class VistaSu extends javax.swing.JFrame {
             }
         });
         jPanel9.add(jComboBox5);
-        jComboBox5.setBounds(490, 310, 320, 30);
+        jComboBox5.setBounds(480, 310, 320, 30);
 
         jTextField12.setToolTipText("");
         jTextField12.addActionListener(new java.awt.event.ActionListener() {
@@ -1387,6 +1388,14 @@ public class VistaSu extends javax.swing.JFrame {
         jLabel39.setBounds(0, 80, 470, 350);
         jPanel9.add(jLabel40);
         jLabel40.setBounds(10, 0, 820, 260);
+
+        jTextField22.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField22ActionPerformed(evt);
+            }
+        });
+        jPanel9.add(jTextField22);
+        jTextField22.setBounds(480, 270, 320, 30);
 
         jTabbedPane1.addTab("tab6", jPanel9);
 
@@ -1572,11 +1581,11 @@ public class VistaSu extends javax.swing.JFrame {
         jPanel13.setLayout(jPanel13Layout);
         jPanel13Layout.setHorizontalGroup(
             jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 808, Short.MAX_VALUE)
+            .addGap(0, 810, Short.MAX_VALUE)
         );
         jPanel13Layout.setVerticalGroup(
             jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 434, Short.MAX_VALUE)
+            .addGap(0, 429, Short.MAX_VALUE)
         );
 
         jTabbedPane1.addTab("tab10", jPanel13);
@@ -1585,11 +1594,11 @@ public class VistaSu extends javax.swing.JFrame {
         jPanel14.setLayout(jPanel14Layout);
         jPanel14Layout.setHorizontalGroup(
             jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 808, Short.MAX_VALUE)
+            .addGap(0, 810, Short.MAX_VALUE)
         );
         jPanel14Layout.setVerticalGroup(
             jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 434, Short.MAX_VALUE)
+            .addGap(0, 429, Short.MAX_VALUE)
         );
 
         jTabbedPane1.addTab("tab11", jPanel14);
@@ -1598,11 +1607,11 @@ public class VistaSu extends javax.swing.JFrame {
         jPanel15.setLayout(jPanel15Layout);
         jPanel15Layout.setHorizontalGroup(
             jPanel15Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 808, Short.MAX_VALUE)
+            .addGap(0, 810, Short.MAX_VALUE)
         );
         jPanel15Layout.setVerticalGroup(
             jPanel15Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 434, Short.MAX_VALUE)
+            .addGap(0, 429, Short.MAX_VALUE)
         );
 
         jTabbedPane1.addTab("tab12", jPanel15);
@@ -1611,11 +1620,11 @@ public class VistaSu extends javax.swing.JFrame {
         jPanel16.setLayout(jPanel16Layout);
         jPanel16Layout.setHorizontalGroup(
             jPanel16Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 808, Short.MAX_VALUE)
+            .addGap(0, 810, Short.MAX_VALUE)
         );
         jPanel16Layout.setVerticalGroup(
             jPanel16Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 434, Short.MAX_VALUE)
+            .addGap(0, 429, Short.MAX_VALUE)
         );
 
         jTabbedPane1.addTab("tab13", jPanel16);
@@ -1624,11 +1633,11 @@ public class VistaSu extends javax.swing.JFrame {
         jPanel17.setLayout(jPanel17Layout);
         jPanel17Layout.setHorizontalGroup(
             jPanel17Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 808, Short.MAX_VALUE)
+            .addGap(0, 810, Short.MAX_VALUE)
         );
         jPanel17Layout.setVerticalGroup(
             jPanel17Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 434, Short.MAX_VALUE)
+            .addGap(0, 429, Short.MAX_VALUE)
         );
 
         jTabbedPane1.addTab("tab14", jPanel17);
@@ -1723,7 +1732,7 @@ public class VistaSu extends javax.swing.JFrame {
                                     .addComponent(jButton40)
                                     .addComponent(jButton39)))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel12Layout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 106, Short.MAX_VALUE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 118, Short.MAX_VALUE)
                                 .addComponent(jButton36, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(49, 49, 49))))
                     .addGroup(jPanel12Layout.createSequentialGroup()
@@ -1791,7 +1800,7 @@ public class VistaSu extends javax.swing.JFrame {
                 .addComponent(jComboBox11, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(54, 54, 54)
                 .addComponent(jButton36, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(51, Short.MAX_VALUE))
+                .addContainerGap(55, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("tab9", jPanel12);
@@ -2304,6 +2313,7 @@ De nuevo erick y juan haciendo esta parte
                 jTextField11.setText(rsSU.getString("NOMBREDEPARTAMENTO"));
                 jComboBox5.setSelectedIndex(rsSU.getInt("DEP_IDDEPARTAMENTO"));
                 jTextField12.setText(rsSU.getString("IDDEPARTAMENTO"));
+                jTextField22.setText(rsSU.getInt("NIVEL")+"");
             }else{
                 JOptionPane.showMessageDialog(null,"Registro no encontrado");                
             }
@@ -2324,10 +2334,10 @@ De nuevo erick y juan haciendo esta parte
         }else{
         try {
              Connection conexion = new Conexion().getConexion();
-             psSU = conexion.prepareStatement("insert into departamento (DEP_IDDEPARTAMENTO,NOMBREDEPARTAMENTO)values(?,?)");
+             psSU = conexion.prepareStatement("insert into departamento (DEP_IDDEPARTAMENTO,NOMBREDEPARTAMENTO, NIVEL)values(?,?,?)");
              psSU.setString(2,jTextField11.getText());
              psSU.setInt(1,jComboBox5.getSelectedIndex());
-             
+             psSU.setInt(3, Integer.parseInt(jTextField22.getText()));
              
             int resultado = psSU.executeUpdate();
             if(resultado > 0 ){
@@ -2381,10 +2391,11 @@ De nuevo erick y juan haciendo esta parte
          try {
              Connection conexion = new Conexion().getConexion();
              
-             psSU = conexion.prepareStatement("update departamento set NOMBREDEPARTAMENTO=?,DEP_IDDEPARTAMENTO=? where IDDEPARTAMENTO=?");
+             psSU = conexion.prepareStatement("update departamento set NOMBREDEPARTAMENTO=?,DEP_IDDEPARTAMENTO=?, NIVEL=? where IDDEPARTAMENTO=?");
              psSU.setString(1,jTextField11.getText());
              psSU.setInt(2,jComboBox5.getSelectedIndex());
-             psSU.setString(3,jTextField12.getText());
+             psSU.setInt(3,Integer.parseInt(jTextField22.getText()));
+             psSU.setString(4,jTextField12.getText());
              
 
             int resultado = psSU.executeUpdate();
@@ -3372,6 +3383,10 @@ De nuevo erick y juan haciendo esta parte
             System.err.println("ERROR, "+ex);
         }
     }//GEN-LAST:event_jButton62ActionPerformed
+
+    private void jTextField22ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField22ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField22ActionPerformed
     private void mostrarSiguienteDatoCargosOficialesDesempenado(){
           ArrayList<String> resultados=new ArrayList<>();
           ArrayList<Integer> idsAD=new ArrayList<>();
@@ -4176,6 +4191,7 @@ De nuevo erick y juan haciendo esta parte
     private javax.swing.JTextField jTextField2;
     private javax.swing.JTextField jTextField20;
     private javax.swing.JTextField jTextField21;
+    private javax.swing.JTextField jTextField22;
     private javax.swing.JTextField jTextField3;
     private javax.swing.JTextField jTextField4;
     private javax.swing.JTextField jTextField5;
