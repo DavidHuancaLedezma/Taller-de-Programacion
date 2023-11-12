@@ -8,8 +8,13 @@ package vista;
 
 
 import java.awt.Color;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.util.ArrayList;
 import javax.swing.plaf.basic.BasicTabbedPaneUI;
+import modelo.Conexion;
+import modelo.Departamento;
 import modelo.Esfuerzo;
 import modelo.Funcionario;
 
@@ -25,6 +30,11 @@ public class InformacionFuncionario extends javax.swing.JFrame {
     private int ejeX,ejeY;
     private String usuario;
     private String contraseña;
+    private PreparedStatement ps;
+    private ResultSet rs;
+    private ArrayList<Departamento>deps;
+    private ArrayList<String>puestos;
+    
     
     
     public InformacionFuncionario(String usuario,String contraseña) {
@@ -336,6 +346,11 @@ public class InformacionFuncionario extends javax.swing.JFrame {
         jScrollPane5 = new javax.swing.JScrollPane();
         jTextArea5 = new javax.swing.JTextArea();
         jPanel10 = new javax.swing.JPanel();
+        jLabel14 = new javax.swing.JLabel();
+        jComboBox1 = new javax.swing.JComboBox<>();
+        jScrollPane4 = new javax.swing.JScrollPane();
+        jTextArea4 = new javax.swing.JTextArea();
+        jLabel32 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -389,6 +404,9 @@ public class InformacionFuncionario extends javax.swing.JFrame {
         jLabel13.setText("NIVELES");
         jLabel13.setToolTipText("");
         jLabel13.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel13MouseClicked(evt);
+            }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 jLabel13MouseEntered(evt);
             }
@@ -644,15 +662,56 @@ public class InformacionFuncionario extends javax.swing.JFrame {
 
         jTabbedPane1.addTab("tab5", jPanel9);
 
+        jLabel14.setText("Niveles de la Empresa");
+
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1", "2", "3" }));
+        jComboBox1.setToolTipText("");
+        jComboBox1.setName(""); // NOI18N
+        jComboBox1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboBox1ActionPerformed(evt);
+            }
+        });
+
+        jTextArea4.setColumns(20);
+        jTextArea4.setRows(5);
+        jScrollPane4.setViewportView(jTextArea4);
+
+        jLabel32.setText("Nivel");
+
         javax.swing.GroupLayout jPanel10Layout = new javax.swing.GroupLayout(jPanel10);
         jPanel10.setLayout(jPanel10Layout);
         jPanel10Layout.setHorizontalGroup(
             jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 630, Short.MAX_VALUE)
+            .addGroup(jPanel10Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel10Layout.createSequentialGroup()
+                        .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel10Layout.createSequentialGroup()
+                                .addComponent(jLabel32, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(174, 174, 174)
+                                .addComponent(jLabel14))
+                            .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(0, 282, Short.MAX_VALUE))
+                    .addComponent(jScrollPane4))
+                .addContainerGap())
         );
         jPanel10Layout.setVerticalGroup(
             jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 339, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel10Layout.createSequentialGroup()
+                .addGap(0, 2, Short.MAX_VALUE)
+                .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel10Layout.createSequentialGroup()
+                        .addComponent(jLabel14)
+                        .addGap(20, 20, 20))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel10Layout.createSequentialGroup()
+                        .addComponent(jLabel32)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
+                .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 262, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
 
         jTabbedPane1.addTab("tab6", jPanel10);
@@ -758,7 +817,91 @@ public class InformacionFuncionario extends javax.swing.JFrame {
     private void jLabel13MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel13MouseExited
         jLabel13.setBackground(new java.awt.Color(0,0,0));
     }//GEN-LAST:event_jLabel13MouseExited
+    
+    private void jLabel13MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel13MouseClicked
+        jTabbedPane1.setSelectedIndex(5);
+        int nivel = Integer.parseInt(jComboBox1.getSelectedItem().toString());
+        jTextArea4.setText("Departamentos del nivel: " +nivel +" \n");
+        listaDepartamentosNivel();
+        llenarDepartamentos();
+        jTextArea4.append("\npuestos del nivel: " +nivel +"\n");
+       // listaPuestosNivel();
+       llenadoListaPuesto();
+        llenarPuestos();
+        jTextArea4.setEditable(false);
+        
+    }//GEN-LAST:event_jLabel13MouseClicked
 
+    private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
+        jTextArea4.setText("");
+        int nivel = Integer.parseInt(jComboBox1.getSelectedItem().toString());
+        jTextArea4.setText("Departamentos del nivel: " +nivel +" \n");
+        listaDepartamentosNivel();
+        llenarDepartamentos();
+        jTextArea4.append("\npuestos del nivel: " +nivel +"\n");
+        //listaPuestosNivel();
+        llenadoListaPuesto();
+        llenarPuestos();
+        jTextArea4.setEditable(false);
+        
+    }//GEN-LAST:event_jComboBox1ActionPerformed
+   
+   public ArrayList<Departamento>listaDepartamentosNivel(){
+        deps = new ArrayList<Departamento>();
+         int nivel = Integer.parseInt(jComboBox1.getSelectedItem().toString());
+        try{
+            Connection con = new Conexion().getConexion();
+            ps = con.prepareStatement("select * from departamento where nivel ="+nivel);
+            rs = ps.executeQuery();
+            while(rs.next()){
+                deps.add(new Departamento(rs.getInt("IDDEPARTAMENTO"),rs.getString("NOMBREDEPARTAMENTO")));
+            }
+            con.close();
+        }catch(Exception ex){
+            System.err.println("Error:" + ex);
+        }
+        return deps;
+    }
+    private void llenarDepartamentos(){
+        
+       for(int i = 0;i<deps.size();i++){
+          jTextArea4.append(deps.get(i).getNombreDepartamento()+"\n");
+        }
+    }
+    private ArrayList<String> listaPuestosNivel(){
+     
+      for(int i = 1;i<deps.size();i++){ 
+         llenadoListaPuesto();
+        
+      } 
+        
+    return puestos;
+    }
+    private void llenarPuestos(){
+      for(int i = 0;i<puestos.size();i++){
+          jTextArea4.append(puestos.get(i)+"\n");
+        } 
+    }
+    private void llenadoListaPuesto(){
+       puestos = new ArrayList<>();
+       int nivel = Integer.parseInt(jComboBox1.getSelectedItem().toString());
+        try{
+            Connection con = new Conexion().getConexion();
+            ps = con.prepareStatement("select * from departamento d, puestotrabajo p where " +
+              "d.IDDEPARTAMENTO= p.IDDEPARTAMENTO and nivel="+nivel); 
+            rs = ps.executeQuery();
+            while(rs.next()){
+                puestos.add(rs.getString("NOMBREPUESTO")); 
+            }
+            con.close();
+        
+        }catch(Exception ex){
+            System.err.println("Error:" + ex);
+        
+        }
+    
+    }
+    
     /**
      * @param args the command line arguments
      */
@@ -796,11 +939,13 @@ public class InformacionFuncionario extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
+    private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel17;
@@ -820,6 +965,7 @@ public class InformacionFuncionario extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel30;
     private javax.swing.JLabel jLabel31;
+    private javax.swing.JLabel jLabel32;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
@@ -839,6 +985,7 @@ public class InformacionFuncionario extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JScrollPane jScrollPane5;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator2;
@@ -849,6 +996,7 @@ public class InformacionFuncionario extends javax.swing.JFrame {
     private javax.swing.JTextArea jTextArea1;
     private javax.swing.JTextArea jTextArea2;
     private javax.swing.JTextArea jTextArea3;
+    private javax.swing.JTextArea jTextArea4;
     private javax.swing.JTextArea jTextArea5;
     // End of variables declaration//GEN-END:variables
 }
