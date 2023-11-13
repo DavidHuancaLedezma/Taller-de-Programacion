@@ -93,5 +93,47 @@ public class DatosProcedimientos {
          
         return resultado;
     }
+    
+    
+    public ArrayList<ListaProcedimientos>getProcedimientos(){
+        ArrayList<ListaProcedimientos>res = new ArrayList();
+        ListaProcedimientos procedimiento=null;
+        try{
+            Connection con = new Conexion().getConexion();
+            ps = con.prepareStatement("select NOMBREPROCEDIMIENTO from procedimiento ");   
+            rs = ps.executeQuery();
+            while(rs.next()){
+                procedimiento = new ListaProcedimientos();
+                procedimiento.setListaProcedimiento(rs.getString("NOMBREPROCEDIMIENTO"));
+                res.add(procedimiento);
+                
+            }
+            con.close();
+        
+        }catch(Exception ex){
+            System.err.println("Error:" + ex);
+        }
+        return res;
+    }
+    public ArrayList<Interventores>getInterventores(){
+        ArrayList<Interventores>res = new ArrayList();
+        Interventores interventor=null;
+        try{
+            Connection con = new Conexion().getConexion();
+            ps = con.prepareStatement("select NOMBREINTERVENTOR from interventores ");   
+            rs = ps.executeQuery();
+            while(rs.next()){
+                interventor = new Interventores();
+                interventor.setNombreinterventor(rs.getString("NOMBREINTERVENTOR"));
+                res.add(interventor);
+                
+            }
+            con.close();
+        
+        }catch(Exception ex){
+            System.err.println("Error:" + ex);
+        }
+        return res;
+    }
 
 }
