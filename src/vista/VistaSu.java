@@ -3322,7 +3322,7 @@ De nuevo erick y juan haciendo esta parte
         if(jTextField2.getText().isEmpty() || jTextField6.getText().isEmpty() || jTextField4.getText().isEmpty() || jTextField3.getText().isEmpty()){
            JOptionPane.showMessageDialog(null, "Por favor Registre todos los datos", "ERROR",JOptionPane.INFORMATION_MESSAGE );
         }else{
-            int respuesta=JOptionPane.showOptionDialog(this, "Se Ingrresara al \n CI:"+jTextField6.getText()+"\n Funcionario:"+jTextField2.getText(), "Confirma tu Informacion", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE, null, new Object[]{"Guardar Datos","Cancelar"}, "Guardar Datos");
+            int respuesta=JOptionPane.showOptionDialog(this, "Se Ingresara al \n Funcionario:"+jTextField2.getText()+"\n CI:"+jTextField6.getText(), "Confirma tu Informacion", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE, null, new Object[]{"Ingresar","Cancelar"}, "Ingresar");
             if (respuesta == JOptionPane.YES_OPTION) {
                 jTabbedPane1.setSelectedIndex(4);
                 String  claveCurriculum = jTextField6.getText();
@@ -3389,7 +3389,7 @@ De nuevo erick y juan haciendo esta parte
             
             psSU.executeUpdate(); 
             conexion.close();
-            JOptionPane.showMessageDialog(null, "Modificacion realizada");
+            JOptionPane.showMessageDialog(null, "Modificacion realizada en:\n"+"Estudios Academicos:\n"+jTextArea9.getText());
         }catch(Exception ex ){
             System.err.println("ERROR, "+ex);
         }
@@ -3404,7 +3404,7 @@ De nuevo erick y juan haciendo esta parte
             
             psSU.executeUpdate(); 
             conexion.close();
-            JOptionPane.showMessageDialog(null, "Modificacion realizada");
+            JOptionPane.showMessageDialog(null, "Modificacion realizada en:\n"+"Actividad Profecional:\n"+jTextArea8.getText());
         }catch(Exception ex ){
             System.err.println("ERROR, "+ex);
         }
@@ -3422,7 +3422,7 @@ De nuevo erick y juan haciendo esta parte
             // Ejecutar la actualización en la base de datos
             psSU.executeUpdate(); 
             conexion.close();
-            JOptionPane.showMessageDialog(null, "Modificacion realizada");
+            JOptionPane.showMessageDialog(null, "Modificacion realizada en:\n"+"Actividad Docente:\n"+jTextArea6.getText());
         }catch(Exception ex ){
             System.err.println("ERROR, "+ex);
         }
@@ -3437,7 +3437,7 @@ De nuevo erick y juan haciendo esta parte
             
             psSU.executeUpdate(); 
             conexion.close();
-            JOptionPane.showMessageDialog(null, "Modificacion realizada");
+            JOptionPane.showMessageDialog(null, "Modificacion realizada en:\n"+"Cargos Oficiales Desempeñados:\n"+jTextArea7.getText());
         }catch(Exception ex ){
             System.err.println("ERROR, "+ex);
         }
