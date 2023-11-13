@@ -11,6 +11,10 @@ import java.util.ArrayList;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JOptionPane;
 import javax.swing.plaf.basic.BasicTabbedPaneUI;
+import manualProcedimiento.DatosProcedimientos;
+import manualProcedimiento.Procedimiento;
+import manualProcedimiento.Interventores;
+import manualProcedimiento.ListaProcedimientos;
 import modelo.*;
 
 /**
@@ -41,6 +45,14 @@ public class VistaSu extends javax.swing.JFrame {
     int idCargosDesempeñados;
     int idEstudiosAcademicos;
     
+    private DefaultComboBoxModel modelo10;
+    private DefaultComboBoxModel modelo11;
+    private boolean existeProcedimiento = false;
+    private String nombreDep;
+    private int idProcedimiento;
+    ArrayList<ListaProcedimientos>listaProcedimientos;
+    ArrayList<Interventores>listaInterventor;
+    
     int idEscolaridad ;
     int idAptitud;
     int idEsfuerzo;
@@ -63,6 +75,10 @@ public class VistaSu extends javax.swing.JFrame {
         this.setLocationRelativeTo(null);
         llenarComboBoxPuestosDisponibles();
         llenarComboBoxPuestos();
+        
+        cargarComboDepartamento();
+        cargarComboBoxProcedimientos();
+        cargarComboBoxInterventores();
         
         llenarComboBoxDepartamento();
         llenarComboBoxBusquedaDepartamento();
@@ -124,6 +140,24 @@ public class VistaSu extends javax.swing.JFrame {
         }
 
     } 
+    public void cargarComboBoxProcedimientos(){
+        jComboBox14.removeAllItems();
+        listaProcedimientos = new DatosProcedimientos().getProcedimientos();
+        jComboBox14.addItem("Selecione un procedimiento");
+        for(int i=0; i<listaProcedimientos.size(); i++){
+            jComboBox14.addItem(listaProcedimientos.get(i).toString());
+        }
+
+    } 
+    public void cargarComboBoxInterventores(){
+        jComboBox15.removeAllItems();
+        listaInterventor = new DatosProcedimientos().getInterventores();
+        jComboBox15.addItem("Selecione un Inerventor");
+        for(int i=0; i<listaInterventor.size(); i++){
+            jComboBox15.addItem(listaInterventor.get(i).toString());
+        }
+
+    } 
     public void verificarRegistro(){
         
     }
@@ -173,6 +207,7 @@ public class VistaSu extends javax.swing.JFrame {
         jButton9 = new javax.swing.JButton();
         jButton10 = new javax.swing.JButton();
         jButton14 = new javax.swing.JButton();
+        jButton68 = new javax.swing.JButton();
         jTabbedPane1 = new javax.swing.JTabbedPane();
         jPanel4 = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
@@ -334,7 +369,33 @@ public class VistaSu extends javax.swing.JFrame {
         jLabel41 = new javax.swing.JLabel();
         fondoActualizarPT = new javax.swing.JLabel();
         jPanel11 = new javax.swing.JPanel();
+        jLabel42 = new javax.swing.JLabel();
+        jLabel43 = new javax.swing.JLabel();
+        jLabel44 = new javax.swing.JLabel();
+        jButton69 = new javax.swing.JButton();
+        jLabel45 = new javax.swing.JLabel();
+        jLabel46 = new javax.swing.JLabel();
+        jLabel47 = new javax.swing.JLabel();
+        jLabel48 = new javax.swing.JLabel();
+        jComboBox13 = new javax.swing.JComboBox<>();
+        jTextField23 = new javax.swing.JTextField();
+        jTextField24 = new javax.swing.JTextField();
+        jComboBox14 = new javax.swing.JComboBox<>();
+        jTextField25 = new javax.swing.JTextField();
+        jButton70 = new javax.swing.JButton();
+        jButton71 = new javax.swing.JButton();
+        jButton72 = new javax.swing.JButton();
+        jTextField26 = new javax.swing.JTextField();
         jPanel13 = new javax.swing.JPanel();
+        jLabel49 = new javax.swing.JLabel();
+        jLabel50 = new javax.swing.JLabel();
+        jLabel51 = new javax.swing.JLabel();
+        jLabel52 = new javax.swing.JLabel();
+        jComboBox15 = new javax.swing.JComboBox<>();
+        jTextField27 = new javax.swing.JTextField();
+        jTextField28 = new javax.swing.JTextField();
+        jButton73 = new javax.swing.JButton();
+        jButton74 = new javax.swing.JButton();
         jPanel14 = new javax.swing.JPanel();
         jPanel15 = new javax.swing.JPanel();
         jPanel16 = new javax.swing.JPanel();
@@ -409,6 +470,13 @@ public class VistaSu extends javax.swing.JFrame {
             }
         });
 
+        jButton68.setText("PROCEDIMIENTOS");
+        jButton68.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton68ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -422,6 +490,10 @@ public class VistaSu extends javax.swing.JFrame {
                     .addComponent(jButton14, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButton10, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jButton68)
+                .addContainerGap())
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -436,7 +508,9 @@ public class VistaSu extends javax.swing.JFrame {
                 .addComponent(jButton10, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jButton14, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(60, 60, 60))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jButton68)
+                .addGap(31, 31, 31))
         );
 
         jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 80, 80, 430));
@@ -759,7 +833,7 @@ public class VistaSu extends javax.swing.JFrame {
                         .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 257, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jScrollPane14, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 20, Short.MAX_VALUE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel6Layout.createSequentialGroup()
                         .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 257, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)))
@@ -1409,7 +1483,7 @@ public class VistaSu extends javax.swing.JFrame {
             }
         });
         jPanel9.add(jTextField12);
-        jTextField12.setBounds(16, 34, 43, 24);
+        jTextField12.setBounds(16, 34, 43, 22);
 
         jLabel21.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/uni449-PhotoRoom.png"))); // NOI18N
         jLabel21.setText("DEPARTAMENTOS");
@@ -1618,17 +1692,142 @@ public class VistaSu extends javax.swing.JFrame {
 
         jPanel11.setForeground(new java.awt.Color(153, 153, 153));
         jPanel11.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel42.setText("SELECIONE UN DEPARTAMENTO");
+        jPanel11.add(jLabel42, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 40, -1, -1));
+
+        jLabel43.setText("NUEVO PROCEDIMIENTO");
+        jPanel11.add(jLabel43, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 80, -1, -1));
+
+        jLabel44.setText("OBJETIVO");
+        jPanel11.add(jLabel44, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 120, -1, -1));
+
+        jButton69.setText("GUARDAR");
+        jButton69.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton69ActionPerformed(evt);
+            }
+        });
+        jPanel11.add(jButton69, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 150, -1, -1));
+
+        jLabel45.setText("SEGUNDO PASO");
+        jPanel11.add(jLabel45, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 200, -1, -1));
+
+        jLabel46.setText("SELECCIONE UN PROCEDIMIENTO");
+        jPanel11.add(jLabel46, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 240, -1, -1));
+
+        jLabel47.setText("POLITICAS DE OPERACION");
+        jPanel11.add(jLabel47, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 270, -1, -1));
+
+        jLabel48.setText("INTERVENTOR");
+        jPanel11.add(jLabel48, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 320, -1, -1));
+
+        jComboBox13.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jPanel11.add(jComboBox13, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 40, 350, -1));
+        jPanel11.add(jTextField23, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 70, 350, -1));
+        jPanel11.add(jTextField24, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 110, 350, -1));
+
+        jComboBox14.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jPanel11.add(jComboBox14, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 230, 350, -1));
+        jPanel11.add(jTextField25, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 260, 360, -1));
+
+        jButton70.setText("+");
+        jButton70.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton70ActionPerformed(evt);
+            }
+        });
+        jPanel11.add(jButton70, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 260, -1, -1));
+
+        jButton71.setText("GUARDAR INTERVENTOR");
+        jButton71.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton71ActionPerformed(evt);
+            }
+        });
+        jPanel11.add(jButton71, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 320, -1, -1));
+
+        jButton72.setText("SIGUIENTE");
+        jButton72.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton72ActionPerformed(evt);
+            }
+        });
+        jPanel11.add(jButton72, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 360, -1, -1));
+        jPanel11.add(jTextField26, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 320, 220, -1));
+
         jTabbedPane1.addTab("tab8", jPanel11);
+
+        jLabel49.setText("REGISTRO DE DESCRIPCION DE PROCEDIMIENTOS");
+
+        jLabel50.setText("PARTES QUE INTERVIENEN");
+
+        jLabel51.setText("DESCRIPCION DE PROCEDIMIENTO");
+
+        jLabel52.setText("NUMERO DE ORDEN");
+
+        jComboBox15.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+
+        jButton73.setText("GUARDAR");
+        jButton73.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton73ActionPerformed(evt);
+            }
+        });
+
+        jButton74.setText("FINALIZAR");
+        jButton74.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton74ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel13Layout = new javax.swing.GroupLayout(jPanel13);
         jPanel13.setLayout(jPanel13Layout);
         jPanel13Layout.setHorizontalGroup(
             jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 810, Short.MAX_VALUE)
+            .addGroup(jPanel13Layout.createSequentialGroup()
+                .addGap(75, 75, 75)
+                .addGroup(jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jButton74)
+                    .addComponent(jButton73)
+                    .addComponent(jLabel49)
+                    .addGroup(jPanel13Layout.createSequentialGroup()
+                        .addGroup(jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel50)
+                            .addComponent(jLabel51)
+                            .addComponent(jLabel52))
+                        .addGap(30, 30, 30)
+                        .addGroup(jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jComboBox15, 0, 389, Short.MAX_VALUE)
+                            .addComponent(jTextField27)
+                            .addComponent(jTextField28, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(130, Short.MAX_VALUE))
         );
         jPanel13Layout.setVerticalGroup(
             jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 429, Short.MAX_VALUE)
+            .addGroup(jPanel13Layout.createSequentialGroup()
+                .addGap(21, 21, 21)
+                .addGroup(jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(jPanel13Layout.createSequentialGroup()
+                        .addGroup(jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(jPanel13Layout.createSequentialGroup()
+                                .addComponent(jLabel49)
+                                .addGap(18, 18, 18)
+                                .addComponent(jLabel50))
+                            .addComponent(jComboBox15, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addComponent(jLabel51))
+                    .addComponent(jTextField27, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel52)
+                    .addComponent(jTextField28, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addComponent(jButton73)
+                .addGap(58, 58, 58)
+                .addComponent(jButton74)
+                .addContainerGap(162, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("tab10", jPanel13);
@@ -3515,6 +3714,151 @@ De nuevo erick y juan haciendo esta parte
             System.err.println("ERROR, "+ex);
         }
     }//GEN-LAST:event_jButton67ActionPerformed
+
+    private void jButton68ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton68ActionPerformed
+        // TODO add your handling code here:
+        jTabbedPane1.setSelectedIndex(7);
+    }//GEN-LAST:event_jButton68ActionPerformed
+
+    private void cargarComboDepartamento(){
+        modelo10 = new DefaultComboBoxModel();
+        ArrayList<Departamento>contenido = new DatosPuestoTrabajo().getDepartamentos();
+        for(int i=-0;i<contenido.size();i++){
+            modelo10.addElement(contenido.get(i));
+        }
+        jComboBox13.setModel(modelo10);
+         
+    }
+    private void jButton74ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton74ActionPerformed
+        // TODO add your handling code here:
+        cargarComboDepartamento();
+        cargarComboBoxProcedimientos();
+        cargarComboBoxInterventores();
+        jTextField27.setText(null);
+        jTextField28.setText(null);
+        jTextField26.setText(null);
+        jTextField25.setText(null);
+        jTextField23.setText(null);
+        jTextField24.setText(null);
+        jTabbedPane1.setSelectedIndex(7);
+    }//GEN-LAST:event_jButton74ActionPerformed
+
+    private void jButton73ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton73ActionPerformed
+        // TODO add your handling code here:
+        
+        if(jTextField28.getText().isEmpty() || jTextField27.getText().isEmpty() || jComboBox15.getSelectedIndex()==0){
+            JOptionPane.showMessageDialog(null,"campo vacio");
+        }else{
+        try {
+             Connection conexion = new Conexion().getConexion();
+             psSU = conexion.prepareStatement("insert into listadeactividades (IDINTERVENTOR,DESCRIPCIONDEACTIVIDAD, ORDENLISTA)values(?,?,?)");
+             psSU.setString(2,jTextField27.getText());
+             psSU.setInt(1,jComboBox15.getSelectedIndex());
+             psSU.setInt(3,Integer.parseInt(jTextField28.getText()));
+             
+            int resultado = psSU.executeUpdate();
+            if(resultado > 0 ){
+                JOptionPane.showMessageDialog(null,"Procedimiento registrado");
+                cargarComboBoxInterventores();
+                jTextField27.setText(null);
+                jTextField28.setText(null);
+                
+            }else{
+                JOptionPane.showMessageDialog(null,"Registro incorrecto");
+            }
+            conexion.close();
+        }catch (Exception ex ){
+          System.err.println("Error:" + ex);
+        }
+        }
+    }//GEN-LAST:event_jButton73ActionPerformed
+
+    private void jButton72ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton72ActionPerformed
+        // TODO add your handling code here:
+        cargarComboBoxInterventores();
+        jTabbedPane1.setSelectedIndex(8);
+    }//GEN-LAST:event_jButton72ActionPerformed
+
+    private void jButton71ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton71ActionPerformed
+        // TODO add your handling code here:
+        if(jTextField26.getText().isEmpty() || jComboBox14.getSelectedIndex()==0){
+            JOptionPane.showMessageDialog(null,"campo vacio");
+        }else{
+        try {
+             Connection conexion = new Conexion().getConexion();
+             psSU = conexion.prepareStatement("insert into interventores(IDPROCIMIENTO,NOMBREINTERVENTOR) values (?,?) ");
+             psSU.setInt(1,jComboBox14.getSelectedIndex());
+             psSU.setString(2,jTextField26.getText());
+             
+            int resultado = psSU.executeUpdate();
+            if(resultado > 0 ){
+                JOptionPane.showMessageDialog(null,"Interventor registrado");
+                jTextField26.setText(null);
+            }else{
+                JOptionPane.showMessageDialog(null,"Registro incorrecto");
+            }
+            conexion.close();
+        }catch (Exception ex ){
+          System.err.println("Error:" + ex);
+        }
+        }
+    }//GEN-LAST:event_jButton71ActionPerformed
+
+    private void jButton70ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton70ActionPerformed
+        // TODO add your handling code here:
+         if(jTextField25.getText().isEmpty() || jComboBox14.getSelectedIndex()==0){
+            JOptionPane.showMessageDialog(null,"campo vacio");
+        }else{
+        try {
+             Connection conexion = new Conexion().getConexion();
+             psSU = conexion.prepareStatement("insert into politicasdeoperacion (IDPROCIMIENTO,DESCRIPCIONPOLITICA)values(?,?)");
+             psSU.setString(2,jTextField25.getText());
+             psSU.setInt(1,jComboBox14.getSelectedIndex());
+             
+             
+            int resultado = psSU.executeUpdate();
+            if(resultado > 0 ){
+                JOptionPane.showMessageDialog(null,"politica de procedimiento registrada");
+                jTextField25.setText(null);
+            }else{
+                JOptionPane.showMessageDialog(null,"Registro incorrecto");
+            }
+            conexion.close();
+        }catch (Exception ex ){
+          System.err.println("Error:" + ex);
+        }
+    } 
+    }//GEN-LAST:event_jButton70ActionPerformed
+
+    private void jButton69ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton69ActionPerformed
+        // TODO add your handling code here:
+        if(jTextField23.getText().isEmpty() || jComboBox13.getSelectedIndex()==0){
+            JOptionPane.showMessageDialog(null,"campo vacio");
+        }else{
+        try {
+             Connection conexion = new Conexion().getConexion();
+             psSU = conexion.prepareStatement("insert into procedimiento (IDDEPARTAMENTO,NOMBREPROCEDIMIENTO, OBJETIVOPROCEDIMIENTO)values(?,?,?)");
+             psSU.setString(2,jTextField23.getText());
+             psSU.setInt(1,jComboBox13.getSelectedIndex()+1);
+             psSU.setString(3,jTextField24.getText());
+             
+            int resultado = psSU.executeUpdate();
+            if(resultado > 0 ){
+                JOptionPane.showMessageDialog(null,"Procedimiento registrado");
+                cargarComboDepartamento();
+                cargarComboBoxProcedimientos();
+                jTextField23.setText(null);
+                jTextField24.setText(null);
+                
+            }else{
+                JOptionPane.showMessageDialog(null,"Registro incorrecto");
+            }
+            conexion.close();
+        }catch (Exception ex ){
+          System.err.println("Error:" + ex);
+        }
+    }
+    }//GEN-LAST:event_jButton69ActionPerformed
     private void mostrarSiguienteDatoCargosOficialesDesempenado(){
           ArrayList<String> resultados=new ArrayList<>();
           ArrayList<Integer> idsAD=new ArrayList<>();
@@ -4214,7 +4558,14 @@ De nuevo erick y juan haciendo esta parte
     private javax.swing.JButton jButton65;
     private javax.swing.JButton jButton66;
     private javax.swing.JButton jButton67;
+    private javax.swing.JButton jButton68;
+    private javax.swing.JButton jButton69;
     private javax.swing.JButton jButton7;
+    private javax.swing.JButton jButton70;
+    private javax.swing.JButton jButton71;
+    private javax.swing.JButton jButton72;
+    private javax.swing.JButton jButton73;
+    private javax.swing.JButton jButton74;
     private javax.swing.JButton jButton8;
     private javax.swing.JButton jButton9;
     private javax.swing.JComboBox<String> jComboBox1;
@@ -4222,6 +4573,9 @@ De nuevo erick y juan haciendo esta parte
     private javax.swing.JComboBox<String> jComboBox11;
     private javax.swing.JComboBox<String> jComboBox11once;
     private javax.swing.JComboBox<String> jComboBox12;
+    private javax.swing.JComboBox<String> jComboBox13;
+    private javax.swing.JComboBox<String> jComboBox14;
+    private javax.swing.JComboBox<String> jComboBox15;
     private javax.swing.JComboBox<String> jComboBox2;
     private javax.swing.JComboBox<String> jComboBox3;
     private javax.swing.JComboBox<String> jComboBox4;
@@ -4268,7 +4622,18 @@ De nuevo erick y juan haciendo esta parte
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel40;
     private javax.swing.JLabel jLabel41;
+    private javax.swing.JLabel jLabel42;
+    private javax.swing.JLabel jLabel43;
+    private javax.swing.JLabel jLabel44;
+    private javax.swing.JLabel jLabel45;
+    private javax.swing.JLabel jLabel46;
+    private javax.swing.JLabel jLabel47;
+    private javax.swing.JLabel jLabel48;
+    private javax.swing.JLabel jLabel49;
     private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel50;
+    private javax.swing.JLabel jLabel51;
+    private javax.swing.JLabel jLabel52;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
@@ -4324,6 +4689,12 @@ De nuevo erick y juan haciendo esta parte
     private javax.swing.JTextField jTextField20;
     private javax.swing.JTextField jTextField21;
     private javax.swing.JTextField jTextField22;
+    private javax.swing.JTextField jTextField23;
+    private javax.swing.JTextField jTextField24;
+    private javax.swing.JTextField jTextField25;
+    private javax.swing.JTextField jTextField26;
+    private javax.swing.JTextField jTextField27;
+    private javax.swing.JTextField jTextField28;
     private javax.swing.JTextField jTextField3;
     private javax.swing.JTextField jTextField4;
     private javax.swing.JTextField jTextField5;
