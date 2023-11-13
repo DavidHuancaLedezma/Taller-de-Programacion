@@ -720,30 +720,16 @@ public class VistaSu extends javax.swing.JFrame {
         jPanel6Layout.setHorizontalGroup(
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel6Layout.createSequentialGroup()
-                .addContainerGap()
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel6Layout.createSequentialGroup()
-                        .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(btnAnt, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jButton64, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(jButton37, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(47, 47, 47)
+                        .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jButton64, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jButton37, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 20, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel6Layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel6Layout.createSequentialGroup()
-                                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(jLabel10)
-                                    .addGroup(jPanel6Layout.createSequentialGroup()
-                                        .addGap(4, 4, 4)
-                                        .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(jButton26, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(jLabel8)
-                                            .addGroup(jPanel6Layout.createSequentialGroup()
-                                                .addGap(6, 6, 6)
-                                                .addComponent(btnSig, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                                .addGap(24, 24, 24))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel6Layout.createSequentialGroup()
                                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jButton67, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -751,7 +737,23 @@ public class VistaSu extends javax.swing.JFrame {
                                 .addGap(32, 32, 32))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel6Layout.createSequentialGroup()
                                 .addComponent(jLabel9)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)))))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel6Layout.createSequentialGroup()
+                                    .addComponent(btnAnt, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addGap(18, 18, 18))
+                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel6Layout.createSequentialGroup()
+                                    .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                        .addComponent(jLabel10)
+                                        .addGroup(jPanel6Layout.createSequentialGroup()
+                                            .addGap(4, 4, 4)
+                                            .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                .addComponent(jButton26, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addComponent(jLabel8)
+                                                .addGroup(jPanel6Layout.createSequentialGroup()
+                                                    .addGap(6, 6, 6)
+                                                    .addComponent(btnSig, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                                    .addGap(24, 24, 24))))))
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel6Layout.createSequentialGroup()
                         .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -813,13 +815,13 @@ public class VistaSu extends javax.swing.JFrame {
                         .addGap(13, 13, 13))
                     .addGroup(jPanel6Layout.createSequentialGroup()
                         .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jScrollPane14, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(jPanel6Layout.createSequentialGroup()
                                 .addComponent(jButton26)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(btnSig, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(btnAnt, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(jScrollPane14, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(btnAnt, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGap(36, 36, 36)
                         .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -1128,28 +1130,28 @@ public class VistaSu extends javax.swing.JFrame {
             }
         });
 
-        jButton60.setText("guardar");
+        jButton60.setText("Modificar");
         jButton60.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton60ActionPerformed(evt);
             }
         });
 
-        jButton61.setText("guardar");
+        jButton61.setText("Modificar");
         jButton61.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton61ActionPerformed(evt);
             }
         });
 
-        jButton62.setText("guardar");
+        jButton62.setText("Modificar");
         jButton62.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton62ActionPerformed(evt);
             }
         });
 
-        jButton63.setText("guardar");
+        jButton63.setText("Modificar");
         jButton63.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton63ActionPerformed(evt);
@@ -2446,8 +2448,9 @@ De nuevo erick y juan haciendo esta parte
              
 
             int resultado = psSU.executeUpdate();
+            String resCombo = (String) jComboBox5.getSelectedItem();
             if(resultado > 0 ){
-                JOptionPane.showMessageDialog(null,"Modificación realizada");
+                JOptionPane.showMessageDialog(null,"Modificación realizada en: \n" + "Departamento:"+jTextField11.getText()+"\n Con Nivel del Departamento:"+jTextField22.getText()+"\n Con un Departamento Superior:" + resCombo );
             }else{
                 JOptionPane.showMessageDialog(null,"Error en la modificación");
             }
@@ -3352,6 +3355,7 @@ De nuevo erick y juan haciendo esta parte
             psSU.setInt(2,codigoAlterar);
             psSU.executeUpdate(); 
             conexion.close();
+            JOptionPane.showMessageDialog(null, "Modificacion realizada en:\n"+"Experiencia:\n"+jTextArea10.getText());
         }catch(Exception ex ){
             System.err.println("ERROR, "+ex);
         }
@@ -3457,6 +3461,7 @@ De nuevo erick y juan haciendo esta parte
             psSU.setInt(2,codigoAlterar);
             psSU.executeUpdate(); 
             conexion.close();
+            JOptionPane.showMessageDialog(null, "Modificacion realizada en:\n"+"Esfuerzo:\n"+jTextArea5.getText());
         }catch(Exception ex ){
             System.err.println("ERROR, "+ex);
         }
@@ -3473,6 +3478,7 @@ De nuevo erick y juan haciendo esta parte
             psSU.setInt(2,codigoAlterar);
             psSU.executeUpdate(); 
             conexion.close();
+            JOptionPane.showMessageDialog(null, "Modificacion realizada en:\n"+"Escolaridad:\n"+jTextArea3.getText());
         }catch(Exception ex ){
             System.err.println("ERROR, "+ex);
         }
@@ -3488,6 +3494,7 @@ De nuevo erick y juan haciendo esta parte
             psSU.setInt(2,codigoAlterar);
             psSU.executeUpdate(); 
             conexion.close();
+            JOptionPane.showMessageDialog(null, "Modificacion realizada en:\n"+"Aptitudes:\n"+jTextArea4.getText());
         }catch(Exception ex ){
             System.err.println("ERROR, "+ex);
         }
@@ -3503,6 +3510,7 @@ De nuevo erick y juan haciendo esta parte
             psSU.setInt(2,codigoAlterar);
             psSU.executeUpdate(); 
             conexion.close();
+            JOptionPane.showMessageDialog(null, "Modificacion realizada en:\n"+"Habilidad y Destreza:\n"+jTextArea2.getText());
         }catch(Exception ex ){
             System.err.println("ERROR, "+ex);
         }
