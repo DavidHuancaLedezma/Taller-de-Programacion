@@ -338,6 +338,7 @@ public class VistaSu extends javax.swing.JFrame {
         jLabel39 = new javax.swing.JLabel();
         jLabel40 = new javax.swing.JLabel();
         jTextField22 = new javax.swing.JTextField();
+        jLabel53 = new javax.swing.JLabel();
         jPanel10 = new javax.swing.JPanel();
         jLabel23 = new javax.swing.JLabel();
         jTextField13 = new javax.swing.JTextField();
@@ -621,7 +622,7 @@ public class VistaSu extends javax.swing.JFrame {
                 jButton35ActionPerformed(evt);
             }
         });
-        jPanel4.add(jButton35, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 220, 80, 30));
+        jPanel4.add(jButton35, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 220, 120, 30));
 
         btnCerrarSesionSU.setBackground(new java.awt.Color(255, 204, 0));
         btnCerrarSesionSU.setText("Cerrar Sesion");
@@ -796,22 +797,12 @@ public class VistaSu extends javax.swing.JFrame {
             .addGroup(jPanel6Layout.createSequentialGroup()
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel6Layout.createSequentialGroup()
-                        .addGap(47, 47, 47)
-                        .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jButton64, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jButton37, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 20, Short.MAX_VALUE))
+                        .addGap(20, 20, 20)
+                        .addComponent(jButton38)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel6Layout.createSequentialGroup()
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel6Layout.createSequentialGroup()
-                                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jButton67, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jButton38, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(32, 32, 32))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel6Layout.createSequentialGroup()
-                                .addComponent(jLabel9)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel6Layout.createSequentialGroup()
                                     .addComponent(btnAnt, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -826,8 +817,18 @@ public class VistaSu extends javax.swing.JFrame {
                                                 .addComponent(jLabel8)
                                                 .addGroup(jPanel6Layout.createSequentialGroup()
                                                     .addGap(6, 6, 6)
-                                                    .addComponent(btnSig, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                                    .addGap(24, 24, 24))))))
+                                                    .addComponent(btnSig, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                        .addComponent(jButton37, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGap(24, 24, 24))
+                                .addGroup(jPanel6Layout.createSequentialGroup()
+                                    .addComponent(jButton64)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel6Layout.createSequentialGroup()
+                                .addComponent(jLabel9)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel6Layout.createSequentialGroup()
+                                .addComponent(jButton67)
+                                .addGap(28, 28, 28)))))
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel6Layout.createSequentialGroup()
                         .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -839,14 +840,14 @@ public class VistaSu extends javax.swing.JFrame {
                         .addGap(18, 18, 18)))
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(jPanel6Layout.createSequentialGroup()
-                        .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jButton44, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(jLabel20)
-                            .addComponent(jButton45, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel22)
-                            .addComponent(jButton65, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jButton66, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(38, 38, 38)
+                            .addComponent(jButton65, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jButton66, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jButton44)
+                            .addComponent(jButton45))
+                        .addGap(19, 19, 19)
                         .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -859,7 +860,7 @@ public class VistaSu extends javax.swing.JFrame {
                                 .addComponent(jComboBox7, javax.swing.GroupLayout.PREFERRED_SIZE, 164, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
                                 .addComponent(jComboBox6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                .addContainerGap(32, Short.MAX_VALUE))
+                .addContainerGap(20, Short.MAX_VALUE))
         );
         jPanel6Layout.setVerticalGroup(
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -911,7 +912,7 @@ public class VistaSu extends javax.swing.JFrame {
                         .addComponent(jLabel9)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jButton38)
-                        .addGap(18, 18, 18)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jButton67)
                         .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(jPanel6Layout.createSequentialGroup()
@@ -925,7 +926,7 @@ public class VistaSu extends javax.swing.JFrame {
                                     .addComponent(btnBuscarN, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(jButton7, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addContainerGap(37, Short.MAX_VALUE))))
+                        .addContainerGap(13, Short.MAX_VALUE))))
         );
 
         jTabbedPane1.addTab("tab3", jPanel6);
@@ -1297,7 +1298,7 @@ public class VistaSu extends javax.swing.JFrame {
                                     .addComponent(jButton47)))
                             .addGroup(jPanel8Layout.createSequentialGroup()
                                 .addComponent(jLabel32)
-                                .addGap(28, 28, 28)
+                                .addGap(18, 18, 18)
                                 .addComponent(jButton63)))
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(jPanel8Layout.createSequentialGroup()
@@ -1395,7 +1396,7 @@ public class VistaSu extends javax.swing.JFrame {
                         .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jScrollPane7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jScrollPane9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 26, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jButton48, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jButton59, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -1483,7 +1484,7 @@ public class VistaSu extends javax.swing.JFrame {
             }
         });
         jPanel9.add(jTextField12);
-        jTextField12.setBounds(16, 34, 43, 22);
+        jTextField12.setBounds(16, 34, 43, 24);
 
         jLabel21.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/uni449-PhotoRoom.png"))); // NOI18N
         jLabel21.setText("DEPARTAMENTOS");
@@ -1502,7 +1503,7 @@ public class VistaSu extends javax.swing.JFrame {
         jLabel39.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/uni449-PhotoRoom (4).png"))); // NOI18N
         jLabel39.setText("jLabel39");
         jPanel9.add(jLabel39);
-        jLabel39.setBounds(0, 80, 470, 350);
+        jLabel39.setBounds(0, 70, 470, 350);
         jPanel9.add(jLabel40);
         jLabel40.setBounds(10, 0, 820, 260);
 
@@ -1513,6 +1514,11 @@ public class VistaSu extends javax.swing.JFrame {
         });
         jPanel9.add(jTextField22);
         jTextField22.setBounds(480, 270, 320, 30);
+
+        jLabel53.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel53.setText("Nivel del Departamento");
+        jPanel9.add(jLabel53);
+        jLabel53.setBounds(350, 280, 130, 20);
 
         jTabbedPane1.addTab("tab6", jPanel9);
 
@@ -2133,32 +2139,42 @@ public class VistaSu extends javax.swing.JFrame {
         String nombreF = "";
         String ci = "" ; 
         try {
+            //Establecer una conexion con la base de datos
              Connection conexion = new Conexion().getConexion();
              psSU = conexion.prepareStatement("insert into funcionario (nombreFuncionario,IDPUESTO,CI,telefono,fechaNacimiento)values(?,?,?,?,?)");
-             psSU.setString(1,jTextField2.getText());
-             psSU.setInt(2,jComboBox1.getSelectedIndex());
-             psSU.setString(3, jTextField6.getText());
-             psSU.setString(4,jTextField4.getText());
-             psSU.setDate(5,Date.valueOf(jTextField3.getText()));
+             
+             // Establecer los valores de los parámetros en la consulta SQL
+             psSU.setString(1,jTextField2.getText());//Nombre del funcionario
+             psSU.setInt(2,jComboBox1.getSelectedIndex());// ID del puesto seleccionado en el JComboBox
+             psSU.setString(3, jTextField6.getText());// CI del funcionario
+             psSU.setString(4,jTextField4.getText());// Teléfono del funcionario
+             psSU.setDate(5,Date.valueOf(jTextField3.getText()));// Fecha de nacimiento del funcionario
+             
+             // Ejecutar la consulta de inserción y obtener el resultado
              int resultado = psSU.executeUpdate();
-            psAux = conexion.prepareStatement("SELECT MAX(IDFUNCIONARIO) FROM FUNCIONARIO");
-            rsAux = psAux.executeQuery();
-            int idFuncionario = 0; 
-            if (rsAux.next()) {
+             
+             // Obtener el último ID de funcionario insertado
+             psAux = conexion.prepareStatement("SELECT MAX(IDFUNCIONARIO) FROM FUNCIONARIO");
+             rsAux = psAux.executeQuery();
+             int idFuncionario = 0; 
+             if (rsAux.next()) {
                 idFuncionario = rsAux.getInt(1); // Obtener el valor de la columna 1 (la única columna en este caso)
            
             }
             conexion.close();
-            nombreF = jTextField2.getText();
-            ci = jTextField6.getText();
+            
+             // Almacenar datos para la creación de la cuenta
+             nombreF = jTextField2.getText();
+             ci = jTextField6.getText();
              crearCuenta(idFuncionario,nombreF,ci);
-            if(resultado > 0 ){
+             // Mostrar un mensaje según el resultado de la inserción
+             if(resultado > 0 ){
                 JOptionPane.showMessageDialog(null,"Funcionario registrado\n"
                         + "Se creo la cuenta del funcionario con los datos siguientes : \n"
                         + "Usuario : "+nombreF+"\n"
                         + "Contraseña : "+ci);
                 
-            }else{
+             }else{
                 JOptionPane.showMessageDialog(null,"Registro incorrecta");
             }
             
@@ -2166,14 +2182,13 @@ public class VistaSu extends javax.swing.JFrame {
         }catch (Exception ex ){
           System.err.println("Error:" + ex);
         }
+         // Verificar si se seleccionó un puesto válido en el JComboBox
         String puesto = (String) jComboBox1.getSelectedItem();
         if(puesto == "Selecione un Puesto"){
             JOptionPane.showMessageDialog(null,"Seleccione un puesto valido");
 
         }
         //jTabbedPane1.setSelectedIndex(4);
-
-
     }//GEN-LAST:event_jButton3ActionPerformed
     private void crearCuenta(int idFuncionario , String nombreFuncionario , String ci ){
         try{
@@ -2221,16 +2236,21 @@ public class VistaSu extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton6ActionPerformed
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
-            //Estos botones son para el caso en que encontrar
+            // Deshabilitar botones y hace invisible botones especifico al Buscar
             jButton3.setEnabled(false);
             jButton35.setVisible(false);
-            jButton35.setVisible(false);
+            //jButton35.setVisible(false);
             //cajaNombrePuesto.setVisible(true);
         try{
+            //establece una conexion a la BD
             Connection conexion = new Conexion().getConexion();
+            //preparacion de la consulta SQL para obtener informacion del Funcionario
             psSU = (PreparedStatement) conexion.prepareStatement("select IDFUNCIONARIO,PT.IDPUESTO,ci,nombreFuncionario,telefono,fechaNacimiento,NOMBREPUESTO from funcionario f, puestoTrabajo pt where f.idpuesto = pt.idpuesto AND CI = ?"); 
             psSU.setString(1,jTextField1.getText());
-            rsSU = psSU.executeQuery(); 
+            //Ejecuta la consulta y obtiene los resultados
+            rsSU = psSU.executeQuery();
+            
+            // Verifica si se encontró un registro
             if(rsSU.next()){
                 jTextField2.setText(rsSU.getString("nombreFuncionario"));
                 jTextField4.setText(rsSU.getString("telefono"));
@@ -2239,6 +2259,8 @@ public class VistaSu extends javax.swing.JFrame {
                 //jComboBox1
                 //jComboBox1.setSelectedIndex(rsSU.getInt("idPuesto"));
                 jTextField7.setText(rsSU.getString("IDFUNCIONARIO"));
+                
+                // Llenar el ComboBox de Puestos Disponibles con el respectivo metodo
                 llenarComboBoxPuestosDisponibles(rsSU.getInt("IDPUESTO"),rsSU.getString("NOMBREPUESTO"));
 
                 //cajaIDPuesto.setText(rsSU.getString("IDPUESTO"));
@@ -2255,7 +2277,7 @@ public class VistaSu extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton5ActionPerformed
     
     private void obtenerDescripcionPuesto(){
-        llenarExperiencia();
+         llenarExperiencia();
          llenarHabilidadDestreza();
          llenarEscolaridad();
          llenarAptitudes();
@@ -2547,17 +2569,24 @@ De nuevo erick y juan haciendo esta parte
 
     private void jButton15ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton15ActionPerformed
         // TODO add your handling code here:
-         jButton15.setEnabled(true);
+        //jButton16.setEnabled(false); // desabilita el boton guardar
     try{
+        //establece la conexion a la BD
         Connection conexion = new Conexion().getConexion();
-        psSU = (PreparedStatement) conexion.prepareStatement("select * from departamento where NOMBREDEPARTAMENTO = ? "); 
-        
+        //Prepara la consulta SQL para obtener los datos de departamento
+        psSU = (PreparedStatement) conexion.prepareStatement("select * from departamento where NOMBREDEPARTAMENTO = ? ");        
+        // Obtener el nombre del departamento seleccionado en el JComboBox
         String departamentoSeleccionado = (String) jComboBox4.getSelectedItem();
+        
+        // Verificar si se seleccionó un departamento
         if(departamentoSeleccionado != null){
+            // Establecer el nombre del departamento como parámetro en la consulta SQL
             psSU.setString(1, departamentoSeleccionado);
+            // Ejecutar la consulta de selección y obtener el resultado en un ResultSet
             rsSU = psSU.executeQuery(); 
-            
+            // Verificar si se encontró algún registro en el ResultSet y pasa al siguiente registro hasta encontrar y poner false si no encontro
             if(rsSU.next()){
+                // Llenar campos de texto y JComboBox con los datos obtenidos
                 jTextField11.setText(rsSU.getString("NOMBREDEPARTAMENTO"));
                 jComboBox5.setSelectedIndex(rsSU.getInt("DEP_IDDEPARTAMENTO"));
                 jTextField12.setText(rsSU.getString("IDDEPARTAMENTO"));
@@ -2577,17 +2606,24 @@ De nuevo erick y juan haciendo esta parte
 
     private void jButton16ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton16ActionPerformed
         // TODO add your handling code here:
+        //condicional si los campos a guardar son null o vacio
         if(jTextField11.getText().isEmpty() || jComboBox5.getSelectedIndex()==0){
             JOptionPane.showMessageDialog(null,"campo vacio");
         }else{
         try {
+            // conexion a la base de datos
              Connection conexion = new Conexion().getConexion();
+             // preparacion de la consulta SQL para la tabla departamento 
              psSU = conexion.prepareStatement("insert into departamento (DEP_IDDEPARTAMENTO,NOMBREDEPARTAMENTO, NIVEL)values(?,?,?)");
-             psSU.setString(2,jTextField11.getText());
-             psSU.setInt(1,jComboBox5.getSelectedIndex());
-             psSU.setInt(3, Integer.parseInt(jTextField22.getText()));
-             
-            int resultado = psSU.executeUpdate();
+             // establecer parametros a la consulta SQL
+             psSU.setString(2,jTextField11.getText());// Nombre del departamento
+             psSU.setInt(1,jComboBox5.getSelectedIndex()); // ID del departamento seleccionado en el JComboBox
+             psSU.setInt(3, Integer.parseInt(jTextField22.getText()));// Nivel del departamento
+            
+             // Ejecutar la consulta de inserción y obtener el resultado
+             int resultado = psSU.executeUpdate();
+            
+             // Mostrar un mensaje según el resultado de la inserción
             if(resultado > 0 ){
                 JOptionPane.showMessageDialog(null,"Departamento registrado");
             }else{
@@ -2598,10 +2634,10 @@ De nuevo erick y juan haciendo esta parte
           System.err.println("Error:" + ex);
         }
     }
-        String departamento = (String) jComboBox5.getSelectedItem();
-        if(departamento == "Selecione un departamento"){
+         // Verificar si se seleccionó un departamento válido en el JComboBox que no sea 0
+         String departamento = (String) jComboBox5.getSelectedItem();
+         if(departamento == "Selecione un departamento"){
             JOptionPane.showMessageDialog(null,"Seleccione un departamento valido");
-
         }
         //jTabbedPane1.setSelectedIndex(4);
         
@@ -2621,6 +2657,14 @@ De nuevo erick y juan haciendo esta parte
         limpiarDepartamento();
     }//GEN-LAST:event_jButton19ActionPerformed
 
+    private void limpiarDepartamento(){
+        jTextField11.setText(null);
+        jTextField22.setText(null);
+        jComboBox4.setSelectedIndex(0);
+        jComboBox5.setSelectedIndex(0);
+        jTextField9.setText(null);
+    }
+    
     private void jTextField12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField12ActionPerformed
         // TODO add your handling code here:
         // texto donde aparece el iddepaartamento
@@ -2637,17 +2681,21 @@ De nuevo erick y juan haciendo esta parte
     private void jButton17ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton17ActionPerformed
         // TODO add your handling code here:
          try {
+             // conexcion con la base de datos
              Connection conexion = new Conexion().getConexion();
-             
+             //preparar la consulta SQL para la tabla ¨departamento¨
              psSU = conexion.prepareStatement("update departamento set NOMBREDEPARTAMENTO=?,DEP_IDDEPARTAMENTO=?, NIVEL=? where IDDEPARTAMENTO=?");
-             psSU.setString(1,jTextField11.getText());
-             psSU.setInt(2,jComboBox5.getSelectedIndex());
-             psSU.setInt(3,Integer.parseInt(jTextField22.getText()));
-             psSU.setString(4,jTextField12.getText());
+             //Estableser los nuevos valores de los parametros en la consulta SQL
+             psSU.setString(1,jTextField11.getText());// Nuevo nombre del departamento
+             psSU.setInt(2,jComboBox5.getSelectedIndex());// Nuevo ID del departamento superior seleccionado en el JComboBox
+             psSU.setInt(3,Integer.parseInt(jTextField22.getText()));// Nuevo nivel del departamento
+             psSU.setString(4,jTextField12.getText());// ID del departamento a actualizar
              
-
+            // Ejecutar la consulta de actualización y obtener el resultado
             int resultado = psSU.executeUpdate();
+            // Obtener el valor seleccionado en el JComboBox
             String resCombo = (String) jComboBox5.getSelectedItem();
+            // Mostrar un mensaje según el resultado de la actualización
             if(resultado > 0 ){
                 JOptionPane.showMessageDialog(null,"Modificación realizada en: \n" + "Departamento:"+jTextField11.getText()+"\n Con Nivel del Departamento:"+jTextField22.getText()+"\n Con un Departamento Superior:" + resCombo );
             }else{
@@ -2661,25 +2709,30 @@ De nuevo erick y juan haciendo esta parte
 
     private void jButton20ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton20ActionPerformed
         // TODO add your handling code here:
-      
         try {
-    Connection conexion = new Conexion().getConexion();
-    PreparedStatement ps = conexion.prepareStatement("SELECT NOMBREDEPARTAMENTO FROM departamento");
-    ResultSet rs = ps.executeQuery();
-
-    DefaultComboBoxModel<String> model = new DefaultComboBoxModel<>();
-    while (rs.next()) {
-        model.addElement(rs.getString("NOMBREDEPARTAMENTO"));
-    }
-    llenarComboBoxDepartamento();
-    llenarComboBoxBusquedaDepartamento();
-    //limpiarDepartamento();
-    JOptionPane.showMessageDialog(null, "Base de datos actualizada", "Actualizacion", JOptionPane.INFORMATION_MESSAGE);
-    conexion.close();
+           // establece una conecion a la BD
+           Connection conexion = new Conexion().getConexion();
+           // Preparar una consulta SQL para seleccionar los nombres de los departamentos
+           PreparedStatement ps = conexion.prepareStatement("SELECT NOMBREDEPARTAMENTO FROM departamento");
+           // Ejecutar la consulta y obtener los resultados en un ResultSet
+           ResultSet rs = ps.executeQuery();
+           // Crear un modelo para el JComboBox
+           DefaultComboBoxModel<String> model = new DefaultComboBoxModel<>();
+           // Llenar el modelo con los nombres de los departamentos obtenidos de la base de datos
+           while (rs.next()) {
+           model.addElement(rs.getString("NOMBREDEPARTAMENTO"));
+          }
+         llenarComboBoxDepartamento(); //metodo para llenar los datos actuales del departamento  en departamento superior
+         llenarComboBoxBusquedaDepartamento();// metodo para llenar los datos actuales del departamento en buscar
+         //limpiarDepartamento();
+         // Mostrar un mensaje de actualización exitosa
+         JOptionPane.showMessageDialog(null, "Base de datos actualizada", "Actualizacion", JOptionPane.INFORMATION_MESSAGE);
+        // cerrar la conexion a la BD
+         conexion.close();
     
-    } catch (Exception ex) {
-    System.err.println("Error al actualizar el JComboBox: " + ex);
-     }
+        } catch (Exception ex) {
+         System.err.println("Error al actualizar el JComboBox: " + ex);
+        }
     }//GEN-LAST:event_jButton20ActionPerformed
 
     private void jComboBox9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox9ActionPerformed
@@ -2927,20 +2980,28 @@ De nuevo erick y juan haciendo esta parte
     }//GEN-LAST:event_jButton33ActionPerformed
 
     private void jButton35ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton35ActionPerformed
-         if(jTextField2.getText().isEmpty() || jTextField6.getText().isEmpty() || jTextField4.getText().isEmpty() || jTextField3.getText().isEmpty()){
+        // verifica si algun campo esta vacio 
+        if(jTextField2.getText().isEmpty() || jTextField6.getText().isEmpty() || jTextField4.getText().isEmpty() || jTextField3.getText().isEmpty()){
            JOptionPane.showMessageDialog(null, "Por favor Registre todos los datos", "ERROR",JOptionPane.INFORMATION_MESSAGE );
         }else{
+            // Mostrar un cuadro de diálogo de confirmación
             int respuesta=JOptionPane.showOptionDialog(this, "Si esta seguro que su informacion es correcta haz click en Guardar Datos de lo contrario haz click en Cancelar", "Confirma tu Informacion", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE, null, new Object[]{"Guardar Datos","Cancelar"}, "Guardar Datos");
+            // Verificar la respuesta del cuadro es YES
             if (respuesta == JOptionPane.YES_OPTION) {
+                
+                // Llama a la función de inserción de datos en la clase Funcionario y ejecuta el metodo InsercionFuncionario con los datos del los textField
                 new Funcionario().insercionFuncionario(jTextField2.getText(),idPuesto,jTextField6.getText(),jTextField4.getText(),Date.valueOf(jTextField3.getText()));
+                
+                //Crear una instancia de DescripcionPuesto e insertar datos relacionados con el puesto en su IDPuesto
                 DescripcionPuesto inserciones = new DescripcionPuesto();
                 inserciones.insertarDescripcionPuesto(idPuesto);
+                // Obtiene el ID de la descripción del puesto utilizando la clase
                 idDescripcionPuesto = inserciones.getIdDescripcionPuesto();
                 JOptionPane.showMessageDialog(null,"Se registro correctamente","Registro",JOptionPane.INFORMATION_MESSAGE );
+                // Cambiar a una pestaña específica en el JTabbedPane
                 jTabbedPane1.setSelectedIndex(13);
             }
         }    
-
     }//GEN-LAST:event_jButton35ActionPerformed
 
     private void jButton36ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton36ActionPerformed
@@ -3521,12 +3582,17 @@ De nuevo erick y juan haciendo esta parte
 
     private void jButton58ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton58ActionPerformed
         // TODO add your handling code here
+        // verificacion si hay campos vacios 
         if(jTextField2.getText().isEmpty() || jTextField6.getText().isEmpty() || jTextField4.getText().isEmpty() || jTextField3.getText().isEmpty()){
            JOptionPane.showMessageDialog(null, "Por favor Registre todos los datos", "ERROR",JOptionPane.INFORMATION_MESSAGE );
         }else{
+            // muestra un cuadro de dialogo con informacion especifica de lo realizado
             int respuesta=JOptionPane.showOptionDialog(this, "Se Ingresara al \n Funcionario:"+jTextField2.getText()+"\n CI:"+jTextField6.getText(), "Confirma tu Informacion", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE, null, new Object[]{"Ingresar","Cancelar"}, "Ingresar");
+            // Verificar la respuesta del cuadro de diálogo
             if (respuesta == JOptionPane.YES_OPTION) {
+                // Cambiar a la pestaña 4
                 jTabbedPane1.setSelectedIndex(4);
+                // configuracion de elementos de la interfaz grafica para curricullum
                 String  claveCurriculum = jTextField6.getText();
                 jTextField14.setText(claveCurriculum);
                 jButton28.setEnabled(false);
@@ -3534,6 +3600,7 @@ De nuevo erick y juan haciendo esta parte
                 jButton33.setEnabled(false);
                 jButton34.setEnabled(false);
                 jButton48.setVisible(false);
+                // Mostrar información relacionada con el curriculum del funcionario
                 mostraridCurriculum();
                 mostrarDatosActividadDocente(claveCurriculum);  
                 mostrarActividadProfesional(claveCurriculum);
@@ -4319,14 +4386,6 @@ De nuevo erick y juan haciendo esta parte
         jComboBox9.setModel(modelo3);
     }
     
-    public void limpiarDepartamento(){
-        jTextField11.setText(null);
-        jComboBox4.setSelectedIndex(0);
-        jComboBox5.setSelectedIndex(0);
-        jTextField9.setText(null);
-    }
-    
-    
     public boolean camposLlenos(){
         boolean res = false;
         if(!jTextField8.getText().equals("")&&(funcionGeneral.size()>0)&&(funcionesEspesificas.size()>0)){
@@ -4634,6 +4693,7 @@ De nuevo erick y juan haciendo esta parte
     private javax.swing.JLabel jLabel50;
     private javax.swing.JLabel jLabel51;
     private javax.swing.JLabel jLabel52;
+    private javax.swing.JLabel jLabel53;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
