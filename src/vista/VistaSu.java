@@ -60,6 +60,7 @@ public class VistaSu extends javax.swing.JFrame {
     int codExperiencia1;
     int idHabilidadDestreza;
     int indiceActual=0;
+    int idDepartamento;
     
     PreparedStatement psSU, psAux ; 
     ResultSet rsSU, rsAux ;
@@ -207,7 +208,6 @@ public class VistaSu extends javax.swing.JFrame {
         jButton9 = new javax.swing.JButton();
         jButton10 = new javax.swing.JButton();
         jButton14 = new javax.swing.JButton();
-        jButton68 = new javax.swing.JButton();
         jTabbedPane1 = new javax.swing.JTabbedPane();
         jPanel4 = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
@@ -471,13 +471,6 @@ public class VistaSu extends javax.swing.JFrame {
             }
         });
 
-        jButton68.setText("PROCEDIMIENTOS");
-        jButton68.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton68ActionPerformed(evt);
-            }
-        });
-
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -491,10 +484,6 @@ public class VistaSu extends javax.swing.JFrame {
                     .addComponent(jButton14, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButton10, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButton68)
-                .addContainerGap())
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -509,9 +498,7 @@ public class VistaSu extends javax.swing.JFrame {
                 .addComponent(jButton10, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jButton14, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButton68)
-                .addGap(31, 31, 31))
+                .addGap(61, 61, 61))
         );
 
         jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 80, 80, 430));
@@ -2591,6 +2578,7 @@ De nuevo erick y juan haciendo esta parte
                 jComboBox5.setSelectedIndex(rsSU.getInt("DEP_IDDEPARTAMENTO"));
                 jTextField12.setText(rsSU.getString("IDDEPARTAMENTO"));
                 jTextField22.setText(rsSU.getInt("NIVEL")+"");
+                idDepartamento = Integer.parseInt(jTextField12.getText());
             }else{
                 JOptionPane.showMessageDialog(null,"Registro no encontrado");                
             }
@@ -2644,7 +2632,24 @@ De nuevo erick y juan haciendo esta parte
     }//GEN-LAST:event_jButton16ActionPerformed
 
     private void jButton18ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton18ActionPerformed
-        // TODO add your handling code here:
+       try{
+              
+           Connection  conexion = new Conexion().getConexion();
+           
+           psSU = conexion.prepareStatement("delete from departamento where IDDEPARTAMENTO="+idDepartamento);
+          
+           int res = psSU.executeUpdate();
+           if(res>0){
+           JOptionPane.showMessageDialog(null, "departamento eliminado");
+           limpiar();
+           }else{
+           JOptionPane.showMessageDialog(null, "error al eliminar el departamento");
+           limpiar();
+           }
+           conexion.close();    
+           }catch(Exception ex){
+           System.err.println("Error, "+ex);
+           }
     }//GEN-LAST:event_jButton18ActionPerformed
 
     private void jButton14ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton14ActionPerformed
@@ -3782,11 +3787,6 @@ De nuevo erick y juan haciendo esta parte
         }
     }//GEN-LAST:event_jButton67ActionPerformed
 
-    private void jButton68ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton68ActionPerformed
-        // TODO add your handling code here:
-        jTabbedPane1.setSelectedIndex(7);
-    }//GEN-LAST:event_jButton68ActionPerformed
-
     private void cargarComboDepartamento(){
         modelo10 = new DefaultComboBoxModel();
         ArrayList<Departamento>contenido = new DatosPuestoTrabajo().getDepartamentos();
@@ -4617,7 +4617,6 @@ De nuevo erick y juan haciendo esta parte
     private javax.swing.JButton jButton65;
     private javax.swing.JButton jButton66;
     private javax.swing.JButton jButton67;
-    private javax.swing.JButton jButton68;
     private javax.swing.JButton jButton69;
     private javax.swing.JButton jButton7;
     private javax.swing.JButton jButton70;
