@@ -401,6 +401,7 @@ public class InformacionFuncionario extends javax.swing.JFrame {
         jLabel13.setBackground(new java.awt.Color(0, 0, 0));
         jLabel13.setForeground(new java.awt.Color(255, 255, 255));
         jLabel13.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel13.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/nivel.png"))); // NOI18N
         jLabel13.setText("NIVELES");
         jLabel13.setToolTipText("");
         jLabel13.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -664,7 +665,7 @@ public class InformacionFuncionario extends javax.swing.JFrame {
 
         jLabel14.setText("Niveles de la Empresa");
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1", "2", "3" }));
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1" }));
         jComboBox1.setToolTipText("");
         jComboBox1.setName(""); // NOI18N
         jComboBox1.addActionListener(new java.awt.event.ActionListener() {
@@ -820,18 +821,32 @@ public class InformacionFuncionario extends javax.swing.JFrame {
     
     private void jLabel13MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel13MouseClicked
         jTabbedPane1.setSelectedIndex(5);
+        cargarNiveles();
         int nivel = Integer.parseInt(jComboBox1.getSelectedItem().toString());
         jTextArea4.setText("Departamentos del nivel: " +nivel +" \n");
         listaDepartamentosNivel();
         llenarDepartamentos();
         jTextArea4.append("\npuestos del nivel: " +nivel +"\n");
-       // listaPuestosNivel();
        llenadoListaPuesto();
         llenarPuestos();
         jTextArea4.setEditable(false);
+        jComboBox1.removeItem("1");
         
     }//GEN-LAST:event_jLabel13MouseClicked
-
+    private void cargarNiveles(){
+      try{
+            Connection con = new Conexion().getConexion();
+            ps = con.prepareStatement("select distinct nivel from departamento");
+            rs = ps.executeQuery();
+            while(rs.next()){
+                jComboBox1.addItem(rs.getString("nivel"));
+            }
+            con.close();
+        }catch(Exception ex){
+            System.err.println("Error:" + ex);
+        }
+    
+    }
     private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
         jTextArea4.setText("");
         int nivel = Integer.parseInt(jComboBox1.getSelectedItem().toString());
@@ -839,7 +854,6 @@ public class InformacionFuncionario extends javax.swing.JFrame {
         listaDepartamentosNivel();
         llenarDepartamentos();
         jTextArea4.append("\npuestos del nivel: " +nivel +"\n");
-        //listaPuestosNivel();
         llenadoListaPuesto();
         llenarPuestos();
         jTextArea4.setEditable(false);
