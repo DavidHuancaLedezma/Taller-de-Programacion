@@ -11,16 +11,26 @@ package modelo;
 public class DepartamentoRecursivo {
     
     private String departamento;
-    
+    private int idDepartamento;
     public DepartamentoRecursivo(){
     }
     
     public DepartamentoRecursivo(String departamento){
         this.departamento  = departamento;
     }
+    public DepartamentoRecursivo(String departamento, int idDepartamento){
+        this.departamento  = departamento;
+        this.idDepartamento = idDepartamento;
+    }
     
     public String getDepartamentoRecursivo(){
         return departamento;
+    }
+    public int getIdDepartamento(){
+        return idDepartamento;
+    }
+    public void setIdDepartamento(int idDepartamento){
+        this.idDepartamento = idDepartamento;
     }
     
     public void setDepartamentoRecursivo(String departamento){

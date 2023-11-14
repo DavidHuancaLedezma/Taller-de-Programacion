@@ -21,21 +21,18 @@ public class InformacionDepartamento {
         DepartamentoRecursivo departamento = null;
         
         try{
-
             con = new Conexion().getConexion();
-            ps = con.prepareStatement("select NOMBREDEPARTAMENTO from departamento");
+            ps = con.prepareStatement("select NOMBREDEPARTAMENTO,IDDEPARTAMENTO from departamento");
             resultado = ps.executeQuery();
             while(resultado.next()){
                 departamento = new DepartamentoRecursivo();
                 departamento.setDepartamentoRecursivo(resultado.getString("NOMBREDEPARTAMENTO"));
+                departamento.setIdDepartamento(resultado.getInt("IDDEPARTAMENTO"));
                 departamentos.add(departamento);
-                
             }
         }catch(Exception ex){
-             
+                System.err.println("Error:" + ex);
         }
-       
-
         return departamentos;
     } 
 }
