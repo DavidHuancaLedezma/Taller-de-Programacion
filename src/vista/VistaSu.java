@@ -418,6 +418,7 @@ public class VistaSu extends javax.swing.JFrame {
         jComboBox18 = new javax.swing.JComboBox<>();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTextArea1 = new javax.swing.JTextArea();
+        jButton79 = new javax.swing.JButton();
         jPanel12 = new javax.swing.JPanel();
         jLabel34 = new javax.swing.JLabel();
         jLabel35 = new javax.swing.JLabel();
@@ -1932,6 +1933,14 @@ public class VistaSu extends javax.swing.JFrame {
         jScrollPane1.setViewportView(jTextArea1);
 
         jPanel17.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 160, 720, 230));
+
+        jButton79.setText("Actualizar");
+        jButton79.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton79ActionPerformed(evt);
+            }
+        });
+        jPanel17.add(jButton79, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 400, 100, -1));
 
         jTabbedPane1.addTab("tab14", jPanel17);
 
@@ -4005,6 +4014,11 @@ De nuevo erick y juan haciendo esta parte
         // Actualizar Politica de Operacion
         cargarAreaTextoPoliticaOperacion();
     }//GEN-LAST:event_jComboBox18ActionPerformed
+
+    private void jButton79ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton79ActionPerformed
+        // Actualizar politica de Operacion
+        actualizarPoliticaOperacion();
+    }//GEN-LAST:event_jButton79ActionPerformed
     private void mostrarSiguienteDatoCargosOficialesDesempenado(){
           ArrayList<String> resultados=new ArrayList<>();
           ArrayList<Integer> idsAD=new ArrayList<>();
@@ -4639,6 +4653,23 @@ De nuevo erick y juan haciendo esta parte
         OperationPolicy politicaOperacion = (OperationPolicy)jComboBox18.getSelectedItem();
         jTextArea1.setText(politicaOperacion.getDescripcion());
     }
+    private void actualizarPoliticaOperacion(){
+        OperationPolicy politicaOperacion = (OperationPolicy)jComboBox18.getSelectedItem();
+        int posicionActual = jComboBox18.getSelectedIndex();
+        if(!jTextArea1.getText().equals("")){
+            if(new DatosProcedimientos().actualizarPoliticasDeOperacion(jTextArea1.getText(),politicaOperacion.getIdPoliticaOpracion())){
+                JOptionPane.showMessageDialog(null,"Politica de Operacion \n Actualizada con exito");
+                cargarPoliticasOperacion();
+                jComboBox18.setSelectedIndex(posicionActual);
+                cargarAreaTextoPoliticaOperacion();
+            }else{
+                JOptionPane.showMessageDialog(null,"Error al actualizar \n Politica de Operacion");
+            }
+        }else{
+            JOptionPane.showMessageDialog(null,"Error campo vacio");
+        }
+        
+    }
     /**
      * @param args the command line arguments
      */
@@ -4762,6 +4793,7 @@ De nuevo erick y juan haciendo esta parte
     private javax.swing.JButton jButton76;
     private javax.swing.JButton jButton77;
     private javax.swing.JButton jButton78;
+    private javax.swing.JButton jButton79;
     private javax.swing.JButton jButton8;
     private javax.swing.JButton jButton9;
     private javax.swing.JComboBox<String> jComboBox1;

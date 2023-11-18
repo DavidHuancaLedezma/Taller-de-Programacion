@@ -154,5 +154,20 @@ public class DatosProcedimientos {
         return res;
     
     }
+    public boolean actualizarPoliticasDeOperacion(String nuevaDescripcion,int idPolitica){
+        boolean res = false;
+        try{
+            Connection con = new Conexion().getConexion();
+            ps = con.prepareStatement("update politicasdeoperacion set DESCRIPCIONPOLITICA = ? where IDPOLITICA = ?");
+            ps.setString(1, nuevaDescripcion);
+            ps.setInt(2,idPolitica);
+            if(ps.executeUpdate()>0){
+                res = true;
+            }
+        }catch(Exception ex){
+            System.err.println("Error:" + ex);
+        }
+        return res;
+    }
 
 }
