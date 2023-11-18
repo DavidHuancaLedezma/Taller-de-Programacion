@@ -31,6 +31,8 @@ public class VistaSu extends javax.swing.JFrame {
     private DefaultComboBoxModel modelo3;
     private DefaultComboBoxModel modelo4;
     private DefaultComboBoxModel modelo5;
+    private DefaultComboBoxModel modeloProcedimiento;
+    private DefaultComboBoxModel modeloProcedimiento2;
     private ArrayList<String>funcionGeneral = new ArrayList<String>();
     private ArrayList<String>funcionesEspesificas = new ArrayList<String>();
     // NO BORRAR ESTAS LISTAS SON IMPORTANTES
@@ -406,6 +408,9 @@ public class VistaSu extends javax.swing.JFrame {
         jPanel15 = new javax.swing.JPanel();
         jPanel16 = new javax.swing.JPanel();
         jPanel17 = new javax.swing.JPanel();
+        jLabel54 = new javax.swing.JLabel();
+        jComboBox16 = new javax.swing.JComboBox<>();
+        jComboBox17 = new javax.swing.JComboBox<>();
         jPanel12 = new javax.swing.JPanel();
         jLabel34 = new javax.swing.JLabel();
         jLabel35 = new javax.swing.JLabel();
@@ -1754,8 +1759,13 @@ public class VistaSu extends javax.swing.JFrame {
         jPanel11.add(jButton72, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 360, -1, -1));
         jPanel11.add(jTextField26, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 320, 220, -1));
 
-        jButton68.setText("David");
-        jPanel11.add(jButton68, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 400, -1, -1));
+        jButton68.setText("Actualizar Politicas de Operacion");
+        jButton68.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton68ActionPerformed(evt);
+            }
+        });
+        jPanel11.add(jButton68, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 400, -1, -1));
 
         jButton75.setText("Erick");
         jPanel11.add(jButton75, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 400, -1, -1));
@@ -1884,16 +1894,16 @@ public class VistaSu extends javax.swing.JFrame {
 
         jTabbedPane1.addTab("tab13", jPanel16);
 
-        javax.swing.GroupLayout jPanel17Layout = new javax.swing.GroupLayout(jPanel17);
-        jPanel17.setLayout(jPanel17Layout);
-        jPanel17Layout.setHorizontalGroup(
-            jPanel17Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 810, Short.MAX_VALUE)
-        );
-        jPanel17Layout.setVerticalGroup(
-            jPanel17Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 429, Short.MAX_VALUE)
-        );
+        jPanel17.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel54.setText("MI PANEL");
+        jPanel17.add(jLabel54, new org.netbeans.lib.awtextra.AbsoluteConstraints(437, 242, -1, -1));
+
+        jComboBox16.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jPanel17.add(jComboBox16, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 20, 219, -1));
+
+        jComboBox17.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jPanel17.add(jComboBox17, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 20, 240, -1));
 
         jTabbedPane1.addTab("tab14", jPanel17);
 
@@ -3946,6 +3956,11 @@ De nuevo erick y juan haciendo esta parte
         }
     }
     }//GEN-LAST:event_jButton69ActionPerformed
+
+    private void jButton68ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton68ActionPerformed
+        //Actualizar politicas de Operacion
+        jTabbedPane1.setSelectedIndex(12);
+    }//GEN-LAST:event_jButton68ActionPerformed
     private void mostrarSiguienteDatoCargosOficialesDesempenado(){
           ArrayList<String> resultados=new ArrayList<>();
           ArrayList<Integer> idsAD=new ArrayList<>();
@@ -4659,6 +4674,8 @@ De nuevo erick y juan haciendo esta parte
     private javax.swing.JComboBox<String> jComboBox13;
     private javax.swing.JComboBox<String> jComboBox14;
     private javax.swing.JComboBox<String> jComboBox15;
+    private javax.swing.JComboBox<String> jComboBox16;
+    private javax.swing.JComboBox<String> jComboBox17;
     private javax.swing.JComboBox<String> jComboBox2;
     private javax.swing.JComboBox<String> jComboBox3;
     private javax.swing.JComboBox<String> jComboBox4;
@@ -4718,6 +4735,7 @@ De nuevo erick y juan haciendo esta parte
     private javax.swing.JLabel jLabel51;
     private javax.swing.JLabel jLabel52;
     private javax.swing.JLabel jLabel53;
+    private javax.swing.JLabel jLabel54;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
