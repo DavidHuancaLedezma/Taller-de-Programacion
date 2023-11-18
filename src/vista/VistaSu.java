@@ -387,6 +387,11 @@ public class VistaSu extends javax.swing.JFrame {
         jButton71 = new javax.swing.JButton();
         jButton72 = new javax.swing.JButton();
         jTextField26 = new javax.swing.JTextField();
+        jButton68 = new javax.swing.JButton();
+        jButton75 = new javax.swing.JButton();
+        jButton76 = new javax.swing.JButton();
+        jButton77 = new javax.swing.JButton();
+        jButton78 = new javax.swing.JButton();
         jPanel13 = new javax.swing.JPanel();
         jLabel49 = new javax.swing.JLabel();
         jLabel50 = new javax.swing.JLabel();
@@ -1748,6 +1753,21 @@ public class VistaSu extends javax.swing.JFrame {
         });
         jPanel11.add(jButton72, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 360, -1, -1));
         jPanel11.add(jTextField26, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 320, 220, -1));
+
+        jButton68.setText("David");
+        jPanel11.add(jButton68, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 400, -1, -1));
+
+        jButton75.setText("Erick");
+        jPanel11.add(jButton75, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 400, -1, -1));
+
+        jButton76.setText("Maycol");
+        jPanel11.add(jButton76, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 400, -1, -1));
+
+        jButton77.setText("Tu me mataste juan");
+        jPanel11.add(jButton77, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 400, -1, -1));
+
+        jButton78.setText("Rodrigo");
+        jPanel11.add(jButton78, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 400, -1, -1));
 
         jTabbedPane1.addTab("tab8", jPanel11);
 
@@ -4617,6 +4637,7 @@ De nuevo erick y juan haciendo esta parte
     private javax.swing.JButton jButton65;
     private javax.swing.JButton jButton66;
     private javax.swing.JButton jButton67;
+    private javax.swing.JButton jButton68;
     private javax.swing.JButton jButton69;
     private javax.swing.JButton jButton7;
     private javax.swing.JButton jButton70;
@@ -4624,6 +4645,10 @@ De nuevo erick y juan haciendo esta parte
     private javax.swing.JButton jButton72;
     private javax.swing.JButton jButton73;
     private javax.swing.JButton jButton74;
+    private javax.swing.JButton jButton75;
+    private javax.swing.JButton jButton76;
+    private javax.swing.JButton jButton77;
+    private javax.swing.JButton jButton78;
     private javax.swing.JButton jButton8;
     private javax.swing.JButton jButton9;
     private javax.swing.JComboBox<String> jComboBox1;
