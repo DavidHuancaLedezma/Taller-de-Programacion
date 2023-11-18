@@ -413,10 +413,11 @@ public class VistaSu extends javax.swing.JFrame {
         jPanel15 = new javax.swing.JPanel();
         jPanel16 = new javax.swing.JPanel();
         jPanel17 = new javax.swing.JPanel();
-        jLabel54 = new javax.swing.JLabel();
         jComboBox16 = new javax.swing.JComboBox<>();
         jComboBox17 = new javax.swing.JComboBox<>();
         jComboBox18 = new javax.swing.JComboBox<>();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTextArea1 = new javax.swing.JTextArea();
         jPanel12 = new javax.swing.JPanel();
         jLabel34 = new javax.swing.JLabel();
         jLabel35 = new javax.swing.JLabel();
@@ -1902,9 +1903,6 @@ public class VistaSu extends javax.swing.JFrame {
 
         jPanel17.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel54.setText("MI PANEL");
-        jPanel17.add(jLabel54, new org.netbeans.lib.awtextra.AbsoluteConstraints(437, 242, -1, -1));
-
         jComboBox16.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         jComboBox16.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1914,10 +1912,26 @@ public class VistaSu extends javax.swing.JFrame {
         jPanel17.add(jComboBox16, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 20, 240, -1));
 
         jComboBox17.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jComboBox17.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboBox17ActionPerformed(evt);
+            }
+        });
         jPanel17.add(jComboBox17, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 20, 450, -1));
 
         jComboBox18.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jComboBox18.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboBox18ActionPerformed(evt);
+            }
+        });
         jPanel17.add(jComboBox18, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 120, 500, -1));
+
+        jTextArea1.setColumns(20);
+        jTextArea1.setRows(5);
+        jScrollPane1.setViewportView(jTextArea1);
+
+        jPanel17.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 160, 720, 230));
 
         jTabbedPane1.addTab("tab14", jPanel17);
 
@@ -3981,6 +3995,16 @@ De nuevo erick y juan haciendo esta parte
         cargarComboProcedimientos();
         tipoDeDatoProcedimiento();
     }//GEN-LAST:event_jComboBox16ActionPerformed
+
+    private void jComboBox17ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox17ActionPerformed
+        // Actualizar Politicas de Operacion
+        cargarPoliticasOperacion();
+    }//GEN-LAST:event_jComboBox17ActionPerformed
+
+    private void jComboBox18ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox18ActionPerformed
+        // Actualizar Politica de Operacion
+        cargarAreaTextoPoliticaOperacion();
+    }//GEN-LAST:event_jComboBox18ActionPerformed
     private void mostrarSiguienteDatoCargosOficialesDesempenado(){
           ArrayList<String> resultados=new ArrayList<>();
           ArrayList<Integer> idsAD=new ArrayList<>();
@@ -4585,7 +4609,7 @@ De nuevo erick y juan haciendo esta parte
             modeloProcedimiento2.addElement("No tiene ningun Procedimiento");
         }
         jComboBox17.setModel(modeloProcedimiento2);
-        
+        cargarPoliticasOperacion();
     }
     
     private void tipoDeDatoProcedimiento(){
@@ -4604,9 +4628,17 @@ De nuevo erick y juan haciendo esta parte
         modeloPoliticasOperacion = new DefaultComboBoxModel();
         Procedimiento procedimiento = (Procedimiento)jComboBox17.getSelectedItem();
         ArrayList<OperationPolicy>contenido = new DatosProcedimientos().objetosPoliticasDeOperacion(procedimiento.getIdProcedimiento());
-        
+        for(int i=0;i<contenido.size();i++){
+            modeloPoliticasOperacion.addElement(contenido.get(i));
+        }
+        jComboBox18.setModel(modeloPoliticasOperacion);
+        cargarAreaTextoPoliticaOperacion();
+     
     }
-    
+    private void cargarAreaTextoPoliticaOperacion(){
+        OperationPolicy politicaOperacion = (OperationPolicy)jComboBox18.getSelectedItem();
+        jTextArea1.setText(politicaOperacion.getDescripcion());
+    }
     /**
      * @param args the command line arguments
      */
@@ -4802,7 +4834,6 @@ De nuevo erick y juan haciendo esta parte
     private javax.swing.JLabel jLabel51;
     private javax.swing.JLabel jLabel52;
     private javax.swing.JLabel jLabel53;
-    private javax.swing.JLabel jLabel54;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
@@ -4823,6 +4854,7 @@ De nuevo erick y juan haciendo esta parte
     private javax.swing.JPanel jPanel7;
     private javax.swing.JPanel jPanel8;
     private javax.swing.JPanel jPanel9;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane14;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
@@ -4834,6 +4866,7 @@ De nuevo erick y juan haciendo esta parte
     private javax.swing.JScrollPane jScrollPane9;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JTabbedPane jTabbedPane1;
+    private javax.swing.JTextArea jTextArea1;
     private javax.swing.JTextArea jTextArea10;
     private javax.swing.JTextArea jTextArea2;
     private javax.swing.JTextArea jTextArea3;
