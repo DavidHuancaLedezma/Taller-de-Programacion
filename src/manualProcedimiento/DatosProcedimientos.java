@@ -135,5 +135,24 @@ public class DatosProcedimientos {
         }
         return res;
     }
+    
+    public ArrayList<OperationPolicy>objetosPoliticasDeOperacion(int idProcedimiento){
+        ArrayList<OperationPolicy>res = new ArrayList<OperationPolicy>();
+        try{
+            Connection con = new Conexion().getConexion();
+            ps = con.prepareStatement("select IDPOLITICA as id,DESCRIPCIONPOLITICA as descripcion from politicasdeoperacion where IDPROCIMIENTO = ?");
+            ps.setInt(1,idProcedimiento);
+            rs = ps.executeQuery();
+            while(rs.next()){
+                res.add(new OperationPolicy(rs.getInt("id"), rs.getString("descripcion")));
+            }
+            con.close();
+        }catch(Exception ex){
+            System.err.println("Error:" + ex);
+        }
+        
+        return res;
+    
+    }
 
 }

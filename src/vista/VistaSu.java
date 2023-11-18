@@ -15,6 +15,7 @@ import manualProcedimiento.DatosProcedimientos;
 import manualProcedimiento.Procedimiento;
 import manualProcedimiento.Interventores;
 import manualProcedimiento.ListaProcedimientos;
+import manualProcedimiento.OperationPolicy;
 import modelo.*;
 
 /**
@@ -33,6 +34,7 @@ public class VistaSu extends javax.swing.JFrame {
     private DefaultComboBoxModel modelo5;
     private DefaultComboBoxModel modeloProcedimiento;
     private DefaultComboBoxModel modeloProcedimiento2;
+    private DefaultComboBoxModel modeloPoliticasOperacion;
     private boolean existeProcedimientoP = false;
     private ArrayList<String>funcionGeneral = new ArrayList<String>();
     private ArrayList<String>funcionesEspesificas = new ArrayList<String>();
@@ -4597,6 +4599,12 @@ De nuevo erick y juan haciendo esta parte
         }
         
         System.out.println(existeProcedimientoP);
+    }
+    private void cargarPoliticasOperacion(){
+        modeloPoliticasOperacion = new DefaultComboBoxModel();
+        Procedimiento procedimiento = (Procedimiento)jComboBox17.getSelectedItem();
+        ArrayList<OperationPolicy>contenido = new DatosProcedimientos().objetosPoliticasDeOperacion(procedimiento.getIdProcedimiento());
+        
     }
     
     /**

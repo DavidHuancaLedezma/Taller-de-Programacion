@@ -44,6 +44,21 @@ public class DatosPuestoTrabajo {
         return res;
     }
     
+    public ArrayList<Departamento>getDepartamentosConProcedimientos(){
+        ArrayList<Departamento>res = new ArrayList<Departamento>();
+        try{
+            Connection con = new Conexion().getConexion();
+            ps = con.prepareStatement("SELECT DISTINCT d.IDDEPARTAMENTO,d.NOMBREDEPARTAMENTO FROM departamento d,procedimiento p WHERE d.IDDEPARTAMENTO = p.IDDEPARTAMENTO;");
+            rs = ps.executeQuery();
+            while(rs.next()){
+                res.add(new Departamento(rs.getInt("IDDEPARTAMENTO"),rs.getString("NOMBREDEPARTAMENTO")));
+            }
+            con.close();
+        }catch(Exception ex){
+            System.err.println("Error:" + ex);
+        }
+        return res;
+    }
     
     public ArrayList<PuestoTrabajo>getPuestosTrabajo(){
         ArrayList<PuestoTrabajo>res = new ArrayList<PuestoTrabajo>();
