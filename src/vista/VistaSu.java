@@ -426,6 +426,7 @@ public class VistaSu extends javax.swing.JFrame {
         jLabel57 = new javax.swing.JLabel();
         jSeparator2 = new javax.swing.JSeparator();
         jLabel58 = new javax.swing.JLabel();
+        jButton81 = new javax.swing.JButton();
         jPanel12 = new javax.swing.JPanel();
         jLabel34 = new javax.swing.JLabel();
         jLabel35 = new javax.swing.JLabel();
@@ -1909,7 +1910,7 @@ public class VistaSu extends javax.swing.JFrame {
 
         jTabbedPane1.addTab("tab13", jPanel16);
 
-        jPanel17.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel17.setBackground(new java.awt.Color(0, 51, 51));
         jPanel17.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jComboBox16.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
@@ -1936,8 +1937,9 @@ public class VistaSu extends javax.swing.JFrame {
         });
         jPanel17.add(jComboBox18, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 120, 500, -1));
 
-        jTextArea1.setBackground(new java.awt.Color(255, 255, 255));
+        jTextArea1.setBackground(new java.awt.Color(0, 0, 0));
         jTextArea1.setColumns(20);
+        jTextArea1.setForeground(new java.awt.Color(0, 255, 0));
         jTextArea1.setRows(5);
         jScrollPane1.setViewportView(jTextArea1);
 
@@ -1949,7 +1951,7 @@ public class VistaSu extends javax.swing.JFrame {
                 jButton79ActionPerformed(evt);
             }
         });
-        jPanel17.add(jButton79, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 400, 100, -1));
+        jPanel17.add(jButton79, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 400, 100, 40));
 
         jButton80.setBackground(new java.awt.Color(255, 0, 0));
         jButton80.setForeground(new java.awt.Color(255, 255, 255));
@@ -1983,6 +1985,14 @@ public class VistaSu extends javax.swing.JFrame {
         jLabel58.setForeground(new java.awt.Color(51, 0, 255));
         jLabel58.setText("Politicas de operacion:");
         jPanel17.add(jLabel58, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 120, 130, 20));
+
+        jButton81.setText("Regresar");
+        jButton81.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton81ActionPerformed(evt);
+            }
+        });
+        jPanel17.add(jButton81, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 400, 90, 40));
 
         jTabbedPane1.addTab("tab14", jPanel17);
 
@@ -4065,6 +4075,10 @@ De nuevo erick y juan haciendo esta parte
     private void jButton80ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton80ActionPerformed
         eliminarPoliticaDeOperacion();
     }//GEN-LAST:event_jButton80ActionPerformed
+
+    private void jButton81ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton81ActionPerformed
+        jTabbedPane1.setSelectedIndex(7);
+    }//GEN-LAST:event_jButton81ActionPerformed
     private void mostrarSiguienteDatoCargosOficialesDesempenado(){
           ArrayList<String> resultados=new ArrayList<>();
           ArrayList<Integer> idsAD=new ArrayList<>();
@@ -4864,6 +4878,7 @@ De nuevo erick y juan haciendo esta parte
     private javax.swing.JButton jButton79;
     private javax.swing.JButton jButton8;
     private javax.swing.JButton jButton80;
+    private javax.swing.JButton jButton81;
     private javax.swing.JButton jButton9;
     private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JComboBox<String> jComboBox10;
