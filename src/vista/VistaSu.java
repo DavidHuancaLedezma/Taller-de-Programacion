@@ -419,6 +419,8 @@ public class VistaSu extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         jTextArea1 = new javax.swing.JTextArea();
         jButton79 = new javax.swing.JButton();
+        jButton80 = new javax.swing.JButton();
+        jLabel54 = new javax.swing.JLabel();
         jPanel12 = new javax.swing.JPanel();
         jLabel34 = new javax.swing.JLabel();
         jLabel35 = new javax.swing.JLabel();
@@ -1941,6 +1943,15 @@ public class VistaSu extends javax.swing.JFrame {
             }
         });
         jPanel17.add(jButton79, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 400, 100, -1));
+
+        jButton80.setText("Eliminar");
+        jButton80.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton80ActionPerformed(evt);
+            }
+        });
+        jPanel17.add(jButton80, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 110, 110, 40));
+        jPanel17.add(jLabel54, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 100, 230, 20));
 
         jTabbedPane1.addTab("tab14", jPanel17);
 
@@ -4019,6 +4030,10 @@ De nuevo erick y juan haciendo esta parte
         // Actualizar politica de Operacion
         actualizarPoliticaOperacion();
     }//GEN-LAST:event_jButton79ActionPerformed
+
+    private void jButton80ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton80ActionPerformed
+        eliminarPoliticaDeOperacion();
+    }//GEN-LAST:event_jButton80ActionPerformed
     private void mostrarSiguienteDatoCargosOficialesDesempenado(){
           ArrayList<String> resultados=new ArrayList<>();
           ArrayList<Integer> idsAD=new ArrayList<>();
@@ -4639,6 +4654,7 @@ De nuevo erick y juan haciendo esta parte
         System.out.println(existeProcedimientoP);
     }
     private void cargarPoliticasOperacion(){
+        jLabel54.setText("");
         modeloPoliticasOperacion = new DefaultComboBoxModel();
         Procedimiento procedimiento = (Procedimiento)jComboBox17.getSelectedItem();
         ArrayList<OperationPolicy>contenido = new DatosProcedimientos().objetosPoliticasDeOperacion(procedimiento.getIdProcedimiento());
@@ -4646,12 +4662,24 @@ De nuevo erick y juan haciendo esta parte
             modeloPoliticasOperacion.addElement(contenido.get(i));
         }
         jComboBox18.setModel(modeloPoliticasOperacion);
+        jTextArea1.setEnabled(true);
+        jButton80.setEnabled(true);
+        jButton79.setEnabled(true);
         cargarAreaTextoPoliticaOperacion();
      
     }
     private void cargarAreaTextoPoliticaOperacion(){
-        OperationPolicy politicaOperacion = (OperationPolicy)jComboBox18.getSelectedItem();
-        jTextArea1.setText(politicaOperacion.getDescripcion());
+        try{
+            OperationPolicy politicaOperacion = (OperationPolicy)jComboBox18.getSelectedItem();
+            jTextArea1.setText(politicaOperacion.getDescripcion());
+        }catch(Exception ex){
+            System.err.println("No hay politicas de operacion:" + ex);
+            jLabel54.setText("No existen politicas de operacion");
+            jTextArea1.setText("");
+            jTextArea1.setEnabled(false);
+            jButton80.setEnabled(false);
+            jButton79.setEnabled(false);
+        }
     }
     private void actualizarPoliticaOperacion(){
         OperationPolicy politicaOperacion = (OperationPolicy)jComboBox18.getSelectedItem();
@@ -4669,6 +4697,15 @@ De nuevo erick y juan haciendo esta parte
             JOptionPane.showMessageDialog(null,"Error campo vacio");
         }
         
+    }
+    private void eliminarPoliticaDeOperacion(){
+        OperationPolicy politicaOperacion = (OperationPolicy)jComboBox18.getSelectedItem();
+        if(new DatosProcedimientos().eliminarPoliticaOperacion(politicaOperacion.getIdPoliticaOpracion())){
+            JOptionPane.showMessageDialog(null,"Eliminado con exito");
+                cargarPoliticasOperacion();   
+        }else{
+            JOptionPane.showMessageDialog(null,"Error al eliminar");
+        }
     }
     /**
      * @param args the command line arguments
@@ -4795,6 +4832,7 @@ De nuevo erick y juan haciendo esta parte
     private javax.swing.JButton jButton78;
     private javax.swing.JButton jButton79;
     private javax.swing.JButton jButton8;
+    private javax.swing.JButton jButton80;
     private javax.swing.JButton jButton9;
     private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JComboBox<String> jComboBox10;
@@ -4866,6 +4904,7 @@ De nuevo erick y juan haciendo esta parte
     private javax.swing.JLabel jLabel51;
     private javax.swing.JLabel jLabel52;
     private javax.swing.JLabel jLabel53;
+    private javax.swing.JLabel jLabel54;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;

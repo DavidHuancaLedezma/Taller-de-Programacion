@@ -164,6 +164,23 @@ public class DatosProcedimientos {
             if(ps.executeUpdate()>0){
                 res = true;
             }
+            con.close();
+        }catch(Exception ex){
+            System.err.println("Error:" + ex);
+        }
+        return res;
+    }
+    
+    public boolean eliminarPoliticaOperacion(int idPolitica){
+        boolean res = false;
+        try{
+            Connection con = new Conexion().getConexion();
+            ps = con.prepareStatement("delete from politicasdeoperacion where IDPOLITICA = ?");
+            ps.setInt(1,idPolitica);
+            if(ps.executeUpdate()>0){
+                res = true;
+            }
+            con.close();
         }catch(Exception ex){
             System.err.println("Error:" + ex);
         }
