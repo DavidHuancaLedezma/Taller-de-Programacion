@@ -33,6 +33,7 @@ public class VistaSu extends javax.swing.JFrame {
     private DefaultComboBoxModel modelo5;
     private DefaultComboBoxModel modeloProcedimiento;
     private DefaultComboBoxModel modeloProcedimiento2;
+    private boolean existeProcedimientoP = false;
     private ArrayList<String>funcionGeneral = new ArrayList<String>();
     private ArrayList<String>funcionesEspesificas = new ArrayList<String>();
     // NO BORRAR ESTAS LISTAS SON IMPORTANTES
@@ -85,6 +86,8 @@ public class VistaSu extends javax.swing.JFrame {
         
         llenarComboBoxDepartamento();
         llenarComboBoxBusquedaDepartamento();
+        cargarComboDepartamentoPocedimiento();
+        tipoDeDatoProcedimiento();
     }
     /*
     @author Erick--> Inicio codigo de combo box para hacer la automatizacines
@@ -411,6 +414,7 @@ public class VistaSu extends javax.swing.JFrame {
         jLabel54 = new javax.swing.JLabel();
         jComboBox16 = new javax.swing.JComboBox<>();
         jComboBox17 = new javax.swing.JComboBox<>();
+        jComboBox18 = new javax.swing.JComboBox<>();
         jPanel12 = new javax.swing.JPanel();
         jLabel34 = new javax.swing.JLabel();
         jLabel35 = new javax.swing.JLabel();
@@ -1900,10 +1904,18 @@ public class VistaSu extends javax.swing.JFrame {
         jPanel17.add(jLabel54, new org.netbeans.lib.awtextra.AbsoluteConstraints(437, 242, -1, -1));
 
         jComboBox16.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        jPanel17.add(jComboBox16, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 20, 219, -1));
+        jComboBox16.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboBox16ActionPerformed(evt);
+            }
+        });
+        jPanel17.add(jComboBox16, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 20, 240, -1));
 
         jComboBox17.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        jPanel17.add(jComboBox17, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 20, 240, -1));
+        jPanel17.add(jComboBox17, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 20, 450, -1));
+
+        jComboBox18.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jPanel17.add(jComboBox18, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 120, 500, -1));
 
         jTabbedPane1.addTab("tab14", jPanel17);
 
@@ -3961,6 +3973,12 @@ De nuevo erick y juan haciendo esta parte
         //Actualizar politicas de Operacion
         jTabbedPane1.setSelectedIndex(12);
     }//GEN-LAST:event_jButton68ActionPerformed
+
+    private void jComboBox16ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox16ActionPerformed
+        // Actualizar politicas de Operacion
+        cargarComboProcedimientos();
+        tipoDeDatoProcedimiento();
+    }//GEN-LAST:event_jComboBox16ActionPerformed
     private void mostrarSiguienteDatoCargosOficialesDesempenado(){
           ArrayList<String> resultados=new ArrayList<>();
           ArrayList<Integer> idsAD=new ArrayList<>();
@@ -4541,6 +4559,46 @@ De nuevo erick y juan haciendo esta parte
         }
     }
     
+    
+     private void cargarComboDepartamentoPocedimiento(){
+        modeloProcedimiento = new DefaultComboBoxModel();
+        ArrayList<Departamento>contenido = new DatosPuestoTrabajo().getDepartamentosConProcedimientos();
+        for(int i=0;i<contenido.size();i++){
+            modeloProcedimiento.addElement(contenido.get(i));
+        }
+        jComboBox16.setModel(modeloProcedimiento);
+        cargarComboProcedimientos();
+    }
+    
+    private void cargarComboProcedimientos(){
+        modeloProcedimiento2 = new DefaultComboBoxModel();
+        Departamento dep = (Departamento)jComboBox16.getSelectedItem();
+        ArrayList<Procedimiento>contenido = new DatosProcedimientos().getProcedimientosDelDepartamento(dep.getIdDepartamento());
+        if(contenido.size()>0){
+            for(int i=0;i<contenido.size();i++){
+                modeloProcedimiento2.addElement(contenido.get(i));
+            }
+        
+        }else{
+            modeloProcedimiento2.addElement("No tiene ningun Procedimiento");
+        }
+        jComboBox17.setModel(modeloProcedimiento2);
+        
+    }
+    
+    private void tipoDeDatoProcedimiento(){
+        Object seleccionado = jComboBox17.getSelectedItem();
+        if(seleccionado instanceof Procedimiento){
+            existeProcedimientoP = true;
+        }else if(seleccionado instanceof String){
+            existeProcedimientoP = false;
+        }else{
+            System.out.println("Hay un error en el tipo de dato al seleccionar un procedimiento");
+        }
+        
+        System.out.println(existeProcedimientoP);
+    }
+    
     /**
      * @param args the command line arguments
      */
@@ -4676,6 +4734,7 @@ De nuevo erick y juan haciendo esta parte
     private javax.swing.JComboBox<String> jComboBox15;
     private javax.swing.JComboBox<String> jComboBox16;
     private javax.swing.JComboBox<String> jComboBox17;
+    private javax.swing.JComboBox<String> jComboBox18;
     private javax.swing.JComboBox<String> jComboBox2;
     private javax.swing.JComboBox<String> jComboBox3;
     private javax.swing.JComboBox<String> jComboBox4;

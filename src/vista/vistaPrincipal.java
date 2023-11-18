@@ -48,7 +48,7 @@ public class vistaPrincipal extends javax.swing.JFrame {
     
     private void cargarComboDepartamento(){
         modelo = new DefaultComboBoxModel();
-        ArrayList<Departamento>contenido = new DatosPuestoTrabajo().getDepartamentos();
+        ArrayList<Departamento>contenido = new DatosPuestoTrabajo().getDepartamentosConProcedimientos();
         for(int i=0;i<contenido.size();i++){
             modelo.addElement(contenido.get(i));
         }
