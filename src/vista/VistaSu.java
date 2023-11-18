@@ -421,6 +421,11 @@ public class VistaSu extends javax.swing.JFrame {
         jButton79 = new javax.swing.JButton();
         jButton80 = new javax.swing.JButton();
         jLabel54 = new javax.swing.JLabel();
+        jLabel55 = new javax.swing.JLabel();
+        jLabel56 = new javax.swing.JLabel();
+        jLabel57 = new javax.swing.JLabel();
+        jSeparator2 = new javax.swing.JSeparator();
+        jLabel58 = new javax.swing.JLabel();
         jPanel12 = new javax.swing.JPanel();
         jLabel34 = new javax.swing.JLabel();
         jLabel35 = new javax.swing.JLabel();
@@ -1904,6 +1909,7 @@ public class VistaSu extends javax.swing.JFrame {
 
         jTabbedPane1.addTab("tab13", jPanel16);
 
+        jPanel17.setBackground(new java.awt.Color(255, 255, 255));
         jPanel17.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jComboBox16.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
@@ -1912,7 +1918,7 @@ public class VistaSu extends javax.swing.JFrame {
                 jComboBox16ActionPerformed(evt);
             }
         });
-        jPanel17.add(jComboBox16, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 20, 240, -1));
+        jPanel17.add(jComboBox16, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 70, 240, -1));
 
         jComboBox17.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         jComboBox17.addActionListener(new java.awt.event.ActionListener() {
@@ -1920,7 +1926,7 @@ public class VistaSu extends javax.swing.JFrame {
                 jComboBox17ActionPerformed(evt);
             }
         });
-        jPanel17.add(jComboBox17, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 20, 450, -1));
+        jPanel17.add(jComboBox17, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 70, 450, -1));
 
         jComboBox18.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         jComboBox18.addActionListener(new java.awt.event.ActionListener() {
@@ -1928,13 +1934,14 @@ public class VistaSu extends javax.swing.JFrame {
                 jComboBox18ActionPerformed(evt);
             }
         });
-        jPanel17.add(jComboBox18, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 120, 500, -1));
+        jPanel17.add(jComboBox18, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 120, 500, -1));
 
+        jTextArea1.setBackground(new java.awt.Color(255, 255, 255));
         jTextArea1.setColumns(20);
         jTextArea1.setRows(5);
         jScrollPane1.setViewportView(jTextArea1);
 
-        jPanel17.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 160, 720, 230));
+        jPanel17.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 170, 720, 230));
 
         jButton79.setText("Actualizar");
         jButton79.addActionListener(new java.awt.event.ActionListener() {
@@ -1942,16 +1949,40 @@ public class VistaSu extends javax.swing.JFrame {
                 jButton79ActionPerformed(evt);
             }
         });
-        jPanel17.add(jButton79, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 400, 100, -1));
+        jPanel17.add(jButton79, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 400, 100, -1));
 
+        jButton80.setBackground(new java.awt.Color(255, 0, 0));
+        jButton80.setForeground(new java.awt.Color(255, 255, 255));
         jButton80.setText("Eliminar");
         jButton80.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton80ActionPerformed(evt);
             }
         });
-        jPanel17.add(jButton80, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 110, 110, 40));
-        jPanel17.add(jLabel54, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 100, 230, 20));
+        jPanel17.add(jButton80, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 110, 110, 40));
+
+        jLabel54.setForeground(new java.awt.Color(255, 0, 0));
+        jPanel17.add(jLabel54, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 150, 230, 20));
+
+        jLabel55.setForeground(new java.awt.Color(51, 0, 255));
+        jLabel55.setText("Seleccione un departamento");
+        jPanel17.add(jLabel55, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 50, 170, -1));
+
+        jLabel56.setForeground(new java.awt.Color(51, 0, 255));
+        jLabel56.setText("Seleccione un procedimiento");
+        jPanel17.add(jLabel56, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 50, 180, -1));
+
+        jLabel57.setFont(new java.awt.Font("Arial", 2, 24)); // NOI18N
+        jLabel57.setForeground(new java.awt.Color(51, 0, 255));
+        jLabel57.setText("POLITICAS DE OPERACION");
+        jPanel17.add(jLabel57, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 0, 330, 30));
+
+        jSeparator2.setBackground(new java.awt.Color(0, 51, 255));
+        jPanel17.add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 30, 340, 10));
+
+        jLabel58.setForeground(new java.awt.Color(51, 0, 255));
+        jLabel58.setText("Politicas de operacion:");
+        jPanel17.add(jLabel58, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 120, 130, 20));
 
         jTabbedPane1.addTab("tab14", jPanel17);
 
@@ -4674,7 +4705,7 @@ De nuevo erick y juan haciendo esta parte
             jTextArea1.setText(politicaOperacion.getDescripcion());
         }catch(Exception ex){
             System.err.println("No hay politicas de operacion:" + ex);
-            jLabel54.setText("No existen politicas de operacion");
+            jLabel54.setText("*No existen politicas de operacion");
             jTextArea1.setText("");
             jTextArea1.setEnabled(false);
             jButton80.setEnabled(false);
@@ -4905,6 +4936,10 @@ De nuevo erick y juan haciendo esta parte
     private javax.swing.JLabel jLabel52;
     private javax.swing.JLabel jLabel53;
     private javax.swing.JLabel jLabel54;
+    private javax.swing.JLabel jLabel55;
+    private javax.swing.JLabel jLabel56;
+    private javax.swing.JLabel jLabel57;
+    private javax.swing.JLabel jLabel58;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
@@ -4936,6 +4971,7 @@ De nuevo erick y juan haciendo esta parte
     private javax.swing.JScrollPane jScrollPane8;
     private javax.swing.JScrollPane jScrollPane9;
     private javax.swing.JSeparator jSeparator1;
+    private javax.swing.JSeparator jSeparator2;
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JTextArea jTextArea1;
     private javax.swing.JTextArea jTextArea10;
