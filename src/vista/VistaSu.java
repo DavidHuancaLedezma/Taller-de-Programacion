@@ -1781,9 +1781,14 @@ public class VistaSu extends javax.swing.JFrame {
                 jButton68ActionPerformed(evt);
             }
         });
-        jPanel11.add(jButton68, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 400, -1, -1));
+        jPanel11.add(jButton68, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 400, -1, -1));
 
         jButton75.setText("Erick");
+        jButton75.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton75ActionPerformed(evt);
+            }
+        });
         jPanel11.add(jButton75, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 400, -1, -1));
 
         jButton76.setText("Maycol");
@@ -4079,6 +4084,11 @@ De nuevo erick y juan haciendo esta parte
     private void jButton81ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton81ActionPerformed
         jTabbedPane1.setSelectedIndex(7);
     }//GEN-LAST:event_jButton81ActionPerformed
+
+    private void jButton75ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton75ActionPerformed
+        // TODO add your handling code here:
+        jTabbedPane1.setSelectedIndex(9);
+    }//GEN-LAST:event_jButton75ActionPerformed
     private void mostrarSiguienteDatoCargosOficialesDesempenado(){
           ArrayList<String> resultados=new ArrayList<>();
           ArrayList<Integer> idsAD=new ArrayList<>();
