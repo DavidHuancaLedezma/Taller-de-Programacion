@@ -4285,6 +4285,7 @@ De nuevo erick y juan haciendo esta parte
 
     private void jButton78ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton78ActionPerformed
         jTabbedPane1.setSelectedIndex(1);
+        cargarComboDepartamento();
     }//GEN-LAST:event_jButton78ActionPerformed
 
     private void jComboBox22ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox22ActionPerformed
@@ -4426,7 +4427,7 @@ De nuevo erick y juan haciendo esta parte
    private void actulizarObjetivo(){
    Procedimiento p = (Procedimiento)jComboBox22.getSelectedItem();
            int idProcedimiento = p.getIdProcedimiento();
-       if(!jTextArea11.getText().equals("")){      
+       if(!jTextArea12.getText().equals("")){      
        try{
             
             Connection conexion = new Conexion().getConexion();
