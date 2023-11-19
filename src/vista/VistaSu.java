@@ -4280,7 +4280,7 @@ De nuevo erick y juan haciendo esta parte
     }//GEN-LAST:event_jButton82ActionPerformed
 
     private void jButton83ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton83ActionPerformed
-        // TODO add your handling code here:
+        actualizarProcedimiento();
     }//GEN-LAST:event_jButton83ActionPerformed
 
     private void jButton78ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton78ActionPerformed
@@ -4378,6 +4378,25 @@ De nuevo erick y juan haciendo esta parte
             jButton84.setEnabled(false);
         }
     
+    }
+    private void actualizarProcedimiento(){
+     Procedimiento p = (Procedimiento)jComboBox22.getSelectedItem();
+            int idProcedimiento = p.getIdProcedimiento();
+       try{
+            
+            Connection conexion = new Conexion().getConexion();
+            psSU = conexion.prepareStatement("update procedimiento set NOMBREPROCEDIMIENTO =? "  +
+              " where IDPROCIMIENTO = "+idProcedimiento);
+            psSU.setString(1,jTextArea11.getText()) ;
+            int res = psSU.executeUpdate();
+            if(res>0){   
+             
+            JOptionPane.showMessageDialog(null, "procedimiento actualizado");    
+            }
+            conexion.close();
+        }catch(Exception ex){
+         System.err.print("error "+ex);
+        }
     }
     private void eliminarProcedimiento(){
             Procedimiento p = (Procedimiento)jComboBox22.getSelectedItem();
