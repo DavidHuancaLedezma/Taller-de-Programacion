@@ -421,6 +421,7 @@ public class Procedimientos extends javax.swing.JFrame {
         llenarNombrePNombreD();
         jTextField1.setEditable(false);
         jTextField2.setEditable(false);
+        jTextArea3.setText("");
         cargarObjetivos();
         jTextArea3.setEditable(false);
 
@@ -449,11 +450,11 @@ public class Procedimientos extends javax.swing.JFrame {
      }
     }
     private void cargarObjetivos(){
-       ArrayList<String>contenido = new DatosProcedimientos().objetivos(idDepartamento);
+       ArrayList<String>contenido = new DatosProcedimientos().objetivos(idDepartamento,idProcedimiento);
         if(contenido.size()>0){
-            for(int i=0;i<contenido.size();i++){
-                jTextArea3.append( contenido.get(i) + "\n");
-            }
+            
+                jTextArea3.append( contenido.get(0));
+            
         }else{
             jTextArea1.append(" - Ninguno ");
         }
