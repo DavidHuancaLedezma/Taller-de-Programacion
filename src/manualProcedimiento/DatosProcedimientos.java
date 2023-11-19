@@ -60,12 +60,13 @@ public class DatosProcedimientos {
         return res;
     }
     
-    public ArrayList<String>objetivos(int idDepartamento){
+    public ArrayList<String>objetivos(int idDepartamento,int idProcedimiento){
     ArrayList<String>res = new ArrayList<String>();
         try{
             Connection con = new Conexion().getConexion();
             ps = con.prepareStatement("select * from procedimiento p, departamento d " +
-"where   d.IDDEPARTAMENTO = p.IDDEPARTAMENTO and d.IDDEPARTAMENTO = "+idDepartamento);
+"where   d.IDDEPARTAMENTO = p.IDDEPARTAMENTO and d.IDDEPARTAMENTO = "+idDepartamento +
+                    " AND p.IDPROCIMIENTO = "+idProcedimiento);
             
             rs = ps.executeQuery();
             while(rs.next()){
