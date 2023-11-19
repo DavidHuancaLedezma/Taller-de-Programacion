@@ -4382,6 +4382,7 @@ De nuevo erick y juan haciendo esta parte
     private void actualizarProcedimiento(){
      Procedimiento p = (Procedimiento)jComboBox22.getSelectedItem();
             int idProcedimiento = p.getIdProcedimiento();
+      if(!jTextArea11.getText().equals("")){      
        try{
             
             Connection conexion = new Conexion().getConexion();
@@ -4397,6 +4398,9 @@ De nuevo erick y juan haciendo esta parte
         }catch(Exception ex){
          System.err.print("error "+ex);
         }
+      }else{
+       JOptionPane.showMessageDialog(null,"Error campo vacio");
+      }
     }
     private void eliminarProcedimiento(){
             Procedimiento p = (Procedimiento)jComboBox22.getSelectedItem();
@@ -4421,7 +4425,8 @@ De nuevo erick y juan haciendo esta parte
     }
    private void actulizarObjetivo(){
    Procedimiento p = (Procedimiento)jComboBox22.getSelectedItem();
-            int idProcedimiento = p.getIdProcedimiento();
+           int idProcedimiento = p.getIdProcedimiento();
+       if(!jTextArea11.getText().equals("")){      
        try{
             
             Connection conexion = new Conexion().getConexion();
@@ -4437,6 +4442,9 @@ De nuevo erick y juan haciendo esta parte
         }catch(Exception ex){
          System.err.print("error "+ex);
         } 
+       }else{
+        JOptionPane.showMessageDialog(null,"Error campo vacio");
+       } 
    
    }
     private void eliminarObjetivo(){
