@@ -50,7 +50,8 @@ public class VistaSu extends javax.swing.JFrame {
     int idActividadPofesional;
     int idCargosDesempeñados;
     int idEstudiosAcademicos;
-    private int idProcedimientoInter = 0; //Para idProcedimiento hecho por erick
+    private int indiceGlobal = 0;
+    private int idProcedimientoInter = 0; //Para idProcedimiento hecho por erick solo esta linea cree por sicaso
     private int idProcedimientoInter2 = 0; 
     ArrayList<InterventorSU> interventores;
     private DefaultComboBoxModel modelo10;
@@ -434,6 +435,10 @@ public class VistaSu extends javax.swing.JFrame {
         jComboBox20 = new javax.swing.JComboBox<>();
         jTextField29 = new javax.swing.JTextField();
         jButton82 = new javax.swing.JButton();
+        jButton87 = new javax.swing.JButton();
+        jButton88 = new javax.swing.JButton();
+        jButton89 = new javax.swing.JButton();
+        jButton90 = new javax.swing.JButton();
         jPanel15 = new javax.swing.JPanel();
         jPanel16 = new javax.swing.JPanel();
         jPanel17 = new javax.swing.JPanel();
@@ -2005,10 +2010,38 @@ public class VistaSu extends javax.swing.JFrame {
             }
         });
 
-        jButton82.setText("jButton82");
+        jButton82.setText("Buscar");
         jButton82.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton82ActionPerformed(evt);
+            }
+        });
+
+        jButton87.setText(">");
+        jButton87.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton87ActionPerformed(evt);
+            }
+        });
+
+        jButton88.setText("<");
+        jButton88.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton88ActionPerformed(evt);
+            }
+        });
+
+        jButton89.setText("Actualizar");
+        jButton89.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton89ActionPerformed(evt);
+            }
+        });
+
+        jButton90.setText("Eliminar");
+        jButton90.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton90ActionPerformed(evt);
             }
         });
 
@@ -2023,13 +2056,23 @@ public class VistaSu extends javax.swing.JFrame {
                 .addComponent(jComboBox20, javax.swing.GroupLayout.PREFERRED_SIZE, 373, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(52, 52, 52))
             .addGroup(jPanel14Layout.createSequentialGroup()
-                .addGap(193, 193, 193)
-                .addComponent(jTextField29, javax.swing.GroupLayout.PREFERRED_SIZE, 348, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel14Layout.createSequentialGroup()
+                        .addGap(117, 117, 117)
+                        .addComponent(jButton88)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jTextField29, javax.swing.GroupLayout.PREFERRED_SIZE, 348, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(29, 29, 29)
+                        .addComponent(jButton87))
+                    .addGroup(jPanel14Layout.createSequentialGroup()
+                        .addGap(310, 310, 310)
+                        .addComponent(jButton82))
+                    .addGroup(jPanel14Layout.createSequentialGroup()
+                        .addGap(204, 204, 204)
+                        .addComponent(jButton89)
+                        .addGap(65, 65, 65)
+                        .addComponent(jButton90)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel14Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButton82)
-                .addGap(191, 191, 191))
         );
         jPanel14Layout.setVerticalGroup(
             jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -2038,11 +2081,18 @@ public class VistaSu extends javax.swing.JFrame {
                 .addGroup(jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jComboBox19, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jComboBox20, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(18, 18, 18)
                 .addComponent(jButton82)
-                .addGap(64, 64, 64)
-                .addComponent(jTextField29, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(197, Short.MAX_VALUE))
+                .addGap(58, 58, 58)
+                .addGroup(jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jTextField29, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton87)
+                    .addComponent(jButton88))
+                .addGap(45, 45, 45)
+                .addGroup(jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButton89)
+                    .addComponent(jButton90))
+                .addContainerGap(128, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("tab11", jPanel14);
@@ -4250,7 +4300,6 @@ De nuevo erick y juan haciendo esta parte
     }//GEN-LAST:event_jButton75ActionPerformed
 
     private void jComboBox19ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox19ActionPerformed
-        // TODO add your handling code here:
         cargarComboProcedimientosInter();
         tipoDeDatoProcedimientoInter();
     }//GEN-LAST:event_jComboBox19ActionPerformed
@@ -4275,8 +4324,7 @@ De nuevo erick y juan haciendo esta parte
 
     private void jButton82ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton82ActionPerformed
         // TODO add your handling code here:
-        cargarInterventores();
-        jTextField29.setText(interventores.get(0).getNombreInterventor());
+        cargarInterventores(); 
     }//GEN-LAST:event_jButton82ActionPerformed
 
     private void jButton83ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton83ActionPerformed
@@ -4311,6 +4359,81 @@ De nuevo erick y juan haciendo esta parte
     private void jButton86ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton86ActionPerformed
         eliminarObjetivo();
     }//GEN-LAST:event_jButton86ActionPerformed
+
+    private void jButton89ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton89ActionPerformed
+        // TODO add your handling code here:
+         try{
+            Connection conexion = new Conexion().getConexion();
+            psSU = (PreparedStatement) conexion.prepareStatement("update interventores set nombreinterventor = ? where idinterventor = ?"); 
+            psSU.setString(1,jTextField29.getText());
+            psSU.setInt(2,interventores.get(indiceGlobal).getIdInterventor());
+            psSU.executeUpdate(); 
+            conexion.close();
+            JOptionPane.showMessageDialog(null, "Modificacion realizada en:\n"+"Interventores:\n"+jTextField29.getText());
+        }catch(Exception ex ){
+            System.err.println("ERROR, "+ex);
+        }
+        cargarInterventores();
+        jTextField29.setText(interventores.get(indiceGlobal).getNombreInterventor());
+    }//GEN-LAST:event_jButton89ActionPerformed
+
+    private void jButton88ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton88ActionPerformed
+        indiceGlobal--;
+        if(indiceGlobal < 0){
+            indiceGlobal= interventores.size()-1;
+            jTextField29.setText("");
+            jTextField29.setText(interventores.get(indiceGlobal).getNombreInterventor());
+            
+        }else{
+            jTextField29.setText(interventores.get(indiceGlobal).getNombreInterventor());
+
+        }
+    }//GEN-LAST:event_jButton88ActionPerformed
+
+    private void jButton90ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton90ActionPerformed
+        // TODO add your handling code here:
+        // TODO add your handling code here:
+        try{
+            Connection con = new Conexion().getConexion();
+            psSU = con.prepareStatement("delete from interventores where idinterventor = ?");
+            psSU.setInt(1,interventores.get(indiceGlobal).getIdInterventor());
+            psSU.executeUpdate();
+            con.close();
+            JOptionPane.showMessageDialog(null, "Se elimino correctamente: "+jTextField29.getText());
+            
+            if(interventores.isEmpty()){
+                jTextField29.setText("No existe interventores");
+                jButton83.setVisible(false);
+                jButton84.setVisible(false);
+                jButton85.setVisible(false);
+                jButton86.setVisible(false);
+            }else{
+                jButton83.setVisible(true);
+                jButton84.setVisible(true);
+                jButton85.setVisible(true);
+                jButton86.setVisible(true);
+                if(indiceGlobal != 0){
+                    indiceGlobal--;
+                }
+                jTextField29.setText(interventores.get(indiceGlobal).getNombreInterventor());
+            }
+        }catch(Exception ex){
+            System.err.println("Error:" + ex);
+        }
+        cargarInterventores();
+    }//GEN-LAST:event_jButton90ActionPerformed
+
+    private void jButton87ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton87ActionPerformed
+        // TODO add your handling code here:
+        indiceGlobal++;
+        if(indiceGlobal < interventores.size()){
+            jTextField29.setText("");
+            jTextField29.setText(interventores.get(indiceGlobal).getNombreInterventor());
+        }else{
+            indiceGlobal = 0;
+            jTextField29.setText(interventores.get(indiceGlobal).getNombreInterventor());
+        }
+    }//GEN-LAST:event_jButton87ActionPerformed
  private void tipoDeDatoProcedimiento2(){
         Object seleccionado = jComboBox21.getSelectedItem();
         if(seleccionado instanceof Procedimiento){
@@ -4478,7 +4601,7 @@ De nuevo erick y juan haciendo esta parte
         cargarComboProcedimientosInter();
     }
     private void tipoDeDatoProcedimientoInter(){
-        Object seleccionado = jComboBox20.getSelectedItem();
+         Object seleccionado = jComboBox20.getSelectedItem();
         if(seleccionado instanceof Procedimiento){
             existeProcedimientoP = true;
         }else if(seleccionado instanceof String){
@@ -4502,7 +4625,6 @@ De nuevo erick y juan haciendo esta parte
             modeloProcedimiento2.addElement("No tiene ningun Procedimiento");
         }
         jComboBox20.setModel(modeloProcedimiento2);
-        //cargarPoliticasOperacion();
     }
     private void cargarInterventores(){
         interventores = new ArrayList<>();
@@ -4518,6 +4640,19 @@ De nuevo erick y juan haciendo esta parte
                 interventores.add(interventor);
             }
             conexion.close();
+            if(interventores.isEmpty()){
+                jTextField29.setText("No existe interventores");
+                jButton83.setVisible(false);
+                jButton84.setVisible(false);
+                jButton85.setVisible(false);
+                jButton86.setVisible(false);
+            }else{
+                jButton83.setVisible(true);
+                jButton84.setVisible(true);
+                jButton85.setVisible(true);
+                jButton86.setVisible(true);
+                jTextField29.setText(interventores.get(indiceGlobal).getNombreInterventor());
+            }
         }catch(Exception ex ){
             System.err.println("ERROR, "+ex);
         }
@@ -5330,7 +5465,11 @@ De nuevo erick y juan haciendo esta parte
     private javax.swing.JButton jButton84;
     private javax.swing.JButton jButton85;
     private javax.swing.JButton jButton86;
+    private javax.swing.JButton jButton87;
+    private javax.swing.JButton jButton88;
+    private javax.swing.JButton jButton89;
     private javax.swing.JButton jButton9;
+    private javax.swing.JButton jButton90;
     private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JComboBox<String> jComboBox10;
     private javax.swing.JComboBox<String> jComboBox11;
