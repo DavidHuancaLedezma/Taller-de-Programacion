@@ -3,14 +3,24 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package vista;
+import java.awt.Color;
+import java.awt.Image;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.IOException;
 import java.sql.Connection;
 import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
+import javax.imageio.ImageIO;
 import javax.swing.DefaultComboBoxModel;
+import javax.swing.ImageIcon;
+import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
 import javax.swing.plaf.basic.BasicTabbedPaneUI;
+import javax.swing.table.DefaultTableModel;
 import manualProcedimiento.DatosProcedimientos;
 import manualProcedimiento.Procedimiento;
 import manualProcedimiento.Interventores;
@@ -42,6 +52,10 @@ public class VistaSu extends javax.swing.JFrame {
     private ArrayList<Experiencia> listaExp;
     int indiceExp = 0;
     public int idPuesto =-1; //Variable exclusiva para la insercion en otra tabla creada por erick
+    
+    //variables para imagen
+    private FileInputStream fis;
+    private int longitudBytes;
     
     public int idDescripcionPuesto=0;
     
@@ -246,6 +260,7 @@ public class VistaSu extends javax.swing.JFrame {
         btnCerrarSesionSU = new javax.swing.JButton();
         cajaIDPuesto = new javax.swing.JTextField();
         jButton58 = new javax.swing.JButton();
+        jButton91 = new javax.swing.JButton();
         jPanel5 = new javax.swing.JPanel();
         jComboBox21 = new javax.swing.JComboBox<>();
         jComboBox22 = new javax.swing.JComboBox<>();
@@ -474,6 +489,18 @@ public class VistaSu extends javax.swing.JFrame {
         jTextField19 = new javax.swing.JTextField();
         jTextField20 = new javax.swing.JTextField();
         jTextField21 = new javax.swing.JTextField();
+        jPanel3 = new javax.swing.JPanel();
+        jLabel62 = new javax.swing.JLabel();
+        jLabel63 = new javax.swing.JLabel();
+        jLabel64 = new javax.swing.JLabel();
+        Foto = new javax.swing.JLabel();
+        jScrollPane12 = new javax.swing.JScrollPane();
+        jTable1 = new javax.swing.JTable();
+        Guardar_Imagen = new javax.swing.JButton();
+        Buscar_Imagen = new javax.swing.JButton();
+        jButton93 = new javax.swing.JButton();
+        jButton94 = new javax.swing.JButton();
+        txt_nombreImagen = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
         ImagenFondo = new javax.swing.JLabel();
 
@@ -684,6 +711,14 @@ public class VistaSu extends javax.swing.JFrame {
             }
         });
         jPanel4.add(jButton58, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 100, -1, -1));
+
+        jButton91.setText("LO BORRAN SI QUIEREN ");
+        jButton91.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton91ActionPerformed(evt);
+            }
+        });
+        jPanel4.add(jButton91, new org.netbeans.lib.awtextra.AbsoluteConstraints(614, 280, 160, 40));
 
         jTabbedPane1.addTab("tab1", jPanel4);
 
@@ -2371,6 +2406,137 @@ public class VistaSu extends javax.swing.JFrame {
         );
 
         jTabbedPane1.addTab("tab9", jPanel12);
+
+        jLabel62.setFont(new java.awt.Font("Dialog", 1, 36)); // NOI18N
+        jLabel62.setText("Guardar Imagen");
+
+        jLabel63.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jLabel63.setText("Nombre Imagen:");
+
+        jLabel64.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        jLabel64.setText("Clic en el cuadro para agregar foto");
+
+        Foto.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        Foto.setText("FOTO");
+        Foto.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        Foto.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        Foto.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                FotoMouseClicked(evt);
+            }
+        });
+
+        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3"
+            }
+        ));
+        jScrollPane12.setViewportView(jTable1);
+
+        Guardar_Imagen.setText("Guardar");
+        Guardar_Imagen.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Guardar_ImagenActionPerformed(evt);
+            }
+        });
+
+        Buscar_Imagen.setText("Buscar Imagen");
+        Buscar_Imagen.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Buscar_ImagenActionPerformed(evt);
+            }
+        });
+
+        jButton93.setText("Mostrar Tabla de Imagenes");
+        jButton93.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton93ActionPerformed(evt);
+            }
+        });
+
+        jButton94.setText("Modificar Imagen");
+        jButton94.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton94ActionPerformed(evt);
+            }
+        });
+
+        txt_nombreImagen.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txt_nombreImagenActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
+        jPanel3.setLayout(jPanel3Layout);
+        jPanel3Layout.setHorizontalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addGap(34, 34, 34)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel3Layout.createSequentialGroup()
+                                .addGap(21, 21, 21)
+                                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(Buscar_Imagen, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(Guardar_Imagen, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(jScrollPane12, javax.swing.GroupLayout.PREFERRED_SIZE, 404, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(jPanel3Layout.createSequentialGroup()
+                                .addComponent(jButton93, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(jButton94, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(Foto, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jLabel64, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(67, 67, 67))
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addComponent(jLabel62)
+                        .addGap(84, 84, 84)
+                        .addComponent(jLabel63)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(txt_nombreImagen, javax.swing.GroupLayout.PREFERRED_SIZE, 201, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap())))
+        );
+        jPanel3Layout.setVerticalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addGap(88, 88, 88)
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(Guardar_Imagen, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel64, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addGap(10, 10, 10)
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel63)
+                            .addComponent(txt_nombreImagen, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel62, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addComponent(Foto, javax.swing.GroupLayout.PREFERRED_SIZE, 238, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addComponent(Buscar_Imagen, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jScrollPane12, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jButton93, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jButton94, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(82, 82, 82))))
+        );
+
+        jTabbedPane1.addTab("tab15", jPanel3);
 
         jPanel1.add(jTabbedPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 60, 810, 460));
 
@@ -4434,7 +4600,191 @@ De nuevo erick y juan haciendo esta parte
             jTextField29.setText(interventores.get(indiceGlobal).getNombreInterventor());
         }
     }//GEN-LAST:event_jButton87ActionPerformed
- private void tipoDeDatoProcedimiento2(){
+
+    private void Guardar_ImagenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Guardar_ImagenActionPerformed
+        GuardarImagen();
+    }//GEN-LAST:event_Guardar_ImagenActionPerformed
+    public void GuardarImagen(){
+        if (txt_nombreImagen.getText().equalsIgnoreCase("")) {
+            txt_nombreImagen.setBackground(Color.BLUE);
+            JOptionPane.showMessageDialog(null, "Debes llenar todos los campos");
+        } else {
+            String nombre;
+            nombre = txt_nombreImagen.getText().trim();
+            try {
+                Connection conexion = new Conexion().getConexion();
+                psSU = conexion.prepareStatement("insert into imagen values (?,?,?)");
+                psSU.setInt(1, 0);
+                psSU.setString(2,nombre);
+                psSU.setBlob(3, fis,longitudBytes);
+                
+                psSU.executeUpdate();
+                conexion.close();
+                LimpiarImagen();
+                txt_nombreImagen.setBackground(Color.GREEN);
+                JOptionPane.showMessageDialog(null, "Registro Exitoso");
+                Foto.setText("FOTO");
+                
+            } catch (Exception e) {
+                System.out.println("Error al guardar la foto" + e);
+                JOptionPane.showMessageDialog(null, "¡¡Error al guardar Foto!!");
+          }
+        }
+ 
+    }
+    
+    public void LimpiarImagen(){
+        txt_nombreImagen.setText("");
+        Foto.setText("FOTO");
+    }
+    
+    public void mostrarTabla() {
+        try {
+           Connection conexion = new Conexion().getConexion();
+           PreparedStatement psSU = conexion.prepareStatement("SELECT * FROM imagen"); // Corregí la consulta SQL aquí
+           ResultSet rs = psSU.executeQuery(); // Agregué esta línea para ejecutar la consulta
+
+           DefaultTableModel modelo = new DefaultTableModel();
+           modelo.addColumn("idImagen");
+           modelo.addColumn("nomImagen");
+           modelo.addColumn("Imagen");
+
+            while (rs.next()) {
+            // Obtén los datos de la fila actual
+            int idImagen = rs.getInt("idImagen");
+            String nomImagen = rs.getString("nomImagen");
+            // Puedes manejar la columna de imagen de la manera que necesites
+            // Por ejemplo, si la columna es de tipo BLOB, podrías mostrar "Imagen" o algo así
+            String imagen = "Imagen"; // Reemplaza esto con la lógica adecuada
+
+            // Añade una fila al modelo con los datos obtenidos
+            modelo.addRow(new Object[]{idImagen, nomImagen, imagen});
+          }
+
+            jTable1.setModel(modelo);
+
+           // Cierra la conexión y el conjunto de resultados
+            rs.close();
+            psSU.close();
+           conexion.close();
+        } catch (SQLException e) {
+           e.printStackTrace();
+           System.out.println("Error al mostrar la tabla: " + e.getMessage());
+        }
+    }
+    
+    private void txt_nombreImagenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_nombreImagenActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txt_nombreImagenActionPerformed
+
+    private void Buscar_ImagenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Buscar_ImagenActionPerformed
+        Consulta consulta = new Consulta();
+        consulta.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_Buscar_ImagenActionPerformed
+
+    private void FotoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_FotoMouseClicked
+        JFileChooser se = new JFileChooser();
+        se.setFileSelectionMode(JFileChooser.FILES_ONLY);
+        int estado = se.showOpenDialog(null);
+        if(estado ==  JFileChooser.APPROVE_OPTION){
+            try {
+                fis= new FileInputStream(se.getSelectedFile());
+                this.longitudBytes =  (int) se.getSelectedFile().length();
+                Image icono = ImageIO.read(se.getSelectedFile()).getScaledInstance(Foto.getWidth(),Foto.getHeight() ,Image.SCALE_DEFAULT);
+                Foto.setIcon(new ImageIcon(icono));
+                Foto.updateUI();
+                
+            } catch (IOException e) {
+                e.printStackTrace();
+                System.out.println("Error en el SEGUNDO catch");
+            } catch (Exception e) {
+                e.printStackTrace();
+                System.out.println("Error en el PRIMER catch");
+            }
+        }
+    }//GEN-LAST:event_FotoMouseClicked
+
+    private void jButton93ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton93ActionPerformed
+        // TODO add your handling code here:
+        mostrarTabla();
+    }//GEN-LAST:event_jButton93ActionPerformed
+
+    private void jButton94ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton94ActionPerformed
+        // Verificar si hay una fila seleccionada en la tabla
+        int filaSeleccionada = jTable1.getSelectedRow();
+        
+        if (filaSeleccionada == -1) {
+            JOptionPane.showMessageDialog(null, "Seleccione una fila en la tabla para modificar.", "Error", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+
+        // Obtener el valor de la columna "idImagen" de la fila seleccionada
+        int idModificacion = (int) jTable1.getValueAt(filaSeleccionada, 0);
+
+        // Lógica para abrir un JFileChooser y obtener la ruta de la nueva imagen
+        JFileChooser fileChooser = new JFileChooser();
+        int seleccion = fileChooser.showOpenDialog(null);
+        
+        if (seleccion == JFileChooser.APPROVE_OPTION) {
+            // Obtener la ruta de la nueva imagen
+            String nuevaRutaImagen = fileChooser.getSelectedFile().getAbsolutePath();
+            
+            // Solicitar al usuario que ingrese el nuevo nombre
+            String nuevoNombre = JOptionPane.showInputDialog("Ingrese el nuevo nombre:");
+
+            if (nuevoNombre != null && !nuevoNombre.trim().isEmpty()) {
+                // Si el usuario ingresó un nuevo nombre, continuar con la modificación
+
+                // Llama al nuevo método para modificar datos e imagen
+                modificarDatosEImagen(idModificacion, nuevoNombre, nuevaRutaImagen);
+            } else {
+                // El usuario no ingresó un nuevo nombre
+                JOptionPane.showMessageDialog(null, "Debe ingresar un nuevo nombre.", "Error", JOptionPane.ERROR_MESSAGE);
+            }
+        }
+    }//GEN-LAST:event_jButton94ActionPerformed
+
+    private void jButton91ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton91ActionPerformed
+        // TODO add your handling code here:
+        jTabbedPane1.setSelectedIndex(14);
+    }//GEN-LAST:event_jButton91ActionPerformed
+    
+    public void modificarDatosEImagen(int idModificacion, String nuevoNombre, String nuevaRutaImagen) {
+        try {
+            Connection conexion = new Conexion().getConexion();
+
+            // Obtener el contenido binario de la nueva imagen
+            File file = new File(nuevaRutaImagen);
+            int longitudBytes = (int) file.length();
+            FileInputStream fis = new FileInputStream(file);
+
+            // Supongamos que estás modificando el campo "nomImagen" y "imagen" en este ejemplo
+            String consulta = "UPDATE imagen SET nomImagen = ?, imagen = ? WHERE idImagen = ?";
+            PreparedStatement psModificar = conexion.prepareStatement(consulta);
+            psModificar.setString(1, nuevoNombre);
+            psModificar.setBinaryStream(2, fis, longitudBytes);
+            psModificar.setInt(3, idModificacion);
+
+            int filasAfectadas = psModificar.executeUpdate();
+
+            if (filasAfectadas > 0) {
+                System.out.println("Registro modificado correctamente");
+            } else {
+                System.out.println("No se pudo modificar el registro");
+            }
+
+            // Cierra el FileInputStream y la conexión
+            fis.close();
+            psModificar.close();
+            conexion.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+            System.out.println("Error al modificar los datos e imagen: " + e.getMessage());
+        }
+    }
+    
+    private void tipoDeDatoProcedimiento2(){
         Object seleccionado = jComboBox21.getSelectedItem();
         if(seleccionado instanceof Procedimiento){
             existeProcedimientoP = true;
@@ -5369,7 +5719,10 @@ De nuevo erick y juan haciendo esta parte
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton Buscar_Imagen;
     private javax.swing.JLabel FondoAgregarPT;
+    private javax.swing.JLabel Foto;
+    private javax.swing.JButton Guardar_Imagen;
     private javax.swing.JLabel ImagenFondo;
     private javax.swing.JButton btnAnt;
     private javax.swing.JButton btnBuscarN;
@@ -5470,6 +5823,9 @@ De nuevo erick y juan haciendo esta parte
     private javax.swing.JButton jButton89;
     private javax.swing.JButton jButton9;
     private javax.swing.JButton jButton90;
+    private javax.swing.JButton jButton91;
+    private javax.swing.JButton jButton93;
+    private javax.swing.JButton jButton94;
     private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JComboBox<String> jComboBox10;
     private javax.swing.JComboBox<String> jComboBox11;
@@ -5553,6 +5909,9 @@ De nuevo erick y juan haciendo esta parte
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel60;
     private javax.swing.JLabel jLabel61;
+    private javax.swing.JLabel jLabel62;
+    private javax.swing.JLabel jLabel63;
+    private javax.swing.JLabel jLabel64;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
@@ -5566,6 +5925,7 @@ De nuevo erick y juan haciendo esta parte
     private javax.swing.JPanel jPanel16;
     private javax.swing.JPanel jPanel17;
     private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel6;
@@ -5575,6 +5935,7 @@ De nuevo erick y juan haciendo esta parte
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane10;
     private javax.swing.JScrollPane jScrollPane11;
+    private javax.swing.JScrollPane jScrollPane12;
     private javax.swing.JScrollPane jScrollPane14;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
@@ -5587,6 +5948,7 @@ De nuevo erick y juan haciendo esta parte
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator2;
     private javax.swing.JTabbedPane jTabbedPane1;
+    private javax.swing.JTable jTable1;
     private javax.swing.JTextArea jTextArea1;
     private javax.swing.JTextArea jTextArea10;
     private javax.swing.JTextArea jTextArea11;
@@ -5630,5 +5992,6 @@ De nuevo erick y juan haciendo esta parte
     private javax.swing.JTextField jTextField8;
     private javax.swing.JTextField jTextField9;
     private javax.swing.JToggleButton jToggleButton1;
+    private javax.swing.JTextField txt_nombreImagen;
     // End of variables declaration//GEN-END:variables
 }

@@ -30,4 +30,6 @@ public class Experiencia {
     public String getdescripcionExperiencia(){
         return descripcionExperiencia;
     }
+    
+    
 }
