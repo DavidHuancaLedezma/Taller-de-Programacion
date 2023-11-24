@@ -9,6 +9,7 @@ import com.mysql.jdbc.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import modelo.Conexion;
 
@@ -187,5 +188,85 @@ public class DatosProcedimientos {
         }
         return res;
     }
-
+    public ArrayList<InterventorSU>getInterventoreslistaActividades(int idProcedimiento){
+        ArrayList<InterventorSU>res = new ArrayList();
+        InterventorSU interventor=null;
+        try{
+            Connection con = new Conexion().getConexion();
+            ps = con.prepareStatement("select interventores.IDINTERVENTOR,interventores.NOMBREINTERVENTOR from procedimiento join interventores on procedimiento.IDPROCIMIENTO=interventores.IDPROCIMIENTO where procedimiento.IDPROCIMIENTO=? ");   
+            ps.setInt(1,idProcedimiento);
+            rs = ps.executeQuery();
+            while(rs.next()){
+                interventor = new InterventorSU();
+                interventor.setIdInterventor(rs.getInt("IDINTERVENTOR"));
+                interventor.setNombreInterventor(rs.getString("NOMBREINTERVENTOR"));
+                res.add(interventor);
+                
+            }
+            con.close();
+        
+        }catch(Exception ex){
+            System.err.println("Error:" + ex);
+        }
+        return res;
+    }
+    public void eliminarActividad(int idActividad) {
+    try {
+        Connection con = new Conexion().getConexion();
+        ps = con.prepareStatement("DELETE FROM listadeactividades WHERE IDLISTA = ?");
+        ps.setInt(1, idActividad);
+        ps.executeUpdate();
+        con.close();
+        JOptionPane.showMessageDialog(null, "Actividad eliminada");
+        
+    } catch (Exception ex) {
+        System.err.println("Error: " + ex);
+    }
+    }
+    public void actualizarActividad(int idActividad, String nuevaDescripcion, int nuevoOrden) {
+    try {
+        Connection con = new Conexion().getConexion();
+        ps = con.prepareStatement("UPDATE listadeactividades SET DESCRIPCIONDEACTIVIDAD=?, ORDENLISTA=? WHERE IDLISTA = ?");
+        ps.setString(1, nuevaDescripcion);
+        ps.setInt(2, nuevoOrden);
+        ps.setInt(3, idActividad);
+        ps.executeUpdate();
+        con.close();
+        JOptionPane.showMessageDialog(null, "Actividad actualizada");
+    } catch (Exception ex) {
+        System.err.println("Error: " + ex);
+    }
+}
+    public void actualizarIdInterventorActividad(int idActividad, int nuevoIdInterventor) {
+    try {
+        Connection con = new Conexion().getConexion();
+        ps = con.prepareStatement("UPDATE listadeactividades SET IDINTERVENTOR=? WHERE IDLISTA = ?");
+        ps.setInt(1, nuevoIdInterventor);
+        ps.setInt(2, idActividad);
+        ps.executeUpdate();
+        con.close();
+    } catch (Exception ex) {
+        System.err.println("Error: " + ex);
+    }
+}
+public ArrayList<ListaDeActividades> obtenerDatosDeLaListaDeActividades(int idProcedimiento){
+        ArrayList<ListaDeActividades> listadeActividades=new ArrayList<ListaDeActividades>();
+        try{
+            Connection con = new Conexion().getConexion();
+            ps=con.prepareStatement("select la.IDLISTA,la.ORDENLISTA,i.IDINTERVENTOR,la.DESCRIPCIONDEACTIVIDAD from procedimiento p inner join interventores i on  p.IDPROCIMIENTO= i.IDPROCIMIENTO inner  join listadeactividades la on i.IDINTERVENTOR= la.IDINTERVENTOR where p.IDPROCIMIENTO=? order by la.ORDENLISTA asc");
+            ps.setInt(1, idProcedimiento);
+            rs = ps.executeQuery();
+            while(rs.next()){
+                ListaDeActividades lista=new ListaDeActividades();
+                lista.setIdLista(rs.getInt("la.IDLISTA"));
+                lista.setOrdenLista(rs.getInt("la.ORDENLISTA"));
+                lista.setIdInterventor(rs.getInt("i.IDINTERVENTOR"));
+                lista.setDescripcionDeActividad(rs.getString("la.DESCRIPCIONDEACTIVIDAD"));
+                listadeActividades.add(lista);
+            }
+        }catch(Exception ex){
+            System.err.println("Error:" + ex);
+        }
+         return listadeActividades;
+    }
 }
