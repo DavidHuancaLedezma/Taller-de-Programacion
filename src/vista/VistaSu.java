@@ -28,6 +28,11 @@ import manualProcedimiento.ListaProcedimientos;
 import manualProcedimiento.OperationPolicy;
 import modelo.*;
 import manualProcedimiento.InterventorSU;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import manualProcedimiento.ProcedimientoSU;
+import manualProcedimiento.DatosInterventor;
+import manualProcedimiento.ListaDeActividades;
 /**
  *C
  * Se realizo cambios
@@ -76,6 +81,16 @@ public class VistaSu extends javax.swing.JFrame {
     ArrayList<ListaProcedimientos>listaProcedimientos;
     ArrayList<Interventores>listaInterventor;
     
+    private int idProcedimientolistaActividades=0;
+    private int idInterventorlistaActividades=0;
+    private DefaultComboBoxModel modelo12;
+    private DefaultComboBoxModel modelo13;
+    private DefaultComboBoxModel modelo14;
+    private boolean existelistaprocedimientos=false;
+    private boolean existeinterventor=false;
+    private ArrayList<ListaDeActividades> listaActividades;
+    private int indiceActividades=0;
+    
     int idEscolaridad ;
     int idAptitud;
     int idEsfuerzo;
@@ -93,6 +108,7 @@ public class VistaSu extends javax.swing.JFrame {
     Conexion prueba;
     public VistaSu() {
         initComponents();
+        jTextField32.setVisible(false);
         jTextField5.setVisible(false);
         jButton3.setVisible(false);
         funcionalidadesInvisibles();
@@ -111,7 +127,8 @@ public class VistaSu extends javax.swing.JFrame {
         tipoDeDatoProcedimiento2();
         cargarComboDepartamentoInter();
         
-        
+        cargarComboDepartamentolistaActividades();
+        cargarDatosIniciales();
     }
     /*
     @author Erick--> Inicio codigo de combo box para hacer la automatizacines
@@ -501,6 +518,23 @@ public class VistaSu extends javax.swing.JFrame {
         jButton93 = new javax.swing.JButton();
         jButton94 = new javax.swing.JButton();
         txt_nombreImagen = new javax.swing.JTextField();
+        jPanel18 = new javax.swing.JPanel();
+        jLabel65 = new javax.swing.JLabel();
+        jLabel66 = new javax.swing.JLabel();
+        jLabel67 = new javax.swing.JLabel();
+        jLabel68 = new javax.swing.JLabel();
+        jLabel69 = new javax.swing.JLabel();
+        jButton92 = new javax.swing.JButton();
+        jButton95 = new javax.swing.JButton();
+        jButton96 = new javax.swing.JButton();
+        jButton97 = new javax.swing.JButton();
+        jButton98 = new javax.swing.JButton();
+        jComboBox23 = new javax.swing.JComboBox<>();
+        jComboBox24 = new javax.swing.JComboBox<>();
+        jTextField30 = new javax.swing.JTextField();
+        jTextField31 = new javax.swing.JTextField();
+        jTextField32 = new javax.swing.JTextField();
+        jComboBox25 = new javax.swing.JComboBox<>();
         jLabel6 = new javax.swing.JLabel();
         ImagenFondo = new javax.swing.JLabel();
 
@@ -1631,7 +1665,7 @@ public class VistaSu extends javax.swing.JFrame {
             }
         });
         jPanel9.add(jTextField12);
-        jTextField12.setBounds(16, 34, 43, 24);
+        jTextField12.setBounds(16, 34, 43, 22);
 
         jLabel21.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/uni449-PhotoRoom.png"))); // NOI18N
         jLabel21.setText("DEPARTAMENTOS");
@@ -1935,7 +1969,12 @@ public class VistaSu extends javax.swing.JFrame {
         });
         jPanel11.add(jButton75, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 400, -1, -1));
 
-        jButton76.setText("Maycol");
+        jButton76.setText("Lista de Actividades");
+        jButton76.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton76ActionPerformed(evt);
+            }
+        });
         jPanel11.add(jButton76, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 400, -1, -1));
 
         jButton77.setText("Tu me mataste juan");
@@ -2537,6 +2576,147 @@ public class VistaSu extends javax.swing.JFrame {
         );
 
         jTabbedPane1.addTab("tab15", jPanel3);
+
+        jLabel65.setText("PROCEDIMIENTOS");
+
+        jLabel66.setText("PROCEDIMEITNOS");
+
+        jLabel67.setText("INTERVENTOR");
+
+        jLabel68.setText("LISTA DE ACTIVIDADES");
+
+        jLabel69.setText("ORDEN DE LISTA");
+
+        jButton92.setText("BUSCAR");
+        jButton92.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton92ActionPerformed(evt);
+            }
+        });
+
+        jButton95.setText(">");
+        jButton95.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton95ActionPerformed(evt);
+            }
+        });
+
+        jButton96.setText("MODIFICAR");
+        jButton96.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton96ActionPerformed(evt);
+            }
+        });
+
+        jButton97.setText("ELIMINAR");
+        jButton97.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton97ActionPerformed(evt);
+            }
+        });
+
+        jButton98.setText("RETROCEDER");
+        jButton98.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton98ActionPerformed(evt);
+            }
+        });
+
+        jComboBox23.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jComboBox23.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboBox23ActionPerformed(evt);
+            }
+        });
+
+        jComboBox24.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jComboBox24.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboBox24ActionPerformed(evt);
+            }
+        });
+
+        jComboBox25.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jComboBox25.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboBox25ActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel18Layout = new javax.swing.GroupLayout(jPanel18);
+        jPanel18.setLayout(jPanel18Layout);
+        jPanel18Layout.setHorizontalGroup(
+            jPanel18Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel18Layout.createSequentialGroup()
+                .addGap(75, 75, 75)
+                .addGroup(jPanel18Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel69)
+                    .addComponent(jLabel68)
+                    .addGroup(jPanel18Layout.createSequentialGroup()
+                        .addComponent(jButton92)
+                        .addGap(21, 21, 21)
+                        .addComponent(jButton95))
+                    .addGroup(jPanel18Layout.createSequentialGroup()
+                        .addComponent(jButton96)
+                        .addGap(57, 57, 57)
+                        .addComponent(jButton97)
+                        .addGap(61, 61, 61)
+                        .addComponent(jButton98))
+                    .addComponent(jTextField30, javax.swing.GroupLayout.PREFERRED_SIZE, 626, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel18Layout.createSequentialGroup()
+                        .addComponent(jTextField31, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(46, 46, 46)
+                        .addComponent(jTextField32, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jComboBox25, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel18Layout.createSequentialGroup()
+                        .addGroup(jPanel18Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jComboBox23, javax.swing.GroupLayout.PREFERRED_SIZE, 297, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel67)
+                            .addComponent(jLabel65))
+                        .addGap(30, 30, 30)
+                        .addGroup(jPanel18Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel66)
+                            .addComponent(jComboBox24, javax.swing.GroupLayout.PREFERRED_SIZE, 380, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(28, Short.MAX_VALUE))
+        );
+        jPanel18Layout.setVerticalGroup(
+            jPanel18Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel18Layout.createSequentialGroup()
+                .addGap(38, 38, 38)
+                .addGroup(jPanel18Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel65)
+                    .addComponent(jLabel66))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel18Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jComboBox23, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jComboBox24, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(36, 36, 36)
+                .addGroup(jPanel18Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButton92)
+                    .addComponent(jButton95))
+                .addGap(28, 28, 28)
+                .addComponent(jLabel67)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jComboBox25, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jLabel68)
+                .addGap(9, 9, 9)
+                .addComponent(jTextField30, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jLabel69)
+                .addGap(8, 8, 8)
+                .addGroup(jPanel18Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jTextField31, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTextField32, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 25, Short.MAX_VALUE)
+                .addGroup(jPanel18Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButton96)
+                    .addComponent(jButton97)
+                    .addComponent(jButton98))
+                .addGap(39, 39, 39))
+        );
+
+        jTabbedPane1.addTab("tab16", jPanel18);
 
         jPanel1.add(jTabbedPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 60, 810, 460));
 
@@ -4749,7 +4929,180 @@ De nuevo erick y juan haciendo esta parte
         // TODO add your handling code here:
         jTabbedPane1.setSelectedIndex(14);
     }//GEN-LAST:event_jButton91ActionPerformed
-    
+
+    private void jButton76ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton76ActionPerformed
+        // TODO add your handling code here:
+        jTabbedPane1.setSelectedIndex(15);
+    }//GEN-LAST:event_jButton76ActionPerformed
+
+    private void jButton98ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton98ActionPerformed
+        // TODO add your handling code here:
+        jTabbedPane1.setSelectedIndex(7);
+    }//GEN-LAST:event_jButton98ActionPerformed
+
+    private void jComboBox24ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox24ActionPerformed
+        // TODO add your handling code here:
+        Procedimiento procedimiento = (Procedimiento)(jComboBox24.getSelectedItem());
+        idProcedimientolistaActividades = procedimiento.getIdProcedimiento();
+        cargarComboInterventorlistaActividades();
+        tipoDeDatointerventorlistaActividades();
+        cargarDatosIniciales();
+    }//GEN-LAST:event_jComboBox24ActionPerformed
+
+    private void jComboBox23ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox23ActionPerformed
+        // TODO add your handling code here:
+         cargarComboProcedimientoslistaActividades();
+         tipoDeDatoProcedimientolistaActividades();
+    }//GEN-LAST:event_jComboBox23ActionPerformed
+
+    private void jComboBox25ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox25ActionPerformed
+        // TODO add your handling code here:
+        InterventorSU interventor = (InterventorSU)(jComboBox25.getSelectedItem());
+        idInterventorlistaActividades = interventor.getIdInterventor();
+    }//GEN-LAST:event_jComboBox25ActionPerformed
+
+    private void jButton92ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton92ActionPerformed
+        // TODO add your handling code here:
+        Procedimiento procedimiento=(Procedimiento) jComboBox24.getSelectedItem();
+        ArrayList<ListaDeActividades> actividades=new DatosProcedimientos().obtenerDatosDeLaListaDeActividades(procedimiento.getIdProcedimiento());
+        if(!actividades.isEmpty()){
+            ListaDeActividades actividad=actividades.get(0);
+            jComboBox23.setSelectedItem(new InterventorSU(actividad.getIdInterventor(),0,"NombreInterventor"));
+            jTextField30.setText(actividad.getDescripcionDeActividad());
+            jTextField31.setText(String.valueOf(actividad.getOrdenLista()));
+            jTextField32.setText(String.valueOf(actividad.getIdLista()));
+        }else{
+            System.out.println("Nada");
+        }
+    }//GEN-LAST:event_jButton92ActionPerformed
+
+    private void jButton95ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton95ActionPerformed
+        // TODO add your handling code here:
+        rotarDatosDeLaListaActividades();
+    }//GEN-LAST:event_jButton95ActionPerformed
+
+    private void jButton97ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton97ActionPerformed
+        // TODO add your handling code here:
+        int idActividadEliminar = Integer.parseInt(jTextField32.getText());
+        new DatosProcedimientos().eliminarActividad(idActividadEliminar);
+        cargarDatosIniciales();
+    }//GEN-LAST:event_jButton97ActionPerformed
+
+    private void jButton96ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton96ActionPerformed
+        // TODO add your handling code here:
+        try {
+        int idActividadGuardar = Integer.parseInt(jTextField32.getText());
+        String nuevaDescripcion = jTextField30.getText();
+        int nuevoOrden = Integer.parseInt(jTextField31.getText());
+        InterventorSU nuevointerventor=(InterventorSU)jComboBox25.getSelectedItem();
+        int nuevoidInterventor=nuevointerventor.getIdInterventor();
+       // Llama al método para actualizar la actividad
+        new DatosProcedimientos().actualizarActividad(idActividadGuardar, nuevaDescripcion, nuevoOrden);
+        new DatosProcedimientos().actualizarIdInterventorActividad(idActividadGuardar, nuevoidInterventor);
+        cargarComboInterventorlistaActividades();
+        cargarDatosIniciales();
+    } catch (NumberFormatException e) {
+        System.err.println("Error al parsear datos: " + e.getMessage());
+    }
+    }//GEN-LAST:event_jButton96ActionPerformed
+    private void cargarComboDepartamentolistaActividades(){ 
+        modelo12 = new DefaultComboBoxModel();
+        ArrayList<Departamento>contenido = new DatosPuestoTrabajo().getDepartamentosConProcedimientos();
+        for(int i=0;i<contenido.size();i++){
+            modelo12.addElement(contenido.get(i));
+        }
+        jComboBox23.setModel(modelo12);
+        cargarComboProcedimientoslistaActividades();
+    }
+    private void tipoDeDatoProcedimientolistaActividades(){
+        Object seleccionado = jComboBox24.getSelectedItem();
+        if(seleccionado instanceof Procedimiento){
+            existelistaprocedimientos = true;
+        }else if(seleccionado instanceof String){
+            existelistaprocedimientos = false;
+        }else{
+            System.out.println("Hay un error en el tipo de dato al seleccionar un procedimiento");
+        }
+        
+        System.out.println(existelistaprocedimientos);
+    }
+    private void cargarComboProcedimientoslistaActividades(){
+    modelo13 = new DefaultComboBoxModel();
+        Departamento dep = (Departamento)jComboBox23.getSelectedItem();
+        ArrayList<Procedimiento>con = new DatosProcedimientos().getProcedimientosDelDepartamento(dep.getIdDepartamento());
+        if(con.size()>0){
+            for(int i=0;i<con.size();i++){
+                modelo13.addElement(con.get(i));
+            }
+            
+        }else{
+            modelo13.addElement("No tiene ningun Procedimiento");
+        }
+        jComboBox24.setModel(modelo13);
+       cargarComboInterventorlistaActividades();
+    }
+    private void cargarComboInterventorlistaActividades(){
+    modelo14 = new DefaultComboBoxModel();
+        Procedimiento proced = (Procedimiento)jComboBox24.getSelectedItem();
+        ArrayList<InterventorSU> con = new DatosProcedimientos().getInterventoreslistaActividades(proced.getIdProcedimiento());
+        if(con.size()>0){
+            for(int i=0;i<con.size();i++){
+                modelo14.addElement(con.get(i));
+            }
+        
+        }else{
+            modelo14.addElement("No tiene ningun Procedimiento");
+        }
+        jComboBox25.setModel(modelo14);
+       
+    }
+    private void tipoDeDatointerventorlistaActividades(){
+        Object seleccionado = jComboBox25.getSelectedItem();
+        
+        if(seleccionado instanceof InterventorSU){
+            existeinterventor = true;
+        }else if(seleccionado instanceof String){
+            existeinterventor = false;
+        }else{
+            System.out.println("Hay un error en el tipo de dato al seleccionar un interventor");
+        }
+        
+        System.out.println(existeinterventor);
+    }
+    private void rotarDatosDeLaListaActividades() {
+    if (listaActividades != null && !listaActividades.isEmpty()) {
+       
+        indiceActividades = (indiceActividades + 1) % listaActividades.size();
+        mostrarDatosDeActividadActual();
+    } else {
+        System.out.println("No hay actividades que mostrar");
+    }
+    }
+    private void cargarDatosIniciales() {
+    Procedimiento procedimiento = (Procedimiento)jComboBox24.getSelectedItem();
+    listaActividades = new DatosProcedimientos().obtenerDatosDeLaListaDeActividades(procedimiento.getIdProcedimiento());
+    mostrarDatosDeActividadActual();
+    }    
+    private void mostrarDatosDeActividadActual() {
+    if (listaActividades != null && !listaActividades.isEmpty()) {
+        DatosInterventor datosInterventor = new DatosInterventor();
+
+        
+        indiceActividades = (indiceActividades + listaActividades.size()) % listaActividades.size();
+
+        ListaDeActividades actividadActual = listaActividades.get(indiceActividades);
+        int idInterventor = actividadActual.getIdInterventor();
+        String nombreInterventor = datosInterventor.obtenerNombredeInterventor(idInterventor);
+
+        jComboBox25.setSelectedItem(new InterventorSU(actividadActual.getIdInterventor(), 0, nombreInterventor));
+        jTextField30.setText(actividadActual.getDescripcionDeActividad());
+        jTextField31.setText(String.valueOf(actividadActual.getOrdenLista()));
+        jTextField32.setText(String.valueOf(actividadActual.getIdLista()));
+    } else {
+        
+        System.out.println("No hay actividades que mostrar");
+    }
+    }
     public void modificarDatosEImagen(int idModificacion, String nuevoNombre, String nuevaRutaImagen) {
         try {
             Connection conexion = new Conexion().getConexion();
@@ -5824,8 +6177,13 @@ De nuevo erick y juan haciendo esta parte
     private javax.swing.JButton jButton9;
     private javax.swing.JButton jButton90;
     private javax.swing.JButton jButton91;
+    private javax.swing.JButton jButton92;
     private javax.swing.JButton jButton93;
     private javax.swing.JButton jButton94;
+    private javax.swing.JButton jButton95;
+    private javax.swing.JButton jButton96;
+    private javax.swing.JButton jButton97;
+    private javax.swing.JButton jButton98;
     private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JComboBox<String> jComboBox10;
     private javax.swing.JComboBox<String> jComboBox11;
@@ -5842,6 +6200,9 @@ De nuevo erick y juan haciendo esta parte
     private javax.swing.JComboBox<String> jComboBox20;
     private javax.swing.JComboBox<String> jComboBox21;
     private javax.swing.JComboBox<String> jComboBox22;
+    private javax.swing.JComboBox<String> jComboBox23;
+    private javax.swing.JComboBox<String> jComboBox24;
+    private javax.swing.JComboBox<String> jComboBox25;
     private javax.swing.JComboBox<String> jComboBox3;
     private javax.swing.JComboBox<String> jComboBox4;
     private javax.swing.JComboBox<String> jComboBox5;
@@ -5912,6 +6273,11 @@ De nuevo erick y juan haciendo esta parte
     private javax.swing.JLabel jLabel62;
     private javax.swing.JLabel jLabel63;
     private javax.swing.JLabel jLabel64;
+    private javax.swing.JLabel jLabel65;
+    private javax.swing.JLabel jLabel66;
+    private javax.swing.JLabel jLabel67;
+    private javax.swing.JLabel jLabel68;
+    private javax.swing.JLabel jLabel69;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
@@ -5924,6 +6290,7 @@ De nuevo erick y juan haciendo esta parte
     private javax.swing.JPanel jPanel15;
     private javax.swing.JPanel jPanel16;
     private javax.swing.JPanel jPanel17;
+    private javax.swing.JPanel jPanel18;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
@@ -5984,6 +6351,9 @@ De nuevo erick y juan haciendo esta parte
     private javax.swing.JTextField jTextField28;
     private javax.swing.JTextField jTextField29;
     private javax.swing.JTextField jTextField3;
+    private javax.swing.JTextField jTextField30;
+    private javax.swing.JTextField jTextField31;
+    private javax.swing.JTextField jTextField32;
     private javax.swing.JTextField jTextField4;
     private javax.swing.JTextField jTextField5;
     private javax.swing.JTextField jTextField500;
