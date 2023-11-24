@@ -39,5 +39,9 @@ public class InterventorSU {
     public void setNombreInterventor(String nombreInterventor) {
         this.nombreInterventor = nombreInterventor;
     }
+    @Override
+    public String toString(){
+        return nombreInterventor;
+    }
     
 }
