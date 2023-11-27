@@ -1598,7 +1598,7 @@ public class VistaSu extends javax.swing.JFrame {
         jLabel19.setForeground(new java.awt.Color(255, 255, 255));
         jLabel19.setText("Departamento Superior");
         jPanel9.add(jLabel19);
-        jLabel19.setBounds(330, 320, 135, 16);
+        jLabel19.setBounds(330, 320, 135, 14);
 
         jButton15.setText("Buscar");
         jButton15.addActionListener(new java.awt.event.ActionListener() {
@@ -1665,7 +1665,7 @@ public class VistaSu extends javax.swing.JFrame {
             }
         });
         jPanel9.add(jTextField12);
-        jTextField12.setBounds(16, 34, 43, 22);
+        jTextField12.setBounds(16, 34, 43, 20);
 
         jLabel21.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/uni449-PhotoRoom.png"))); // NOI18N
         jLabel21.setText("DEPARTAMENTOS");
@@ -1977,8 +1977,13 @@ public class VistaSu extends javax.swing.JFrame {
         });
         jPanel11.add(jButton76, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 400, -1, -1));
 
-        jButton77.setText("Tu me mataste juan");
-        jPanel11.add(jButton77, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 400, -1, -1));
+        jButton77.setText("Eliminar");
+        jButton77.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton77ActionPerformed(evt);
+            }
+        });
+        jPanel11.add(jButton77, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 230, 90, -1));
 
         jButton78.setText("editar precedimientos y objetivo");
         jButton78.addActionListener(new java.awt.event.ActionListener() {
@@ -5005,6 +5010,51 @@ De nuevo erick y juan haciendo esta parte
         System.err.println("Error al parsear datos: " + e.getMessage());
     }
     }//GEN-LAST:event_jButton96ActionPerformed
+
+    private void jButton77ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton77ActionPerformed
+        String seleccion = (String) jComboBox14.getSelectedItem();
+        //System.out.println(""+seleccion);
+        int idProcedimiento = buscarIDProcedimiento(seleccion) ;
+        //System.out.println(""+idProcedimiento);
+      
+         try{             
+           Connection  conexion = new Conexion().getConexion();
+           psSU = conexion.prepareStatement("DELETE FROM procedimiento WHERE IDPROCIMIENTO = "+idProcedimiento);
+           int res = psSU.executeUpdate();
+           if(res>0){
+           JOptionPane.showMessageDialog(null, "Procedimiento eliminado");
+           limpiar();
+           }else{
+           JOptionPane.showMessageDialog(null, "error al eliminar el procedimiento");
+           }
+           conexion.close();    
+           }catch(Exception ex){
+           System.err.println("Error, "+ex);
+           }
+            actualizar();
+    }//GEN-LAST:event_jButton77ActionPerformed
+    private void actualizar(){
+        cargarComboBoxProcedimientos();
+    }
+    private int buscarIDProcedimiento(String seleccion){
+        int id = 0 ;
+        try{
+            Connection conexion = new Conexion().getConexion();
+            psSU = (PreparedStatement) conexion.prepareStatement("SELECT IDPROCIMIENTO FROM procedimiento WHERE NOMBREPROCEDIMIENTO = ?"); 
+            psSU.setString(1,seleccion);
+            rsSU = psSU.executeQuery();
+            // Verifica si se encontró un registro
+            if(rsSU.next()){ 
+                id = rsSU.getInt("IDPROCIMIENTO");
+            }else{
+                JOptionPane.showMessageDialog(null,"Registro no encontrado");                
+            }
+            conexion.close();
+        }catch(Exception ex ){
+            System.err.println("ERROR, "+ex);
+        }
+        return id ;
+    }
     private void cargarComboDepartamentolistaActividades(){ 
         modelo12 = new DefaultComboBoxModel();
         ArrayList<Departamento>contenido = new DatosPuestoTrabajo().getDepartamentosConProcedimientos();
