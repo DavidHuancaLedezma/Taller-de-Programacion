@@ -30,6 +30,8 @@ import modelo.*;
 import manualProcedimiento.InterventorSU;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.sql.Blob;
+import javax.swing.JLabel;
 import manualProcedimiento.ProcedimientoSU;
 import manualProcedimiento.DatosInterventor;
 import manualProcedimiento.ListaDeActividades;
@@ -518,6 +520,7 @@ public class VistaSu extends javax.swing.JFrame {
         jButton93 = new javax.swing.JButton();
         jButton94 = new javax.swing.JButton();
         txt_nombreImagen = new javax.swing.JTextField();
+        jButton_eliminarImagen = new javax.swing.JButton();
         jPanel18 = new javax.swing.JPanel();
         jLabel65 = new javax.swing.JLabel();
         jLabel66 = new javax.swing.JLabel();
@@ -1598,7 +1601,7 @@ public class VistaSu extends javax.swing.JFrame {
         jLabel19.setForeground(new java.awt.Color(255, 255, 255));
         jLabel19.setText("Departamento Superior");
         jPanel9.add(jLabel19);
-        jLabel19.setBounds(330, 320, 135, 14);
+        jLabel19.setBounds(330, 320, 135, 16);
 
         jButton15.setText("Buscar");
         jButton15.addActionListener(new java.awt.event.ActionListener() {
@@ -1665,7 +1668,7 @@ public class VistaSu extends javax.swing.JFrame {
             }
         });
         jPanel9.add(jTextField12);
-        jTextField12.setBounds(16, 34, 43, 20);
+        jTextField12.setBounds(16, 34, 43, 24);
 
         jLabel21.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/uni449-PhotoRoom.png"))); // NOI18N
         jLabel21.setText("DEPARTAMENTOS");
@@ -2460,6 +2463,7 @@ public class VistaSu extends javax.swing.JFrame {
         jLabel64.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         jLabel64.setText("Clic en el cuadro para agregar foto");
 
+        Foto.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
         Foto.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         Foto.setText("FOTO");
         Foto.setBorder(javax.swing.BorderFactory.createEtchedBorder());
@@ -2481,6 +2485,11 @@ public class VistaSu extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3"
             }
         ));
+        jTable1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jTable1MouseClicked(evt);
+            }
+        });
         jScrollPane12.setViewportView(jTable1);
 
         Guardar_Imagen.setText("Guardar");
@@ -2517,6 +2526,13 @@ public class VistaSu extends javax.swing.JFrame {
             }
         });
 
+        jButton_eliminarImagen.setText("Eliminar Imagen");
+        jButton_eliminarImagen.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton_eliminarImagenActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
@@ -2535,7 +2551,8 @@ public class VistaSu extends javax.swing.JFrame {
                             .addGroup(jPanel3Layout.createSequentialGroup()
                                 .addComponent(jButton93, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jButton94, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addComponent(jButton94, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jButton_eliminarImagen))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(Foto, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -2571,13 +2588,15 @@ public class VistaSu extends javax.swing.JFrame {
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addComponent(Buscar_Imagen, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 16, Short.MAX_VALUE)
                         .addComponent(jScrollPane12, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jButton93, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jButton94, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(82, 82, 82))))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jButton_eliminarImagen)
+                        .addGap(44, 44, 44))))
         );
 
         jTabbedPane1.addTab("tab15", jPanel3);
@@ -2713,7 +2732,7 @@ public class VistaSu extends javax.swing.JFrame {
                 .addGroup(jPanel18Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jTextField31, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jTextField32, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 25, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel18Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton96)
                     .addComponent(jButton97)
@@ -4839,6 +4858,7 @@ De nuevo erick y juan haciendo esta parte
             int idImagen = rs.getInt("idImagen");
             String nomImagen = rs.getString("nomImagen");
             // Puedes manejar la columna de imagen de la manera que necesites
+            
             // Por ejemplo, si la columna es de tipo BLOB, podrías mostrar "Imagen" o algo así
             String imagen = "Imagen"; // Reemplaza esto con la lógica adecuada
 
@@ -4858,6 +4878,7 @@ De nuevo erick y juan haciendo esta parte
         }
     }
     
+    
     private void txt_nombreImagenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_nombreImagenActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txt_nombreImagenActionPerformed
@@ -4872,6 +4893,8 @@ De nuevo erick y juan haciendo esta parte
         JFileChooser se = new JFileChooser();
         se.setFileSelectionMode(JFileChooser.FILES_ONLY);
         int estado = se.showOpenDialog(null);
+        Foto.setText("FOTO");
+        Foto.setIcon(null);
         if(estado ==  JFileChooser.APPROVE_OPTION){
             try {
                 fis= new FileInputStream(se.getSelectedFile());
@@ -4879,6 +4902,7 @@ De nuevo erick y juan haciendo esta parte
                 Image icono = ImageIO.read(se.getSelectedFile()).getScaledInstance(Foto.getWidth(),Foto.getHeight() ,Image.SCALE_DEFAULT);
                 Foto.setIcon(new ImageIcon(icono));
                 Foto.updateUI();
+                Foto.setText("");
                 
             } catch (IOException e) {
                 e.printStackTrace();
@@ -5033,6 +5057,95 @@ De nuevo erick y juan haciendo esta parte
            }
             actualizar();
     }//GEN-LAST:event_jButton77ActionPerformed
+
+    private void jButton_eliminarImagenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_eliminarImagenActionPerformed
+        
+         // Obtiene la fila seleccionada
+                int filaSeleccionada = jTable1.getSelectedRow();
+
+                if (filaSeleccionada == -1) {
+                    JOptionPane.showMessageDialog(null, "Seleccione una fila en la tabla para eliminar.", "Error", JOptionPane.ERROR_MESSAGE);
+                    return;
+                }
+
+                // Obtiene el idImagen de la fila seleccionada
+                int idEliminar = (int) jTable1.getValueAt(filaSeleccionada, 0);
+
+                // Llama al método para eliminar la imagen
+                eliminarImagen(idEliminar);
+
+                // Actualiza la tabla después de eliminar
+                mostrarTabla();
+            
+    }//GEN-LAST:event_jButton_eliminarImagenActionPerformed
+
+    private void jTable1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable1MouseClicked
+        int filaSeleccionada = jTable1.getSelectedRow();
+
+        if (filaSeleccionada != -1) {
+            // Obtiene el idImagen de la fila seleccionada
+            int idSeleccionado = (int) jTable1.getValueAt(filaSeleccionada, 0);
+
+            // Llama a un método para obtener la información de la imagen según el id
+            mostrarImagenTabla(idSeleccionado);
+        }
+    }//GEN-LAST:event_jTable1MouseClicked
+    private void mostrarImagenTabla(int idImagen) {
+    try {
+        Connection conexion = new Conexion().getConexion();
+        String consulta = "SELECT imagen FROM imagen WHERE idImagen = ?";
+        PreparedStatement ps = conexion.prepareStatement(consulta);
+        ps.setInt(1, idImagen);
+        ResultSet rs = ps.executeQuery();
+
+        if (rs.next()) {
+            // Obtiene la imagen desde la base de datos (asumiendo que la columna 'imagen' es de tipo BLOB)
+            Blob blob = rs.getBlob("imagen");
+            byte[] bytes = blob.getBytes(1, (int) blob.length());
+
+            // Convierte los bytes a una imagen
+            ImageIcon icono = new ImageIcon(bytes);
+
+            // Muestra la imagen en el JLabel
+            Foto.setIcon(icono);
+            // borra su texto
+            Foto.setText("");
+        }
+
+        // Cierra la conexión y el conjunto de resultados
+        rs.close();
+        ps.close();
+        conexion.close();
+    } catch (SQLException e) {
+        e.printStackTrace();
+        System.out.println("Error al mostrar la imagen: " + e.getMessage());
+    }
+}
+
+    private void eliminarImagen(int idImagen) {
+      try {
+        Connection conexion = new Conexion().getConexion();
+        String consultaEliminar = "DELETE FROM imagen WHERE idImagen = ?";
+        PreparedStatement psEliminar = conexion.prepareStatement(consultaEliminar);
+        psEliminar.setInt(1, idImagen);
+
+        int filasAfectadas = psEliminar.executeUpdate();
+
+        if (filasAfectadas > 0) {
+            System.out.println("Imagen eliminada correctamente");
+        } else {
+            System.out.println("No se pudo eliminar la imagen");
+        }
+
+        // Cierra el PreparedStatement y la conexión
+        psEliminar.close();
+        conexion.close();
+      } catch (SQLException e) {
+        e.printStackTrace();
+        System.out.println("Error al eliminar la imagen: " + e.getMessage());
+      }
+    }
+    
     private void actualizar(){
         cargarComboBoxProcedimientos();
     }
@@ -6234,6 +6347,7 @@ De nuevo erick y juan haciendo esta parte
     private javax.swing.JButton jButton96;
     private javax.swing.JButton jButton97;
     private javax.swing.JButton jButton98;
+    private javax.swing.JButton jButton_eliminarImagen;
     private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JComboBox<String> jComboBox10;
     private javax.swing.JComboBox<String> jComboBox11;

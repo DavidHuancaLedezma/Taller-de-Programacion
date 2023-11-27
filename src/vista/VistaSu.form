@@ -3720,6 +3720,7 @@
                                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
                                           <Component id="jButton94" min="-2" pref="170" max="-2" attributes="0"/>
                                       </Group>
+                                      <Component id="jButton_eliminarImagen" min="-2" max="-2" attributes="0"/>
                                   </Group>
                                   <EmptySpace max="32767" attributes="0"/>
                                   <Group type="103" groupAlignment="0" max="-2" attributes="0">
@@ -3768,14 +3769,16 @@
                               </Group>
                               <Group type="102" attributes="0">
                                   <Component id="Buscar_Imagen" min="-2" pref="48" max="-2" attributes="0"/>
-                                  <EmptySpace max="32767" attributes="0"/>
+                                  <EmptySpace pref="16" max="32767" attributes="0"/>
                                   <Component id="jScrollPane12" min="-2" pref="93" max="-2" attributes="0"/>
                                   <EmptySpace type="separate" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="3" attributes="0">
                                       <Component id="jButton93" alignment="3" min="-2" pref="38" max="-2" attributes="0"/>
                                       <Component id="jButton94" alignment="3" min="-2" pref="35" max="-2" attributes="0"/>
                                   </Group>
-                                  <EmptySpace min="-2" pref="82" max="-2" attributes="0"/>
+                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Component id="jButton_eliminarImagen" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace min="-2" pref="44" max="-2" attributes="0"/>
                               </Group>
                           </Group>
                       </Group>
@@ -3809,6 +3812,9 @@
                 </Component>
                 <Component class="javax.swing.JLabel" name="Foto">
                   <Properties>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="Dialog" size="24" style="1"/>
+                    </Property>
                     <Property name="horizontalAlignment" type="int" value="0"/>
                     <Property name="text" type="java.lang.String" value="FOTO"/>
                     <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
@@ -3866,6 +3872,9 @@
                           <TableHeader reorderingAllowed="true" resizingAllowed="true"/>
                         </Property>
                       </Properties>
+                      <Events>
+                        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jTable1MouseClicked"/>
+                      </Events>
                     </Component>
                   </SubComponents>
                 </Container>
@@ -3904,6 +3913,14 @@
                 <Component class="javax.swing.JTextField" name="txt_nombreImagen">
                   <Events>
                     <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txt_nombreImagenActionPerformed"/>
+                  </Events>
+                </Component>
+                <Component class="javax.swing.JButton" name="jButton_eliminarImagen">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Eliminar Imagen"/>
+                  </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton_eliminarImagenActionPerformed"/>
                   </Events>
                 </Component>
               </SubComponents>
@@ -3994,7 +4011,7 @@
                               <Component id="jTextField31" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="jTextField32" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
-                          <EmptySpace pref="25" max="32767" attributes="0"/>
+                          <EmptySpace max="32767" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
                               <Component id="jButton96" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="jButton97" alignment="3" min="-2" max="-2" attributes="0"/>
