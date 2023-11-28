@@ -81,6 +81,7 @@ public class Consulta extends javax.swing.JFrame {
             }
         });
 
+        jLabel1_Foto.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
         jLabel1_Foto.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1_Foto.setText("FOTO");
         jLabel1_Foto.setBorder(javax.swing.BorderFactory.createEtchedBorder());
@@ -202,6 +203,7 @@ public class Consulta extends javax.swing.JFrame {
                     ImageIcon icono = new ImageIcon(img);
                     Icon imagen = new ImageIcon(icono.getImage().getScaledInstance(jLabel1_Foto.getWidth(),jLabel1_Foto.getHeight(), Image.SCALE_DEFAULT));
                     jLabel1_Foto.setIcon(imagen);
+                    jLabel1_Foto.setText("");
                 }
             } catch (SQLException e) {
                 JOptionPane.showMessageDialog(null, "¡¡Error al cargar!!");
