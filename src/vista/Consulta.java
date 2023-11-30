@@ -211,7 +211,48 @@ public class Consulta extends javax.swing.JFrame {
             }
         }
     }//GEN-LAST:event_jButton_ConsultarActionPerformed
-
+    
+    public void BuscarImagen(int IdDepartamento){
+        txt_ID.setText(""+IdDepartamento);
+        if (txt_ID.getText().equalsIgnoreCase("")) {
+            JOptionPane.showMessageDialog(null, "Ingrese un ID para ejecutar consulta");
+            
+        } else {
+            String id_ingresado= "";
+            id_ingresado = txt_ID.getText().trim().toString();
+            //casting
+            int ID;
+            ID = Integer.parseInt(id_ingresado);
+            try {
+                Connection conexion = new Conexion().getConexion();
+                PreparedStatement psSU = conexion.prepareStatement("select * from imagen where IDDEPARTAMENTO='"+ID+"'");
+                ResultSet rsSU = psSU.executeQuery();
+                
+                if(rsSU.next()){
+                    //Datos consultados
+                    txt_nombreImagen.setText(rsSU.getString("nomImagen"));
+                    //leer binario
+                    Blob blob = rsSU.getBlob(3);
+                    //para el binario a imagen
+                    byte[] data = blob.getBytes(1,(int) blob.length());
+                    //lee la imagen
+                    BufferedImage img = null;
+                    try {
+                        img = ImageIO.read(new ByteArrayInputStream(data));
+                    } catch (Exception e) {
+                        Logger.getLogger(Consulta.class.getName()).log(Level.SEVERE,null,e);
+                    }
+                    ImageIcon icono = new ImageIcon(img);
+                    Icon imagen = new ImageIcon(icono.getImage().getScaledInstance(jLabel1_Foto.getWidth(),jLabel1_Foto.getHeight(), Image.SCALE_DEFAULT));
+                    jLabel1_Foto.setIcon(imagen);
+                    jLabel1_Foto.setText("");
+                }
+            } catch (SQLException e) {
+                JOptionPane.showMessageDialog(null, "¡¡Error al cargar!!");
+                System.out.println("Error al cargar Foto");
+            }
+        }
+    }
     private void jButton_RegresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_RegresarActionPerformed
         VistaSu vistasu = new VistaSu();
         vistasu.setVisible(true);

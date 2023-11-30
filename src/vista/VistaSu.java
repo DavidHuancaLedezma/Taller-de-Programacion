@@ -399,9 +399,9 @@ public class VistaSu extends javax.swing.JFrame {
         jLabel21 = new javax.swing.JLabel();
         jButton20 = new javax.swing.JButton();
         jLabel39 = new javax.swing.JLabel();
-        jLabel40 = new javax.swing.JLabel();
         jTextField22 = new javax.swing.JTextField();
         jLabel53 = new javax.swing.JLabel();
+        jButton100 = new javax.swing.JButton();
         jPanel10 = new javax.swing.JPanel();
         jLabel23 = new javax.swing.JLabel();
         jTextField13 = new javax.swing.JTextField();
@@ -1695,8 +1695,6 @@ public class VistaSu extends javax.swing.JFrame {
         jLabel39.setText("jLabel39");
         jPanel9.add(jLabel39);
         jLabel39.setBounds(0, 70, 470, 350);
-        jPanel9.add(jLabel40);
-        jLabel40.setBounds(10, 0, 820, 260);
 
         jTextField22.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1710,6 +1708,15 @@ public class VistaSu extends javax.swing.JFrame {
         jLabel53.setText("Nivel del Departamento");
         jPanel9.add(jLabel53);
         jLabel53.setBounds(350, 280, 130, 20);
+
+        jButton100.setText("Imagen ");
+        jButton100.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton100ActionPerformed(evt);
+            }
+        });
+        jPanel9.add(jButton100);
+        jButton100.setBounds(480, 190, 75, 32);
 
         jTabbedPane1.addTab("tab6", jPanel9);
 
@@ -2540,7 +2547,6 @@ public class VistaSu extends javax.swing.JFrame {
             }
         });
 
-        jComboBox_Imagen.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         jComboBox_Imagen.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jComboBox_ImagenActionPerformed(evt);
@@ -2563,7 +2569,7 @@ public class VistaSu extends javax.swing.JFrame {
                                     .addGroup(jPanel3Layout.createSequentialGroup()
                                         .addComponent(Guardar_Imagen, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addGap(34, 34, 34)
-                                        .addComponent(jComboBox_Imagen, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                        .addComponent(jComboBox_Imagen, javax.swing.GroupLayout.PREFERRED_SIZE, 182, javax.swing.GroupLayout.PREFERRED_SIZE))))
                             .addComponent(jScrollPane12, javax.swing.GroupLayout.PREFERRED_SIZE, 404, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(jPanel3Layout.createSequentialGroup()
                                 .addComponent(jButton93, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -4833,12 +4839,14 @@ De nuevo erick y juan haciendo esta parte
         } else {
             String nombre;
             nombre = txt_nombreImagen.getText().trim();
+            int i = jComboBox_Imagen.getSelectedIndex();
             try {
                 Connection conexion = new Conexion().getConexion();
-                psSU = conexion.prepareStatement("insert into imagen values (?,?,?)");
+                psSU = conexion.prepareStatement("insert into imagen values (?,?,?,?)");
                 psSU.setInt(1, 0);
                 psSU.setString(2,nombre);
                 psSU.setBlob(3, fis,longitudBytes);
+                psSU.setInt(4,i);
                 
                 psSU.executeUpdate();
                 conexion.close();
@@ -5116,6 +5124,15 @@ De nuevo erick y juan haciendo esta parte
     private void jComboBox_ImagenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox_ImagenActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jComboBox_ImagenActionPerformed
+
+    private void jButton100ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton100ActionPerformed
+        // TODO add your handling code here:
+        Consulta consulta = new Consulta();
+        consulta.setVisible(true);
+        this.dispose();
+        int i = jComboBox4.getSelectedIndex();
+        consulta.BuscarImagen(i);
+    }//GEN-LAST:event_jButton100ActionPerformed
     public void llenarComboBoxDepartamentoImagen(){
         jComboBox_Imagen.removeAllItems();
         Lista = new InformacionDepartamento().getListaDepartamentos();
@@ -6283,6 +6300,7 @@ De nuevo erick y juan haciendo esta parte
     private javax.swing.JLabel fondoActualizarPT;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton10;
+    private javax.swing.JButton jButton100;
     private javax.swing.JButton jButton11;
     private javax.swing.JButton jButton12;
     private javax.swing.JButton jButton13;
@@ -6446,7 +6464,6 @@ De nuevo erick y juan haciendo esta parte
     private javax.swing.JLabel jLabel38;
     private javax.swing.JLabel jLabel39;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel40;
     private javax.swing.JLabel jLabel41;
     private javax.swing.JLabel jLabel42;
     private javax.swing.JLabel jLabel43;
