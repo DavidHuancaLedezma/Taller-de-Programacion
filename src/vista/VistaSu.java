@@ -2490,13 +2490,13 @@ public class VistaSu extends javax.swing.JFrame {
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null}
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
             },
             new String [] {
-                "Title 1", "Title 2", "Title 3"
+                "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
         jTable1.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -2561,6 +2561,13 @@ public class VistaSu extends javax.swing.JFrame {
                 .addGap(34, 34, 34)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addComponent(jLabel62)
+                        .addGap(84, 84, 84)
+                        .addComponent(jLabel63)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(txt_nombreImagen, javax.swing.GroupLayout.PREFERRED_SIZE, 201, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap())
+                    .addGroup(jPanel3Layout.createSequentialGroup()
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel3Layout.createSequentialGroup()
                                 .addGap(21, 21, 21)
@@ -2570,24 +2577,17 @@ public class VistaSu extends javax.swing.JFrame {
                                         .addComponent(Guardar_Imagen, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addGap(34, 34, 34)
                                         .addComponent(jComboBox_Imagen, javax.swing.GroupLayout.PREFERRED_SIZE, 182, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                            .addComponent(jScrollPane12, javax.swing.GroupLayout.PREFERRED_SIZE, 404, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(jPanel3Layout.createSequentialGroup()
                                 .addComponent(jButton93, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(jButton94, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(jButton_eliminarImagen))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(Foto, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jLabel64, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addGap(67, 67, 67))
-                    .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addComponent(jLabel62)
-                        .addGap(84, 84, 84)
-                        .addComponent(jLabel63)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(txt_nombreImagen, javax.swing.GroupLayout.PREFERRED_SIZE, 201, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap())))
+                            .addComponent(jButton_eliminarImagen)
+                            .addComponent(jScrollPane12, javax.swing.GroupLayout.DEFAULT_SIZE, 423, Short.MAX_VALUE))
+                        .addGap(18, 18, 18)
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(Foto, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel64, javax.swing.GroupLayout.Alignment.TRAILING))
+                        .addGap(33, 33, 33))))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -2609,10 +2609,10 @@ public class VistaSu extends javax.swing.JFrame {
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addComponent(Foto, javax.swing.GroupLayout.PREFERRED_SIZE, 238, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addContainerGap(57, Short.MAX_VALUE))
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addComponent(Buscar_Imagen, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 16, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jScrollPane12, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -4871,25 +4871,30 @@ De nuevo erick y juan haciendo esta parte
     public void mostrarTabla() {
         try {
            Connection conexion = new Conexion().getConexion();
-           PreparedStatement psSU = conexion.prepareStatement("SELECT * FROM imagen"); // Corregí la consulta SQL aquí
+           PreparedStatement psSU = conexion.prepareStatement("SELECT * FROM imagen"); // 
            ResultSet rs = psSU.executeQuery(); // Agregué esta línea para ejecutar la consulta
 
            DefaultTableModel modelo = new DefaultTableModel();
            modelo.addColumn("idImagen");
-           modelo.addColumn("nomImagen");
-           modelo.addColumn("Imagen");
-
+           modelo.addColumn("Nombre_Imagen");
+           modelo.addColumn("TIPO");
+           modelo.addColumn("Departamento");
+           
             while (rs.next()) {
             // Obtén los datos de la fila actual
             int idImagen = rs.getInt("idImagen");
             String nomImagen = rs.getString("nomImagen");
             // Puedes manejar la columna de imagen de la manera que necesites
-            
+         
             // Por ejemplo, si la columna es de tipo BLOB, podrías mostrar "Imagen" o algo así
-            String imagen = "Imagen"; // Reemplaza esto con la lógica adecuada
-
+            String imagen = "Imagen"; 
+            
+            int IDDEPARTAMENTO = rs.getInt("IDDEPARTAMENTO");
+            //Buscar el departamento que vive en la pos del combobox
+            String nomDepartamento = (String) jComboBox4.getItemAt(IDDEPARTAMENTO);
+            
             // Añade una fila al modelo con los datos obtenidos
-            modelo.addRow(new Object[]{idImagen, nomImagen, imagen});
+            modelo.addRow(new Object[]{idImagen, nomImagen, imagen,nomDepartamento});
           }
 
             jTable1.setModel(modelo);
@@ -4897,7 +4902,7 @@ De nuevo erick y juan haciendo esta parte
            // Cierra la conexión y el conjunto de resultados
             rs.close();
             psSU.close();
-           conexion.close();
+            conexion.close();
         } catch (SQLException e) {
            e.printStackTrace();
            System.out.println("Error al mostrar la tabla: " + e.getMessage());
@@ -4946,40 +4951,82 @@ De nuevo erick y juan haciendo esta parte
     }//GEN-LAST:event_jButton93ActionPerformed
 
     private void jButton94ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton94ActionPerformed
-        // Verificar si hay una fila seleccionada en la tabla
-        int filaSeleccionada = jTable1.getSelectedRow();
-        
-        if (filaSeleccionada == -1) {
-            JOptionPane.showMessageDialog(null, "Seleccione una fila en la tabla para modificar.", "Error", JOptionPane.ERROR_MESSAGE);
-            return;
-        }
+    // Verificar si hay una fila seleccionada en la tabla
+    int filaSeleccionada = jTable1.getSelectedRow();
+    
+    if (filaSeleccionada == -1) {
+        JOptionPane.showMessageDialog(null, "Seleccione una fila en la tabla para modificar.", "Error", JOptionPane.ERROR_MESSAGE);
+        return;
+    }
 
-        // Obtener el valor de la columna "idImagen" de la fila seleccionada
-        int idModificacion = (int) jTable1.getValueAt(filaSeleccionada, 0);
+    // Obtener el valor de la columna "idImagen" de la fila seleccionada
+    int idModificacion = (int) jTable1.getValueAt(filaSeleccionada, 0);
 
-        // Lógica para abrir un JFileChooser y obtener la ruta de la nueva imagen
-        JFileChooser fileChooser = new JFileChooser();
-        int seleccion = fileChooser.showOpenDialog(null);
+    // abrir un JFileChooser y obtener la ruta de la nueva imagen
+    JFileChooser fileChooser = new JFileChooser();
+    int seleccion = fileChooser.showOpenDialog(null);
+    
+    if (seleccion == JFileChooser.APPROVE_OPTION) {
+        // Obtener la ruta de la nueva imagen
+        String nuevaRutaImagen = fileChooser.getSelectedFile().getAbsolutePath();
         
-        if (seleccion == JFileChooser.APPROVE_OPTION) {
-            // Obtener la ruta de la nueva imagen
-            String nuevaRutaImagen = fileChooser.getSelectedFile().getAbsolutePath();
+        // Solicitar al usuario que ingrese el nuevo nombre
+        String nuevoNombre = JOptionPane.showInputDialog("Ingrese el nuevo nombre:");
+        
+        // Obtener el departamento seleccionado del JComboBox
+        String nuevoDepartamento = (String) jComboBox_Imagen.getSelectedItem();
+
+        if (nuevoNombre != null && !nuevoNombre.trim().isEmpty() && !nuevoDepartamento.equals("Selecione un Departamento")) {
+            // Si el usuario ingresó un nuevo nombre y seleccionó un departamento, continuar con la modificación
             
-            // Solicitar al usuario que ingrese el nuevo nombre
-            String nuevoNombre = JOptionPane.showInputDialog("Ingrese el nuevo nombre:");
-
-            if (nuevoNombre != null && !nuevoNombre.trim().isEmpty()) {
-                // Si el usuario ingresó un nuevo nombre, continuar con la modificación
-
-                // Llama al nuevo método para modificar datos e imagen
-                modificarDatosEImagen(idModificacion, nuevoNombre, nuevaRutaImagen);
-            } else {
-                // El usuario no ingresó un nuevo nombre
-                JOptionPane.showMessageDialog(null, "Debe ingresar un nuevo nombre.", "Error", JOptionPane.ERROR_MESSAGE);
-            }
+            // Mandar el ID del departamento con el jcombob
+            int i = jComboBox_Imagen.getSelectedIndex();
+            
+            // Llama al nuevo método para modificar datos e imagen
+            modificarDatosEImagen(idModificacion, nuevoNombre, nuevaRutaImagen, i);
+        } else {
+            // El usuario no ingresó un nuevo nombre o no seleccionó un departamento
+            JOptionPane.showMessageDialog(null, "Debe ingresar un nuevo nombre y seleccionar un departamento.", "Error", JOptionPane.ERROR_MESSAGE);
         }
+    }
     }//GEN-LAST:event_jButton94ActionPerformed
 
+    public void modificarDatosEImagen(int idModificacion, String nuevoNombre, String nuevaRutaImagen, int nuevoDepartamento) {
+        try {
+          Connection conexion = new Conexion().getConexion();
+
+          // Obtener el contenido binario de la nueva imagen
+          File file = new File(nuevaRutaImagen);
+          int longitudBytes = (int) file.length();
+          FileInputStream fis = new FileInputStream(file);
+
+        
+          String consulta = "UPDATE imagen SET nomImagen = ?, imagen = ?, IDDEPARTAMENTO = ? WHERE idImagen = ?";
+          PreparedStatement psModificar = conexion.prepareStatement(consulta);
+          psModificar.setString(1, nuevoNombre);
+          psModificar.setBinaryStream(2, fis, longitudBytes);
+          psModificar.setInt(3, nuevoDepartamento);
+          psModificar.setInt(4, idModificacion);
+
+          int filasAfectadas = psModificar.executeUpdate();
+
+         if (filasAfectadas > 0) {
+            System.out.println("Registro modificado correctamente");
+         } else {
+            System.out.println("No se pudo modificar el registro");
+         }
+
+         // Cierra el FileInputStream y la conexión
+         fis.close();
+         psModificar.close();
+         conexion.close();
+        } catch (Exception e) {
+          e.printStackTrace();
+          System.out.println("Error al modificar los datos e imagen: " + e.getMessage());
+        } 
+    }
+
+    
     private void jButton91ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton91ActionPerformed
         // TODO add your handling code here:
         jTabbedPane1.setSelectedIndex(14);
@@ -5157,9 +5204,12 @@ De nuevo erick y juan haciendo esta parte
 
             // Convierte los bytes a una imagen
             ImageIcon icono = new ImageIcon(bytes);
-
+            //Escala la imagen en el Jlabel
+            Image imagenEscala = icono.getImage().getScaledInstance(Foto.getWidth(), Foto.getHeight(), Image.SCALE_SMOOTH);
+            //Crea una nueva imagen ya escalada
+            ImageIcon iconoEscalado = new ImageIcon(imagenEscala);
             // Muestra la imagen en el JLabel
-            Foto.setIcon(icono);
+            Foto.setIcon(iconoEscalado);
             // borra su texto
             Foto.setText("");
         }
@@ -5317,39 +5367,6 @@ De nuevo erick y juan haciendo esta parte
         
         System.out.println("No hay actividades que mostrar");
     }
-    }
-    public void modificarDatosEImagen(int idModificacion, String nuevoNombre, String nuevaRutaImagen) {
-        try {
-            Connection conexion = new Conexion().getConexion();
-
-            // Obtener el contenido binario de la nueva imagen
-            File file = new File(nuevaRutaImagen);
-            int longitudBytes = (int) file.length();
-            FileInputStream fis = new FileInputStream(file);
-
-            // Supongamos que estás modificando el campo "nomImagen" y "imagen" en este ejemplo
-            String consulta = "UPDATE imagen SET nomImagen = ?, imagen = ? WHERE idImagen = ?";
-            PreparedStatement psModificar = conexion.prepareStatement(consulta);
-            psModificar.setString(1, nuevoNombre);
-            psModificar.setBinaryStream(2, fis, longitudBytes);
-            psModificar.setInt(3, idModificacion);
-
-            int filasAfectadas = psModificar.executeUpdate();
-
-            if (filasAfectadas > 0) {
-                System.out.println("Registro modificado correctamente");
-            } else {
-                System.out.println("No se pudo modificar el registro");
-            }
-
-            // Cierra el FileInputStream y la conexión
-            fis.close();
-            psModificar.close();
-            conexion.close();
-        } catch (Exception e) {
-            e.printStackTrace();
-            System.out.println("Error al modificar los datos e imagen: " + e.getMessage());
-        }
     }
     
     private void tipoDeDatoProcedimiento2(){
