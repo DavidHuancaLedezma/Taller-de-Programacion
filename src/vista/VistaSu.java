@@ -566,6 +566,9 @@ public class VistaSu extends javax.swing.JFrame {
         jLabel71 = new javax.swing.JLabel();
         jLabel72 = new javax.swing.JLabel();
         Tabla_procedimiento = new javax.swing.JButton();
+        Buscar_Diagrama = new javax.swing.JButton();
+        jButton101 = new javax.swing.JButton();
+        Eliminar_Diagrama = new javax.swing.JButton();
         jLabel6 = new javax.swing.JLabel();
         ImagenFondo = new javax.swing.JLabel();
 
@@ -2884,6 +2887,27 @@ public class VistaSu extends javax.swing.JFrame {
             }
         });
 
+        Buscar_Diagrama.setText("Buscar Diagrama");
+        Buscar_Diagrama.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Buscar_DiagramaActionPerformed(evt);
+            }
+        });
+
+        jButton101.setText("Moficar Diagrama");
+        jButton101.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton101ActionPerformed(evt);
+            }
+        });
+
+        Eliminar_Diagrama.setText("Eliminar Diagrama");
+        Eliminar_Diagrama.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Eliminar_DiagramaActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel20Layout = new javax.swing.GroupLayout(jPanel20);
         jPanel20.setLayout(jPanel20Layout);
         jPanel20Layout.setHorizontalGroup(
@@ -2898,7 +2922,12 @@ public class VistaSu extends javax.swing.JFrame {
                                 .addContainerGap()
                                 .addGroup(jPanel20Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jScrollPane13, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(Tabla_procedimiento))))
+                                    .addGroup(jPanel20Layout.createSequentialGroup()
+                                        .addComponent(Tabla_procedimiento)
+                                        .addGap(26, 26, 26)
+                                        .addComponent(jButton101)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(Eliminar_Diagrama)))))
                         .addGap(19, 19, 19)
                         .addGroup(jPanel20Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel20Layout.createSequentialGroup()
@@ -2913,7 +2942,9 @@ public class VistaSu extends javax.swing.JFrame {
                             .addGroup(jPanel20Layout.createSequentialGroup()
                                 .addComponent(jLabel71)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jComboBox26, javax.swing.GroupLayout.PREFERRED_SIZE, 304, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(jComboBox26, javax.swing.GroupLayout.PREFERRED_SIZE, 304, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(Buscar_Diagrama))
                             .addGroup(jPanel20Layout.createSequentialGroup()
                                 .addComponent(jLabel72)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -2927,7 +2958,8 @@ public class VistaSu extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel20Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel71)
-                    .addComponent(jComboBox26, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jComboBox26, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(Buscar_Diagrama))
                 .addGroup(jPanel20Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel20Layout.createSequentialGroup()
                         .addGap(72, 72, 72)
@@ -2948,7 +2980,10 @@ public class VistaSu extends javax.swing.JFrame {
                         .addGap(79, 79, 79)
                         .addComponent(jScrollPane13, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(Tabla_procedimiento)))
+                        .addGroup(jPanel20Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(Tabla_procedimiento)
+                            .addComponent(jButton101)
+                            .addComponent(Eliminar_Diagrama))))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -5330,16 +5365,12 @@ De nuevo erick y juan haciendo esta parte
                     JOptionPane.showMessageDialog(null, "Seleccione una fila en la tabla para eliminar.", "Error", JOptionPane.ERROR_MESSAGE);
                     return;
                 }
-
                 // Obtiene el idImagen de la fila seleccionada
                 int idEliminar = (int) jTable1.getValueAt(filaSeleccionada, 0);
-
                 // Llama al método para eliminar la imagen
                 eliminarImagen(idEliminar);
-
                 // Actualiza la tabla después de eliminar
-                mostrarTabla();
-            
+                mostrarTabla();            
     }//GEN-LAST:event_jButton_eliminarImagenActionPerformed
 
     private void jTable1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable1MouseClicked
@@ -5379,8 +5410,9 @@ De nuevo erick y juan haciendo esta parte
         JFileChooser se = new JFileChooser();
         se.setFileSelectionMode(JFileChooser.FILES_ONLY);
         int estado = se.showOpenDialog(null);
-        Foto_Procedimiento.setText("");
+        Foto_Procedimiento.setText("FOTO");
         Foto_Procedimiento.setIcon(null);
+        txt_nombreImagenDiagrama.setText("");
         if(estado ==  JFileChooser.APPROVE_OPTION){
             try {
                 fiss= new FileInputStream(se.getSelectedFile());
@@ -5437,6 +5469,111 @@ De nuevo erick y juan haciendo esta parte
             mostrarImagenTablaDiagrama(idSeleccionado);
         }
     }//GEN-LAST:event_jTable2MouseClicked
+
+    private void Buscar_DiagramaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Buscar_DiagramaActionPerformed
+        // TODO add your handling code here:
+        BuscarDiagrama();
+    }//GEN-LAST:event_Buscar_DiagramaActionPerformed
+
+    private void jButton101ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton101ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton101ActionPerformed
+
+    private void Eliminar_DiagramaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Eliminar_DiagramaActionPerformed
+        // TODO add your handling code here:
+          int filaSeleccionada = jTable2.getSelectedRow();
+                if (filaSeleccionada == -1) {
+                    JOptionPane.showMessageDialog(null, "Seleccione una fila en la tabla para eliminar.", "Error", JOptionPane.ERROR_MESSAGE);
+                    return;
+                }
+                // Obtiene el idImagen de la fila seleccionada
+                int idEliminar = (int) jTable2.getValueAt(filaSeleccionada, 0);
+                // Llama al método para eliminar la imagen
+                eliminarImagenDiagrama(idEliminar);
+                // Actualiza la tabla después de eliminar
+                mostrarTablaDiagrama();
+    }//GEN-LAST:event_Eliminar_DiagramaActionPerformed
+    
+    private void eliminarImagenDiagrama(int idImagen) {
+      try {
+        Connection conexion = new Conexion().getConexion();
+        String consultaEliminar = "DELETE FROM imagenprocedimiento WHERE idImagen = ?";
+        PreparedStatement psEliminar = conexion.prepareStatement(consultaEliminar);
+        psEliminar.setInt(1, idImagen);
+
+        int filasAfectadas = psEliminar.executeUpdate();
+
+        if (filasAfectadas > 0) {
+            System.out.println("Imagen eliminada correctamente");
+        } else {
+            System.out.println("No se pudo eliminar la imagen");
+        }
+
+        // Cierra el PreparedStatement y la conexión
+        psEliminar.close();
+        conexion.close();
+      } catch (SQLException e) {
+        e.printStackTrace();
+        System.out.println("Error al eliminar la imagen: " + e.getMessage());
+      }
+    }
+    
+    public void BuscarDiagrama() {
+        Object i = jComboBox27.getSelectedItem();  
+        if (i instanceof Procedimiento) {
+            // Convertir el elemento seleccionado a una instancia de Procedimiento
+            Procedimiento procedimientoSeleccionado = (Procedimiento) i;
+            // Obtener el ID del Procedimiento
+            int idProcedimiento = procedimientoSeleccionado.getIdProcedimiento();
+            
+            try {
+                
+                Connection conexion = new Conexion().getConexion();
+                PreparedStatement psBuscar = conexion.prepareStatement("SELECT * FROM imagenprocedimiento WHERE IDPROCIMIENTO = ?");
+               
+                psBuscar.setInt(1, idProcedimiento);
+
+                ResultSet rs = psBuscar.executeQuery();
+                
+                if (rs.next()) {
+                    
+                    // Si se encuentra el diagrama, puedes realizar alguna acción aquí
+                    // Por ejemplo, mostrar la información o cargar la imagen en un JLabel
+                    // Obtener la imagen desde la base de datos (asumiendo que la columna 'imagen' es de tipo BLOB)
+                    Blob blob = rs.getBlob("imagen");
+                    byte[] bytes = blob.getBytes(1, (int) blob.length());
+                    
+                    // Convierte los bytes a una imagen
+                    ImageIcon icono = new ImageIcon(bytes);
+                    // Redimensiona la imagen al tamaño del JLabel
+                    Image imagenRedimensionada = icono.getImage().getScaledInstance(Foto_Procedimiento.getWidth(), Foto_Procedimiento.getHeight(), Image.SCALE_SMOOTH);
+
+                    // Crea un nueva imagen redimensionada
+                    ImageIcon iconoRedimensionado = new ImageIcon(imagenRedimensionada);
+                    //obtener el nombreImagen
+                    String nomDiagrama = rs.getString("nomImagen");
+                    txt_nombreImagenDiagrama.setText(nomDiagrama);
+                    // Muestra la imagen en el JLabel
+                    Foto_Procedimiento.setIcon(iconoRedimensionado);
+                    Foto_Procedimiento.setText("");
+                } else {
+                    JOptionPane.showMessageDialog(null, "No se encontró el diagrama con el nombre proporcionado.");
+                }
+
+                rs.close();
+                psBuscar.close();
+                conexion.close();
+
+            } catch (Exception e) {
+                System.out.println("Error al buscar el diagrama: " + e);
+                JOptionPane.showMessageDialog(null, "Error al buscar el diagrama");
+            }
+        } else {
+            System.out.println("No se ha seleccionado un Procedimiento");
+        }
+      
+    }
+
     
     private void mostrarImagenTablaDiagrama(int idImagen) {
     try {
@@ -5564,10 +5701,8 @@ De nuevo erick y juan haciendo esta parte
                }
             } else {
             System.out.println("No se ha seleccionado un Procedimiento");
-            }
-            
+            }      
         }
- 
     }
     private void cargarComboDepartamentoImagen(){
         modelo3 = new DefaultComboBoxModel();
@@ -6732,7 +6867,9 @@ De nuevo erick y juan haciendo esta parte
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton Buscar_Diagrama;
     private javax.swing.JButton Buscar_Imagen;
+    private javax.swing.JButton Eliminar_Diagrama;
     private javax.swing.JLabel FondoAgregarPT;
     private javax.swing.JLabel Foto;
     private javax.swing.JLabel Foto_Procedimiento;
@@ -6749,6 +6886,7 @@ De nuevo erick y juan haciendo esta parte
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton10;
     private javax.swing.JButton jButton100;
+    private javax.swing.JButton jButton101;
     private javax.swing.JButton jButton11;
     private javax.swing.JButton jButton12;
     private javax.swing.JButton jButton13;

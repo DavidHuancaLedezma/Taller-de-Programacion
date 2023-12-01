@@ -4221,7 +4221,13 @@
                                           <EmptySpace max="-2" attributes="0"/>
                                           <Group type="103" groupAlignment="0" attributes="0">
                                               <Component id="jScrollPane13" alignment="0" min="-2" max="-2" attributes="0"/>
-                                              <Component id="Tabla_procedimiento" alignment="0" min="-2" max="-2" attributes="0"/>
+                                              <Group type="102" alignment="0" attributes="0">
+                                                  <Component id="Tabla_procedimiento" min="-2" max="-2" attributes="0"/>
+                                                  <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
+                                                  <Component id="jButton101" min="-2" max="-2" attributes="0"/>
+                                                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                                                  <Component id="Eliminar_Diagrama" min="-2" max="-2" attributes="0"/>
+                                              </Group>
                                           </Group>
                                       </Group>
                                   </Group>
@@ -4243,6 +4249,8 @@
                                           <Component id="jLabel71" min="-2" max="-2" attributes="0"/>
                                           <EmptySpace max="-2" attributes="0"/>
                                           <Component id="jComboBox26" min="-2" pref="304" max="-2" attributes="0"/>
+                                          <EmptySpace max="-2" attributes="0"/>
+                                          <Component id="Buscar_Diagrama" min="-2" max="-2" attributes="0"/>
                                       </Group>
                                       <Group type="102" alignment="0" attributes="0">
                                           <Component id="jLabel72" min="-2" max="-2" attributes="0"/>
@@ -4264,6 +4272,7 @@
                           <Group type="103" groupAlignment="3" attributes="0">
                               <Component id="jLabel71" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="jComboBox26" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="Buscar_Diagrama" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="102" attributes="0">
@@ -4288,7 +4297,11 @@
                                   <EmptySpace min="-2" pref="79" max="-2" attributes="0"/>
                                   <Component id="jScrollPane13" min="-2" pref="87" max="-2" attributes="0"/>
                                   <EmptySpace type="separate" max="-2" attributes="0"/>
-                                  <Component id="Tabla_procedimiento" min="-2" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="3" attributes="0">
+                                      <Component id="Tabla_procedimiento" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="jButton101" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="Eliminar_Diagrama" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  </Group>
                               </Group>
                           </Group>
                           <EmptySpace max="32767" attributes="0"/>
@@ -4443,6 +4456,30 @@
                   </Properties>
                   <Events>
                     <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="Tabla_procedimientoActionPerformed"/>
+                  </Events>
+                </Component>
+                <Component class="javax.swing.JButton" name="Buscar_Diagrama">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Buscar Diagrama"/>
+                  </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="Buscar_DiagramaActionPerformed"/>
+                  </Events>
+                </Component>
+                <Component class="javax.swing.JButton" name="jButton101">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Moficar Diagrama"/>
+                  </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton101ActionPerformed"/>
+                  </Events>
+                </Component>
+                <Component class="javax.swing.JButton" name="Eliminar_Diagrama">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Eliminar Diagrama"/>
+                  </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="Eliminar_DiagramaActionPerformed"/>
                   </Events>
                 </Component>
               </SubComponents>
