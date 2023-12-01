@@ -32,6 +32,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.sql.Blob;
 import javax.swing.JLabel;
+import javax.swing.JTable;
 import manualProcedimiento.ProcedimientoSU;
 import manualProcedimiento.DatosInterventor;
 import manualProcedimiento.ListaDeActividades;
@@ -39,6 +40,8 @@ import manualProcedimiento.ListaDeActividades;
  *C
  * Se realizo cambios
  */
+@SuppressWarnings("unchecked") //ignore advertencia
+
 public class VistaSu extends javax.swing.JFrame {
 
     /**
@@ -63,6 +66,9 @@ public class VistaSu extends javax.swing.JFrame {
     //variables para imagen
     private FileInputStream fis;
     private int longitudBytes;
+    //variables para ImagenProcedimiento
+    private FileInputStream fiss;
+    private int longitudBytess;
     
     public int idDescripcionPuesto=0;
     
@@ -132,6 +138,10 @@ public class VistaSu extends javax.swing.JFrame {
         
         cargarComboDepartamentolistaActividades();
         cargarDatosIniciales();
+        
+        cargarComboDepartamentoImagen();
+        cargarComboProcedimientosImagen();
+        tipoDeDatoProcedimientoImagen();
     }
     /*
     @author Erick--> Inicio codigo de combo box para hacer la automatizacines
@@ -281,6 +291,7 @@ public class VistaSu extends javax.swing.JFrame {
         cajaIDPuesto = new javax.swing.JTextField();
         jButton58 = new javax.swing.JButton();
         jButton91 = new javax.swing.JButton();
+        jButton99 = new javax.swing.JButton();
         jPanel5 = new javax.swing.JPanel();
         jComboBox21 = new javax.swing.JComboBox<>();
         jComboBox22 = new javax.swing.JComboBox<>();
@@ -523,6 +534,7 @@ public class VistaSu extends javax.swing.JFrame {
         txt_nombreImagen = new javax.swing.JTextField();
         jButton_eliminarImagen = new javax.swing.JButton();
         jComboBox_Imagen = new javax.swing.JComboBox<>();
+        jLabel40 = new javax.swing.JLabel();
         jPanel18 = new javax.swing.JPanel();
         jLabel65 = new javax.swing.JLabel();
         jLabel66 = new javax.swing.JLabel();
@@ -540,6 +552,20 @@ public class VistaSu extends javax.swing.JFrame {
         jTextField31 = new javax.swing.JTextField();
         jTextField32 = new javax.swing.JTextField();
         jComboBox25 = new javax.swing.JComboBox<>();
+        jPanel20 = new javax.swing.JPanel();
+        jLabel73 = new javax.swing.JLabel();
+        jLabel74 = new javax.swing.JLabel();
+        txt_nombreImagenDiagrama = new javax.swing.JTextField();
+        jLabel70 = new javax.swing.JLabel();
+        Foto_Procedimiento = new javax.swing.JLabel();
+        jScrollPane13 = new javax.swing.JScrollPane();
+        jTable2 = new javax.swing.JTable();
+        guardar_Diagrama = new javax.swing.JButton();
+        jComboBox26 = new javax.swing.JComboBox<>();
+        jComboBox27 = new javax.swing.JComboBox<>();
+        jLabel71 = new javax.swing.JLabel();
+        jLabel72 = new javax.swing.JLabel();
+        Tabla_procedimiento = new javax.swing.JButton();
         jLabel6 = new javax.swing.JLabel();
         ImagenFondo = new javax.swing.JLabel();
 
@@ -758,6 +784,14 @@ public class VistaSu extends javax.swing.JFrame {
             }
         });
         jPanel4.add(jButton91, new org.netbeans.lib.awtextra.AbsoluteConstraints(614, 280, 160, 40));
+
+        jButton99.setText("jButton99");
+        jButton99.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton99ActionPerformed(evt);
+            }
+        });
+        jPanel4.add(jButton99, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 330, -1, -1));
 
         jTabbedPane1.addTab("tab1", jPanel4);
 
@@ -2468,8 +2502,8 @@ public class VistaSu extends javax.swing.JFrame {
 
         jTabbedPane1.addTab("tab9", jPanel12);
 
-        jLabel62.setFont(new java.awt.Font("Dialog", 1, 36)); // NOI18N
-        jLabel62.setText("Guardar Imagen");
+        jLabel62.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
+        jLabel62.setText("Guardar Imagen Deparatamento");
 
         jLabel63.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jLabel63.setText("Nombre Imagen:");
@@ -2553,6 +2587,8 @@ public class VistaSu extends javax.swing.JFrame {
             }
         });
 
+        jLabel40.setText("Seleccione un departamento ");
+
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
@@ -2561,58 +2597,64 @@ public class VistaSu extends javax.swing.JFrame {
                 .addGap(34, 34, 34)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addComponent(jLabel62)
-                        .addGap(84, 84, 84)
-                        .addComponent(jLabel63)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(txt_nombreImagen, javax.swing.GroupLayout.PREFERRED_SIZE, 201, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap())
-                    .addGroup(jPanel3Layout.createSequentialGroup()
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel3Layout.createSequentialGroup()
-                                .addGap(21, 21, 21)
+                                .addComponent(jScrollPane12, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                                .addGap(18, 18, 18))
+                            .addGroup(jPanel3Layout.createSequentialGroup()
                                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(jPanel3Layout.createSequentialGroup()
+                                        .addComponent(jButton93, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(jButton94, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(jButton_eliminarImagen)
                                     .addComponent(Buscar_Imagen, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addGroup(jPanel3Layout.createSequentialGroup()
                                         .addComponent(Guardar_Imagen, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(34, 34, 34)
-                                        .addComponent(jComboBox_Imagen, javax.swing.GroupLayout.PREFERRED_SIZE, 182, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                            .addGroup(jPanel3Layout.createSequentialGroup()
-                                .addComponent(jButton93, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jButton94, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(jButton_eliminarImagen)
-                            .addComponent(jScrollPane12, javax.swing.GroupLayout.DEFAULT_SIZE, 423, Short.MAX_VALUE))
-                        .addGap(18, 18, 18)
+                                        .addGap(27, 27, 27)
+                                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(jLabel40)
+                                            .addComponent(jComboBox_Imagen, javax.swing.GroupLayout.PREFERRED_SIZE, 233, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                .addGap(54, 54, Short.MAX_VALUE)))
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(Foto, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel64, javax.swing.GroupLayout.Alignment.TRAILING))
-                        .addGap(33, 33, 33))))
+                        .addGap(33, 33, 33))
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addComponent(jLabel62)
+                        .addGap(29, 29, 29)
+                        .addComponent(jLabel63)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(txt_nombreImagen, javax.swing.GroupLayout.PREFERRED_SIZE, 201, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addGap(88, 88, 88)
+                        .addGap(10, 10, 10)
+                        .addComponent(jLabel62, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jLabel40))
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addGap(55, 55, 55)
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel63)
+                            .addComponent(txt_nombreImagen, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(Guardar_Imagen, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel64, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jComboBox_Imagen, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addGap(10, 10, 10)
-                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel63)
-                            .addComponent(txt_nombreImagen, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel62, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                            .addComponent(jComboBox_Imagen, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addGap(6, 6, 6)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addComponent(Foto, javax.swing.GroupLayout.PREFERRED_SIZE, 238, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(57, Short.MAX_VALUE))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addComponent(Buscar_Imagen, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 19, Short.MAX_VALUE)
                         .addComponent(jScrollPane12, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -2765,6 +2807,152 @@ public class VistaSu extends javax.swing.JFrame {
         );
 
         jTabbedPane1.addTab("tab16", jPanel18);
+
+        jLabel73.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        jLabel73.setText("Guardar Diagrama de Flujo");
+
+        jLabel74.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jLabel74.setText("Nombre Imagen:");
+
+        txt_nombreImagenDiagrama.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txt_nombreImagenDiagramaActionPerformed(evt);
+            }
+        });
+
+        jLabel70.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        jLabel70.setText("Clic en el cuadro para agregar foto");
+
+        Foto_Procedimiento.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
+        Foto_Procedimiento.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        Foto_Procedimiento.setText("FOTO");
+        Foto_Procedimiento.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        Foto_Procedimiento.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        Foto_Procedimiento.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                Foto_ProcedimientoMouseClicked(evt);
+            }
+        });
+
+        jTable2.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jTable2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jTable2MouseClicked(evt);
+            }
+        });
+        jScrollPane13.setViewportView(jTable2);
+        if (jTable2.getColumnModel().getColumnCount() > 0) {
+            jTable2.getColumnModel().getColumn(0).setPreferredWidth(10);
+        }
+
+        guardar_Diagrama.setText("GUARDAR DIAGRAMA");
+        guardar_Diagrama.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                guardar_DiagramaActionPerformed(evt);
+            }
+        });
+
+        jComboBox26.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jComboBox26MouseClicked(evt);
+            }
+        });
+        jComboBox26.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboBox26ActionPerformed(evt);
+            }
+        });
+
+        jLabel71.setText("Departamento");
+
+        jLabel72.setText("Procedimiento");
+
+        Tabla_procedimiento.setText("Mostrar diagramas");
+        Tabla_procedimiento.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Tabla_procedimientoActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel20Layout = new javax.swing.GroupLayout(jPanel20);
+        jPanel20.setLayout(jPanel20Layout);
+        jPanel20Layout.setHorizontalGroup(
+            jPanel20Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel20Layout.createSequentialGroup()
+                .addGroup(jPanel20Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel73)
+                    .addGroup(jPanel20Layout.createSequentialGroup()
+                        .addGroup(jPanel20Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(guardar_Diagrama)
+                            .addGroup(jPanel20Layout.createSequentialGroup()
+                                .addContainerGap()
+                                .addGroup(jPanel20Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jScrollPane13, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(Tabla_procedimiento))))
+                        .addGap(19, 19, 19)
+                        .addGroup(jPanel20Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel20Layout.createSequentialGroup()
+                                .addComponent(jLabel74)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(txt_nombreImagenDiagrama, javax.swing.GroupLayout.PREFERRED_SIZE, 201, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jLabel70)
+                            .addComponent(Foto_Procedimiento, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(jPanel20Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addGroup(jPanel20Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel20Layout.createSequentialGroup()
+                                .addComponent(jLabel71)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jComboBox26, javax.swing.GroupLayout.PREFERRED_SIZE, 304, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel20Layout.createSequentialGroup()
+                                .addComponent(jLabel72)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jComboBox27, javax.swing.GroupLayout.PREFERRED_SIZE, 419, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                .addContainerGap(9, Short.MAX_VALUE))
+        );
+        jPanel20Layout.setVerticalGroup(
+            jPanel20Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel20Layout.createSequentialGroup()
+                .addComponent(jLabel73)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel20Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel71)
+                    .addComponent(jComboBox26, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(jPanel20Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel20Layout.createSequentialGroup()
+                        .addGap(72, 72, 72)
+                        .addGroup(jPanel20Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel74)
+                            .addComponent(txt_nombreImagenDiagrama, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel70, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(Foto_Procedimiento, javax.swing.GroupLayout.PREFERRED_SIZE, 238, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel20Layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(jPanel20Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel72)
+                            .addComponent(jComboBox27, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(guardar_Diagrama)
+                        .addGap(79, 79, 79)
+                        .addComponent(jScrollPane13, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(Tabla_procedimiento)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
+        jTabbedPane1.addTab("tab17", jPanel20);
 
         jPanel1.add(jTabbedPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 60, 810, 460));
 
@@ -4866,6 +5054,8 @@ De nuevo erick y juan haciendo esta parte
     public void LimpiarImagen(){
         txt_nombreImagen.setText("");
         Foto.setText("FOTO");
+        txt_nombreImagenDiagrama.setText("");
+        Foto_Procedimiento.setText("FOTO");
     }
     
     public void mostrarTabla() {
@@ -5180,6 +5370,244 @@ De nuevo erick y juan haciendo esta parte
         int i = jComboBox4.getSelectedIndex();
         consulta.BuscarImagen(i);
     }//GEN-LAST:event_jButton100ActionPerformed
+
+    private void txt_nombreImagenDiagramaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_nombreImagenDiagramaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txt_nombreImagenDiagramaActionPerformed
+
+    private void Foto_ProcedimientoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Foto_ProcedimientoMouseClicked
+        JFileChooser se = new JFileChooser();
+        se.setFileSelectionMode(JFileChooser.FILES_ONLY);
+        int estado = se.showOpenDialog(null);
+        Foto_Procedimiento.setText("");
+        Foto_Procedimiento.setIcon(null);
+        if(estado ==  JFileChooser.APPROVE_OPTION){
+            try {
+                fiss= new FileInputStream(se.getSelectedFile());
+                this.longitudBytess =  (int) se.getSelectedFile().length();
+                Image icono = ImageIO.read(se.getSelectedFile()).getScaledInstance(Foto_Procedimiento.getWidth(),Foto_Procedimiento.getHeight() ,Image.SCALE_DEFAULT);
+                Foto_Procedimiento.setIcon(new ImageIcon(icono));
+                Foto_Procedimiento.updateUI();
+                Foto_Procedimiento.setText("");
+                
+            } catch (IOException e) {
+                e.printStackTrace();
+                System.out.println("Error en el SEGUNDO catch");
+            } catch (Exception e) {
+                e.printStackTrace();
+                System.out.println("Error en el PRIMER catch");
+            }
+        }
+    }//GEN-LAST:event_Foto_ProcedimientoMouseClicked
+
+    private void jButton99ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton99ActionPerformed
+        // TODO add your handling code here:
+        jTabbedPane1.setSelectedIndex(16);
+    }//GEN-LAST:event_jButton99ActionPerformed
+
+    private void guardar_DiagramaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_guardar_DiagramaActionPerformed
+        // TODO add your handling code here:
+        GuardarDiagrama();
+    }//GEN-LAST:event_guardar_DiagramaActionPerformed
+
+    private void jComboBox26ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox26ActionPerformed
+        // TODO add your handling code here:
+        cargarComboProcedimientosImagen();
+        tipoDeDatoProcedimientoImagen();
+    }//GEN-LAST:event_jComboBox26ActionPerformed
+
+    private void jComboBox26MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jComboBox26MouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jComboBox26MouseClicked
+
+    private void Tabla_procedimientoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Tabla_procedimientoActionPerformed
+        // TODO add your handling code here:
+        mostrarTablaDiagrama();
+    }//GEN-LAST:event_Tabla_procedimientoActionPerformed
+
+    private void jTable2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable2MouseClicked
+        // TODO add your handling code here:
+        int filaSeleccionada = jTable2.getSelectedRow();
+
+        if (filaSeleccionada != -1) {
+            // Obtiene el idImagen de la fila seleccionada
+            int idSeleccionado = (int) jTable2.getValueAt(filaSeleccionada, 0);
+
+            // Llama a un método para obtener la información de la imagen según el id
+            mostrarImagenTablaDiagrama(idSeleccionado);
+        }
+    }//GEN-LAST:event_jTable2MouseClicked
+    
+    private void mostrarImagenTablaDiagrama(int idImagen) {
+    try {
+        Connection conexion = new Conexion().getConexion();
+        String consulta = "SELECT Imagen FROM imagenprocedimiento WHERE idImagen = ?";
+        PreparedStatement ps = conexion.prepareStatement(consulta);
+        ps.setInt(1, idImagen);
+        ResultSet rs = ps.executeQuery();
+
+        if (rs.next()) {
+            // Obtiene la imagen desde la base de datos (asumiendo que la columna 'imagen' es de tipo BLOB)
+            Blob blob = rs.getBlob("imagen");
+            byte[] bytes = blob.getBytes(1, (int) blob.length());
+
+            // Convierte los bytes a una imagen
+            ImageIcon icono = new ImageIcon(bytes);
+            //Escala la imagen en el Jlabel
+            Image imagenEscala = icono.getImage().getScaledInstance(Foto_Procedimiento.getWidth(), Foto_Procedimiento.getHeight(), Image.SCALE_SMOOTH);
+            //Crea una nueva imagen ya escalada
+            ImageIcon iconoEscalado = new ImageIcon(imagenEscala);
+            // Muestra la imagen en el JLabel
+            Foto_Procedimiento.setIcon(iconoEscalado);
+            // borra su texto
+            Foto_Procedimiento.setText("");
+        }
+
+        // Cierra la conexión y el conjunto de resultados
+        rs.close();
+        ps.close();
+        conexion.close();
+    } catch (SQLException e) {
+        e.printStackTrace();
+        System.out.println("Error al mostrar la imagen: " + e.getMessage());
+    }
+}
+    public void mostrarTablaDiagrama() {
+         try {
+           Connection conexion = new Conexion().getConexion();
+           PreparedStatement psSU = conexion.prepareStatement("SELECT * FROM imagenprocedimiento"); // 
+           ResultSet rs = psSU.executeQuery(); // Agregué esta línea para ejecutar la consulta
+
+           DefaultTableModel modelo = new DefaultTableModel();
+           modelo.addColumn("idImagen");
+           modelo.addColumn("Nombre_Imagen");
+           modelo.addColumn("TIPO");
+           modelo.addColumn("Procedimiento");
+           
+            while (rs.next()) {
+            // Obtén los datos de la fila actual
+            int idImagen = rs.getInt("idImagen");
+            String nomImagen = rs.getString("nomImagen");
+            // Puedes manejar la columna de imagen de la manera que necesites
+         
+            // Por ejemplo, si la columna es de tipo BLOB, podrías mostrar "Imagen" o algo así
+            String imagen = "Imagen"; 
+            
+            int IDPROCEDIMIENTO = rs.getInt("IDPROCIMIENTO");
+            //Buscar el departamento que vive en la pos del combobox
+            
+            String nomProcediemiento = obtenerNomProcedimiento(IDPROCEDIMIENTO,conexion);
+            
+            // Añade una fila al modelo con los datos obtenidos
+            modelo.addRow(new Object[]{idImagen, nomImagen, imagen,nomProcediemiento});
+          }
+            
+            jTable2.setModel(modelo);
+            
+            
+           // Cierra la conexión y el conjunto de resultados
+            rs.close();
+            psSU.close();
+            conexion.close();
+        } catch (SQLException e) {
+           e.printStackTrace();
+           System.out.println("Error al mostrar la tabla: " + e.getMessage());
+        }
+    }
+    
+    private String obtenerNomProcedimiento(int idProcedimiento, Connection conexion) throws SQLException{
+        String consulta = "SELECT NOMBREPROCEDIMIENTO FROM procedimiento WHERE IDPROCIMIENTO = ?";
+         PreparedStatement ps = conexion.prepareStatement(consulta);
+         ps.setInt(1, idProcedimiento);
+
+         ResultSet rs = ps.executeQuery();
+
+        if (rs.next()) {
+        return rs.getString("nombreProcedimiento");
+        }
+
+         // Si no se encuentra el nombre del procedimiento, puedes devolver un valor predeterminado o manejarlo según tu lógica
+        return "Nombre no encontrado";
+    }
+    
+    public void GuardarDiagrama(){
+        if (txt_nombreImagenDiagrama.getText().equalsIgnoreCase("")) {
+            txt_nombreImagenDiagrama.setBackground(Color.BLUE);
+            JOptionPane.showMessageDialog(null, "Debes llenar todos los campos");
+        } else {
+            String nombre;
+            nombre = txt_nombreImagenDiagrama.getText().trim();
+            Object i = jComboBox27.getSelectedItem();
+            if (i instanceof Procedimiento){
+                // Convertir el elemento seleccionado a una instancia de Procedimiento
+                Procedimiento procedimientoSeleccionado = (Procedimiento) i;
+                // Obtener el ID del Procedimiento
+                int idProcedimiento = procedimientoSeleccionado.getIdProcedimiento();
+                try {
+                Connection conexion = new Conexion().getConexion();
+                psSU = conexion.prepareStatement("insert into imagenprocedimiento values (?,?,?,?)");
+                psSU.setInt(1, 0);
+                psSU.setString(2,nombre);
+                psSU.setBlob(3, fiss,longitudBytess);
+                psSU.setInt(4,idProcedimiento);
+                
+                psSU.executeUpdate();
+                conexion.close();
+                LimpiarImagen();
+                txt_nombreImagenDiagrama.setBackground(Color.GREEN);
+                JOptionPane.showMessageDialog(null, "Registro Exitoso");
+                Foto_Procedimiento.setText("FOTO");
+                
+               } catch (Exception e) {
+                System.out.println("Error al guardar la foto" + e);
+                JOptionPane.showMessageDialog(null, "¡¡Error al guardar Foto!!");
+               }
+            } else {
+            System.out.println("No se ha seleccionado un Procedimiento");
+            }
+            
+        }
+ 
+    }
+    private void cargarComboDepartamentoImagen(){
+        modelo3 = new DefaultComboBoxModel();
+        ArrayList<Departamento>contenido = new DatosPuestoTrabajo().getDepartamentosConProcedimientos();
+        for(int i=0;i<contenido.size();i++){
+            modelo3.addElement(contenido.get(i));
+        }
+        jComboBox26.setModel(modelo3);
+        cargarComboProcedimientosImagen();
+    }
+    
+    private void cargarComboProcedimientosImagen(){
+        modelo4 = new DefaultComboBoxModel();
+        Departamento dep = (Departamento)jComboBox26.getSelectedItem();
+        ArrayList<Procedimiento>contenido = new DatosProcedimientos().getProcedimientosDelDepartamento(dep.getIdDepartamento());
+        if(contenido.size()>0){
+            for(int i=0;i<contenido.size();i++){
+                modelo4.addElement(contenido.get(i));
+            }
+        
+        }else{
+            modelo4.addElement("No tiene ningun Procedimiento");
+        }
+        jComboBox27.setModel(modelo4);
+        
+    }
+    private void tipoDeDatoProcedimientoImagen(){
+        Object seleccionado = jComboBox27.getSelectedItem();
+        if(seleccionado instanceof Procedimiento){
+            existeProcedimiento = true;
+        }else if(seleccionado instanceof String){
+            existeProcedimiento = false;
+        }else{
+            System.out.println("Hay un error en el tipo de dato al seleccionar un procedimiento");
+        }
+        
+        System.out.println(existeProcedimiento);
+    }
+    
+    
     public void llenarComboBoxDepartamentoImagen(){
         jComboBox_Imagen.removeAllItems();
         Lista = new InformacionDepartamento().getListaDepartamentos();
@@ -6307,14 +6735,17 @@ De nuevo erick y juan haciendo esta parte
     private javax.swing.JButton Buscar_Imagen;
     private javax.swing.JLabel FondoAgregarPT;
     private javax.swing.JLabel Foto;
+    private javax.swing.JLabel Foto_Procedimiento;
     private javax.swing.JButton Guardar_Imagen;
     private javax.swing.JLabel ImagenFondo;
+    private javax.swing.JButton Tabla_procedimiento;
     private javax.swing.JButton btnAnt;
     private javax.swing.JButton btnBuscarN;
     private javax.swing.JButton btnCerrarSesionSU;
     private javax.swing.JButton btnSig;
     private javax.swing.JTextField cajaIDPuesto;
     private javax.swing.JLabel fondoActualizarPT;
+    private javax.swing.JButton guardar_Diagrama;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton10;
     private javax.swing.JButton jButton100;
@@ -6417,6 +6848,7 @@ De nuevo erick y juan haciendo esta parte
     private javax.swing.JButton jButton96;
     private javax.swing.JButton jButton97;
     private javax.swing.JButton jButton98;
+    private javax.swing.JButton jButton99;
     private javax.swing.JButton jButton_eliminarImagen;
     private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JComboBox<String> jComboBox10;
@@ -6437,6 +6869,8 @@ De nuevo erick y juan haciendo esta parte
     private javax.swing.JComboBox<String> jComboBox23;
     private javax.swing.JComboBox<String> jComboBox24;
     private javax.swing.JComboBox<String> jComboBox25;
+    private javax.swing.JComboBox<String> jComboBox26;
+    private javax.swing.JComboBox<String> jComboBox27;
     private javax.swing.JComboBox<String> jComboBox3;
     private javax.swing.JComboBox<String> jComboBox4;
     private javax.swing.JComboBox<String> jComboBox5;
@@ -6481,6 +6915,7 @@ De nuevo erick y juan haciendo esta parte
     private javax.swing.JLabel jLabel38;
     private javax.swing.JLabel jLabel39;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel40;
     private javax.swing.JLabel jLabel41;
     private javax.swing.JLabel jLabel42;
     private javax.swing.JLabel jLabel43;
@@ -6513,6 +6948,11 @@ De nuevo erick y juan haciendo esta parte
     private javax.swing.JLabel jLabel68;
     private javax.swing.JLabel jLabel69;
     private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel70;
+    private javax.swing.JLabel jLabel71;
+    private javax.swing.JLabel jLabel72;
+    private javax.swing.JLabel jLabel73;
+    private javax.swing.JLabel jLabel74;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
@@ -6526,6 +6966,7 @@ De nuevo erick y juan haciendo esta parte
     private javax.swing.JPanel jPanel17;
     private javax.swing.JPanel jPanel18;
     private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel20;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
@@ -6537,6 +6978,7 @@ De nuevo erick y juan haciendo esta parte
     private javax.swing.JScrollPane jScrollPane10;
     private javax.swing.JScrollPane jScrollPane11;
     private javax.swing.JScrollPane jScrollPane12;
+    private javax.swing.JScrollPane jScrollPane13;
     private javax.swing.JScrollPane jScrollPane14;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
@@ -6550,6 +6992,7 @@ De nuevo erick y juan haciendo esta parte
     private javax.swing.JSeparator jSeparator2;
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JTable jTable1;
+    private javax.swing.JTable jTable2;
     private javax.swing.JTextArea jTextArea1;
     private javax.swing.JTextArea jTextArea10;
     private javax.swing.JTextArea jTextArea11;
@@ -6597,5 +7040,6 @@ De nuevo erick y juan haciendo esta parte
     private javax.swing.JTextField jTextField9;
     private javax.swing.JToggleButton jToggleButton1;
     private javax.swing.JTextField txt_nombreImagen;
+    private javax.swing.JTextField txt_nombreImagenDiagrama;
     // End of variables declaration//GEN-END:variables
 }
