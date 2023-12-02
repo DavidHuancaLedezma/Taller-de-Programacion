@@ -12,8 +12,12 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
+import javax.swing.DefaultComboBoxModel;
 import javax.swing.plaf.basic.BasicTabbedPaneUI;
+import manualProcedimiento.DatosProcedimientos;
+import manualProcedimiento.Procedimiento;
 import modelo.Conexion;
+import modelo.DatosPuestoTrabajo;
 import modelo.Departamento;
 import modelo.Esfuerzo;
 import modelo.Funcionario;
@@ -34,9 +38,9 @@ public class InformacionFuncionario extends javax.swing.JFrame {
     private ResultSet rs;
     private ArrayList<Departamento>deps;
     private ArrayList<String>puestos;
-    
-    
-    
+    private DefaultComboBoxModel modelo;
+    private DefaultComboBoxModel modelo2;
+    private boolean existeProcedimiento = false;
     public InformacionFuncionario(String usuario,String contraseña) {
         setUndecorated(true);
         this.usuario = usuario;
@@ -46,6 +50,52 @@ public class InformacionFuncionario extends javax.swing.JFrame {
         cargarDatos();
         activarFondoDeEtiquetas();
         desaparecerBotonesDePaneles();
+        cargarComboDepartamento();
+        tipoDeDatoProcedimiento();
+        visibilidadProcedimientos();
+    }
+    private void visibilidadProcedimientos(){
+        if(esJefe() == 0){
+            jLabel33.setVisible(false);
+        }else{
+            jLabel33.setVisible(true);
+            jLabel33.setText("Procedimiento");
+        }
+    }
+    private void cargarComboDepartamento(){
+        modelo = new DefaultComboBoxModel();
+        ArrayList<Departamento>contenido = new DatosPuestoTrabajo().getDepartamentosConProcedimientos();
+        for(int i=0;i<contenido.size();i++){
+            modelo.addElement(contenido.get(i));
+        }
+        jComboBox2.setModel(modelo);
+        cargarComboProcedimientos();
+    }
+    private void cargarComboProcedimientos(){
+        modelo2 = new DefaultComboBoxModel();
+        Departamento dep = (Departamento)jComboBox2.getSelectedItem();
+        ArrayList<Procedimiento>contenido = new DatosProcedimientos().getProcedimientosDelDepartamento(dep.getIdDepartamento());
+        if(contenido.size()>0){
+            for(int i=0;i<contenido.size();i++){
+                modelo2.addElement(contenido.get(i));
+            }
+        
+        }else{
+            modelo2.addElement("No tiene ningun Procedimiento");
+        }
+        jComboBox3.setModel(modelo2);
+    }
+    private void tipoDeDatoProcedimiento(){
+        Object seleccionado = jComboBox3.getSelectedItem();
+        if(seleccionado instanceof Procedimiento){
+            existeProcedimiento = true;
+        }else if(seleccionado instanceof String){
+            existeProcedimiento = false;
+        }else{
+            System.out.println("Hay un error en el tipo de dato al seleccionar un procedimiento");
+        }
+        
+        System.out.println(existeProcedimiento);
     }
     
     private void cargarDatos(){
@@ -71,7 +121,23 @@ public class InformacionFuncionario extends javax.swing.JFrame {
         jLabel17.setOpaque(true);
         jLabel13.setOpaque(true);
     }
-    
+    public int esJefe(){
+        int estado=0;
+        try{
+        Connection conexion = new Conexion().getConexion();
+        ps = conexion.prepareStatement("select tipoEmp from cuenta as c, funcionario f, puestotrabajo pt where c.idfuncionario = f.idfuncionario and f.idpuesto = pt.idpuesto and c.usuario = ? and c.contrasena = ? ");
+        ps.setString(1, usuario);
+        ps.setString(2, contraseña);
+        rs = ps.executeQuery();
+        if(rs.next()){
+           estado = rs.getInt("tipoEmp");
+        }
+        ps.close();
+        }catch(Exception ex){
+            System.err.println("Error:" + ex);
+        }
+        return estado;
+    }
     private void cargarPersonal(ArrayList<String>personal){
         jTextArea1.setEditable(false);
         if(personal.size() > 0){
@@ -305,6 +371,8 @@ public class InformacionFuncionario extends javax.swing.JFrame {
         jLabel15 = new javax.swing.JLabel();
         jLabel16 = new javax.swing.JLabel();
         jLabel17 = new javax.swing.JLabel();
+        jLabel33 = new javax.swing.JLabel();
+        jLabel34 = new javax.swing.JLabel();
         jTabbedPane1 = new javax.swing.JTabbedPane();
         jPanel3 = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
@@ -351,6 +419,9 @@ public class InformacionFuncionario extends javax.swing.JFrame {
         jScrollPane4 = new javax.swing.JScrollPane();
         jTextArea4 = new javax.swing.JTextArea();
         jLabel32 = new javax.swing.JLabel();
+        jPanel11 = new javax.swing.JPanel();
+        jComboBox2 = new javax.swing.JComboBox<>();
+        jComboBox3 = new javax.swing.JComboBox<>();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -506,6 +577,19 @@ public class InformacionFuncionario extends javax.swing.JFrame {
             }
         });
         jPanel2.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 240, 170, 40));
+
+        jLabel33.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel33.setText("Procedimientos");
+        jLabel33.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel33MouseClicked(evt);
+            }
+        });
+        jPanel2.add(jLabel33, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 330, -1, -1));
+
+        jLabel34.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel34.setText("OnigraALGO");
+        jPanel2.add(jLabel34, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 360, -1, -1));
 
         jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 170, 450));
 
@@ -717,6 +801,38 @@ public class InformacionFuncionario extends javax.swing.JFrame {
 
         jTabbedPane1.addTab("tab6", jPanel10);
 
+        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jComboBox2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboBox2ActionPerformed(evt);
+            }
+        });
+
+        jComboBox3.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+
+        javax.swing.GroupLayout jPanel11Layout = new javax.swing.GroupLayout(jPanel11);
+        jPanel11.setLayout(jPanel11Layout);
+        jPanel11Layout.setHorizontalGroup(
+            jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel11Layout.createSequentialGroup()
+                .addGap(80, 80, 80)
+                .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jComboBox3, 0, 499, Short.MAX_VALUE)
+                    .addComponent(jComboBox2, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(49, Short.MAX_VALUE))
+        );
+        jPanel11Layout.setVerticalGroup(
+            jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel11Layout.createSequentialGroup()
+                .addGap(54, 54, 54)
+                .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jComboBox3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(220, Short.MAX_VALUE))
+        );
+
+        jTabbedPane1.addTab("tab7", jPanel11);
+
         jPanel1.add(jTabbedPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 80, 630, 370));
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 800, 450));
 
@@ -859,6 +975,19 @@ public class InformacionFuncionario extends javax.swing.JFrame {
         jTextArea4.setEditable(false);
         
     }//GEN-LAST:event_jComboBox1ActionPerformed
+
+    private void jLabel33MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel33MouseClicked
+        // TODO add your handling code here:
+        jTabbedPane1.setSelectedIndex(6);
+        
+        
+    }//GEN-LAST:event_jLabel33MouseClicked
+
+    private void jComboBox2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox2ActionPerformed
+        // TODO add your handling code here:
+        cargarComboProcedimientos();
+        tipoDeDatoProcedimiento();
+    }//GEN-LAST:event_jComboBox2ActionPerformed
    
    public ArrayList<Departamento>listaDepartamentosNivel(){
         deps = new ArrayList<Departamento>();
@@ -954,6 +1083,8 @@ public class InformacionFuncionario extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
     private javax.swing.JComboBox<String> jComboBox1;
+    private javax.swing.JComboBox<String> jComboBox2;
+    private javax.swing.JComboBox<String> jComboBox3;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -980,6 +1111,8 @@ public class InformacionFuncionario extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel30;
     private javax.swing.JLabel jLabel31;
     private javax.swing.JLabel jLabel32;
+    private javax.swing.JLabel jLabel33;
+    private javax.swing.JLabel jLabel34;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
@@ -988,6 +1121,7 @@ public class InformacionFuncionario extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel10;
+    private javax.swing.JPanel jPanel11;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
