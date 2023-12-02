@@ -355,6 +355,8 @@ public class VistaSu extends javax.swing.JFrame {
         jLabel17 = new javax.swing.JLabel();
         jButton22 = new javax.swing.JButton();
         jToggleButton1 = new javax.swing.JToggleButton();
+        jLabel75 = new javax.swing.JLabel();
+        jToggleButton2 = new javax.swing.JToggleButton();
         FondoAgregarPT = new javax.swing.JLabel();
         jPanel8 = new javax.swing.JPanel();
         jLabel28 = new javax.swing.JLabel();
@@ -1175,7 +1177,7 @@ public class VistaSu extends javax.swing.JFrame {
 
         jLabel12.setForeground(new java.awt.Color(255, 0, 0));
         jLabel12.setText("*pertenecera al departamento");
-        jPanel7.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 170, 170, -1));
+        jPanel7.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 170, 180, -1));
 
         jLabel13.setForeground(new java.awt.Color(255, 0, 0));
         jLabel13.setText("*su puesto superior sera");
@@ -1254,6 +1256,13 @@ public class VistaSu extends javax.swing.JFrame {
             }
         });
         jPanel7.add(jToggleButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 190, 60, -1));
+
+        jLabel75.setForeground(new java.awt.Color(255, 0, 0));
+        jLabel75.setText("*Acceso a procedimientos");
+        jPanel7.add(jLabel75, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 170, -1, 20));
+
+        jToggleButton2.setText("NO");
+        jPanel7.add(jToggleButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 190, -1, -1));
 
         FondoAgregarPT.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/fondo_pt 810x460.jpg"))); // NOI18N
         jPanel7.add(FondoAgregarPT, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 810, 460));
@@ -7091,6 +7100,7 @@ De nuevo erick y juan haciendo esta parte
     private javax.swing.JLabel jLabel72;
     private javax.swing.JLabel jLabel73;
     private javax.swing.JLabel jLabel74;
+    private javax.swing.JLabel jLabel75;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
@@ -7177,6 +7187,7 @@ De nuevo erick y juan haciendo esta parte
     private javax.swing.JTextField jTextField8;
     private javax.swing.JTextField jTextField9;
     private javax.swing.JToggleButton jToggleButton1;
+    private javax.swing.JToggleButton jToggleButton2;
     private javax.swing.JTextField txt_nombreImagen;
     private javax.swing.JTextField txt_nombreImagenDiagrama;
     // End of variables declaration//GEN-END:variables
