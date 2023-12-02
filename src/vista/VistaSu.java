@@ -234,7 +234,12 @@ public class VistaSu extends javax.swing.JFrame {
         jButton8.setBorderPainted(false);
         jButton6.setContentAreaFilled(false);
         jButton6.setBorderPainted(false);
-        
+        jButton90.setContentAreaFilled(false);
+        jButton90.setBorderPainted(false);
+        jButton89.setContentAreaFilled(false);
+        jButton89.setBorderPainted(false);
+        jButton82.setContentAreaFilled(false);
+        jButton82.setBorderPainted(false);
         /*
         Aca para adelante estaran las funcionalidades invisibles del panel
         */
@@ -487,6 +492,9 @@ public class VistaSu extends javax.swing.JFrame {
         jButton88 = new javax.swing.JButton();
         jButton89 = new javax.swing.JButton();
         jButton90 = new javax.swing.JButton();
+        jLabel76 = new javax.swing.JLabel();
+        jLabel77 = new javax.swing.JLabel();
+        jLabel78 = new javax.swing.JLabel();
         jPanel15 = new javax.swing.JPanel();
         jPanel16 = new javax.swing.JPanel();
         jPanel17 = new javax.swing.JPanel();
@@ -1767,7 +1775,7 @@ public class VistaSu extends javax.swing.JFrame {
             }
         });
         jPanel9.add(jButton100);
-        jButton100.setBounds(480, 190, 75, 32);
+        jButton100.setBounds(480, 190, 57, 24);
 
         jTabbedPane1.addTab("tab6", jPanel9);
 
@@ -2029,7 +2037,7 @@ public class VistaSu extends javax.swing.JFrame {
         });
         jPanel11.add(jButton68, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 400, -1, -1));
 
-        jButton75.setText("Erick");
+        jButton75.setText("Actualizar y eliminar interventores");
         jButton75.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton75ActionPerformed(evt);
@@ -2043,7 +2051,7 @@ public class VistaSu extends javax.swing.JFrame {
                 jButton76ActionPerformed(evt);
             }
         });
-        jPanel11.add(jButton76, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 400, -1, -1));
+        jPanel11.add(jButton76, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 400, -1, -1));
 
         jButton77.setText("Eliminar");
         jButton77.addActionListener(new java.awt.event.ActionListener() {
@@ -2137,6 +2145,8 @@ public class VistaSu extends javax.swing.JFrame {
 
         jTabbedPane1.addTab("tab10", jPanel13);
 
+        jPanel14.setBackground(new java.awt.Color(51, 51, 51));
+
         jComboBox19.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         jComboBox19.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -2157,7 +2167,7 @@ public class VistaSu extends javax.swing.JFrame {
             }
         });
 
-        jButton82.setText("Buscar");
+        jButton82.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/icon buscar.png"))); // NOI18N
         jButton82.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton82ActionPerformed(evt);
@@ -2178,68 +2188,95 @@ public class VistaSu extends javax.swing.JFrame {
             }
         });
 
-        jButton89.setText("Actualizar");
+        jButton89.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Modificar.png"))); // NOI18N
         jButton89.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton89ActionPerformed(evt);
             }
         });
 
-        jButton90.setText("Eliminar");
+        jButton90.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Eliminar.png"))); // NOI18N
         jButton90.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton90ActionPerformed(evt);
             }
         });
 
+        jLabel76.setFont(new java.awt.Font("Arial", 3, 18)); // NOI18N
+        jLabel76.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel76.setText("ELIMINAR Y MODIFICAR INTERVENTORES DE UN PROCEDIMIENTO");
+
+        jLabel77.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel77.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jLabel77.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel77.setText("Seleccione un departamento:");
+
+        jLabel78.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel78.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jLabel78.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel78.setText("Seleccione un procedimiento del departamento que eligió:");
+
         javax.swing.GroupLayout jPanel14Layout = new javax.swing.GroupLayout(jPanel14);
         jPanel14.setLayout(jPanel14Layout);
         jPanel14Layout.setHorizontalGroup(
             jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel14Layout.createSequentialGroup()
-                .addGap(25, 25, 25)
-                .addComponent(jComboBox19, javax.swing.GroupLayout.PREFERRED_SIZE, 303, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 55, Short.MAX_VALUE)
-                .addComponent(jComboBox20, javax.swing.GroupLayout.PREFERRED_SIZE, 373, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(52, 52, 52))
-            .addGroup(jPanel14Layout.createSequentialGroup()
                 .addGroup(jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel14Layout.createSequentialGroup()
-                        .addGap(117, 117, 117)
-                        .addComponent(jButton88)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jTextField29, javax.swing.GroupLayout.PREFERRED_SIZE, 348, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(29, 29, 29)
-                        .addComponent(jButton87))
+                        .addGap(25, 25, 25)
+                        .addGroup(jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jLabel77)
+                            .addComponent(jLabel78)
+                            .addComponent(jComboBox19, 0, 690, Short.MAX_VALUE)
+                            .addComponent(jComboBox20, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                     .addGroup(jPanel14Layout.createSequentialGroup()
-                        .addGap(310, 310, 310)
+                        .addGap(279, 279, 279)
                         .addComponent(jButton82))
                     .addGroup(jPanel14Layout.createSequentialGroup()
-                        .addGap(204, 204, 204)
-                        .addComponent(jButton89)
-                        .addGap(65, 65, 65)
-                        .addComponent(jButton90)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(86, 86, 86)
+                        .addComponent(jLabel76))
+                    .addGroup(jPanel14Layout.createSequentialGroup()
+                        .addGroup(jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel14Layout.createSequentialGroup()
+                                .addGap(190, 190, 190)
+                                .addComponent(jButton89)
+                                .addGap(56, 56, 56)
+                                .addComponent(jButton90)
+                                .addGap(66, 66, 66))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel14Layout.createSequentialGroup()
+                                .addContainerGap()
+                                .addComponent(jButton88)
+                                .addGap(33, 33, 33)
+                                .addComponent(jTextField29, javax.swing.GroupLayout.PREFERRED_SIZE, 348, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(26, 26, 26)))
+                        .addComponent(jButton87)))
+                .addContainerGap(93, Short.MAX_VALUE))
         );
         jPanel14Layout.setVerticalGroup(
             jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel14Layout.createSequentialGroup()
-                .addGap(87, 87, 87)
-                .addGroup(jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jComboBox19, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jComboBox20, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
+                .addGap(21, 21, 21)
+                .addComponent(jLabel76)
+                .addGap(24, 24, 24)
+                .addComponent(jLabel77)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jComboBox19, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel78)
+                .addGap(8, 8, 8)
+                .addComponent(jComboBox20, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jButton82)
-                .addGap(58, 58, 58)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jTextField29, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton87)
-                    .addComponent(jButton88))
-                .addGap(45, 45, 45)
-                .addGroup(jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButton88)
+                    .addComponent(jButton87))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jButton89)
                     .addComponent(jButton90))
-                .addContainerGap(104, Short.MAX_VALUE))
+                .addGap(76, 76, 76))
         );
 
         jTabbedPane1.addTab("tab11", jPanel14);
@@ -6162,15 +6199,16 @@ De nuevo erick y juan haciendo esta parte
             conexion.close();
             if(interventores.isEmpty()){
                 jTextField29.setText("No existe interventores");
-                jButton83.setVisible(false);
-                jButton84.setVisible(false);
-                jButton85.setVisible(false);
-                jButton86.setVisible(false);
+                jButton88.setVisible(false);
+                jButton87.setVisible(false);
+                jButton89.setVisible(false);
+                jButton90.setVisible(false);
             }else{
-                jButton83.setVisible(true);
-                jButton84.setVisible(true);
-                jButton85.setVisible(true);
-                jButton86.setVisible(true);
+                jButton88.setVisible(true);
+                jButton87.setVisible(true);
+                jButton89.setVisible(true);
+                jButton90.setVisible(true);
+                indiceGlobal=0;
                 jTextField29.setText(interventores.get(indiceGlobal).getNombreInterventor());
             }
         }catch(Exception ex ){
@@ -7114,6 +7152,9 @@ De nuevo erick y juan haciendo esta parte
     private javax.swing.JLabel jLabel73;
     private javax.swing.JLabel jLabel74;
     private javax.swing.JLabel jLabel75;
+    private javax.swing.JLabel jLabel76;
+    private javax.swing.JLabel jLabel77;
+    private javax.swing.JLabel jLabel78;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
