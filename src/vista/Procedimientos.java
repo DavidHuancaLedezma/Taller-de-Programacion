@@ -35,9 +35,21 @@ public class Procedimientos extends javax.swing.JFrame {
     private ResultSet rs;
     ArrayList<String> listaObjetivos = new ArrayList <>();
     private DefaultTableModel modelo1;
-
+    private InformacionFuncionario frameFuncionario;
     
     public Procedimientos(int idProcedimiento) {
+        this.idProcedimiento = idProcedimiento;
+        initComponents();
+        this.setLocationRelativeTo(null);
+       // jTextArea1.setEditable(false);
+      desaparecerBotonesDePaneles();  
+      cargarDatosDeProcedimientos();
+      funcionalidadesInvisibles();
+      cargarInterventores();
+    }
+    //Este constuctor es un constructor adicional exclusivamento para procedimientos desde la vista de funcionario
+    public Procedimientos(int idProcedimiento,InformacionFuncionario info) {
+        frameFuncionario = info;
         this.idProcedimiento = idProcedimiento;
         initComponents();
         this.setLocationRelativeTo(null);
@@ -429,8 +441,10 @@ public class Procedimientos extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-        vistaPrincipal atras = new vistaPrincipal();
-        atras.setVisible(true);
+        //vistaPrincipal atras = new vistaPrincipal();
+        //atras.setVisible(true);
+        //dispose();
+        frameFuncionario.setVisible(true);
         dispose();
     }//GEN-LAST:event_jButton1ActionPerformed
     private void llenarNombrePNombreD(){

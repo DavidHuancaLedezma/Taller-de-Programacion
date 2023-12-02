@@ -43,6 +43,8 @@ public class InformacionFuncionario extends javax.swing.JFrame {
     private boolean existeProcedimiento = false;
     private int n = 1;
     private int idDepartamento;
+    private String nombreDep;
+    private int idProcedimiento;
     public InformacionFuncionario(String usuario,String contraseña) {
         setUndecorated(true);
         this.usuario = usuario;
@@ -56,6 +58,7 @@ public class InformacionFuncionario extends javax.swing.JFrame {
         tipoDeDatoProcedimiento();
         visibilidadProcedimientos();
         obtenerIDdepartamentoDelFuncionario();
+        funcionalidadesInvisibles();
     }
     private void obtenerIDdepartamentoDelFuncionario(){
         /*HOLA ANTONI esto retorna el id del departamento al que pertenece el funcionario
@@ -72,6 +75,10 @@ public class InformacionFuncionario extends javax.swing.JFrame {
             jLabel33.setVisible(true);
             jLabel33.setText("Procedimiento");
         }
+    }
+    private void funcionalidadesInvisibles(){
+        jButton2.setContentAreaFilled(false);
+        jButton2.setBorderPainted(false);
     }
     private void cargarComboDepartamento(){
         modelo = new DefaultComboBoxModel();
@@ -433,6 +440,8 @@ public class InformacionFuncionario extends javax.swing.JFrame {
         jPanel11 = new javax.swing.JPanel();
         jComboBox2 = new javax.swing.JComboBox<>();
         jComboBox3 = new javax.swing.JComboBox<>();
+        jButton2 = new javax.swing.JButton();
+        jLabel35 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -497,7 +506,7 @@ public class InformacionFuncionario extends javax.swing.JFrame {
                 jLabel13MouseExited(evt);
             }
         });
-        jPanel2.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 280, 170, 40));
+        jPanel2.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(-20, 290, 170, 40));
 
         jLabel7.setBackground(new java.awt.Color(0, 0, 0));
         jLabel7.setForeground(new java.awt.Color(255, 255, 255));
@@ -515,7 +524,7 @@ public class InformacionFuncionario extends javax.swing.JFrame {
                 jLabel7MouseExited(evt);
             }
         });
-        jPanel2.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 80, 170, 40));
+        jPanel2.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(-10, 90, 170, 40));
 
         jLabel8.setBackground(new java.awt.Color(0, 0, 0));
         jLabel8.setForeground(new java.awt.Color(255, 255, 255));
@@ -533,7 +542,7 @@ public class InformacionFuncionario extends javax.swing.JFrame {
                 jLabel8MouseExited(evt);
             }
         });
-        jPanel2.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 120, 170, 40));
+        jPanel2.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 130, 170, 40));
 
         jLabel15.setBackground(new java.awt.Color(0, 0, 0));
         jLabel15.setForeground(new java.awt.Color(255, 255, 255));
@@ -551,7 +560,7 @@ public class InformacionFuncionario extends javax.swing.JFrame {
                 jLabel15MouseExited(evt);
             }
         });
-        jPanel2.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 160, 170, 40));
+        jPanel2.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(-10, 170, 170, 40));
 
         jLabel16.setBackground(new java.awt.Color(0, 0, 0));
         jLabel16.setForeground(new java.awt.Color(255, 255, 255));
@@ -569,7 +578,7 @@ public class InformacionFuncionario extends javax.swing.JFrame {
                 jLabel16MouseExited(evt);
             }
         });
-        jPanel2.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 200, 170, 40));
+        jPanel2.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(-10, 210, 170, 40));
 
         jLabel17.setBackground(new java.awt.Color(0, 0, 0));
         jLabel17.setForeground(new java.awt.Color(255, 255, 255));
@@ -587,20 +596,23 @@ public class InformacionFuncionario extends javax.swing.JFrame {
                 jLabel17MouseExited(evt);
             }
         });
-        jPanel2.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 240, 170, 40));
+        jPanel2.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(-10, 250, 170, 40));
 
+        jLabel33.setBackground(new java.awt.Color(0, 0, 0));
         jLabel33.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel33.setText("Procedimientos");
+        jLabel33.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel33.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/icon-procedimeintos (1).png"))); // NOI18N
+        jLabel33.setText("PROCEDIMIENTOS");
         jLabel33.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jLabel33MouseClicked(evt);
             }
         });
-        jPanel2.add(jLabel33, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 330, -1, -1));
+        jPanel2.add(jLabel33, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 360, -1, -1));
 
         jLabel34.setForeground(new java.awt.Color(255, 255, 255));
         jLabel34.setText("OnigraALGO");
-        jPanel2.add(jLabel34, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 360, -1, -1));
+        jPanel2.add(jLabel34, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 330, -1, -1));
 
         jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 170, 450));
 
@@ -812,6 +824,8 @@ public class InformacionFuncionario extends javax.swing.JFrame {
 
         jTabbedPane1.addTab("tab6", jPanel10);
 
+        jPanel11.setBackground(new java.awt.Color(255, 255, 255));
+
         jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         jComboBox2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -821,25 +835,48 @@ public class InformacionFuncionario extends javax.swing.JFrame {
 
         jComboBox3.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
+        jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/VER PROCEDIMIENTO.png"))); // NOI18N
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+
+        jLabel35.setFont(new java.awt.Font("Arial", 2, 18)); // NOI18N
+        jLabel35.setForeground(new java.awt.Color(0, 0, 255));
+        jLabel35.setText("Procedimientos y funciones");
+
         javax.swing.GroupLayout jPanel11Layout = new javax.swing.GroupLayout(jPanel11);
         jPanel11.setLayout(jPanel11Layout);
         jPanel11Layout.setHorizontalGroup(
             jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel11Layout.createSequentialGroup()
-                .addGap(80, 80, 80)
-                .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jComboBox3, 0, 499, Short.MAX_VALUE)
-                    .addComponent(jComboBox2, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel11Layout.createSequentialGroup()
+                        .addGap(20, 20, 20)
+                        .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jComboBox3, javax.swing.GroupLayout.PREFERRED_SIZE, 559, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, 559, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(jPanel11Layout.createSequentialGroup()
+                        .addGap(229, 229, 229)
+                        .addComponent(jButton2))
+                    .addGroup(jPanel11Layout.createSequentialGroup()
+                        .addGap(180, 180, 180)
+                        .addComponent(jLabel35)))
                 .addContainerGap(49, Short.MAX_VALUE))
         );
         jPanel11Layout.setVerticalGroup(
             jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel11Layout.createSequentialGroup()
-                .addGap(54, 54, 54)
+                .addGap(19, 19, 19)
+                .addComponent(jLabel35)
+                .addGap(27, 27, 27)
                 .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jComboBox3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(220, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jButton2)
+                .addContainerGap(116, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("tab7", jPanel11);
@@ -1001,7 +1038,21 @@ public class InformacionFuncionario extends javax.swing.JFrame {
         cargarComboProcedimientos();
         tipoDeDatoProcedimiento();
     }//GEN-LAST:event_jComboBox2ActionPerformed
-   
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        if(existeProcedimiento){
+            abrirProcedimientos();
+        }
+    }//GEN-LAST:event_jButton2ActionPerformed
+   private void abrirProcedimientos(){
+            Procedimiento pro = (Procedimiento)jComboBox3.getSelectedItem();
+            nombreDep= "" +(Procedimiento)jComboBox3.getSelectedItem();
+            Procedimientos p = new Procedimientos(pro.getIdProcedimiento(),this);
+            idProcedimiento = pro.getIdProcedimiento();
+            p.setVisible(true);
+            //dispose();
+            this.setVisible(false);
+   }
    public ArrayList<Departamento>listaDepartamentosNivel(){
         deps = new ArrayList<Departamento>();
          int nivel = Integer.parseInt(jComboBox1.getSelectedItem().toString());
@@ -1095,6 +1146,7 @@ public class InformacionFuncionario extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
     private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JComboBox<String> jComboBox2;
     private javax.swing.JComboBox<String> jComboBox3;
@@ -1126,6 +1178,7 @@ public class InformacionFuncionario extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel32;
     private javax.swing.JLabel jLabel33;
     private javax.swing.JLabel jLabel34;
+    private javax.swing.JLabel jLabel35;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
