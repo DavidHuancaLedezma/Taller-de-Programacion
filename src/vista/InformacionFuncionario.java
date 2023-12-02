@@ -42,6 +42,7 @@ public class InformacionFuncionario extends javax.swing.JFrame {
     private DefaultComboBoxModel modelo2;
     private boolean existeProcedimiento = false;
     private int n = 1;
+    private int idDepartamento;
     public InformacionFuncionario(String usuario,String contraseña) {
         setUndecorated(true);
         this.usuario = usuario;
@@ -54,6 +55,15 @@ public class InformacionFuncionario extends javax.swing.JFrame {
         cargarComboDepartamento();
         tipoDeDatoProcedimiento();
         visibilidadProcedimientos();
+        obtenerIDdepartamentoDelFuncionario();
+    }
+    private void obtenerIDdepartamentoDelFuncionario(){
+        /*HOLA ANTONI esto retorna el id del departamento al que pertenece el funcionario
+          el idDepartamento esta declarado como variable global, no necesitas hacer nada mas 
+          solo usar la variable global idDepartamento,
+          despues que leas este comentario lo eliminas por favor(El comentario XD)
+        */ 
+        idDepartamento = new Funcionario(usuario,contraseña).getIdDepartamentoDelFuncionario();
     }
     private void visibilidadProcedimientos(){
         if(esJefe() == 0){

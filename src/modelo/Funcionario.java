@@ -452,4 +452,22 @@ public class Funcionario {
         }
         return res;
     }
+    
+    public int getIdDepartamentoDelFuncionario(){
+        int id = 0;
+        try{
+            Connection con = new Conexion().getConexion();
+            ps = con.prepareStatement("select dep.IDDEPARTAMENTO as idDep from cuenta c,funcionario f,puestotrabajo pt,departamento dep where c.IDFUNCIONARIO = f.IDFUNCIONARIO and f.IDPUESTO = pt.IDPUESTO and dep.IDDEPARTAMENTO = pt.IDDEPARTAMENTO and c.USUARIO = ? and c.CONTRASENA = ?");
+            ps.setString(1,usuario);
+            ps.setString(2,contraseña);
+            rs = ps.executeQuery();
+            if(rs.next()){
+                id = rs.getInt("idDep");
+            }
+            con.close();
+        }catch(Exception ex){
+            System.err.println("Error:" + ex);
+        }
+        return id;
+    }
 }
