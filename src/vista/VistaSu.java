@@ -1262,6 +1262,11 @@ public class VistaSu extends javax.swing.JFrame {
         jPanel7.add(jLabel75, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 170, -1, 20));
 
         jToggleButton2.setText("NO");
+        jToggleButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jToggleButton2ActionPerformed(evt);
+            }
+        });
         jPanel7.add(jToggleButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 190, -1, -1));
 
         FondoAgregarPT.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/fondo_pt 810x460.jpg"))); // NOI18N
@@ -3478,9 +3483,9 @@ De nuevo erick y juan haciendo esta parte
             Departamento dep = (Departamento)(jComboBox2.getSelectedItem());
             
             if(jToggleButton1.getText().equals("ON")){
-               dpt.insertarPuesto(jTextField8.getText(),idPuestoSuperior,dep.getIdDepartamento());
+               dpt.insertarPuesto(jTextField8.getText(),idPuestoSuperior,dep.getIdDepartamento(),jToggleButton2.getText());
             }else{
-                dpt.insertarPuesto(jTextField8.getText(),0,dep.getIdDepartamento());
+                dpt.insertarPuesto(jTextField8.getText(),0,dep.getIdDepartamento(),jToggleButton2.getText());
             
             }
             idPuest = dpt.getIdUltimoPuestoInsertado();
@@ -5502,6 +5507,14 @@ De nuevo erick y juan haciendo esta parte
                 // Actualiza la tabla después de eliminar
                 mostrarTablaDiagrama();
     }//GEN-LAST:event_Eliminar_DiagramaActionPerformed
+
+    private void jToggleButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton2ActionPerformed
+        if(jToggleButton2.isSelected()){
+            jToggleButton2.setText("SI");
+        }else{
+            jToggleButton2.setText("NO");
+        }
+    }//GEN-LAST:event_jToggleButton2ActionPerformed
     
     private void eliminarImagenDiagrama(int idImagen) {
       try {

@@ -83,18 +83,27 @@ public class DatosPuestoTrabajo {
     }
     
     
-    public void insertarPuesto(String nombrePuesto,int idPuestoSuperior,int departamentoAlQuePertenece){
+    public void insertarPuesto(String nombrePuesto,int idPuestoSuperior,int departamentoAlQuePertenece,String permisoProcedimientos){
+        int permiso;
+        if(permisoProcedimientos.equals("SI")){
+            permiso = 1;
+        }else{
+            permiso = 0;
+        }
+        
         try{
             Connection con = new Conexion().getConexion(); // linea de codigo 75 clase DatosPuestoTrabajo
             if(idPuestoSuperior!=0){
-                ps = con.prepareStatement("insert into puestotrabajo(PUE_IDPUESTO,IDDEPARTAMENTO,NOMBREPUESTO)values(?,?,?)");
+                ps = con.prepareStatement("insert into puestotrabajo(PUE_IDPUESTO,IDDEPARTAMENTO,NOMBREPUESTO,tipoEmp)values(?,?,?,?)");
                 ps.setInt(1,idPuestoSuperior);
                 ps.setInt(2,departamentoAlQuePertenece);
                 ps.setString(3,nombrePuesto);
+                ps.setInt(4, permiso);
             }else{
-                ps = con.prepareStatement("insert into puestotrabajo(IDDEPARTAMENTO,NOMBREPUESTO)values(?,?)");
+                ps = con.prepareStatement("insert into puestotrabajo(IDDEPARTAMENTO,NOMBREPUESTO,tipoEmp)values(?,?,?)");
                 ps.setInt(1,departamentoAlQuePertenece);
                 ps.setString(2,nombrePuesto);
+                ps.setInt(3, permiso);
             }
             
             
