@@ -877,7 +877,7 @@ public class VistaSu extends javax.swing.JFrame {
                 jButton86ActionPerformed(evt);
             }
         });
-        jPanel5.add(jButton86, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 320, -1, -1));
+        jPanel5.add(jButton86, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 320, -1, -1));
 
         jTabbedPane1.addTab("tab2", jPanel5);
 
@@ -3263,7 +3263,8 @@ public class VistaSu extends javax.swing.JFrame {
                 //obtenerNombreDelPuesto();
                 //obtenerDescripcionPuesto();
             }else{
-                JOptionPane.showMessageDialog(null,"Registro no encontrado");                
+                JOptionPane.showMessageDialog(null,"Registro no encontrado");
+                jTextField1.setText("");
             }
             conexion.close();
         }catch(Exception ex ){
@@ -4366,6 +4367,8 @@ De nuevo erick y juan haciendo esta parte
                 jTabbedPane1.setSelectedIndex(0);
                 //jComboBox1.removeAllItems();
                 llenarComboBoxPuestosDisponibles();
+                jButton35.setVisible(true);
+                jButton35.setEnabled(true);
             }
         }
     }//GEN-LAST:event_jButton48ActionPerformed
@@ -4619,6 +4622,18 @@ De nuevo erick y juan haciendo esta parte
                 mostrarActividadProfesional(claveCurriculum);
                 mostrarCargosOficialesDesempeñados(claveCurriculum);
                 mostrarEstudiosAcademicos(claveCurriculum);
+                if(jTextArea6.getText().equals("")){
+                 jButton28.setEnabled(true);
+                }
+                if(jTextArea7.getText().equals("")){
+                 jButton33.setEnabled(true);
+                }
+                if(jTextArea8.getText().equals("")){
+                 jButton32.setEnabled(true);
+                }
+                if(jTextArea9.getText().equals("")){
+                 jButton34.setEnabled(true);
+                }
             }
         }
         
@@ -4659,8 +4674,11 @@ De nuevo erick y juan haciendo esta parte
         limpiar();
         limpiarCurriculum();
         jTabbedPane1.setSelectedIndex(0);
-        llenarComboBoxPuestosDisponibles();    
+        llenarComboBoxPuestosDisponibles();
+        jButton35.setEnabled(true);
+        jButton35.setVisible(true);
         }
+        
     }//GEN-LAST:event_jButton59ActionPerformed
 
     private void jButton63ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton63ActionPerformed
