@@ -3099,26 +3099,34 @@ public class VistaSu extends javax.swing.JFrame {
       }
     }
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-           Integer ci = Integer.parseInt(jTextField6.getText());
-           int claveFuncionario = buscarIDFuncionario(ci);
-           try{
-            desocuparPuestoTrabajo();    
-           Connection  conexion = new Conexion().getConexion();
+            //Integer ci = Integer.parseInt(jTextField6.getText());
+           String txtci=jTextField6.getText().trim();
+           if(!txtci.isEmpty()){
+               int ci=Integer.parseInt(txtci);
+               int claveFuncionario = buscarIDFuncionario(ci);
+               try{
+               desocuparPuestoTrabajo();    
+               Connection  conexion = new Conexion().getConexion();
            
-           psSU = conexion.prepareStatement("delete from cuenta where IDFUNCIONARIO="+claveFuncionario);
+               psSU = conexion.prepareStatement("delete from cuenta where IDFUNCIONARIO="+claveFuncionario);
           
-           int res = psSU.executeUpdate();
-           if(res>0){
-           JOptionPane.showMessageDialog(null, "funcionario eliminado");
-           limpiar();
+               int res = psSU.executeUpdate();
+               if(res>0){
+                    JOptionPane.showMessageDialog(null, "funcionario eliminado");
+                    limpiar();
+               }else{
+                    JOptionPane.showMessageDialog(null, "error al eliminar el funcionario");
+                    limpiar();
+               }
+                conexion.close();    
+               }catch(Exception ex){
+                    System.err.println("Error, "+ex);
+               }
            }else{
-           JOptionPane.showMessageDialog(null, "error al eliminar el funcionario");
-           limpiar();
+                JOptionPane.showMessageDialog(null, "error al eliminar el funcionario");
+                limpiar();
            }
-           conexion.close();    
-           }catch(Exception ex){
-           System.err.println("Error, "+ex);
-           }
+
     
     }//GEN-LAST:event_jButton4ActionPerformed
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
