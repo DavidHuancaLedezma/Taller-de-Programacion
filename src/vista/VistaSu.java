@@ -863,7 +863,7 @@ public class VistaSu extends javax.swing.JFrame {
 
         jPanel5.add(jScrollPane10, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 160, 340, -1));
 
-        jButton85.setText("actulizar objetivo");
+        jButton85.setText("actualizar objetivo");
         jButton85.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton85ActionPerformed(evt);
