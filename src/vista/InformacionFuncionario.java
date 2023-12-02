@@ -41,6 +41,7 @@ public class InformacionFuncionario extends javax.swing.JFrame {
     private DefaultComboBoxModel modelo;
     private DefaultComboBoxModel modelo2;
     private boolean existeProcedimiento = false;
+    private int n = 1;
     public InformacionFuncionario(String usuario,String contraseña) {
         setUndecorated(true);
         this.usuario = usuario;
@@ -936,8 +937,8 @@ public class InformacionFuncionario extends javax.swing.JFrame {
     }//GEN-LAST:event_jLabel13MouseExited
     
     private void jLabel13MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel13MouseClicked
-        jTabbedPane1.setSelectedIndex(5);
-        cargarNiveles();
+        
+       if(n==1){ cargarNiveles();
         int nivel = Integer.parseInt(jComboBox1.getSelectedItem().toString());
         jTextArea4.setText("Departamentos del nivel: " +nivel +" \n");
         listaDepartamentosNivel();
@@ -947,7 +948,9 @@ public class InformacionFuncionario extends javax.swing.JFrame {
         llenarPuestos();
         jTextArea4.setEditable(false);
         jComboBox1.removeItem("1");
-        
+        n++;
+       }
+        jTabbedPane1.setSelectedIndex(5);
     }//GEN-LAST:event_jLabel13MouseClicked
     private void cargarNiveles(){
       try{
