@@ -3199,7 +3199,8 @@ public class VistaSu extends javax.swing.JFrame {
         }
     }
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
-        // TODO add your handling code here:
+                                               
+    
         try {
             // Establecer una conexión a la base de datos
              Connection conexion = new Conexion().getConexion();
@@ -3209,7 +3210,19 @@ public class VistaSu extends javax.swing.JFrame {
             
             // Obtener el objeto Puesto seleccionado del JComboBox
             Puesto p = (Puesto)jComboBox1.getSelectedItem();
-            // Establecer los parámetros en la sentencia SQL utilizando los valores de los campos de la interfaz gráfica
+            if(p!= null){
+                // Establecer los parámetros en la sentencia SQL utilizando los valores de los campos de la interfaz gráfica
+                String ciText = jTextField6.getText();
+                String nombreFuncionarioText = jTextField2.getText();
+                String telefonoText = jTextField4.getText();
+                String fechaNacimientoText = jTextField3.getText();
+                String idFuncionarioText = jTextField7.getText();
+            if (!ciText.isEmpty()) {
+                psSU.setInt(2, Integer.parseInt(ciText));
+            } else {
+                JOptionPane.showMessageDialog(null, "Error en la modificación,hay un campo vacío");
+                return;
+            }
             psSU.setInt(1,p.getIdPuesto());
             psSU.setInt(2,Integer.parseInt(jTextField6.getText()));
             psSU.setString(3,jTextField2.getText());
@@ -3219,15 +3232,20 @@ public class VistaSu extends javax.swing.JFrame {
             // Ejecutar la actualización en la base de datos
             int resultado = psSU.executeUpdate();
             // Mostrar un mensaje de éxito o error según el resultado de la actualización
-            if(resultado > 0 ){
-                JOptionPane.showMessageDialog(null,"Modificación realizada");
+                if(resultado > 0 ){
+                    JOptionPane.showMessageDialog(null,"Modificación realizada");
+                }else{
+                    JOptionPane.showMessageDialog(null,"Error en la modificación");
+                }
             }else{
-                JOptionPane.showMessageDialog(null,"Error en la modificación");
+                JOptionPane.showMessageDialog(null,"Error en la modificación, hay un campo vacio");
             }
+            
             conexion.close();
         }catch (Exception ex ){
           System.err.println("Error:" + ex);
         }
+    
     }//GEN-LAST:event_jButton6ActionPerformed
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
@@ -3693,6 +3711,7 @@ De nuevo erick y juan haciendo esta parte
     }//GEN-LAST:event_jComboBox7ActionPerformed
 
     private void jButton17ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton17ActionPerformed
+                                         
         // TODO add your handling code here:
          try {
              // conexcion con la base de datos
@@ -3702,7 +3721,14 @@ De nuevo erick y juan haciendo esta parte
              //Estableser los nuevos valores de los parametros en la consulta SQL
              psSU.setString(1,jTextField11.getText());// Nuevo nombre del departamento
              psSU.setInt(2,jComboBox5.getSelectedIndex());// Nuevo ID del departamento superior seleccionado en el JComboBox
-             psSU.setInt(3,Integer.parseInt(jTextField22.getText()));// Nuevo nivel del departamento
+            // psSU.setInt(3,Integer.parseInt(jTextField22.getText()));// Nuevo nivel del departamento
+            String nivelText = jTextField22.getText();
+            if (!nivelText.isEmpty()) {
+                 psSU.setInt(3, Integer.parseInt(nivelText)); // Nuevo nivel del departamento
+            } else {
+                JOptionPane.showMessageDialog(null, "Error en la modificación, campos vacíos");
+                return;
+            }
              psSU.setString(4,jTextField12.getText());// ID del departamento a actualizar
              
             // Ejecutar la consulta de actualización y obtener el resultado
@@ -3719,9 +3745,11 @@ De nuevo erick y juan haciendo esta parte
         }catch (Exception ex ){
           System.err.println("Error:" + ex);
         }
+    
     }//GEN-LAST:event_jButton17ActionPerformed
 
     private void jButton20ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton20ActionPerformed
+                                              
         // TODO add your handling code here:
         try {
            // establece una conecion a la BD
@@ -3741,12 +3769,14 @@ De nuevo erick y juan haciendo esta parte
          //limpiarDepartamento();
          // Mostrar un mensaje de actualización exitosa
          JOptionPane.showMessageDialog(null, "Base de datos actualizada", "Actualizacion", JOptionPane.INFORMATION_MESSAGE);
+         limpiarDepartamento();
         // cerrar la conexion a la BD
          conexion.close();
     
         } catch (Exception ex) {
          System.err.println("Error al actualizar el JComboBox: " + ex);
         }
+    
     }//GEN-LAST:event_jButton20ActionPerformed
 
     private void jComboBox9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox9ActionPerformed
