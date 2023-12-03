@@ -470,4 +470,66 @@ public class Funcionario {
         }
         return id;
     }
+    
+    public ArrayList<Subordinados> getNombreEidSubordinados(){
+        ArrayList<Subordinados>res = new ArrayList<Subordinados>();
+        try{
+            Connection con = new Conexion().getConexion();
+            ps = con.prepareStatement("SELECT pt_subordinados.NOMBREPUESTO as nombrePuesto,pt_subordinados.IDPUESTO as id\n" +
+            "    FROM cuenta c,funcionario f,puestotrabajo pt,puestotrabajo pt_subordinados\n" +
+            "    WHERE c.IDFUNCIONARIO = f.IDFUNCIONARIO\n" +
+            "    AND f.IDPUESTO = pt.IDPUESTO\n" +
+            "    AND pt.IDPUESTO = pt_subordinados.PUE_IDPUESTO\n" +
+            "    AND c.usuario = ?\n" +
+            "    AND c.contrasena = ?");
+            ps.setString(1,usuario);
+            ps.setString(2,contraseña);
+            rs = ps.executeQuery();
+            while(rs.next()){
+                res.add(new Subordinados(rs.getString("nombrePuesto"),rs.getInt("id")));
+            }
+            con.close();
+        }catch(Exception ex){
+            System.err.println("Error:" + ex);
+        }
+        return res;
+    }
+    
+    
+    public ArrayList<String> FuncionGeneralSubordinados(int id){
+        ArrayList<String> res = new ArrayList<String>();
+        try{
+            Connection con = new Conexion().getConexion();
+            ps = con.prepareStatement("SELECT DATOFUNCIONGENERAL as datos FROM funciongeneral WHERE IDPUESTO = ?");
+            ps.setInt(1,id);
+            rs = ps.executeQuery();
+            while(rs.next()){
+                res.add(rs.getString("datos"));
+            }
+            con.close();
+        
+        }catch(Exception ex){
+            System.err.println("Error:" + ex);
+        }   
+        return res;
+    }
+   public ArrayList<String> FuncionesEspecificasSubordinados(int id){
+       ArrayList<String> res = new ArrayList<String>();
+        try{
+            Connection con = new Conexion().getConexion();
+            ps = con.prepareStatement("SELECT DESCRIPCIONFUNCION as datos FROM funcionespecifica WHERE IDPUESTO = ?");
+            ps.setInt(1,id);
+            rs = ps.executeQuery();
+            while(rs.next()){
+                res.add(rs.getString("datos"));
+            }
+            con.close();
+        
+        }catch(Exception ex){
+            System.err.println("Error:" + ex);
+        }   
+        return res;
+   }
+    
+    
 }

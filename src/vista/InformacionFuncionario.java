@@ -32,6 +32,7 @@ import modelo.DatosPuestoTrabajo;
 import modelo.Departamento;
 import modelo.Esfuerzo;
 import modelo.Funcionario;
+import modelo.Subordinados;
 
 /**
  *
@@ -70,7 +71,57 @@ public class InformacionFuncionario extends javax.swing.JFrame {
         visibilidadProcedimientos();
         obtenerIDdepartamentoDelFuncionario();
         funcionalidadesInvisibles();
+        FEyFGsubordinados();
     }
+    
+    
+    private void FEyFGsubordinados(){
+        ArrayList<Subordinados>contenido = new Funcionario(usuario,contraseña).getNombreEidSubordinados();
+        if(contenido.size()>0){
+            for(int i=0;i<contenido.size();i++){
+                jTextArea6.append("\n");
+                jTextArea6.append("Nombre del puesto.-" + contenido.get(i).getNombrePuesto() + "\n");
+                FuncionGeneralSubordinados(contenido.get(i).getIdPuesto());
+                FuncionEspecificasSubordinados(contenido.get(i).getIdPuesto());
+            }
+        }else{
+            jTextArea6.append(" - NO TIENE SUBORDINADOS");
+        }
+        jTextArea6.moveCaretPosition(0);
+    }
+    private void FuncionGeneralSubordinados(int id){
+        ArrayList<String>contenido = new Funcionario().FuncionGeneralSubordinados(id);
+        jTextArea6.append("FUNCION GENERAL\n");
+        jTextArea6.append("\n");
+        if(contenido.size()>0){
+            for(int i=0;i<contenido.size();i++){
+                jTextArea6.append(" - " + contenido.get(i) + "\n");
+            }
+        }else{
+            jTextArea6.append(" - " + "Ninguno!\n");
+        }
+    }
+    
+    private void FuncionEspecificasSubordinados(int id){
+        ArrayList<String>contenido = new Funcionario().FuncionesEspecificasSubordinados(id);
+        jTextArea6.append("\n FUNCIONES ESPECIFICAS\n");
+        jTextArea6.append("\n");
+        if(contenido.size()>0){
+            for(int i=0;i<contenido.size();i++){
+                jTextArea6.append(" - " + contenido.get(i) + "\n");
+            }
+        }else{
+            jTextArea6.append(" - " + "Ninguno!\n");
+        }
+    }
+    
+    
+    
+    
+    
+    
+    
+    
     private void obtenerIDdepartamentoDelFuncionario(){
         //ID departamento
         idDepartamento = new Funcionario(usuario,contraseña).getIdDepartamentoDelFuncionario();
@@ -145,6 +196,8 @@ public class InformacionFuncionario extends javax.swing.JFrame {
         jLabel16.setOpaque(true);
         jLabel17.setOpaque(true);
         jLabel13.setOpaque(true);
+        Buscar_Organigrama.setOpaque(true);
+        jLabel33.setOpaque(true);
     }
     public int esJefe(){
         int estado=0;
@@ -423,6 +476,8 @@ public class InformacionFuncionario extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         jTextArea1 = new javax.swing.JTextArea();
         jLabel25 = new javax.swing.JLabel();
+        jLabel34 = new javax.swing.JLabel();
+        jButton4 = new javax.swing.JButton();
         jPanel5 = new javax.swing.JPanel();
         jLabel31 = new javax.swing.JLabel();
         jSeparator3 = new javax.swing.JSeparator();
@@ -459,6 +514,12 @@ public class InformacionFuncionario extends javax.swing.JFrame {
         Foto = new javax.swing.JLabel();
         txt_nombreImagen = new javax.swing.JTextField();
         jLabel38 = new javax.swing.JLabel();
+        jPanel14 = new javax.swing.JPanel();
+        jLabel37 = new javax.swing.JLabel();
+        jSeparator6 = new javax.swing.JSeparator();
+        jScrollPane6 = new javax.swing.JScrollPane();
+        jTextArea6 = new javax.swing.JTextArea();
+        jButton5 = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -624,9 +685,16 @@ public class InformacionFuncionario extends javax.swing.JFrame {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jLabel33MouseClicked(evt);
             }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jLabel33MouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                jLabel33MouseExited(evt);
+            }
         });
         jPanel2.add(jLabel33, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 370, 170, 40));
 
+        Buscar_Organigrama.setBackground(new java.awt.Color(0, 0, 0));
         Buscar_Organigrama.setForeground(new java.awt.Color(255, 255, 255));
         Buscar_Organigrama.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         Buscar_Organigrama.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Organigrama.png"))); // NOI18N
@@ -634,6 +702,12 @@ public class InformacionFuncionario extends javax.swing.JFrame {
         Buscar_Organigrama.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 Buscar_OrganigramaMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                Buscar_OrganigramaMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                Buscar_OrganigramaMouseExited(evt);
             }
         });
         jPanel2.add(Buscar_Organigrama, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 330, 170, 40));
@@ -728,6 +802,18 @@ public class InformacionFuncionario extends javax.swing.JFrame {
 
         jLabel25.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/icono_subordinadosPNG260x166.png"))); // NOI18N
         jPanel4.add(jLabel25, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 50, 260, 166));
+
+        jLabel34.setForeground(new java.awt.Color(255, 0, 0));
+        jLabel34.setText("*Acceder a funciones generales y especificas");
+        jPanel4.add(jLabel34, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 240, 260, -1));
+
+        jButton4.setText("Acceder");
+        jButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton4ActionPerformed(evt);
+            }
+        });
+        jPanel4.add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 260, -1, -1));
 
         jTabbedPane1.addTab("tab2", jPanel4);
 
@@ -999,6 +1085,35 @@ public class InformacionFuncionario extends javax.swing.JFrame {
 
         jTabbedPane1.addTab("tab9", jPanel13);
 
+        jPanel14.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel14.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel37.setFont(new java.awt.Font("Arial", 2, 14)); // NOI18N
+        jLabel37.setForeground(new java.awt.Color(51, 51, 255));
+        jLabel37.setText("ACCESO A DATOS DE SUBORDINADOS POR NIVEL");
+        jPanel14.add(jLabel37, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 0, 350, 30));
+
+        jSeparator6.setBackground(new java.awt.Color(51, 51, 255));
+        jPanel14.add(jSeparator6, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 30, 370, 10));
+
+        jTextArea6.setBackground(new java.awt.Color(255, 255, 255));
+        jTextArea6.setColumns(20);
+        jTextArea6.setFont(new java.awt.Font("Arial", 2, 12)); // NOI18N
+        jTextArea6.setRows(5);
+        jScrollPane6.setViewportView(jTextArea6);
+
+        jPanel14.add(jScrollPane6, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 40, 610, 260));
+
+        jButton5.setText("Regresar");
+        jButton5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton5ActionPerformed(evt);
+            }
+        });
+        jPanel14.add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 310, -1, -1));
+
+        jTabbedPane1.addTab("tab10", jPanel14);
+
         jPanel1.add(jTabbedPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 80, 630, 370));
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 800, 450));
 
@@ -1179,6 +1294,30 @@ public class InformacionFuncionario extends javax.swing.JFrame {
         BuscarImagen(idDepartamento);
         jTabbedPane1.setSelectedIndex(8);
     }//GEN-LAST:event_Buscar_OrganigramaMouseClicked
+
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+        jTabbedPane1.setSelectedIndex(9);
+    }//GEN-LAST:event_jButton4ActionPerformed
+
+    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+        jTabbedPane1.setSelectedIndex(1);
+    }//GEN-LAST:event_jButton5ActionPerformed
+
+    private void Buscar_OrganigramaMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Buscar_OrganigramaMouseEntered
+        Buscar_Organigrama.setBackground(new java.awt.Color(153,153,153));
+    }//GEN-LAST:event_Buscar_OrganigramaMouseEntered
+
+    private void Buscar_OrganigramaMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Buscar_OrganigramaMouseExited
+        Buscar_Organigrama.setBackground(new java.awt.Color(0,0,0));
+    }//GEN-LAST:event_Buscar_OrganigramaMouseExited
+
+    private void jLabel33MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel33MouseEntered
+        jLabel33.setBackground(new java.awt.Color(153,153,153));
+    }//GEN-LAST:event_jLabel33MouseEntered
+
+    private void jLabel33MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel33MouseExited
+        jLabel33.setBackground(new java.awt.Color(0,0,0));
+    }//GEN-LAST:event_jLabel33MouseExited
     public void BuscarImagen(int IdDepartamento){
             //casting
             int ID = IdDepartamento;
@@ -1377,6 +1516,8 @@ public class InformacionFuncionario extends javax.swing.JFrame {
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
+    private javax.swing.JButton jButton4;
+    private javax.swing.JButton jButton5;
     private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JComboBox<String> jComboBox2;
     private javax.swing.JComboBox<String> jComboBox3;
@@ -1407,8 +1548,10 @@ public class InformacionFuncionario extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel31;
     private javax.swing.JLabel jLabel32;
     private javax.swing.JLabel jLabel33;
+    private javax.swing.JLabel jLabel34;
     private javax.swing.JLabel jLabel35;
     private javax.swing.JLabel jLabel36;
+    private javax.swing.JLabel jLabel37;
     private javax.swing.JLabel jLabel38;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
@@ -1421,6 +1564,7 @@ public class InformacionFuncionario extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel11;
     private javax.swing.JPanel jPanel12;
     private javax.swing.JPanel jPanel13;
+    private javax.swing.JPanel jPanel14;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
@@ -1434,17 +1578,20 @@ public class InformacionFuncionario extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JScrollPane jScrollPane5;
+    private javax.swing.JScrollPane jScrollPane6;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator2;
     private javax.swing.JSeparator jSeparator3;
     private javax.swing.JSeparator jSeparator4;
     private javax.swing.JSeparator jSeparator5;
+    private javax.swing.JSeparator jSeparator6;
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JTextArea jTextArea1;
     private javax.swing.JTextArea jTextArea2;
     private javax.swing.JTextArea jTextArea3;
     private javax.swing.JTextArea jTextArea4;
     private javax.swing.JTextArea jTextArea5;
+    private javax.swing.JTextArea jTextArea6;
     private javax.swing.JTextField txt_nombreImagen;
     private javax.swing.JTextField txt_nombreImagenDiagrama;
     // End of variables declaration//GEN-END:variables

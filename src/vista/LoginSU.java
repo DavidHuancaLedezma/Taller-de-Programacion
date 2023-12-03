@@ -53,6 +53,8 @@ public class LoginSU extends javax.swing.JFrame {
         cajaUsuarioSU = new javax.swing.JTextField();
         jLabel9 = new javax.swing.JLabel();
         cajaContraseñaSU = new javax.swing.JPasswordField();
+        jSeparator1 = new javax.swing.JSeparator();
+        jSeparator2 = new javax.swing.JSeparator();
         jLabel1 = new javax.swing.JLabel();
 
         jScrollPane1.setViewportView(jEditorPane1);
@@ -144,6 +146,8 @@ public class LoginSU extends javax.swing.JFrame {
             }
         });
         jPanel1.add(cajaContraseñaSU, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 370, 170, -1));
+        jPanel1.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 390, 190, 10));
+        jPanel1.add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 360, 190, 10));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Copia de UNIVERSIDAD DE BAJA CALIFORNIA (1).jpg"))); // NOI18N
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 500, 500));
@@ -275,5 +279,7 @@ public class LoginSU extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JSeparator jSeparator1;
+    private javax.swing.JSeparator jSeparator2;
     // End of variables declaration//GEN-END:variables
 }
