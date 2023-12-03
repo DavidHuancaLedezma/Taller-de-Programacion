@@ -93,6 +93,7 @@ public class InformacionFuncionario extends javax.swing.JFrame {
             jTextArea6.append(" - NO TIENE SUBORDINADOS");
         }
         jTextArea6.moveCaretPosition(0);
+        jTextArea6.setEditable(false);
     }
     private void FuncionGeneralSubordinados(int id){
         ArrayList<String>contenido = new Funcionario().FuncionGeneralSubordinados(id);
