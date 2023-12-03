@@ -5297,7 +5297,7 @@ De nuevo erick y juan haciendo esta parte
         return;
       }
 
-      // Obtener el valor de la columna "idImagen" de la fila seleccionada
+      // Obtener el valor de la columna su ID
       int idModificacion = (int) jTable1.getValueAt(filaSeleccionada, 0);
 
       // abrir un JFileChooser y obtener la ruta de la nueva imagen
