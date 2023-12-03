@@ -3831,7 +3831,7 @@
                                               <Group type="102" alignment="0" attributes="0">
                                                   <Component id="Guardar_Imagen" min="-2" pref="127" max="-2" attributes="0"/>
                                                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                                  <Component id="Buscar_Imagen" min="-2" pref="127" max="-2" attributes="0"/>
+                                                  <Component id="Buscar_Imagen" min="-2" max="-2" attributes="0"/>
                                               </Group>
                                               <Group type="102" attributes="0">
                                                   <Component id="jButton93" min="-2" pref="166" max="-2" attributes="0"/>
@@ -3848,20 +3848,19 @@
                                       <Component id="Foto" alignment="1" min="-2" pref="300" max="-2" attributes="0"/>
                                       <Component id="jLabel64" alignment="1" min="-2" max="-2" attributes="0"/>
                                   </Group>
-                                  <EmptySpace min="-2" pref="33" max="-2" attributes="0"/>
                               </Group>
                               <Group type="102" attributes="0">
                                   <Group type="103" groupAlignment="0" attributes="0">
                                       <Component id="jLabel62" min="-2" max="-2" attributes="0"/>
                                       <Component id="jLabel40" alignment="0" min="-2" max="-2" attributes="0"/>
                                   </Group>
-                                  <EmptySpace min="-2" pref="29" max="-2" attributes="0"/>
+                                  <EmptySpace max="32767" attributes="0"/>
                                   <Component id="jLabel63" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace max="-2" attributes="0"/>
                                   <Component id="txt_nombreImagen" min="-2" pref="201" max="-2" attributes="0"/>
-                                  <EmptySpace max="32767" attributes="0"/>
                               </Group>
                           </Group>
+                          <EmptySpace min="-2" pref="33" max="-2" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -3922,7 +3921,7 @@
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="Dialog" size="24" style="1"/>
                     </Property>
-                    <Property name="text" type="java.lang.String" value="Guardar Imagen Deparatamento"/>
+                    <Property name="text" type="java.lang.String" value="Organigrama del Deparatamento"/>
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JLabel" name="jLabel63">
@@ -4015,7 +4014,7 @@
                 </Component>
                 <Component class="javax.swing.JButton" name="Buscar_Imagen">
                   <Properties>
-                    <Property name="text" type="java.lang.String" value="Buscar Imagen"/>
+                    <Property name="text" type="java.lang.String" value="Buscar Organigrama"/>
                   </Properties>
                   <Events>
                     <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="Buscar_ImagenActionPerformed"/>
@@ -4023,7 +4022,7 @@
                 </Component>
                 <Component class="javax.swing.JButton" name="jButton93">
                   <Properties>
-                    <Property name="text" type="java.lang.String" value="Mostrar Tabla de Imagenes"/>
+                    <Property name="text" type="java.lang.String" value="Mostrar Tabla "/>
                   </Properties>
                   <Events>
                     <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton93ActionPerformed"/>
@@ -4031,7 +4030,7 @@
                 </Component>
                 <Component class="javax.swing.JButton" name="jButton94">
                   <Properties>
-                    <Property name="text" type="java.lang.String" value="Modificar Imagen"/>
+                    <Property name="text" type="java.lang.String" value="Modificar Organigrama"/>
                   </Properties>
                   <Events>
                     <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton94ActionPerformed"/>
@@ -4044,7 +4043,7 @@
                 </Component>
                 <Component class="javax.swing.JButton" name="jButton_eliminarImagen">
                   <Properties>
-                    <Property name="text" type="java.lang.String" value="Eliminar Imagen"/>
+                    <Property name="text" type="java.lang.String" value="Eliminar Organigrama"/>
                   </Properties>
                   <Events>
                     <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton_eliminarImagenActionPerformed"/>
@@ -4312,30 +4311,37 @@
                               <Component id="jLabel73" alignment="0" min="-2" max="-2" attributes="0"/>
                               <Group type="102" attributes="0">
                                   <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="guardar_Diagrama" min="-2" max="-2" attributes="0"/>
                                       <Group type="102" attributes="0">
-                                          <EmptySpace max="-2" attributes="0"/>
                                           <Group type="103" groupAlignment="0" attributes="0">
-                                              <Component id="jScrollPane13" alignment="0" min="-2" max="-2" attributes="0"/>
-                                              <Group type="102" alignment="0" attributes="0">
+                                              <Component id="guardar_Diagrama" min="-2" max="-2" attributes="0"/>
+                                              <Group type="102" attributes="0">
+                                                  <EmptySpace max="-2" attributes="0"/>
                                                   <Component id="Tabla_procedimiento" min="-2" max="-2" attributes="0"/>
                                                   <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
-                                                  <Component id="jButton101" min="-2" max="-2" attributes="0"/>
+                                                  <Component id="Mod_Diagrama" min="-2" max="-2" attributes="0"/>
                                                   <EmptySpace type="separate" max="-2" attributes="0"/>
                                                   <Component id="Eliminar_Diagrama" min="-2" max="-2" attributes="0"/>
                                               </Group>
                                           </Group>
+                                          <EmptySpace min="-2" pref="5" max="-2" attributes="0"/>
                                       </Group>
+                                      <Component id="jScrollPane13" alignment="1" min="-2" max="-2" attributes="0"/>
                                   </Group>
-                                  <EmptySpace min="-2" pref="19" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="0" attributes="0">
                                       <Group type="102" attributes="0">
+                                          <EmptySpace min="-2" pref="19" max="-2" attributes="0"/>
+                                          <Component id="jLabel70" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                      <Group type="102" alignment="0" attributes="0">
+                                          <EmptySpace min="-2" pref="7" max="-2" attributes="0"/>
                                           <Component id="jLabel74" min="-2" max="-2" attributes="0"/>
                                           <EmptySpace max="-2" attributes="0"/>
                                           <Component id="txt_nombreImagenDiagrama" min="-2" pref="201" max="-2" attributes="0"/>
                                       </Group>
-                                      <Component id="jLabel70" alignment="0" min="-2" max="-2" attributes="0"/>
-                                      <Component id="Foto_Procedimiento" min="-2" pref="300" max="-2" attributes="0"/>
+                                      <Group type="102" alignment="0" attributes="0">
+                                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                                          <Component id="Foto_Procedimiento" min="-2" pref="301" max="-2" attributes="0"/>
+                                      </Group>
                                   </Group>
                               </Group>
                               <Group type="102" attributes="0">
@@ -4351,12 +4357,12 @@
                                       <Group type="102" alignment="0" attributes="0">
                                           <Component id="jLabel72" min="-2" max="-2" attributes="0"/>
                                           <EmptySpace max="-2" attributes="0"/>
-                                          <Component id="jComboBox27" min="-2" pref="419" max="-2" attributes="0"/>
+                                          <Component id="jComboBox27" min="-2" pref="511" max="-2" attributes="0"/>
                                       </Group>
                                   </Group>
                               </Group>
                           </Group>
-                          <EmptySpace pref="9" max="32767" attributes="0"/>
+                          <EmptySpace pref="7" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -4370,37 +4376,33 @@
                               <Component id="jComboBox26" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="Buscar_Diagrama" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
+                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="jLabel72" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="jComboBox27" alignment="3" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="guardar_Diagrama" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="jLabel74" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="txt_nombreImagenDiagrama" alignment="3" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace min="-2" pref="6" max="-2" attributes="0"/>
+                          <Component id="jLabel70" min="-2" pref="29" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="102" attributes="0">
-                                  <EmptySpace min="-2" pref="72" max="-2" attributes="0"/>
-                                  <Group type="103" groupAlignment="3" attributes="0">
-                                      <Component id="jLabel74" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      <Component id="txt_nombreImagenDiagrama" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  </Group>
-                                  <EmptySpace max="-2" attributes="0"/>
-                                  <Component id="jLabel70" min="-2" pref="29" max="-2" attributes="0"/>
-                                  <EmptySpace max="-2" attributes="0"/>
-                                  <Component id="Foto_Procedimiento" min="-2" pref="238" max="-2" attributes="0"/>
-                              </Group>
-                              <Group type="102" attributes="0">
-                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                  <Group type="103" groupAlignment="3" attributes="0">
-                                      <Component id="jLabel72" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      <Component id="jComboBox27" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  </Group>
-                                  <EmptySpace max="-2" attributes="0"/>
-                                  <Component id="guardar_Diagrama" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace min="-2" pref="79" max="-2" attributes="0"/>
-                                  <Component id="jScrollPane13" min="-2" pref="87" max="-2" attributes="0"/>
-                                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                                  <Component id="jScrollPane13" min="-2" pref="116" max="-2" attributes="0"/>
+                                  <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="3" attributes="0">
                                       <Component id="Tabla_procedimiento" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      <Component id="jButton101" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="Mod_Diagrama" alignment="3" min="-2" max="-2" attributes="0"/>
                                       <Component id="Eliminar_Diagrama" alignment="3" min="-2" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
+                              <Component id="Foto_Procedimiento" min="-2" pref="241" max="-2" attributes="0"/>
                           </Group>
-                          <EmptySpace max="32767" attributes="0"/>
+                          <EmptySpace pref="14" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -4411,7 +4413,7 @@
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="Dialog" size="18" style="1"/>
                     </Property>
-                    <Property name="text" type="java.lang.String" value="Guardar Diagrama de Flujo"/>
+                    <Property name="text" type="java.lang.String" value="Diagrama de Flujo de Procedimientos"/>
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JLabel" name="jLabel74">
@@ -4419,7 +4421,7 @@
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="Dialog" size="14" style="1"/>
                     </Property>
-                    <Property name="text" type="java.lang.String" value="Nombre Imagen:"/>
+                    <Property name="text" type="java.lang.String" value="Nombre Diagrama:"/>
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JTextField" name="txt_nombreImagenDiagrama">
@@ -4463,7 +4465,7 @@
                     <Component class="javax.swing.JTable" name="jTable2">
                       <Properties>
                         <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
-                          <Table columnCount="4" rowCount="4">
+                          <Table columnCount="4" rowCount="6">
                             <Column editable="true" title="Title 1" type="java.lang.Object"/>
                             <Column editable="true" title="Title 2" type="java.lang.Object"/>
                             <Column editable="true" title="Title 3" type="java.lang.Object"/>
@@ -4562,12 +4564,12 @@
                     <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="Buscar_DiagramaActionPerformed"/>
                   </Events>
                 </Component>
-                <Component class="javax.swing.JButton" name="jButton101">
+                <Component class="javax.swing.JButton" name="Mod_Diagrama">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="Moficar Diagrama"/>
                   </Properties>
                   <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton101ActionPerformed"/>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="Mod_DiagramaActionPerformed"/>
                   </Events>
                 </Component>
                 <Component class="javax.swing.JButton" name="Eliminar_Diagrama">

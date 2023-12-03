@@ -30,6 +30,7 @@ import modelo.*;
 import manualProcedimiento.InterventorSU;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.nio.file.Files;
 import java.sql.Blob;
 import javax.swing.JLabel;
 import javax.swing.JTable;
@@ -577,7 +578,7 @@ public class VistaSu extends javax.swing.JFrame {
         jLabel72 = new javax.swing.JLabel();
         Tabla_procedimiento = new javax.swing.JButton();
         Buscar_Diagrama = new javax.swing.JButton();
-        jButton101 = new javax.swing.JButton();
+        Mod_Diagrama = new javax.swing.JButton();
         Eliminar_Diagrama = new javax.swing.JButton();
         jLabel6 = new javax.swing.JLabel();
         ImagenFondo = new javax.swing.JLabel();
@@ -2557,7 +2558,7 @@ public class VistaSu extends javax.swing.JFrame {
         jTabbedPane1.addTab("tab9", jPanel12);
 
         jLabel62.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
-        jLabel62.setText("Guardar Imagen Deparatamento");
+        jLabel62.setText("Organigrama del Deparatamento");
 
         jLabel63.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jLabel63.setText("Nombre Imagen:");
@@ -2601,21 +2602,21 @@ public class VistaSu extends javax.swing.JFrame {
             }
         });
 
-        Buscar_Imagen.setText("Buscar Imagen");
+        Buscar_Imagen.setText("Buscar Organigrama");
         Buscar_Imagen.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 Buscar_ImagenActionPerformed(evt);
             }
         });
 
-        jButton93.setText("Mostrar Tabla de Imagenes");
+        jButton93.setText("Mostrar Tabla ");
         jButton93.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton93ActionPerformed(evt);
             }
         });
 
-        jButton94.setText("Modificar Imagen");
+        jButton94.setText("Modificar Organigrama");
         jButton94.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton94ActionPerformed(evt);
@@ -2628,7 +2629,7 @@ public class VistaSu extends javax.swing.JFrame {
             }
         });
 
-        jButton_eliminarImagen.setText("Eliminar Imagen");
+        jButton_eliminarImagen.setText("Eliminar Organigrama");
         jButton_eliminarImagen.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton_eliminarImagenActionPerformed(evt);
@@ -2660,7 +2661,7 @@ public class VistaSu extends javax.swing.JFrame {
                                     .addGroup(jPanel3Layout.createSequentialGroup()
                                         .addComponent(Guardar_Imagen, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(Buscar_Imagen, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addComponent(Buscar_Imagen))
                                     .addGroup(jPanel3Layout.createSequentialGroup()
                                         .addComponent(jButton93, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -2670,17 +2671,16 @@ public class VistaSu extends javax.swing.JFrame {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 28, Short.MAX_VALUE)))
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(Foto, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel64, javax.swing.GroupLayout.Alignment.TRAILING))
-                        .addGap(33, 33, 33))
+                            .addComponent(jLabel64, javax.swing.GroupLayout.Alignment.TRAILING)))
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel62)
                             .addComponent(jLabel40))
-                        .addGap(29, 29, 29)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jLabel63)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txt_nombreImagen, javax.swing.GroupLayout.PREFERRED_SIZE, 201, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                        .addComponent(txt_nombreImagen, javax.swing.GroupLayout.PREFERRED_SIZE, 201, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(33, 33, 33))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -2865,10 +2865,10 @@ public class VistaSu extends javax.swing.JFrame {
         jTabbedPane1.addTab("tab16", jPanel18);
 
         jLabel73.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
-        jLabel73.setText("Guardar Diagrama de Flujo");
+        jLabel73.setText("Diagrama de Flujo de Procedimientos");
 
         jLabel74.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        jLabel74.setText("Nombre Imagen:");
+        jLabel74.setText("Nombre Diagrama:");
 
         txt_nombreImagenDiagrama.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -2892,6 +2892,8 @@ public class VistaSu extends javax.swing.JFrame {
 
         jTable2.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
                 {null, null, null, null},
                 {null, null, null, null},
                 {null, null, null, null},
@@ -2947,10 +2949,10 @@ public class VistaSu extends javax.swing.JFrame {
             }
         });
 
-        jButton101.setText("Moficar Diagrama");
-        jButton101.addActionListener(new java.awt.event.ActionListener() {
+        Mod_Diagrama.setText("Moficar Diagrama");
+        Mod_Diagrama.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton101ActionPerformed(evt);
+                Mod_DiagramaActionPerformed(evt);
             }
         });
 
@@ -2970,25 +2972,30 @@ public class VistaSu extends javax.swing.JFrame {
                     .addComponent(jLabel73)
                     .addGroup(jPanel20Layout.createSequentialGroup()
                         .addGroup(jPanel20Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(guardar_Diagrama)
                             .addGroup(jPanel20Layout.createSequentialGroup()
-                                .addContainerGap()
                                 .addGroup(jPanel20Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jScrollPane13, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(guardar_Diagrama)
                                     .addGroup(jPanel20Layout.createSequentialGroup()
+                                        .addContainerGap()
                                         .addComponent(Tabla_procedimiento)
                                         .addGap(26, 26, 26)
-                                        .addComponent(jButton101)
+                                        .addComponent(Mod_Diagrama)
                                         .addGap(18, 18, 18)
-                                        .addComponent(Eliminar_Diagrama)))))
-                        .addGap(19, 19, 19)
+                                        .addComponent(Eliminar_Diagrama)))
+                                .addGap(5, 5, 5))
+                            .addComponent(jScrollPane13, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGroup(jPanel20Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel20Layout.createSequentialGroup()
+                                .addGap(19, 19, 19)
+                                .addComponent(jLabel70))
+                            .addGroup(jPanel20Layout.createSequentialGroup()
+                                .addGap(7, 7, 7)
                                 .addComponent(jLabel74)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(txt_nombreImagenDiagrama, javax.swing.GroupLayout.PREFERRED_SIZE, 201, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(jLabel70)
-                            .addComponent(Foto_Procedimiento, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(jPanel20Layout.createSequentialGroup()
+                                .addGap(18, 18, 18)
+                                .addComponent(Foto_Procedimiento, javax.swing.GroupLayout.PREFERRED_SIZE, 301, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addGroup(jPanel20Layout.createSequentialGroup()
                         .addContainerGap()
                         .addGroup(jPanel20Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -3001,8 +3008,8 @@ public class VistaSu extends javax.swing.JFrame {
                             .addGroup(jPanel20Layout.createSequentialGroup()
                                 .addComponent(jLabel72)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jComboBox27, javax.swing.GroupLayout.PREFERRED_SIZE, 419, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                .addContainerGap(9, Short.MAX_VALUE))
+                                .addComponent(jComboBox27, javax.swing.GroupLayout.PREFERRED_SIZE, 511, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                .addContainerGap(7, Short.MAX_VALUE))
         );
         jPanel20Layout.setVerticalGroup(
             jPanel20Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -3013,31 +3020,28 @@ public class VistaSu extends javax.swing.JFrame {
                     .addComponent(jLabel71)
                     .addComponent(jComboBox26, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(Buscar_Diagrama))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel20Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel72)
+                    .addComponent(jComboBox27, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel20Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(guardar_Diagrama)
+                    .addComponent(jLabel74)
+                    .addComponent(txt_nombreImagenDiagrama, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(6, 6, 6)
+                .addComponent(jLabel70, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel20Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel20Layout.createSequentialGroup()
-                        .addGap(72, 72, 72)
-                        .addGroup(jPanel20Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel74)
-                            .addComponent(txt_nombreImagenDiagrama, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel70, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(Foto_Procedimiento, javax.swing.GroupLayout.PREFERRED_SIZE, 238, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel20Layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(jPanel20Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel72)
-                            .addComponent(jComboBox27, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(guardar_Diagrama)
-                        .addGap(79, 79, 79)
-                        .addComponent(jScrollPane13, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
+                        .addComponent(jScrollPane13, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(27, 27, 27)
                         .addGroup(jPanel20Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(Tabla_procedimiento)
-                            .addComponent(jButton101)
-                            .addComponent(Eliminar_Diagrama))))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addComponent(Mod_Diagrama)
+                            .addComponent(Eliminar_Diagrama)))
+                    .addComponent(Foto_Procedimiento, javax.swing.GroupLayout.PREFERRED_SIZE, 241, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(14, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("tab17", jPanel20);
@@ -5285,22 +5289,22 @@ De nuevo erick y juan haciendo esta parte
     }//GEN-LAST:event_jButton93ActionPerformed
 
     private void jButton94ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton94ActionPerformed
-    // Verificar si hay una fila seleccionada en la tabla
-    int filaSeleccionada = jTable1.getSelectedRow();
+      // Verificar si hay una fila seleccionada en la tabla
+      int filaSeleccionada = jTable1.getSelectedRow();
     
-    if (filaSeleccionada == -1) {
+      if (filaSeleccionada == -1) {
         JOptionPane.showMessageDialog(null, "Seleccione una fila en la tabla para modificar.", "Error", JOptionPane.ERROR_MESSAGE);
         return;
-    }
+      }
 
-    // Obtener el valor de la columna "idImagen" de la fila seleccionada
-    int idModificacion = (int) jTable1.getValueAt(filaSeleccionada, 0);
+      // Obtener el valor de la columna "idImagen" de la fila seleccionada
+      int idModificacion = (int) jTable1.getValueAt(filaSeleccionada, 0);
 
-    // abrir un JFileChooser y obtener la ruta de la nueva imagen
-    JFileChooser fileChooser = new JFileChooser();
-    int seleccion = fileChooser.showOpenDialog(null);
-    
-    if (seleccion == JFileChooser.APPROVE_OPTION) {
+      // abrir un JFileChooser y obtener la ruta de la nueva imagen
+      JFileChooser fileChooser = new JFileChooser();
+      int seleccion = fileChooser.showOpenDialog(null);
+     
+      if (seleccion == JFileChooser.APPROVE_OPTION) {
         // Obtener la ruta de la nueva imagen
         String nuevaRutaImagen = fileChooser.getSelectedFile().getAbsolutePath();
         
@@ -5322,7 +5326,7 @@ De nuevo erick y juan haciendo esta parte
             // El usuario no ingresó un nuevo nombre o no seleccionó un departamento
             JOptionPane.showMessageDialog(null, "Debe ingresar un nuevo nombre y seleccionar un departamento.", "Error", JOptionPane.ERROR_MESSAGE);
         }
-    }
+      }
     }//GEN-LAST:event_jButton94ActionPerformed
 
     public void modificarDatosEImagen(int idModificacion, String nuevoNombre, String nuevaRutaImagen, int nuevoDepartamento) {
@@ -5576,6 +5580,7 @@ De nuevo erick y juan haciendo esta parte
 
             // Llama a un método para obtener la información de la imagen según el id
             mostrarImagenTablaDiagrama(idSeleccionado);
+            txt_nombreImagenDiagrama.setText("");
         }
     }//GEN-LAST:event_jTable2MouseClicked
 
@@ -5584,10 +5589,81 @@ De nuevo erick y juan haciendo esta parte
         BuscarDiagrama();
     }//GEN-LAST:event_Buscar_DiagramaActionPerformed
 
-    private void jButton101ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton101ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton101ActionPerformed
+    private void Mod_DiagramaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Mod_DiagramaActionPerformed
+        // Verificar si hay una fila seleccionada en la tabla
+      int filaSeleccionada = jTable2.getSelectedRow();
+    
+      if (filaSeleccionada == -1) {
+        JOptionPane.showMessageDialog(null, "Seleccione una fila en la tabla para modificar.", "Error", JOptionPane.ERROR_MESSAGE);
+        return;
+      }
 
+      // Obtener el valor de la columna "idImagen" de la fila seleccionada
+      int idModificacion = (int) jTable2.getValueAt(filaSeleccionada, 0);
+
+      // abrir un JFileChooser y obtener la ruta de la nueva imagen
+      JFileChooser fileChooser = new JFileChooser();
+      int seleccion = fileChooser.showOpenDialog(null);
+     
+      if (seleccion == JFileChooser.APPROVE_OPTION) {
+        // Obtener la ruta de la nueva imagen
+        String nuevaRutaImagen = fileChooser.getSelectedFile().getAbsolutePath();
+        
+        // Solicitar al usuario que ingrese el nuevo nombre
+        String nuevoNombre = JOptionPane.showInputDialog("Ingrese el nuevo nombre:");
+        
+        // Obtener el departamento seleccionado del JComboBox
+        Object procedimiento = jComboBox27.getSelectedItem();
+        Object departamento = jComboBox26.getSelectedItem();
+        if (procedimiento != null && procedimiento instanceof Procedimiento && 
+            nuevoNombre != null && !nuevoNombre.trim().isEmpty() && departamento != null && departamento instanceof Departamento) {
+            // Si el usuario ingresó un nuevo nombre y seleccionó un departamento, continuar con la modificación
+    
+            
+            // Llama al nuevo método para modificar datos e imagen
+            modificarDatosEImagenDiagrama(idModificacion, nuevoNombre, nuevaRutaImagen, (Procedimiento) procedimiento);
+        } else {
+            // El usuario no ingresó un nuevo nombre o no seleccionó un departamento
+            JOptionPane.showMessageDialog(null, "Debe ingresar un nuevo nombre y seleccionar un departamento , con su procedimiento.", "Error", JOptionPane.ERROR_MESSAGE);
+        }
+      }
+    }//GEN-LAST:event_Mod_DiagramaActionPerformed
+    
+    public void modificarDatosEImagenDiagrama(int idModificacion, String nuevoNombre, String nuevaRutaImagen, Procedimiento procedimiento) {
+        try {
+          Connection conexion = new Conexion().getConexion();
+
+          // Obtener el contenido binario de la nueva imagen
+          File file = new File(nuevaRutaImagen);
+          int longitudBytes = (int) file.length();
+          FileInputStream fis = new FileInputStream(file);
+
+        
+          String consulta = "UPDATE imagenprocedimiento SET nomImagen = ?, imagen = ?, IDPROCIMIENTO = ? WHERE idImagen = ?";
+          PreparedStatement psModificar = conexion.prepareStatement(consulta);
+          psModificar.setString(1, nuevoNombre);
+          psModificar.setBinaryStream(2, fis, longitudBytes);
+          psModificar.setInt(3, procedimiento.getIdProcedimiento());
+          psModificar.setInt(4, idModificacion);
+
+          int filasAfectadas = psModificar.executeUpdate();
+
+         if (filasAfectadas > 0) {
+            System.out.println("Registro modificado correctamente");
+         } else {
+            System.out.println("No se pudo modificar el registro");
+         }
+
+         // Cierra el FileInputStream y la conexión
+         fis.close();
+         psModificar.close();
+         conexion.close();
+        } catch (Exception e) {
+          e.printStackTrace();
+          System.out.println("Error al modificar los datos e imagen: " + e.getMessage());
+        } 
+    }
+    
     private void Eliminar_DiagramaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Eliminar_DiagramaActionPerformed
         // TODO add your handling code here:
           int filaSeleccionada = jTable2.getSelectedRow();
@@ -6993,6 +7069,7 @@ De nuevo erick y juan haciendo esta parte
     private javax.swing.JLabel Foto_Procedimiento;
     private javax.swing.JButton Guardar_Imagen;
     private javax.swing.JLabel ImagenFondo;
+    private javax.swing.JButton Mod_Diagrama;
     private javax.swing.JButton Tabla_procedimiento;
     private javax.swing.JButton btnAnt;
     private javax.swing.JButton btnBuscarN;
@@ -7004,7 +7081,6 @@ De nuevo erick y juan haciendo esta parte
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton10;
     private javax.swing.JButton jButton100;
-    private javax.swing.JButton jButton101;
     private javax.swing.JButton jButton11;
     private javax.swing.JButton jButton12;
     private javax.swing.JButton jButton13;
