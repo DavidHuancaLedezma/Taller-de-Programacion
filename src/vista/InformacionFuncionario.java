@@ -1347,7 +1347,6 @@ public class InformacionFuncionario extends javax.swing.JFrame {
     }//GEN-LAST:event_FotoMouseClicked
 
     private void Foto_ProcedimientoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Foto_ProcedimientoMouseClicked
-        // TODO add your handling code here:
         // Obtiene la imagen actual del JLabel
         ImageIcon icono = (ImageIcon) Foto_Procedimiento.getIcon();
         Image img = icono.getImage();
