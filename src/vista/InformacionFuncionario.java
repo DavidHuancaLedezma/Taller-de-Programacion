@@ -8,7 +8,9 @@ package vista;
 
 
 import java.awt.Color;
+import java.awt.Graphics2D;
 import java.awt.Image;
+import java.awt.RenderingHints;
 import java.awt.image.BufferedImage;
 import java.io.ByteArrayInputStream;
 import java.sql.Blob;
@@ -23,6 +25,8 @@ import javax.imageio.ImageIO;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.plaf.basic.BasicTabbedPaneUI;
 import manualProcedimiento.DatosProcedimientos;
@@ -52,6 +56,7 @@ public class InformacionFuncionario extends javax.swing.JFrame {
     private ArrayList<String>puestos;
     private DefaultComboBoxModel modelo;
     private DefaultComboBoxModel modelo2;
+    private BufferedImage imagenDepartamento;
     private boolean existeProcedimiento = false;
     private int n = 1;
     private int idDepartamento;
@@ -1007,6 +1012,11 @@ public class InformacionFuncionario extends javax.swing.JFrame {
         Foto_Procedimiento.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         Foto_Procedimiento.setText("DIAGRAMA");
         Foto_Procedimiento.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        Foto_Procedimiento.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                Foto_ProcedimientoMouseClicked(evt);
+            }
+        });
 
         jLabel36.setText("Nombre Diagrama:");
 
@@ -1055,6 +1065,11 @@ public class InformacionFuncionario extends javax.swing.JFrame {
         Foto.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         Foto.setText("ORGANIGRAMA");
         Foto.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        Foto.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                FotoMouseClicked(evt);
+            }
+        });
 
         jLabel38.setText("Nombre Organigrama:");
 
@@ -1320,6 +1335,69 @@ public class InformacionFuncionario extends javax.swing.JFrame {
     private void jLabel33MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel33MouseExited
         jLabel33.setBackground(new java.awt.Color(0,0,0));
     }//GEN-LAST:event_jLabel33MouseExited
+
+    private void FotoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_FotoMouseClicked
+       
+       // Obtiene la imagen actual del JLabel
+       ImageIcon icono = (ImageIcon) Foto.getIcon();
+       Image img = icono.getImage();
+
+       // Llama al método para mostrar la ventana ampliada
+       mostrarVentanaAmpliada(icono);
+    }//GEN-LAST:event_FotoMouseClicked
+
+    private void Foto_ProcedimientoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Foto_ProcedimientoMouseClicked
+        // TODO add your handling code here:
+        // Obtiene la imagen actual del JLabel
+        ImageIcon icono = (ImageIcon) Foto_Procedimiento.getIcon();
+        Image img = icono.getImage();
+
+        // Llama al método para mostrar la ventana ampliada
+        mostrarVentanaAmpliada(icono);
+    }//GEN-LAST:event_Foto_ProcedimientoMouseClicked
+    
+    private void mostrarVentanaAmpliada(ImageIcon imagenIcono) {
+        // Crea una nueva ventana (JFrame) para mostrar la imagen ampliada
+        JFrame ventanaAmpliada = new JFrame("Imagen Ampliada");
+        ventanaAmpliada.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+
+        // Escala la imagen al tamaño deseado con mejor calidad
+        int nuevoAncho = 500; 
+        int nuevoAlto = 700; 
+
+        Image imagenOriginal = imagenIcono.getImage();
+        BufferedImage imagenEscalada = escalarImagen(imagenOriginal, nuevoAncho, nuevoAlto);
+
+        // Crea un nuevo ImageIcon con la imagen escalada
+        ImageIcon imagenNueva = new ImageIcon(imagenEscalada);
+
+        // Crea un JLabel con la nueva imagen
+        JLabel fotoAmpliada = new JLabel(imagenNueva);
+
+        // Agrega el JLabel a la ventana ampliada
+        ventanaAmpliada.getContentPane().add(fotoAmpliada);
+
+        // Establece el tamaño de la ventana
+        ventanaAmpliada.setSize(nuevoAncho, nuevoAlto);
+
+        // Centra la ventana en la pantalla
+        ventanaAmpliada.setLocationRelativeTo(null);
+
+        // Muestra la ventana ampliada
+        ventanaAmpliada.setVisible(true);
+    }
+    
+    private BufferedImage escalarImagen(Image imagen, int ancho, int alto) {
+        BufferedImage bufferedImage = new BufferedImage(ancho, alto, BufferedImage.TYPE_INT_RGB);
+
+        Graphics2D g2d = bufferedImage.createGraphics();
+        g2d.setRenderingHint(RenderingHints.KEY_INTERPOLATION, RenderingHints.VALUE_INTERPOLATION_BICUBIC);
+        g2d.drawImage(imagen, 0, 0, ancho, alto, null);
+        g2d.dispose();
+
+        return bufferedImage;
+    }
+
     public void BuscarImagen(int IdDepartamento){
             //casting
             int ID = IdDepartamento;
