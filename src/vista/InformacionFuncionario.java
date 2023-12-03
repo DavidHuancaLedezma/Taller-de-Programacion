@@ -523,7 +523,7 @@ public class InformacionFuncionario extends javax.swing.JFrame {
                 jLabel13MouseExited(evt);
             }
         });
-        jPanel2.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(-20, 290, 170, 40));
+        jPanel2.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 290, 170, 40));
 
         jLabel7.setBackground(new java.awt.Color(0, 0, 0));
         jLabel7.setForeground(new java.awt.Color(255, 255, 255));
@@ -541,7 +541,7 @@ public class InformacionFuncionario extends javax.swing.JFrame {
                 jLabel7MouseExited(evt);
             }
         });
-        jPanel2.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(-10, 90, 170, 40));
+        jPanel2.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 90, 170, 40));
 
         jLabel8.setBackground(new java.awt.Color(0, 0, 0));
         jLabel8.setForeground(new java.awt.Color(255, 255, 255));
@@ -577,7 +577,7 @@ public class InformacionFuncionario extends javax.swing.JFrame {
                 jLabel15MouseExited(evt);
             }
         });
-        jPanel2.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(-10, 170, 170, 40));
+        jPanel2.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 170, 170, 40));
 
         jLabel16.setBackground(new java.awt.Color(0, 0, 0));
         jLabel16.setForeground(new java.awt.Color(255, 255, 255));
@@ -595,7 +595,7 @@ public class InformacionFuncionario extends javax.swing.JFrame {
                 jLabel16MouseExited(evt);
             }
         });
-        jPanel2.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(-10, 210, 170, 40));
+        jPanel2.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 210, 170, 40));
 
         jLabel17.setBackground(new java.awt.Color(0, 0, 0));
         jLabel17.setForeground(new java.awt.Color(255, 255, 255));
@@ -613,7 +613,7 @@ public class InformacionFuncionario extends javax.swing.JFrame {
                 jLabel17MouseExited(evt);
             }
         });
-        jPanel2.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(-10, 250, 170, 40));
+        jPanel2.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 250, 170, 40));
 
         jLabel33.setBackground(new java.awt.Color(0, 0, 0));
         jLabel33.setForeground(new java.awt.Color(255, 255, 255));
@@ -625,16 +625,18 @@ public class InformacionFuncionario extends javax.swing.JFrame {
                 jLabel33MouseClicked(evt);
             }
         });
-        jPanel2.add(jLabel33, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 360, -1, -1));
+        jPanel2.add(jLabel33, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 370, 170, 40));
 
         Buscar_Organigrama.setForeground(new java.awt.Color(255, 255, 255));
+        Buscar_Organigrama.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        Buscar_Organigrama.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Organigrama.png"))); // NOI18N
         Buscar_Organigrama.setText("ORGANIGRAMA");
         Buscar_Organigrama.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 Buscar_OrganigramaMouseClicked(evt);
             }
         });
-        jPanel2.add(Buscar_Organigrama, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 330, -1, -1));
+        jPanel2.add(Buscar_Organigrama, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 330, 170, 40));
 
         jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 170, 450));
 
