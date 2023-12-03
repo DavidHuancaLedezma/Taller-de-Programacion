@@ -8,11 +8,22 @@ package vista;
 
 
 import java.awt.Color;
+import java.awt.Image;
+import java.awt.image.BufferedImage;
+import java.io.ByteArrayInputStream;
+import java.sql.Blob;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.imageio.ImageIO;
 import javax.swing.DefaultComboBoxModel;
+import javax.swing.Icon;
+import javax.swing.ImageIcon;
+import javax.swing.JOptionPane;
 import javax.swing.plaf.basic.BasicTabbedPaneUI;
 import manualProcedimiento.DatosProcedimientos;
 import manualProcedimiento.Procedimiento;
@@ -61,11 +72,7 @@ public class InformacionFuncionario extends javax.swing.JFrame {
         funcionalidadesInvisibles();
     }
     private void obtenerIDdepartamentoDelFuncionario(){
-        /*HOLA ANTONI esto retorna el id del departamento al que pertenece el funcionario
-          el idDepartamento esta declarado como variable global, no necesitas hacer nada mas 
-          solo usar la variable global idDepartamento,
-          despues que leas este comentario lo eliminas por favor(El comentario XD)
-        */ 
+        //ID departamento
         idDepartamento = new Funcionario(usuario,contraseña).getIdDepartamentoDelFuncionario();
     }
     private void visibilidadProcedimientos(){
@@ -390,7 +397,7 @@ public class InformacionFuncionario extends javax.swing.JFrame {
         jLabel16 = new javax.swing.JLabel();
         jLabel17 = new javax.swing.JLabel();
         jLabel33 = new javax.swing.JLabel();
-        jLabel34 = new javax.swing.JLabel();
+        Buscar_Organigrama = new javax.swing.JLabel();
         jTabbedPane1 = new javax.swing.JTabbedPane();
         jPanel3 = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
@@ -442,6 +449,16 @@ public class InformacionFuncionario extends javax.swing.JFrame {
         jComboBox3 = new javax.swing.JComboBox<>();
         jButton2 = new javax.swing.JButton();
         jLabel35 = new javax.swing.JLabel();
+        Ver_Diagrama = new javax.swing.JButton();
+        jPanel12 = new javax.swing.JPanel();
+        Foto_Procedimiento = new javax.swing.JLabel();
+        txt_nombreImagenDiagrama = new javax.swing.JTextField();
+        jLabel36 = new javax.swing.JLabel();
+        jButton3 = new javax.swing.JButton();
+        jPanel13 = new javax.swing.JPanel();
+        Foto = new javax.swing.JLabel();
+        txt_nombreImagen = new javax.swing.JTextField();
+        jLabel38 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -610,9 +627,14 @@ public class InformacionFuncionario extends javax.swing.JFrame {
         });
         jPanel2.add(jLabel33, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 360, -1, -1));
 
-        jLabel34.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel34.setText("OnigraALGO");
-        jPanel2.add(jLabel34, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 330, -1, -1));
+        Buscar_Organigrama.setForeground(new java.awt.Color(255, 255, 255));
+        Buscar_Organigrama.setText("ORGANIGRAMA");
+        Buscar_Organigrama.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                Buscar_OrganigramaMouseClicked(evt);
+            }
+        });
+        jPanel2.add(Buscar_Organigrama, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 330, -1, -1));
 
         jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 170, 450));
 
@@ -846,10 +868,24 @@ public class InformacionFuncionario extends javax.swing.JFrame {
         jLabel35.setForeground(new java.awt.Color(0, 0, 255));
         jLabel35.setText("Procedimientos y funciones");
 
+        Ver_Diagrama.setFont(new java.awt.Font("Dialog", 1, 16)); // NOI18N
+        Ver_Diagrama.setText("Ver Diagrama");
+        Ver_Diagrama.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Ver_DiagramaActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel11Layout = new javax.swing.GroupLayout(jPanel11);
         jPanel11.setLayout(jPanel11Layout);
         jPanel11Layout.setHorizontalGroup(
             jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel11Layout.createSequentialGroup()
+                .addGap(55, 55, 55)
+                .addComponent(Ver_Diagrama, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jButton2)
+                .addGap(161, 161, 161))
             .addGroup(jPanel11Layout.createSequentialGroup()
                 .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel11Layout.createSequentialGroup()
@@ -857,9 +893,6 @@ public class InformacionFuncionario extends javax.swing.JFrame {
                         .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jComboBox3, javax.swing.GroupLayout.PREFERRED_SIZE, 559, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, 559, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(jPanel11Layout.createSequentialGroup()
-                        .addGap(229, 229, 229)
-                        .addComponent(jButton2))
                     .addGroup(jPanel11Layout.createSequentialGroup()
                         .addGap(180, 180, 180)
                         .addComponent(jLabel35)))
@@ -875,11 +908,94 @@ public class InformacionFuncionario extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addComponent(jComboBox3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jButton2)
-                .addContainerGap(116, Short.MAX_VALUE))
+                .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(Ver_Diagrama, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(108, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("tab7", jPanel11);
+
+        Foto_Procedimiento.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        Foto_Procedimiento.setText("DIAGRAMA");
+        Foto_Procedimiento.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+
+        jLabel36.setText("Nombre Diagrama:");
+
+        jButton3.setText("ATRAS");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel12Layout = new javax.swing.GroupLayout(jPanel12);
+        jPanel12.setLayout(jPanel12Layout);
+        jPanel12Layout.setHorizontalGroup(
+            jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel12Layout.createSequentialGroup()
+                .addGap(14, 14, 14)
+                .addGroup(jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel36)
+                    .addComponent(jButton3))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(Foto_Procedimiento, javax.swing.GroupLayout.PREFERRED_SIZE, 363, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txt_nombreImagenDiagrama, javax.swing.GroupLayout.PREFERRED_SIZE, 363, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(139, Short.MAX_VALUE))
+        );
+        jPanel12Layout.setVerticalGroup(
+            jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel12Layout.createSequentialGroup()
+                .addGroup(jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txt_nombreImagenDiagrama, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel36))
+                .addGroup(jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel12Layout.createSequentialGroup()
+                        .addGap(4, 4, 4)
+                        .addComponent(Foto_Procedimiento, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addContainerGap())
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel12Layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 227, Short.MAX_VALUE)
+                        .addComponent(jButton3)
+                        .addGap(61, 61, 61))))
+        );
+
+        jTabbedPane1.addTab("tab8", jPanel12);
+
+        Foto.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        Foto.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        Foto.setText("ORGANIGRAMA");
+        Foto.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+
+        jLabel38.setText("Nombre Organigrama:");
+
+        javax.swing.GroupLayout jPanel13Layout = new javax.swing.GroupLayout(jPanel13);
+        jPanel13.setLayout(jPanel13Layout);
+        jPanel13Layout.setHorizontalGroup(
+            jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel13Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel38)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(Foto, javax.swing.GroupLayout.PREFERRED_SIZE, 313, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txt_nombreImagen, javax.swing.GroupLayout.PREFERRED_SIZE, 313, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(177, Short.MAX_VALUE))
+        );
+        jPanel13Layout.setVerticalGroup(
+            jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel13Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txt_nombreImagen, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel38))
+                .addGap(1, 1, 1)
+                .addComponent(Foto, javax.swing.GroupLayout.DEFAULT_SIZE, 307, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+
+        jTabbedPane1.addTab("tab9", jPanel13);
 
         jPanel1.add(jTabbedPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 80, 630, 370));
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 800, 450));
@@ -1013,6 +1129,29 @@ public class InformacionFuncionario extends javax.swing.JFrame {
         }
     
     }
+    private void jLabel33MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel33MouseClicked
+        // TODO add your handling code here:
+        jTabbedPane1.setSelectedIndex(6);
+        
+        
+    }//GEN-LAST:event_jLabel33MouseClicked
+
+    private void Ver_DiagramaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Ver_DiagramaActionPerformed
+        BuscarDiagrama();
+    }//GEN-LAST:event_Ver_DiagramaActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        if(existeProcedimiento){
+            abrirProcedimientos();
+        }
+    }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jComboBox2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox2ActionPerformed
+        // TODO add your handling code here:
+        cargarComboProcedimientos();
+        tipoDeDatoProcedimiento();
+    }//GEN-LAST:event_jComboBox2ActionPerformed
+
     private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
         jTextArea4.setText("");
         int nivel = Integer.parseInt(jComboBox1.getSelectedItem().toString());
@@ -1023,28 +1162,112 @@ public class InformacionFuncionario extends javax.swing.JFrame {
         llenadoListaPuesto();
         llenarPuestos();
         jTextArea4.setEditable(false);
-        
+
     }//GEN-LAST:event_jComboBox1ActionPerformed
 
-    private void jLabel33MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel33MouseClicked
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         // TODO add your handling code here:
+        txt_nombreImagenDiagrama.setText("");
+        Foto_Procedimiento.setText("Diagrama");
         jTabbedPane1.setSelectedIndex(6);
-        
-        
-    }//GEN-LAST:event_jLabel33MouseClicked
+    }//GEN-LAST:event_jButton3ActionPerformed
 
-    private void jComboBox2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox2ActionPerformed
+    private void Buscar_OrganigramaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Buscar_OrganigramaMouseClicked
         // TODO add your handling code here:
-        cargarComboProcedimientos();
-        tipoDeDatoProcedimiento();
-    }//GEN-LAST:event_jComboBox2ActionPerformed
+        BuscarImagen(idDepartamento);
+        jTabbedPane1.setSelectedIndex(8);
+    }//GEN-LAST:event_Buscar_OrganigramaMouseClicked
+    public void BuscarImagen(int IdDepartamento){
+            //casting
+            int ID = IdDepartamento;
+            try {
+                Connection conexion = new Conexion().getConexion();
+                PreparedStatement psSU = conexion.prepareStatement("select * from imagen where IDDEPARTAMENTO='"+ID+"'");
+                ResultSet rsSU = psSU.executeQuery();
+                
+                if(rsSU.next()){
+                    //Datos consultados
+                    txt_nombreImagen.setText(rsSU.getString("nomImagen"));
+                    //leer binario
+                    Blob blob = rsSU.getBlob(3);
+                    //para el binario a imagen
+                    byte[] data = blob.getBytes(1,(int) blob.length());
+                    //lee la imagen
+                    BufferedImage img = null;
+                    try {
+                        img = ImageIO.read(new ByteArrayInputStream(data));
+                    } catch (Exception e) {
+                        Logger.getLogger(Consulta.class.getName()).log(Level.SEVERE,null,e);
+                    }
+                    ImageIcon icono = new ImageIcon(img);
+                    Icon imagen = new ImageIcon(icono.getImage().getScaledInstance(Foto.getWidth(),Foto.getHeight(), Image.SCALE_DEFAULT));
+                    Foto.setIcon(imagen);
+                    Foto.setText("");
+                }
+            } catch (SQLException e) {
+                JOptionPane.showMessageDialog(null, "¡¡Error al cargar!!");
+                System.out.println("Error al cargar Foto");
+            }
+        
+    }
+    
+    public void BuscarDiagrama() {
+        Object i = jComboBox3.getSelectedItem();  
+        if (i instanceof Procedimiento) {
+            // Convertir el elemento seleccionado a una instancia de Procedimiento
+            Procedimiento procedimientoSeleccionado = (Procedimiento) i;
+            // Obtener el ID del Procedimiento
+            int idProcedimiento = procedimientoSeleccionado.getIdProcedimiento();
+            
+            try {
+                
+                Connection conexion = new Conexion().getConexion();
+                PreparedStatement psBuscar = conexion.prepareStatement("SELECT * FROM imagenprocedimiento WHERE IDPROCIMIENTO = ?");
+               
+                psBuscar.setInt(1, idProcedimiento);
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        if(existeProcedimiento){
-            abrirProcedimientos();
+                ResultSet rs = psBuscar.executeQuery();
+                
+                if (rs.next()) {
+                   
+                    // Obtener la imagen desde la base de datos (asumiendo que la columna 'imagen' es de tipo BLOB)
+                    Blob blob = rs.getBlob("imagen");
+                    byte[] bytes = blob.getBytes(1, (int) blob.length());
+                    
+                    // Convierte los bytes a una imagen
+                    ImageIcon icono = new ImageIcon(bytes);
+                    // Redimensiona la imagen al tamaño del JLabel
+                    Image imagenRedimensionada = icono.getImage().getScaledInstance(Foto_Procedimiento.getWidth(), Foto_Procedimiento.getHeight(), Image.SCALE_SMOOTH);
+
+                    // Crea un nueva imagen redimensionada
+                    ImageIcon iconoRedimensionado = new ImageIcon(imagenRedimensionada);
+                    //obtener el nombreImagen
+                    String nomDiagrama = rs.getString("nomImagen");
+                    txt_nombreImagenDiagrama.setText(nomDiagrama);
+                    // Muestra la imagen en el JLabel
+                    Foto_Procedimiento.setIcon(iconoRedimensionado);
+                    Foto_Procedimiento.setText("");
+                    jTabbedPane1.setSelectedIndex(7);
+                    
+                } else {
+                    JOptionPane.showMessageDialog(null, "No se encontró el diagrama con el nombre proporcionado.");
+                }
+
+                rs.close();
+                psBuscar.close();
+                conexion.close();
+
+            } catch (Exception e) {
+                System.out.println("Error al buscar el diagrama: " + e);
+                JOptionPane.showMessageDialog(null, "Error al buscar el diagrama");
+            }
+        } else {
+            System.out.println("No se ha seleccionado un Procedimiento");
         }
-    }//GEN-LAST:event_jButton2ActionPerformed
-   private void abrirProcedimientos(){
+      
+    }
+    
+    private void abrirProcedimientos(){
             Procedimiento pro = (Procedimiento)jComboBox3.getSelectedItem();
             nombreDep= "" +(Procedimiento)jComboBox3.getSelectedItem();
             Procedimientos p = new Procedimientos(pro.getIdProcedimiento(),this);
@@ -1145,8 +1368,13 @@ public class InformacionFuncionario extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel Buscar_Organigrama;
+    private javax.swing.JLabel Foto;
+    private javax.swing.JLabel Foto_Procedimiento;
+    private javax.swing.JButton Ver_Diagrama;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton3;
     private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JComboBox<String> jComboBox2;
     private javax.swing.JComboBox<String> jComboBox3;
@@ -1177,8 +1405,9 @@ public class InformacionFuncionario extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel31;
     private javax.swing.JLabel jLabel32;
     private javax.swing.JLabel jLabel33;
-    private javax.swing.JLabel jLabel34;
     private javax.swing.JLabel jLabel35;
+    private javax.swing.JLabel jLabel36;
+    private javax.swing.JLabel jLabel38;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
@@ -1188,6 +1417,8 @@ public class InformacionFuncionario extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel10;
     private javax.swing.JPanel jPanel11;
+    private javax.swing.JPanel jPanel12;
+    private javax.swing.JPanel jPanel13;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
@@ -1212,5 +1443,7 @@ public class InformacionFuncionario extends javax.swing.JFrame {
     private javax.swing.JTextArea jTextArea3;
     private javax.swing.JTextArea jTextArea4;
     private javax.swing.JTextArea jTextArea5;
+    private javax.swing.JTextField txt_nombreImagen;
+    private javax.swing.JTextField txt_nombreImagenDiagrama;
     // End of variables declaration//GEN-END:variables
 }
