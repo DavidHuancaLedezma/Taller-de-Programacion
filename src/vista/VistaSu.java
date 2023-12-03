@@ -572,6 +572,7 @@ public class VistaSu extends javax.swing.JFrame {
         jButton_eliminarImagen = new javax.swing.JButton();
         jComboBox_Imagen = new javax.swing.JComboBox<>();
         jLabel40 = new javax.swing.JLabel();
+        Regresar_Departamento = new javax.swing.JButton();
         jPanel18 = new javax.swing.JPanel();
         jLabel65 = new javax.swing.JLabel();
         jLabel66 = new javax.swing.JLabel();
@@ -1139,7 +1140,7 @@ public class VistaSu extends javax.swing.JFrame {
                             .addComponent(jScrollPane5, javax.swing.GroupLayout.DEFAULT_SIZE, 257, Short.MAX_VALUE)
                             .addComponent(jScrollPane4))
                         .addGap(37, 37, 37)))
-                .addContainerGap(18, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(jPanel6Layout.createSequentialGroup()
                 .addGap(230, 230, 230)
                 .addComponent(jLabel80)
@@ -1236,12 +1237,10 @@ public class VistaSu extends javax.swing.JFrame {
         jComboBox3.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         jPanel7.add(jComboBox3, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 190, 170, 30));
 
-        jLabel12.setFont(new java.awt.Font("Dialog", 1, 12)); // NOI18N
         jLabel12.setForeground(new java.awt.Color(255, 0, 0));
         jLabel12.setText("*pertenecera al departamento");
         jPanel7.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 170, 180, -1));
 
-        jLabel13.setFont(new java.awt.Font("Dialog", 1, 12)); // NOI18N
         jLabel13.setForeground(new java.awt.Color(255, 0, 0));
         jLabel13.setText("*su puesto superior sera");
         jPanel7.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 170, 170, -1));
@@ -1843,7 +1842,7 @@ public class VistaSu extends javax.swing.JFrame {
             }
         });
         jPanel9.add(jButton100);
-        jButton100.setBounds(480, 190, 130, 24);
+        jButton100.setBounds(480, 190, 130, 32);
 
         jTabbedPane1.addTab("tab6", jPanel9);
 
@@ -2353,7 +2352,7 @@ public class VistaSu extends javax.swing.JFrame {
                         .addComponent(jComboBox20, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(jButton82)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 7, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel14Layout.createSequentialGroup()
                                 .addGroup(jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -2729,6 +2728,13 @@ public class VistaSu extends javax.swing.JFrame {
 
         jLabel40.setText("Seleccione un departamento ");
 
+        Regresar_Departamento.setText("Regresar");
+        Regresar_Departamento.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Regresar_DepartamentoActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
@@ -2747,12 +2753,15 @@ public class VistaSu extends javax.swing.JFrame {
                                         .addComponent(Guardar_Imagen, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                         .addComponent(Buscar_Imagen))
+                                    .addComponent(jComboBox_Imagen, javax.swing.GroupLayout.PREFERRED_SIZE, 413, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addGroup(jPanel3Layout.createSequentialGroup()
-                                        .addComponent(jButton93, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(jButton93, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(jButton_eliminarImagen))
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(jButton94, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addComponent(jButton_eliminarImagen)
-                                    .addComponent(jComboBox_Imagen, javax.swing.GroupLayout.PREFERRED_SIZE, 413, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(jButton94, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(Regresar_Departamento, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE))))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 28, Short.MAX_VALUE)))
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(Foto, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -2802,7 +2811,9 @@ public class VistaSu extends javax.swing.JFrame {
                             .addComponent(jButton93, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jButton94, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton_eliminarImagen)
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jButton_eliminarImagen)
+                            .addComponent(Regresar_Departamento))
                         .addGap(44, 44, 44))))
         );
 
@@ -2919,7 +2930,7 @@ public class VistaSu extends javax.swing.JFrame {
                     .addGroup(jPanel18Layout.createSequentialGroup()
                         .addGap(172, 172, 172)
                         .addComponent(jLabel82)))
-                .addContainerGap(12, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel18Layout.setVerticalGroup(
             jPanel18Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -5828,6 +5839,12 @@ De nuevo erick y juan haciendo esta parte
         // TODO add your handling code here:
         jTabbedPane1.setSelectedIndex(7);
     }//GEN-LAST:event_jButton103ActionPerformed
+
+    private void Regresar_DepartamentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Regresar_DepartamentoActionPerformed
+        // TODO add your handling code here:
+        limpiarDepartamento();
+        jTabbedPane1.setSelectedIndex(5);
+    }//GEN-LAST:event_Regresar_DepartamentoActionPerformed
     
     private void eliminarImagenDiagrama(int idImagen) {
       try {
@@ -7212,6 +7229,7 @@ De nuevo erick y juan haciendo esta parte
     private javax.swing.JButton Guardar_Imagen;
     private javax.swing.JLabel ImagenFondo;
     private javax.swing.JButton Mod_Diagrama;
+    private javax.swing.JButton Regresar_Departamento;
     private javax.swing.JButton Tabla_procedimiento;
     private javax.swing.JButton btnAnt;
     private javax.swing.JButton btnBuscarN;

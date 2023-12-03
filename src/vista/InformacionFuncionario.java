@@ -1254,6 +1254,7 @@ public class InformacionFuncionario extends javax.swing.JFrame {
     }//GEN-LAST:event_jLabel33MouseClicked
 
     private void Ver_DiagramaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Ver_DiagramaActionPerformed
+        txt_nombreImagenDiagrama.setEditable(false);
         BuscarDiagrama();
     }//GEN-LAST:event_Ver_DiagramaActionPerformed
 
@@ -1291,6 +1292,7 @@ public class InformacionFuncionario extends javax.swing.JFrame {
 
     private void Buscar_OrganigramaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Buscar_OrganigramaMouseClicked
         // TODO add your handling code here:
+        txt_nombreImagen.setEditable(false);
         BuscarImagen(idDepartamento);
         jTabbedPane1.setSelectedIndex(8);
     }//GEN-LAST:event_Buscar_OrganigramaMouseClicked

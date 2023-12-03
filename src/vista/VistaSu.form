@@ -797,7 +797,7 @@
                                   <EmptySpace min="-2" pref="37" max="-2" attributes="0"/>
                               </Group>
                           </Group>
-                          <EmptySpace pref="18" max="32767" attributes="0"/>
+                          <EmptySpace max="32767" attributes="0"/>
                       </Group>
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace min="-2" pref="230" max="-2" attributes="0"/>
@@ -1242,9 +1242,6 @@
                 </Component>
                 <Component class="javax.swing.JLabel" name="jLabel12">
                   <Properties>
-                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                      <Font name="Dialog" size="12" style="1"/>
-                    </Property>
                     <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                       <Color blue="0" green="0" red="ff" type="rgb"/>
                     </Property>
@@ -1258,9 +1255,6 @@
                 </Component>
                 <Component class="javax.swing.JLabel" name="jLabel13">
                   <Properties>
-                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                      <Font name="Dialog" size="12" style="1"/>
-                    </Property>
                     <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                       <Color blue="0" green="0" red="ff" type="rgb"/>
                     </Property>
@@ -3227,7 +3221,7 @@
                                   <Component id="jComboBox20" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace type="separate" max="-2" attributes="0"/>
                                   <Component id="jButton82" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace pref="7" max="32767" attributes="0"/>
+                                  <EmptySpace max="32767" attributes="0"/>
                                   <Group type="103" groupAlignment="0" attributes="0">
                                       <Group type="102" alignment="1" attributes="0">
                                           <Group type="103" groupAlignment="0" attributes="0">
@@ -3947,13 +3941,18 @@
                                                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                                                   <Component id="Buscar_Imagen" min="-2" max="-2" attributes="0"/>
                                               </Group>
-                                              <Group type="102" attributes="0">
-                                                  <Component id="jButton93" min="-2" pref="166" max="-2" attributes="0"/>
-                                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                                  <Component id="jButton94" min="-2" pref="170" max="-2" attributes="0"/>
-                                              </Group>
-                                              <Component id="jButton_eliminarImagen" min="-2" max="-2" attributes="0"/>
                                               <Component id="jComboBox_Imagen" alignment="0" min="-2" pref="413" max="-2" attributes="0"/>
+                                              <Group type="102" alignment="0" attributes="0">
+                                                  <Group type="103" groupAlignment="0" attributes="0">
+                                                      <Component id="jButton93" alignment="0" min="-2" pref="166" max="-2" attributes="0"/>
+                                                      <Component id="jButton_eliminarImagen" alignment="0" min="-2" max="-2" attributes="0"/>
+                                                  </Group>
+                                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                                  <Group type="103" groupAlignment="0" attributes="0">
+                                                      <Component id="jButton94" min="-2" pref="170" max="-2" attributes="0"/>
+                                                      <Component id="Regresar_Departamento" min="-2" pref="108" max="-2" attributes="0"/>
+                                                  </Group>
+                                              </Group>
                                           </Group>
                                           <EmptySpace pref="28" max="32767" attributes="0"/>
                                       </Group>
@@ -4021,7 +4020,10 @@
                                       <Component id="jButton94" alignment="3" min="-2" pref="35" max="-2" attributes="0"/>
                                   </Group>
                                   <EmptySpace max="-2" attributes="0"/>
-                                  <Component id="jButton_eliminarImagen" min="-2" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="3" attributes="0">
+                                      <Component id="jButton_eliminarImagen" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="Regresar_Departamento" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  </Group>
                                   <EmptySpace min="-2" pref="44" max="-2" attributes="0"/>
                               </Group>
                           </Group>
@@ -4181,6 +4183,14 @@
                     <Property name="text" type="java.lang.String" value="Seleccione un departamento "/>
                   </Properties>
                 </Component>
+                <Component class="javax.swing.JButton" name="Regresar_Departamento">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Regresar"/>
+                  </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="Regresar_DepartamentoActionPerformed"/>
+                  </Events>
+                </Component>
               </SubComponents>
             </Container>
             <Container class="javax.swing.JPanel" name="jPanel18">
@@ -4243,7 +4253,7 @@
                                   <Component id="jLabel82" min="-2" max="-2" attributes="0"/>
                               </Group>
                           </Group>
-                          <EmptySpace pref="12" max="32767" attributes="0"/>
+                          <EmptySpace max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
