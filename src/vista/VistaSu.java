@@ -3435,6 +3435,7 @@ public class VistaSu extends javax.swing.JFrame {
 
     private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton9ActionPerformed
         // TODO add your handling code here:
+        limpiaN();
         jTabbedPane1.setSelectedIndex(2);
     }//GEN-LAST:event_jButton9ActionPerformed
 /*
@@ -4532,18 +4533,31 @@ De nuevo erick y juan haciendo esta parte
             }
         }
     }//GEN-LAST:event_jButton52ActionPerformed
-
+     
+    private void limpiaN(){
+        jTextArea10.setText("");//experiencia
+        jTextArea4.setText("");//aptitudes
+        jTextArea3.setText("");//escolaridad
+        jTextArea5.setText("");//esfuerzo 
+        jTextArea2.setText("");//habilidadDestreza
+        jComboBox7.setSelectedIndex(0);
+    }
     private void btnBuscarNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarNActionPerformed
-        // TODO add your handling code here:
+        if(jComboBox7.getSelectedIndex()==0){
+            limpiaN();
+            JOptionPane.showMessageDialog(null,"Selecione un puesto");
+        }else{
          mostrarExperienciaDP();
          mostrarHabilidadDestrezaDP();
          mostrarEscolaridadDP();
          mostrarAptitudesDP();
          mostrarEsfuerzoDP();
+        }
     }//GEN-LAST:event_btnBuscarNActionPerformed
 
     private void btnSigActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSigActionPerformed
         //boton siguiente
+        if(!jTextArea10.getText().equals("")){
         indiceExp++;
         if(indiceExp < listaExp.size()){
         jTextArea10.setText("");
@@ -4552,7 +4566,7 @@ De nuevo erick y juan haciendo esta parte
             indiceExp = 0;
             jTextArea10.setText(listaExp.get(indiceExp).getdescripcionExperiencia());
         }
-        
+        }
     }//GEN-LAST:event_btnSigActionPerformed
     
     private void jButton53ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton53ActionPerformed
@@ -4677,6 +4691,7 @@ De nuevo erick y juan haciendo esta parte
     }//GEN-LAST:event_jButton58ActionPerformed
 
     private void btnAntActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAntActionPerformed
+        if(!jTextArea10.getText().equals("")&&jComboBox7.getSelectedIndex()!=0){
         int codigoAlterar = listaExp.get(indiceExp).getCodExperiencia();
         try{
             Connection conexion = new Conexion().getConexion();
@@ -4690,6 +4705,7 @@ De nuevo erick y juan haciendo esta parte
             System.err.println("ERROR, "+ex);
         }
         mostrarExperienciaDP();
+        }
     }//GEN-LAST:event_btnAntActionPerformed
 
     private void jToggleButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton1ActionPerformed
@@ -4786,6 +4802,7 @@ De nuevo erick y juan haciendo esta parte
 
     private void jButton65ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton65ActionPerformed
         // TODO add your handling code here:
+        if(!jTextArea5.getText().equals("")&&jComboBox7.getSelectedIndex()!=0){
         int codigoAlterar = jComboBox7.getSelectedIndex();
         try{
             Connection conexion = new Conexion().getConexion();
@@ -4798,11 +4815,12 @@ De nuevo erick y juan haciendo esta parte
         }catch(Exception ex ){
             System.err.println("ERROR, "+ex);
         }
-        
+        }
     }//GEN-LAST:event_jButton65ActionPerformed
 
     private void jButton64ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton64ActionPerformed
         // TODO add your handling code here:
+        if(!jTextArea3.getText().equals("")&&jComboBox7.getSelectedIndex()!=0){
         int codigoAlterar = jComboBox7.getSelectedIndex();
         try{
             Connection conexion = new Conexion().getConexion();
@@ -4815,10 +4833,12 @@ De nuevo erick y juan haciendo esta parte
         }catch(Exception ex ){
             System.err.println("ERROR, "+ex);
         }
+        }
     }//GEN-LAST:event_jButton64ActionPerformed
 
     private void jButton66ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton66ActionPerformed
         // TODO add your handling code here:
+        if(!jTextArea4.getText().equals("")&&jComboBox7.getSelectedIndex()!=0){
         int codigoAlterar = jComboBox7.getSelectedIndex();
         try{
             Connection conexion = new Conexion().getConexion();
@@ -4831,10 +4851,12 @@ De nuevo erick y juan haciendo esta parte
         }catch(Exception ex ){
             System.err.println("ERROR, "+ex);
         }
+       }
     }//GEN-LAST:event_jButton66ActionPerformed
 
     private void jButton67ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton67ActionPerformed
         // TODO add your handling code here:
+        if(!jTextArea3.getText().equals("")&&jComboBox7.getSelectedIndex()!=0){
         int codigoAlterar = jComboBox7.getSelectedIndex();
         try{
             Connection conexion = new Conexion().getConexion();
@@ -4846,6 +4868,7 @@ De nuevo erick y juan haciendo esta parte
             JOptionPane.showMessageDialog(null, "Modificacion realizada en:\n"+"Habilidad y Destreza:\n"+jTextArea2.getText());
         }catch(Exception ex ){
             System.err.println("ERROR, "+ex);
+        }
         }
     }//GEN-LAST:event_jButton67ActionPerformed
 
@@ -6622,7 +6645,7 @@ De nuevo erick y juan haciendo esta parte
                 jTextArea4.setText(rsSU.getString("a.NOMBREAAPTITUD"));
                   idAptitud = rsSU.getInt("a.IDAPTITUD");
             }else{
-                JOptionPane.showMessageDialog(null,"Registro no encontrado");                
+               // JOptionPane.showMessageDialog(null,"Registro no encontrado");                
             }
             conexion.close();
         }catch(Exception ex ){
@@ -6643,7 +6666,7 @@ De nuevo erick y juan haciendo esta parte
                 jTextArea3.setText(rsSU.getString("esc.DATOESCOLARIDAD"));
                 idEscolaridad = rsSU.getInt("esc.IDESCOLARIDAD");
             }else{
-                JOptionPane.showMessageDialog(null,"Registro no encontrado");                
+                //JOptionPane.showMessageDialog(null,"Registro no encontrado");                
             }
             
             conexion.close();
@@ -6663,7 +6686,7 @@ De nuevo erick y juan haciendo esta parte
                 jTextArea2.setText(rsSU.getString("hd.DATOHABILIDADDESTREZA"));
                 idHabilidadDestreza = rsSU.getInt("hd.IDHABILIDADDESTREZA");
             }else{
-                JOptionPane.showMessageDialog(null,"Registro no encontrado");                
+               // JOptionPane.showMessageDialog(null,"Registro no encontrado");                
             }
             conexion.close();
         }catch(Exception ex ){
