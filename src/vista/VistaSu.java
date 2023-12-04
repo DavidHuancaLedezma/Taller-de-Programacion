@@ -3204,6 +3204,7 @@ public class VistaSu extends javax.swing.JFrame {
     }//GEN-LAST:event_jComboBox1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        cargarComboDepartamento();
         jTabbedPane1.setSelectedIndex(7);
     }//GEN-LAST:event_jButton2ActionPerformed
 
@@ -3555,7 +3556,8 @@ public class VistaSu extends javax.swing.JFrame {
     private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton9ActionPerformed
         // TODO add your handling code here:
         limpiaN();
-        jTabbedPane1.setSelectedIndex(2);
+        llenarComboBoxPuestos();
+        jTabbedPane1.setSelectedIndex(2);     
     }//GEN-LAST:event_jButton9ActionPerformed
 /*
 De nuevo erick y juan haciendo esta parte
@@ -4191,12 +4193,28 @@ De nuevo erick y juan haciendo esta parte
                 jTabbedPane1.setSelectedIndex(4);
                 jButton59.setVisible(false);
                 Integer cii = Integer.parseInt(jTextField6.getText());
-                int claveFuncionario = buscarIDFuncionario(cii);
+                int claveFuncionario = buscarIDFuncionario(cii);               
             try{
             Connection conexion = new Conexion().getConexion();
             psAux= conexion.prepareStatement(" insert into curriculum (IDFUNCIONARIO) values(?)");
             psAux.setInt(1, claveFuncionario);
             psAux.executeUpdate();
+            mostrarActividadDocente();
+            mostrarcargosDesempenado();
+            mostraractividadProfesional();
+            mostrarEstudiosAcademios();
+            if(jTextArea6.getText().equals("")){
+                 jButton28.setEnabled(true);
+            }
+            if(jTextArea7.getText().equals("")){
+                 jButton33.setEnabled(true);
+            }
+            if(jTextArea8.getText().equals("")){
+                 jButton32.setEnabled(true);
+            }
+            if(jTextArea9.getText().equals("")){
+                 jButton34.setEnabled(true);
+            }
             psAux.close();
             
             }catch(Exception e) {
@@ -4662,6 +4680,7 @@ De nuevo erick y juan haciendo esta parte
         jComboBox7.setSelectedIndex(0);
     }
     private void btnBuscarNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarNActionPerformed
+        indiceExp = 0;
         if(jComboBox7.getSelectedIndex()==0){
             limpiaN();
             JOptionPane.showMessageDialog(null,"Selecione un puesto");
@@ -4675,7 +4694,7 @@ De nuevo erick y juan haciendo esta parte
     }//GEN-LAST:event_btnBuscarNActionPerformed
 
     private void btnSigActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSigActionPerformed
-        //boton siguiente
+        //boton siguiente     
         if(!jTextArea10.getText().equals("")){
         indiceExp++;
         if(indiceExp < listaExp.size()){
@@ -4683,9 +4702,9 @@ De nuevo erick y juan haciendo esta parte
         jTextArea10.setText(listaExp.get(indiceExp).getdescripcionExperiencia());
         }else{
             indiceExp = 0;
-            jTextArea10.setText(listaExp.get(indiceExp).getdescripcionExperiencia());
+            jTextArea10.setText(listaExp.get(indiceExp).getdescripcionExperiencia());      
         }
-        }
+       }
     }//GEN-LAST:event_btnSigActionPerformed
     
     private void jButton53ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton53ActionPerformed
@@ -6747,9 +6766,16 @@ De nuevo erick y juan haciendo esta parte
                 Experiencia ex = new Experiencia();
                 ex.setCodExperiencia(rsSU.getInt("ex.CODEXPERIENCIA"));
                 ex.setDescripcionExperiencia(rsSU.getString("descripcionExperiencia"));
-                listaExp.add(ex);   
+                listaExp.add(ex);
+                btnSig.setVisible(true);
             }
-            jTextArea10.setText(listaExp.get(0).getdescripcionExperiencia());
+            
+            if(listaExp.isEmpty() == true){
+                btnSig.setVisible(false);
+                jTextArea10.setText("No hay ningun registro");
+
+            }else{
+            jTextArea10.setText(listaExp.get(0).getdescripcionExperiencia());}
             conexion.close();
         }catch(Exception ex ){
             System.err.println("ERROR, "+ex);
@@ -6767,7 +6793,7 @@ De nuevo erick y juan haciendo esta parte
                 jTextArea5.setText(rsSU.getString("esf.DESCRIPCIONDELESFUERZO"));
                 idEsfuerzo = rsSU.getInt("esf.IDESFUERZO");
             }else{
-                JOptionPane.showMessageDialog(null,"Registro no encontrado");                
+                jTextArea5.setText("No hay ningun registro");               
             }
             conexion.close();
         }catch(Exception ex ){
@@ -6786,7 +6812,7 @@ De nuevo erick y juan haciendo esta parte
                 jTextArea4.setText(rsSU.getString("a.NOMBREAAPTITUD"));
                   idAptitud = rsSU.getInt("a.IDAPTITUD");
             }else{
-               // JOptionPane.showMessageDialog(null,"Registro no encontrado");                
+                jTextArea4.setText("No hay ningun registro");             
             }
             conexion.close();
         }catch(Exception ex ){
@@ -6807,7 +6833,7 @@ De nuevo erick y juan haciendo esta parte
                 jTextArea3.setText(rsSU.getString("esc.DATOESCOLARIDAD"));
                 idEscolaridad = rsSU.getInt("esc.IDESCOLARIDAD");
             }else{
-                //JOptionPane.showMessageDialog(null,"Registro no encontrado");                
+                jTextArea3.setText("No hay ningun registro");  
             }
             
             conexion.close();
@@ -6827,7 +6853,7 @@ De nuevo erick y juan haciendo esta parte
                 jTextArea2.setText(rsSU.getString("hd.DATOHABILIDADDESTREZA"));
                 idHabilidadDestreza = rsSU.getInt("hd.IDHABILIDADDESTREZA");
             }else{
-               // JOptionPane.showMessageDialog(null,"Registro no encontrado");                
+               jTextArea2.setText("No hay ningun registro");             
             }
             conexion.close();
         }catch(Exception ex ){
