@@ -4070,7 +4070,7 @@ De nuevo erick y juan haciendo esta parte
             psSU.close();
             JOptionPane.showMessageDialog(null,"dato registrado correctamente");
             jButton32.setEnabled(false);  
-            jTextArea8.setText("");
+            jTextArea8.setText("");//
           }catch(Exception e){
         
         }   
