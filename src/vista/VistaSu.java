@@ -1364,7 +1364,7 @@ public class VistaSu extends javax.swing.JFrame {
         jTextArea8.setRows(5);
         jScrollPane8.setViewportView(jTextArea8);
 
-        jLabel32.setText("Estudios Academicos:");
+        jLabel32.setText("Estudios Académicos:");
 
         jTextArea9.setColumns(20);
         jTextArea9.setRows(5);
@@ -1928,11 +1928,11 @@ public class VistaSu extends javax.swing.JFrame {
         jPanel10.add(jButton25, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 380, -1, -1));
 
         jLabel34treintaYcuatro.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel34treintaYcuatro.setText("Funcion general:");
+        jLabel34treintaYcuatro.setText("Función general:");
         jPanel10.add(jLabel34treintaYcuatro, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 200, -1, -1));
 
         jLabel35treintaYcinco.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel35treintaYcinco.setText("Funcion especifica:");
+        jLabel35treintaYcinco.setText("Función específica:");
         jPanel10.add(jLabel35treintaYcinco, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 230, 110, -1));
 
         jTextField15.setFont(new java.awt.Font("Arial", 2, 12)); // NOI18N
@@ -2046,7 +2046,7 @@ public class VistaSu extends javax.swing.JFrame {
         jLabel46.setText("SELECCIONE UN PROCEDIMIENTO");
         jPanel11.add(jLabel46, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 240, -1, -1));
 
-        jLabel47.setText("POLITICAS DE OPERACION");
+        jLabel47.setText("POLÍTICAS DE OPERACIÓN");
         jPanel11.add(jLabel47, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 270, -1, -1));
 
         jLabel48.setText("INTERVENTOR");
@@ -2096,7 +2096,7 @@ public class VistaSu extends javax.swing.JFrame {
         jPanel11.add(jButton72, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 360, -1, -1));
         jPanel11.add(jTextField26, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 320, 220, -1));
 
-        jButton68.setText("Actualizar Politicas de Operacion");
+        jButton68.setText("Actualizar Políticas de Operación");
         jButton68.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton68ActionPerformed(evt);
@@ -2143,13 +2143,13 @@ public class VistaSu extends javax.swing.JFrame {
 
         jTabbedPane1.addTab("tab8", jPanel11);
 
-        jLabel49.setText("REGISTRO DE DESCRIPCION DE PROCEDIMIENTOS");
+        jLabel49.setText("REGISTRO DE DESCRIPCIÓN DE PROCEDIMIENTOS");
 
         jLabel50.setText("PARTES QUE INTERVIENEN");
 
-        jLabel51.setText("DESCRIPCION DE PROCEDIMIENTO");
+        jLabel51.setText("DESCRIPCIÓN DE PROCEDIMIENTO");
 
-        jLabel52.setText("NUMERO DE ORDEN");
+        jLabel52.setText("NÚMERO DE ORDEN");
 
         jComboBox15.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
@@ -2458,14 +2458,14 @@ public class VistaSu extends javax.swing.JFrame {
 
         jLabel57.setFont(new java.awt.Font("Arial", 2, 24)); // NOI18N
         jLabel57.setForeground(new java.awt.Color(51, 0, 255));
-        jLabel57.setText("POLITICAS DE OPERACION");
+        jLabel57.setText("POLÍTICAS DE OPERACIÓN");
         jPanel17.add(jLabel57, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 0, 330, 30));
 
         jSeparator2.setBackground(new java.awt.Color(0, 51, 255));
         jPanel17.add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 30, 340, 10));
 
         jLabel58.setForeground(new java.awt.Color(51, 0, 255));
-        jLabel58.setText("Politicas de operacion:");
+        jLabel58.setText("Políticas de operacón:");
         jPanel17.add(jLabel58, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 120, 130, 20));
 
         jButton81.setText("Regresar");
@@ -2488,7 +2488,7 @@ public class VistaSu extends javax.swing.JFrame {
         jLabel35.setText("Escolaridad");
 
         jLabel36.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel36.setText("Habilidad y destreza");
+        jLabel36.setText("Habilidad y Destreza");
 
         jLabel37.setBackground(new java.awt.Color(255, 255, 255));
         jLabel37.setForeground(new java.awt.Color(255, 255, 255));
@@ -2586,7 +2586,7 @@ public class VistaSu extends javax.swing.JFrame {
                         .addComponent(jLabel36)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jTextField19, javax.swing.GroupLayout.PREFERRED_SIZE, 400, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 21, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 20, Short.MAX_VALUE)
                         .addComponent(jButton41)
                         .addGap(175, 175, 175))
                     .addGroup(jPanel12Layout.createSequentialGroup()

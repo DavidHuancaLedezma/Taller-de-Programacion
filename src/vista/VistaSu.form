@@ -1769,7 +1769,7 @@
                 </Container>
                 <Component class="javax.swing.JLabel" name="jLabel32">
                   <Properties>
-                    <Property name="text" type="java.lang.String" value="Estudios Academicos:"/>
+                    <Property name="text" type="java.lang.String" value="Estudios Acad&#xe9;micos:"/>
                   </Properties>
                 </Component>
                 <Container class="javax.swing.JScrollPane" name="jScrollPane9">
@@ -2489,7 +2489,7 @@
                     <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                       <Color blue="ff" green="ff" red="ff" type="rgb"/>
                     </Property>
-                    <Property name="text" type="java.lang.String" value="Funcion general:"/>
+                    <Property name="text" type="java.lang.String" value="Funci&#xf3;n general:"/>
                   </Properties>
                   <Constraints>
                     <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
@@ -2502,7 +2502,7 @@
                     <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                       <Color blue="ff" green="ff" red="ff" type="rgb"/>
                     </Property>
-                    <Property name="text" type="java.lang.String" value="Funcion especifica:"/>
+                    <Property name="text" type="java.lang.String" value="Funci&#xf3;n espec&#xed;fica:"/>
                   </Properties>
                   <Constraints>
                     <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
@@ -2801,7 +2801,7 @@
                 </Component>
                 <Component class="javax.swing.JLabel" name="jLabel47">
                   <Properties>
-                    <Property name="text" type="java.lang.String" value="POLITICAS DE OPERACION"/>
+                    <Property name="text" type="java.lang.String" value="POL&#xcd;TICAS DE OPERACI&#xd3;N"/>
                   </Properties>
                   <Constraints>
                     <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
@@ -2934,7 +2934,7 @@
                 </Component>
                 <Component class="javax.swing.JButton" name="jButton68">
                   <Properties>
-                    <Property name="text" type="java.lang.String" value="Actualizar Politicas de Operacion"/>
+                    <Property name="text" type="java.lang.String" value="Actualizar Pol&#xed;ticas de Operaci&#xf3;n"/>
                   </Properties>
                   <Events>
                     <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton68ActionPerformed"/>
@@ -3085,7 +3085,7 @@
               <SubComponents>
                 <Component class="javax.swing.JLabel" name="jLabel49">
                   <Properties>
-                    <Property name="text" type="java.lang.String" value="REGISTRO DE DESCRIPCION DE PROCEDIMIENTOS"/>
+                    <Property name="text" type="java.lang.String" value="REGISTRO DE DESCRIPCI&#xd3;N DE PROCEDIMIENTOS"/>
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JLabel" name="jLabel50">
@@ -3095,12 +3095,12 @@
                 </Component>
                 <Component class="javax.swing.JLabel" name="jLabel51">
                   <Properties>
-                    <Property name="text" type="java.lang.String" value="DESCRIPCION DE PROCEDIMIENTO"/>
+                    <Property name="text" type="java.lang.String" value="DESCRIPCI&#xd3;N DE PROCEDIMIENTO"/>
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JLabel" name="jLabel52">
                   <Properties>
-                    <Property name="text" type="java.lang.String" value="NUMERO DE ORDEN"/>
+                    <Property name="text" type="java.lang.String" value="N&#xda;MERO DE ORDEN"/>
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JComboBox" name="jComboBox15">
@@ -3615,7 +3615,7 @@
                     <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                       <Color blue="ff" green="0" red="33" type="rgb"/>
                     </Property>
-                    <Property name="text" type="java.lang.String" value="POLITICAS DE OPERACION"/>
+                    <Property name="text" type="java.lang.String" value="POL&#xcd;TICAS DE OPERACI&#xd3;N"/>
                   </Properties>
                   <Constraints>
                     <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
@@ -3640,7 +3640,7 @@
                     <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                       <Color blue="ff" green="0" red="33" type="rgb"/>
                     </Property>
-                    <Property name="text" type="java.lang.String" value="Politicas de operacion:"/>
+                    <Property name="text" type="java.lang.String" value="Pol&#xed;ticas de operac&#xf3;n:"/>
                   </Properties>
                   <Constraints>
                     <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
@@ -3719,7 +3719,7 @@
                                   <Component id="jLabel36" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace max="-2" attributes="0"/>
                                   <Component id="jTextField19" min="-2" pref="400" max="-2" attributes="0"/>
-                                  <EmptySpace pref="21" max="32767" attributes="0"/>
+                                  <EmptySpace pref="20" max="32767" attributes="0"/>
                                   <Component id="jButton41" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace min="-2" pref="175" max="-2" attributes="0"/>
                               </Group>
@@ -3812,7 +3812,7 @@
                     <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                       <Color blue="ff" green="ff" red="ff" type="rgb"/>
                     </Property>
-                    <Property name="text" type="java.lang.String" value="Habilidad y destreza"/>
+                    <Property name="text" type="java.lang.String" value="Habilidad y Destreza"/>
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JLabel" name="jLabel37">
