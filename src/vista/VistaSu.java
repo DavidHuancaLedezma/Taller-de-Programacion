@@ -4192,6 +4192,7 @@ De nuevo erick y juan haciendo esta parte
                 inserciones.insertarEsfuerzo(idDescripcionPuesto,(String)jComboBox11.getSelectedItem() ,jTextField21.getText());
                 jTabbedPane1.setSelectedIndex(4);
                 jButton59.setVisible(false);
+                jButton48.setVisible(true);
                 Integer cii = Integer.parseInt(jTextField6.getText());
                 int claveFuncionario = buscarIDFuncionario(cii);               
             try{
@@ -4805,6 +4806,7 @@ De nuevo erick y juan haciendo esta parte
                 jButton34.setEnabled(false);
                 jButton48.setVisible(false);
                 jButton59.setVisible(true);
+                
                 // Mostrar información relacionada con el curriculum del funcionario
                 mostraridCurriculum();
                 mostrarDatosActividadDocente(claveCurriculum);  
