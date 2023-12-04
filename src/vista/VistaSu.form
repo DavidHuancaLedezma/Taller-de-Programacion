@@ -1587,9 +1587,9 @@
                       </Group>
                       <Group type="102" alignment="1" attributes="0">
                           <EmptySpace max="32767" attributes="0"/>
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="jButton48" min="-2" pref="141" max="-2" attributes="0"/>
-                              <Component id="jButton59" min="-2" pref="125" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                              <Component id="jButton59" max="32767" attributes="0"/>
+                              <Component id="jButton48" pref="141" max="32767" attributes="0"/>
                           </Group>
                           <EmptySpace min="-2" pref="83" max="-2" attributes="0"/>
                       </Group>
@@ -1687,7 +1687,7 @@
                           <EmptySpace max="32767" attributes="0"/>
                           <Component id="jButton48" min="-2" pref="44" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="jButton59" min="-2" pref="34" max="-2" attributes="0"/>
+                          <Component id="jButton59" min="-2" pref="42" max="-2" attributes="0"/>
                           <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
                       </Group>
                   </Group>
