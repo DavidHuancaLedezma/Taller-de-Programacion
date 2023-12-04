@@ -143,6 +143,7 @@ public class VistaSu extends javax.swing.JFrame {
         cargarComboDepartamentoImagen();
         cargarComboProcedimientosImagen();
         tipoDeDatoProcedimientoImagen();
+        jButton7.setVisible(false);
     }
     /*
     @author Erick--> Inicio codigo de combo box para hacer la automatizacines
@@ -1055,7 +1056,7 @@ public class VistaSu extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 257, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel6Layout.createSequentialGroup()
-                        .addGap(0, 3, Short.MAX_VALUE)
+                        .addGap(0, 0, Short.MAX_VALUE)
                         .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel6Layout.createSequentialGroup()
                                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1082,8 +1083,7 @@ public class VistaSu extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(jScrollPane5, javax.swing.GroupLayout.DEFAULT_SIZE, 257, Short.MAX_VALUE)
-                            .addComponent(jScrollPane4))
-                        .addContainerGap(49, Short.MAX_VALUE))
+                            .addComponent(jScrollPane4)))
                     .addGroup(jPanel6Layout.createSequentialGroup()
                         .addComponent(btnBuscarN)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -1092,8 +1092,8 @@ public class VistaSu extends javax.swing.JFrame {
                             .addGroup(jPanel6Layout.createSequentialGroup()
                                 .addComponent(jComboBox7, javax.swing.GroupLayout.PREFERRED_SIZE, 164, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
-                                .addComponent(jComboBox6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addContainerGap(12, Short.MAX_VALUE))))
+                                .addComponent(jComboBox6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(jPanel6Layout.createSequentialGroup()
                 .addGap(230, 230, 230)
                 .addComponent(jLabel80)
@@ -1786,7 +1786,7 @@ public class VistaSu extends javax.swing.JFrame {
             }
         });
         jPanel9.add(jButton100);
-        jButton100.setBounds(480, 190, 130, 24);
+        jButton100.setBounds(480, 190, 130, 32);
 
         jTabbedPane1.addTab("tab6", jPanel9);
 
