@@ -4007,6 +4007,7 @@ De nuevo erick y juan haciendo esta parte
             psSU.close();
             JOptionPane.showMessageDialog(null,"dato registrado correctamente");
             jButton34.setEnabled(false);  
+            jTextArea9.setText("");
           }catch(Exception e){
         
         }   
@@ -4047,7 +4048,8 @@ De nuevo erick y juan haciendo esta parte
             psSU.executeUpdate();
             psSU.close();
             JOptionPane.showMessageDialog(null,"dato registrado correctamente");
-            jButton28.setEnabled(false);  
+            jButton28.setEnabled(false);
+            jTextArea6.setText("");
           }catch(Exception e){
         
         }   
@@ -4068,6 +4070,7 @@ De nuevo erick y juan haciendo esta parte
             psSU.close();
             JOptionPane.showMessageDialog(null,"dato registrado correctamente");
             jButton32.setEnabled(false);  
+            jTextArea8.setText("");
           }catch(Exception e){
         
         }   
@@ -4088,6 +4091,7 @@ De nuevo erick y juan haciendo esta parte
             psSU.close();
             JOptionPane.showMessageDialog(null,"dato registrado correctamente");
             jButton33.setEnabled(false);  
+            jTextArea7.setText("");
           }catch(Exception e){
         
         }   
