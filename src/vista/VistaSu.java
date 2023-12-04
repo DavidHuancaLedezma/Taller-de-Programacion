@@ -4200,22 +4200,7 @@ De nuevo erick y juan haciendo esta parte
             psAux= conexion.prepareStatement(" insert into curriculum (IDFUNCIONARIO) values(?)");
             psAux.setInt(1, claveFuncionario);
             psAux.executeUpdate();
-            mostrarActividadDocente();
-            mostrarcargosDesempenado();
-            mostraractividadProfesional();
-            mostrarEstudiosAcademios();
-            if(jTextArea6.getText().equals("")){
-                 jButton28.setEnabled(true);
-            }
-            if(jTextArea7.getText().equals("")){
-                 jButton33.setEnabled(true);
-            }
-            if(jTextArea8.getText().equals("")){
-                 jButton32.setEnabled(true);
-            }
-            if(jTextArea9.getText().equals("")){
-                 jButton34.setEnabled(true);
-            }
+            
             psAux.close();
             
             }catch(Exception e) {
@@ -4233,6 +4218,23 @@ De nuevo erick y juan haciendo esta parte
          mostrarActividadProfesional(claveCurriculum);
          mostrarCargosOficialesDesempeñados(claveCurriculum);
          mostrarEstudiosAcademicos(claveCurriculum);
+         mostrarActividadDocente();
+            mostrarcargosDesempenado();
+            mostraractividadProfesional();
+            mostrarEstudiosAcademios();
+            if(jTextArea6.getText().equals("")){
+                
+                 jButton28.setEnabled(true);
+            }
+            if(jTextArea7.getText().equals("")){
+                 jButton33.setEnabled(true);
+            }
+            if(jTextArea8.getText().equals("")){
+                 jButton32.setEnabled(true);
+            }
+            if(jTextArea9.getText().equals("")){
+                 jButton34.setEnabled(true);
+            }
             }
         }
     }//GEN-LAST:event_jButton36ActionPerformed
