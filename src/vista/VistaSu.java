@@ -757,7 +757,7 @@ public class VistaSu extends javax.swing.JFrame {
 
         jLabel2.setBackground(new java.awt.Color(0, 0, 0));
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel2.setText("nombre del puesto");
+        jLabel2.setText("Nombre del puesto");
         jPanel4.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 180, -1, 20));
 
         jButton4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Eliminar.png"))); // NOI18N
@@ -801,7 +801,7 @@ public class VistaSu extends javax.swing.JFrame {
         jPanel4.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 10, 130, -1));
 
         jLabel7.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel7.setText("Cedula de Identificacion");
+        jLabel7.setText("Cedula de Identificación");
         jPanel4.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 80, 140, 30));
         jPanel4.add(jTextField6, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 90, 170, -1));
 
@@ -829,7 +829,7 @@ public class VistaSu extends javax.swing.JFrame {
         jPanel4.add(jButton35, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 200, 220, 60));
 
         btnCerrarSesionSU.setBackground(new java.awt.Color(255, 204, 0));
-        btnCerrarSesionSU.setText("Cerrar Sesion");
+        btnCerrarSesionSU.setText("Cerrar Sesión");
         btnCerrarSesionSU.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
         btnCerrarSesionSU.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -868,7 +868,7 @@ public class VistaSu extends javax.swing.JFrame {
         });
         jPanel5.add(jComboBox22, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 110, 340, -1));
 
-        jButton83.setText("actualizar");
+        jButton83.setText("Actualizar");
         jButton83.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton83ActionPerformed(evt);
@@ -876,7 +876,7 @@ public class VistaSu extends javax.swing.JFrame {
         });
         jPanel5.add(jButton83, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 170, -1, -1));
 
-        jButton84.setText("eliminar");
+        jButton84.setText("Eliminar");
         jButton84.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton84ActionPerformed(evt);
@@ -890,7 +890,7 @@ public class VistaSu extends javax.swing.JFrame {
         jLabel60.setText("DEPARTAMENTO");
         jPanel5.add(jLabel60, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 80, -1, -1));
 
-        jLabel61.setText("objetivo");
+        jLabel61.setText("Objetivo");
         jPanel5.add(jLabel61, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 280, -1, -1));
 
         jTextArea12.setColumns(20);
@@ -905,7 +905,7 @@ public class VistaSu extends javax.swing.JFrame {
 
         jPanel5.add(jScrollPane10, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 160, 340, -1));
 
-        jButton85.setText("actualizar objetivo");
+        jButton85.setText("Actualizar Objetivo");
         jButton85.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton85ActionPerformed(evt);
@@ -913,7 +913,7 @@ public class VistaSu extends javax.swing.JFrame {
         });
         jPanel5.add(jButton85, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 320, -1, -1));
 
-        jButton86.setText("eliminar objetivo");
+        jButton86.setText("Eliminar Objetivo");
         jButton86.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton86ActionPerformed(evt);
@@ -1081,7 +1081,7 @@ public class VistaSu extends javax.swing.JFrame {
         jLabel80.setBackground(new java.awt.Color(255, 255, 255));
         jLabel80.setFont(new java.awt.Font("Dialog", 2, 18)); // NOI18N
         jLabel80.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel80.setText("CRUD DE DESCRIPCION DE PUESTO");
+        jLabel80.setText("CRUD DE DESCRIPCIÓN DE PUESTO");
 
         javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
         jPanel6.setLayout(jPanel6Layout);
@@ -3138,10 +3138,11 @@ public class VistaSu extends javax.swing.JFrame {
                     .addComponent(jLabel72)
                     .addComponent(jComboBox27, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel20Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(guardar_Diagrama)
+                .addGroup(jPanel20Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel74)
-                    .addComponent(txt_nombreImagenDiagrama, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel20Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(guardar_Diagrama)
+                        .addComponent(txt_nombreImagenDiagrama, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(6, 6, 6)
                 .addComponent(jLabel70, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -4782,6 +4783,7 @@ De nuevo erick y juan haciendo esta parte
                 jButton33.setEnabled(false);
                 jButton34.setEnabled(false);
                 jButton48.setVisible(false);
+                jButton59.setVisible(true);
                 // Mostrar información relacionada con el curriculum del funcionario
                 mostraridCurriculum();
                 mostrarDatosActividadDocente(claveCurriculum);  
