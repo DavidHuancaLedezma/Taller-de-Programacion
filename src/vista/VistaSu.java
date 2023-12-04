@@ -3891,7 +3891,9 @@ De nuevo erick y juan haciendo esta parte
            model.addElement(rs.getString("NOMBREDEPARTAMENTO"));
           }
          llenarComboBoxDepartamento(); //metodo para llenar los datos actuales del departamento  en departamento superior
-         llenarComboBoxBusquedaDepartamento();// metodo para llenar los datos actuales del departamento en buscar
+         llenarComboBoxBusquedaDepartamento();
+         llenarComboBoxDepartamentoImagen();
+         // metodo para llenar los datos actuales del departamento en buscar
          //limpiarDepartamento();
          // Mostrar un mensaje de actualización exitosa
          JOptionPane.showMessageDialog(null, "Base de datos actualizada", "Actualizacion", JOptionPane.INFORMATION_MESSAGE);
@@ -5822,6 +5824,7 @@ De nuevo erick y juan haciendo esta parte
 
     private void jButton99ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton99ActionPerformed
         jTabbedPane1.setSelectedIndex(16);
+        cargarComboDepartamentoImagen();
     }//GEN-LAST:event_jButton99ActionPerformed
 
     private void jButton101ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton101ActionPerformed
